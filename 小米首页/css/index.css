@@ -1,0 +1,155 @@
+/* CSS RESET*/
+body{
+    margin: 0px;
+}
+img{
+    border: 0px;
+}
+/*最上方的导航栏开始*/
+/*设置a链接字体颜色*/
+#main a{
+    font-size: 8px;
+    text-decoration: none;
+    color: #aaaaaa;
+    line-height: 40px;
+}
+/* 设置a链接活动特效*/
+#main a:hover{
+    color: #ffffff;
+}
+/* 设置最上方导航栏的背景颜色及高度*/
+#main{
+    background-color:#333333;
+    height: 40px;
+    margin: 0px;
+}
+/* 设置最上方导航栏的分割线颜色*/
+#main span{
+    color: #444444;
+}
+/* 最上方导航栏的左半部分*/
+#al{
+    display:inline-block;
+    color: #cccccc;
+    text-indent: 60px;
+}
+/* 最上方导航栏的右半部分*/
+#ar{
+    display:inline-block;
+    float: right;
+    margin-right: 50px;
+}
+/*最上方的导航栏结束*/
+
+/* 索引开始*/
+#index{
+    height: 100px;
+}
+#index #logo{
+    margin: 20px 0px 20px 60px;
+    width: 55px;
+    float: left;
+}
+#index ul{
+    list-style: none;
+    float: left;
+    padding-top: 12px;
+    padding-left: 30px;
+    margin: 0px;
+}
+#index-a li{
+    float: left;
+}
+#index-a #bloak{
+    width: 127px;
+    height: 88px;
+    padding-right: 15px;
+}
+#index-a a{
+    text-decoration: none;
+    display: inline-block;
+    padding: 26px 10px 38px 10px;
+    color: #000000;
+}
+#index-a a:hover{
+    color: #ff8800;
+}
+/* 索引结束*/
+
+/* 图片部分索引开始*/
+/* 设置图片左侧索引列表的背景颜色*/
+#img-leftIndex{
+    position: relative;
+}
+#left-index{
+    background:rgba(0,0,0,0.6);
+    position: absolute;
+    top: 0px;
+    left: 60px;
+}
+#leftIndex-img{
+    text-align: center;
+}
+/*设置左侧的导航选项列表*/
+#left-index{
+    width: 240px;
+}
+#left-index ul{
+    list-style: none;
+    padding: 20px 0px;
+    margin: 0px;
+}
+#left-index li{
+    height: 42px;
+}
+#left-index a{
+    text-decoration: none;
+    color: #ffffff;
+    display: inline-block;
+    height: 42px;
+    width: 240px;
+    padding-left: 30px;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 42px;
+}
+#left-index a:hover{
+    background: #ff6700;
+}
+#four-index div{
+    float: left;
+    margin-left: 14px;
+    margin-top: 14px;
+}
+#four-index ul{
+    list-style: none;
+    width: 234px;
+    height: 164px;
+    background: #5f5750;
+    padding: 3px;
+    margin-top: 0px;
+    margin-left: 46px;
+}
+#four-index li{
+    float: left;
+    width: 76px;
+    height: 82px;
+}
+#first-index a{
+    text-decoration: none;
+    color: rgba(255,255,255,0.7);
+    font-size: 12px;
+    padding-top: 18px;
+    display: inline-block;
+    width: 70px;
+    height: 46px;
+    text-indent: 14px;
+}
+#first-index a:hover{
+    color: #ffffff;
+}
+#four-index img{
+    width: 314px;
+    height: 170px;
+}
+/* 图片部分索引结束*/
