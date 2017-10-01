@@ -1,0 +1,259 @@
+/* CSS RESET*/
+*{
+    margin: 0px;
+    padding: 0px;
+}
+a{
+    text-decoration: none;
+}
+img{
+    border: 0px;
+}
+ul{
+    list-style: none;
+}
+
+/*将div居中*/
+.center{
+    width: 1226px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*最上方的导航栏开始*/
+/* 设置最上方导航栏的背景颜色及高度*/
+.main-nav{
+    background-color:#333333;
+    height: 40px;
+}
+.main-nav li{
+    float: left;
+}
+/*设置a链接字体颜色*/
+.main-nav a{
+    font-size: 8px;
+    color: #b0b0b0;
+    line-height: 40px;
+}
+/* 设置a链接活动特效*/
+.main-nav a:hover{
+    color: #ffffff;
+}
+/* 设置最上方导航栏的分割线颜色*/
+.main-nav span{
+    color: #444444;
+    margin: 0px 6px;
+    font-size: 1px;
+}
+/* 最上方导航栏的右半部分*/
+.right-main-nav{
+    float: right;
+}
+.shopping{
+    margin-left: 15px;
+    float: right;
+}
+.log-in{
+    float: right;
+}
+.shopping a{
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #424242;
+}
+.shopping span{
+    color: #b0b0b0;
+    margin-left: -8px;
+}
+.shopping a:hover{
+    color: #ff6700;
+    background: #ffffff;
+}
+/*最上方的导航栏结束*/
+
+/*图片下方的文字索引设置开始*/
+.text-index{
+    margin: 0px 20px 3px;
+    height: 21px;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+}
+.text-index a{
+    display: inline-block;
+    width: 200px;
+    color: #212121;
+}
+
+/*图片下方的文字索引设置结束*/
+
+/*图片下方的文字描述和价格设置开始*/
+.describe{
+    margin: 0px 10px 12px;
+    font-size: 12px;
+    height: 18px;
+    text-align: center;
+    color: #b0b0b0;
+}
+.price{
+    color: #ff6709;
+    font-size: 14px;
+    height: 21px;
+    text-align: center;
+}
+.discount{
+    color: #b0b0b0;
+    text-decoration: line-through;
+}
+/*图片下方的文字描述和价格设置结束*/
+
+/*脚部开始*/
+.footer-service{
+    padding: 27px 0;
+    border-bottom: solid 1px #e0e0e0;
+    text-align: center;
+    height: 25px;
+}
+.footer-service li{
+    float: left;
+    border-left: solid 1px #e0e0e0;
+    width: 242px;
+    height: 25px;
+    font-size: 16px;
+}
+.footer-service li:first-child{
+    border-left: none;
+}
+.footer-service a{
+    color: #616161;
+}
+.footer-service a:hover{
+    color: #ff6700;
+}
+.footer-links{
+    padding: 40px 0;
+    height: 112px;
+}
+.link-title{
+    font-size: 14px;
+}
+.footer-links td{
+    width: 160px;
+    padding-top: 6px;
+    height: 18px;
+}
+.link-title td{
+    padding: 0 0 18px;
+    height: 17px;
+    color: #333333;
+}
+.footer-links a{
+    font-size: 12px;
+    color: #757575;
+}
+.footer-links a:hover{
+    color: #ff6700;
+}
+.links{
+    float: left;
+}
+.footer-call{
+    float: left;
+    border-left: solid 1px #e0e0e0;
+    height: 120px;
+    width: 242px;
+}
+.footer-call .phone{
+    color: #ff6700;
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+.footer-call .time{
+    margin-bottom: 16px;
+    text-align: center;
+    color: #616161;
+    font-size: 12px;
+}
+.footer-call a{
+    display: inline-block;
+    color: #ff6700;
+    border: solid 1px #ff6700;
+    font-size: 12px;
+    height: 30px;
+    width: 120px;
+    line-height: 30px;
+    text-align: center;
+    margin-left: 25%;
+}
+.footer-call a:hover{
+    background: #ff6700;
+    color: #ffffff;
+}
+.footer-info{
+    padding: 30px 0;
+    height: 106px;
+    background: #fafafa;
+}
+.info-img{
+    margin-right: 10px;
+    float: left;
+}
+.info-text{
+    float: left;
+}
+.foot-nav{
+    background: #fafafa;
+    height: 18px;
+}
+.foot-nav a{
+    color: #757575;
+    line-height: 18px;
+}
+.foot-nav a:hover{
+    color: #ff6700;
+}
+.foot-nav li{
+    height: 18px;
+}
+.foot-nav span{
+    color: #b0b0b0;
+    margin: 3px 0;
+}
+.info-text p{
+    font-size: 12px;
+    line-height: 18px;
+    color: #b0b0b0;
+}
+.saft a{
+    color: #b0b0b0;
+}
+.saft a:hover{
+    color: #ff6700;
+}
+.img-links{
+    height: 54px;
+}
+.img-links li{
+    float: left;
+    margin-left: 7px;
+}
+.img-links li:first-child{
+    margin-left: 20px;
+}
+.img-links img{
+    width: 83px;
+    height: 28px;
+}
+.declaration{
+    clear: both;
+    width: 267px;
+    height: 19px;
+    color: #b0b0b0;
+    margin: 30px auto 0px;
+    text-align: center;
+}
+/*脚部结束*/

@@ -1,134 +1,152 @@
-/* CSS RESET*/
-body{
-    margin: 0px;
+/*设置广告开始*/
+.ad{
+    background: url("../img/ad.jpg") no-repeat 50% 50%;
+    height: 120px;
 }
-img{
-    border: 0px;
+.ad a{
+    display: inline-block;
+    width: 100%;
+    height: 120px;
 }
-/*最上方的导航栏开始*/
-/*设置a链接字体颜色*/
-#main a{
-    font-size: 8px;
-    text-decoration: none;
-    color: #aaaaaa;
-    line-height: 40px;
-}
-/* 设置a链接活动特效*/
-#main a:hover{
-    color: #ffffff;
-}
-/* 设置最上方导航栏的背景颜色及高度*/
-#main{
-    background-color:#333333;
-    height: 40px;
-    margin: 0px;
-}
-/* 设置最上方导航栏的分割线颜色*/
-#main span{
-    color: #444444;
-}
-/* 最上方导航栏的左半部分*/
-#al{
-    display:inline-block;
-    color: #cccccc;
-    text-indent: 60px;
-}
-/* 最上方导航栏的右半部分*/
-#ar{
-    display:inline-block;
-    float: right;
-    margin-right: 50px;
-}
-/*最上方的导航栏结束*/
+/*设置广告结束*/
 
 /* 索引开始*/
 #index{
     height: 100px;
 }
-#index #logo{
-    margin: 20px 0px 20px 60px;
+#index .index-left{
+    float: left;
+    width: 930px;
+}
+#index .index-right{
+    position: relative;
+    float: left;
+    height: 50px;
+    margin-top: 25px;
+}
+.index-right .search{
+    padding: 0 10px;
+    width: 243px;
+    height: 48px;
+    border: solid 1px #e0e0e0;
+    font-size: 14px;
+    line-height: 48px;
+}
+.index-right .submit{
+    width: 54px;
+    height: 46px;
+    padding: 1px 6px;
+    border: solid 1px #e0e0e0;
+    position: absolute;
+    top:0px;
+    right: -53px;
+    padding: 0 10px;
+    height: 48px;
+    font-size: 14px;
+    line-height: 48px;
+    background: #ffffff;
+}
+.index-right a{
+    background: #eeeeee;
+    color: #757575;
+    padding: 0 5px;
+    font-size: 12px;
+}
+.index-right a:hover{
+    background: #ff6700;
+    color: #ffffff;
+}
+.index-right div{
+    position: absolute;
+    right: 10px;
+    top: 25%;
+}
+#logo{
+    margin: 20px 0px 20px;
     width: 55px;
     float: left;
 }
 #index ul{
-    list-style: none;
     float: left;
     padding-top: 12px;
     padding-left: 30px;
-    margin: 0px;
 }
-#index-a li{
+#index-ul li{
     float: left;
 }
-#index-a #bloak{
+#block{
     width: 127px;
     height: 88px;
     padding-right: 15px;
 }
-#index-a a{
-    text-decoration: none;
+#index-ul a{
     display: inline-block;
     padding: 26px 10px 38px 10px;
-    color: #000000;
+    color: #333333;
 }
-#index-a a:hover{
-    color: #ff8800;
+#index-ul a:hover{
+    color: #ff6700;
 }
 /* 索引结束*/
 
-/* 图片部分索引开始*/
-/* 设置图片左侧索引列表的背景颜色*/
-#img-leftIndex{
+/* 轮播图部分索引开始*/
+/* 设置轮播图左侧索引列表的背景颜色*/
+#slideshow-index{
     position: relative;
+    margin-bottom: 26px;
+    height: 644px;
 }
-#left-index{
+/*设置左侧的导航选项列表*/
+#slideshow-index-img{
+    text-align: center;
+    width: 1226px;
+    height: 460px;
+}
+#slideshow-index-img img{
+    width: 1226px;
+}
+#slideshow-index-img a{
+    display: inline-block;
+    height: 460px;
+}
+#slideshow-left-index{
     background:rgba(0,0,0,0.6);
     position: absolute;
     top: 0px;
-    left: 60px;
+    width: 234px;
 }
-#leftIndex-img{
-    text-align: center;
-}
-/*设置左侧的导航选项列表*/
-#left-index{
-    width: 240px;
-}
-#left-index ul{
-    list-style: none;
+#slideshow-left-index ul{
     padding: 20px 0px;
-    margin: 0px;
 }
-#left-index li{
+#slideshow-left-index li{
     height: 42px;
 }
-#left-index a{
-    text-decoration: none;
+#slideshow-left-index a{
     color: #ffffff;
     display: inline-block;
     height: 42px;
-    width: 240px;
+    width: 234px;
     padding-left: 30px;
     box-sizing: border-box;
     font-size: 14px;
     line-height: 42px;
 }
-#left-index a:hover{
+#slideshow-left-index a:hover{
     background: #ff6700;
 }
 #four-index div{
     float: left;
-    margin-left: 14px;
+    margin-right: 14px;
     margin-top: 14px;
 }
+#four-index div:last-child{
+    margin-right: 0px;
+}
 #four-index ul{
-    list-style: none;
-    width: 234px;
+    width: 228px;
     height: 164px;
     background: #5f5750;
     padding: 3px;
-    margin-top: 0px;
-    margin-left: 46px;
 }
 #four-index li{
     float: left;
@@ -136,7 +154,6 @@ img{
     height: 82px;
 }
 #first-index a{
-    text-decoration: none;
     color: rgba(255,255,255,0.7);
     font-size: 12px;
     padding-top: 18px;
@@ -149,7 +166,373 @@ img{
     color: #ffffff;
 }
 #four-index img{
-    width: 314px;
+    width: 316.6px;
     height: 170px;
 }
-/* 图片部分索引结束*/
+/* 轮播图部分索引结束*/
+
+/*明星产品介绍开始*/
+.color-item{
+    height: 398px;
+    padding:0px 0px 40px;
+}
+/*后面的标题与此标题一致，所以后面将不再声明*/
+.title{
+    line-height: 58px;
+    font-weight: 200;
+    font-size: 22px;
+    clear: both;
+}
+.color-item li{
+    float: left;
+    padding-top: 40px;
+    margin-right: 14px;
+    border-top: solid 1px;
+    width: 234px;
+    height: 300px;
+    background: #fafafa;
+}
+.color-item li:nth-child(1){
+    border-top-color: #ffac13;
+}
+.color-item li:nth-child(2){
+    border-top-color: #83c44e;
+}
+.color-item li:nth-child(3){
+    border-top-color: #2196f3;
+}
+.color-item li:nth-child(4){
+    border-top-color: #e53935;
+}
+.color-item li:nth-child(5){
+    border-top-color: #00c0a5;
+    margin-right: 0px;
+}
+.color-item img {
+    width: 160px;
+    height: 160px;
+}
+.color-item .star-item-img-a{
+    display: inline-block;
+    width: 160px;
+    height: 166px;
+    margin: 0px 37px 22px;
+}
+/*明星产品介绍结束*/
+
+/*主体产品分类展示开始*/
+#container{
+    background: #f5f5f5;
+    padding:60px 0px 0px;
+    height: 5248px;
+    width: 100%;
+}
+    /*设置标题导航样式开始*/
+.title-index{
+    position: relative;
+    clear: both;
+}
+.ul-index{
+    padding-top: 16px;
+    font-size: 16px;
+    float: right;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.title-index li{
+    float: left;
+    margin-left: 30px;
+    border-bottom: solid 2px #f5f5f5;
+}
+    /*设置标题导航样式结束*/
+    /*设置左侧一张大图片样式开始*/
+.container-img-left{
+    width: 234px;
+    height: 628px;
+    margin-bottom: 10px;
+    float: left;
+}
+.container-img-left a{
+    display: inline-block;
+    width: 234px;
+}
+.container-img-left img{
+    width: 234px;
+}
+    /*设置左侧一张大图片样式结束*/
+    /*设置右侧图片索引开始*/
+.ul-img-index{
+    width: 992px;
+    float: left;
+}
+.right-small li{
+    background: #ffffff;
+    float: left;
+    width: 234px;
+    height: 246px;
+    margin: 0 0 14px 14px;
+    padding: 34px 0 20px;
+}
+.right-small .ul-img{
+    display: inline-block;
+    margin: 0 42px 18px;
+    width: 150px;
+    height: 150px;
+}
+.right-small img{
+    width: 150px;
+    height: 150px;
+}
+    /*设置右侧图片索引结束*/
+    /*设置左侧上下部分的样式开始*/
+.container-img-left li{
+    float: left;
+    height: 300px;
+    margin: 0 0 14px;
+}
+    /*设置左侧上下部分的样式结束*/
+    /*设置右下方最小的两个部分的样式开始*/
+.right-small .small{
+    padding: 50px 0 0;
+    height: 93px;
+    position: relative;
+}
+.small .text-index{
+    margin: -10px 110px 5px 30px;
+    text-align: left;
+}
+.small .price{
+    margin: 0 110px 0 30px;
+    text-align: left;
+}
+.small img{
+    width: 80px;
+    height: 80px;
+}
+.small .small-img-a{
+    display: inline-block;
+    float: right;
+    width: 80px;
+    height: 80px;
+}
+.small div{
+    position: absolute;
+    right: 20px;
+    top: 32px;
+    width: 80px;
+    height: 80px;
+}
+.small-text{
+    display: block;
+    line-height: 27px;
+    width: 94px;
+    font-size: 18px;
+    color: #333333;
+    margin: 0 110px 0 30px;
+}
+.small-text small{
+    font-size: 12px;
+    color: #757575;
+}
+    /*设置右下方最小的两个部分的样式结束*/
+
+    /*为你推荐部分开始*/
+#container-recommend{
+    height: 358px;
+    margin-bottom: 22px;
+}
+.recommend li{
+    padding-top: 40px;
+}
+.recommend li:first-child{
+    margin-left: 0px;
+}
+.recommend .price{
+    margin-bottom: 10px;
+}
+.recommend .describe{
+    font-size: 14px;
+    color: #757575;
+}
+    /*为你推荐部分结束*/
+
+    /*热评产品开始*/
+.buzz-overview li{
+    float: left;
+    width: 296px;
+    height: 415px;
+    background: #ffffff;
+    margin: 0 0 14px 14px;
+}
+.buzz-overview li:first-child{
+    margin-left: 0px;
+}
+.buzz-overview img{
+    width: 296px;
+}
+.buzz-describe a{
+    display: inline-block;
+    width: 240px;
+    height: 72px;
+    color: #333333;
+    font-size: 14px;
+    line-height: 24px;
+}
+.buzz-describe{
+    margin: 28px 28px 22px;
+}
+.buzz-overview .describe{
+    text-align: left;
+    width: 230px;
+    height: 18px;
+    padding-right: 10px;
+    margin: 0 28px 8px;
+    line-height: 18px;
+}
+.buzz-name{
+    margin: 0 30px;
+}
+.buzz-name a{
+    font-size: 14px;
+    font-weight: 200;
+    color: #333333;
+    line-height: 21px;
+    float: left;
+}
+.buzz-name span{
+    float: left;
+    margin: 0 5px;
+    color: #b0b0b0;
+    font-size: 14px;
+    line-height: 21px;
+}
+.buzz-name .price{
+    float: left;
+}
+    /*热评产品结束*/
+
+    /*内容开始*/
+.content-height li{
+    background: #ffffff;
+    margin-bottom: 14px;
+    height: 374px;
+    width: 296px;
+}
+.content-height li:nth-child(1){
+    border-top-color: #ffac13;
+    color: #ffac13;
+}
+.content-height li:nth-child(2){
+    border-top-color: #83c44e;
+    color: #83c44e;
+}
+.content-height li:nth-child(3){
+    border-top-color: #e53935;
+    color: #e53935;
+}
+.content-height li:nth-child(4){
+    margin-right: 0px;
+    border-top-color: #2196f3;
+    color: #2196f3;
+}
+#container-content .content-title{
+    margin: 0 10px 18px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 24px;
+}
+#container-content .name{
+    margin: 0 20px 5px;
+    text-align: center;
+}
+#container-content .content-describe{
+    margin: 0 44px 10px;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    height: 40px;
+}
+.content-describe a{
+    color: #b0b0b0;
+}
+.content-price{
+    margin: 0 10px 15px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 21px;
+}
+.content-price a{
+    color: #333333;
+    display: inline-block;
+    line-height: 21px;
+}
+.name a{
+    color: #333333;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+}
+.content-img{
+    margin: 0 40px;
+}
+.content-img img{
+    width: 216px;
+    height: 154px;
+}
+.content-img a{
+    display: inline-block;
+    width: 216px;
+    height: 154px;
+}
+    /*内容结束*/
+
+    /*视频开始*/
+#container-video{
+    position: relative;
+}
+.video-overview li{
+    float: left;
+    width: 296px;
+    height: 285px;
+    background: #ffffff;
+    margin: 0 0 14px 14px;
+}
+.video-overview li:first-child{
+    margin-left: 0px;
+}
+.video-overview img{
+    width: 296px;
+}
+.video-title div{
+    position: absolute;
+    top: 50%;
+    right: 0px;
+}
+.video-title a{
+    color: #424242;
+}
+.video-title a:hover{
+    color: #ff6700;
+}
+.video-describe{
+    margin: 28px 0 6px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+}
+.video-describe a{
+    color: #333333;
+}
+.video-describe a:hover{
+    color: #ff6700;
+}
+.video-overview p{
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    color: #b0b0b0;
+    font-size: 12px;
+}
+    /*视频结束*/
+/*主体产品分类展示结束*/
