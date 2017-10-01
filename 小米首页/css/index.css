@@ -225,7 +225,9 @@
     background: #f5f5f5;
     padding:60px 0px 0px;
     height: 5248px;
-    width: 100%;
+}
+#container .center{
+    background: #f5f5f5;
 }
     /*设置标题导航样式开始*/
 .title-index{
