@@ -101,7 +101,7 @@
     function next(elem) {
         do{
             elem = elem.nextSibling;
-        }while (elem.nodeType != 1) //标签类型为1，文本类型为3
+        }while (elem && elem.nodeType != 1) //标签类型为1，文本类型为3
         return elem;
     }
 </script>
