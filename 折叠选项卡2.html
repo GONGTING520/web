@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>折叠选项卡（替换div）</title>
+    <style>
+        /*样式重置*/
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        ul{
+            list-style:none;
+        }
+        #container{
+            width: 400px;
+            height: 200px;
+            margin:50px auto;
+        }
+        #option .selected{
+            background: #5f5750;
+        }
+        #option li{
+            float: left;
+            width: 100px;
+            height: 30px;
+            background: #b0b0b0;
+            color: #ffffff;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 30px;
+            /*设置鼠标形状*/
+            cursor: pointer;
+        }
+        #content{
+            clear: both;
+            border-top: solid 1px #5f5750;
+            width: 400px;
+            height: 170px;
+            background:#e0e0e0;
+        }
+        #content div{
+            width: 400px;
+            height: 170px;
+            display: none;
+        }
+        #content .selected{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="option">
+        <ul>
+            <li class="selected">html</li>
+            <li>css</li>
+            <li>js</li>
+        </ul>
+    </div>
+    <ul id="content">
+        <li>
+            <div class="selected">111111111111</div>
+        </li>
+        <li>
+            <div>abcdefg</div>
+        </li>
+        <li>
+            <div>true & false</div>
+        </li>
+    </ul>
+</div>
+
+<script>
+    var oOption = document.getElementById("option");
+    var aLi = oOption.getElementsByTagName("li");
+    var oContent = document.getElementById("content");
+    var aDiv = oContent.getElementsByTagName("div");
+
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].index = i;
+        aLi[i].onclick = function () {
+            for(var i=0; i<aLi.length; i++){
+                aLi[i].className = "";
+                aDiv[i].className = "";
+            }
+            this.className = "selected";
+            aDiv[this.index].className = "selected";
+        }
+//            禁止选中文字
+        aLi[i].onselectstart = function () {
+            return false;
+        }
+    }
+</script>
+
+</body>
+</html>
