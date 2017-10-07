@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>无缝滚动</title>
+    <style>
+        /*样式重置*/
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+
+        #container{
+            width: 390px;
+            height: 200px;
+            border: 1px solid #000000;
+            margin: 100px auto;
+            position: relative;
+            overflow:hidden;
+        }
+        #content{
+            width: 1040px;
+            position: absolute;
+        }
+        #content li{
+            float: left;
+            width: 120px;
+            height: 120px;
+            margin-right: 10px;
+            background: #5f5750;
+            color: #ffffff;
+            text-align: center;
+            font-size: 40px;
+            line-height: 120px;
+        }
+        #arrow{
+            position: absolute;
+            width: 180px;
+            bottom: 20px;
+            left: 50%;
+            margin-left: -90px;
+        }
+        #arrow span{
+            display: block;
+            float: left;
+            width: 80px;
+            height: 30px;
+            margin-right: 10px;
+            background: #757575;
+            color: #ffffff;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </div>
+        <div id="arrow">
+            <span id="prev">&lt;&lt;&nbsp;向左</span>
+            <span id="next">向右&nbsp;&gt;&gt;</span>
+        </div>
+    </div>
+    <script>
+        var oContent = document.getElementById("content");
+        var aUl = oContent.getElementsByTagName("ul");
+        var oPrev = document.getElementById("prev");
+        var oNext = document.getElementById("next");
+        var speed = 5;
+        var timer;
+        aUl[0].innerHTML+= aUl[0].innerHTML;//把ul中的内容再复制一份
+        start();
+        function start() {
+            timer = setInterval(function () {
+                if(oContent.offsetLeft <= -oContent.offsetWidth/2){
+                    oContent.style.left = "0px";
+                }
+                if(oContent.offsetLeft > 0){
+                    oContent.style.left = -oContent.offsetWidth/2 + 5 + "px";
+                }
+                oContent.style.left = oContent.offsetLeft + speed +"px";
+            },50);
+        }
+
+        oPrev.onmouseover = function () {
+            speed = -5;
+        }
+        oNext.onmouseover = function () {
+            speed = 5;
+        }
+    </script>
+</body>
+</html>
