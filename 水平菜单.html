@@ -84,6 +84,7 @@
         for(var i = 0;i < aLi.length;i++){
 //            鼠标滑入方法
             aLi[i].onmouseover = function () {
+                //this.getElementsByTagName('ul')得到的是ul的一个节点列表（即数组），里面只有一个ul
                 this.getElementsByTagName('ul')[0].style.display = 'block';
             };
 //            鼠标滑出方法
