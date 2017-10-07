@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图（无特效）</title>
+    <style>
+        /*样式重置*/
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+
+        #container{
+            width: 1226px;
+            height: 460px;
+            position: relative;
+            margin: 50px auto;
+        }
+        #index li,#arrow span{
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #212121;
+            color: #ffffff;
+            text-align: center;
+            line-height: 20px;
+            margin-right: 10px;
+            cursor:pointer;
+        }
+        #index ul{
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+        #index .selected{
+             background: #ff6700;
+         }
+        #img li{
+            width: 1226px;
+            height: 460px;
+            display: none;
+        }
+        #img .selected{
+            display: block;
+        }
+        #arrow{
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="index">
+            <ul>
+                <li class="selected">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+            </ul>
+        </div>
+        <div id="img">
+            <ul>
+                <li class="selected"><img src="img/slideshow1.jpg" alt=""></li>
+                <li><img src="img/slideshow2.jpg" alt=""></li>
+                <li><img src="img/slideshow3.jpg" alt=""></li>
+                <li><img src="img/slideshow4.jpg" alt=""></li>
+                <li><img src="img/slideshow5.jpg" alt=""></li>
+                <li><img src="img/slideshow6.jpg" alt=""></li>
+                <li><img src="img/slideshow7.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div id="arrow">
+            <span id="prev">&lt;</span>
+            <span id="next">&gt;</span>
+        </div>
+    </div>
+    <script>
+        var oContanier = document.getElementById("container");
+        var oIndex = document.getElementById("index");
+        var aLi = oIndex.getElementsByTagName("li");
+        var oImg = document.getElementById("img");
+        var aImg = oImg.getElementsByTagName("li");
+        var oPrev = document.getElementById("prev");
+        var oNext = document.getElementById("next");
+        var iNow = 0;//用来记录当前的图片索引
+        var timer;//定义定时器
+
+        start();
+        //给索引数字加滑入事件
+        for(var  i=0; i<aLi.length; i++){
+            aLi[i].index = i;
+            aLi[i].onmouseover = function () {
+                changeImg(this.index);
+                iNow = this.index;
+            };
+            //禁止选中文字
+            aLi[i].onselectstart = function(){
+                return false;
+            };
+        }
+
+        //给箭头添加点击事件
+        oPrev.onclick = function () {
+            iNow--;
+            iNow = (iNow+ aLi.length) % aLi.length;
+            console.log(iNow);
+            changeImg(iNow);
+        };
+        oPrev.onselectstart = function () {
+            return false;
+        };
+        oNext.onclick = function () {
+            iNow++;
+            iNow = iNow % aLi.length;
+            console.log(iNow);
+            changeImg(iNow);
+        };
+        oNext.onselectstart = function () {
+            return false;
+        };
+
+        //因为多次调用，所以封装成函数
+        function changeImg(index) {
+            for(var i=0; i<aLi.length; i++){
+                aLi[i].className = "";
+                aImg[i].className = "";
+            }
+            aLi[index].className = "selected";
+            aImg[index].className = "selected";
+        }
+
+        //给container添加滑入滑出事件来控制定时器
+        oContanier.onmouseover = function () {
+            clearInterval(timer);
+        };
+        oContanier.onmouseout = function () {
+            start();
+        };
+
+        //设置定时器让图片自动切换，因要多次使用，所以封装函数
+        function start() {
+            timer = setInterval(function () {
+                oNext.onclick();
+            },2000)
+        }
+
+    </script>
+</body>
+</html>
