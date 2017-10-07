@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>折叠选项卡（替换内容）</title>
+    <style>
+        /*样式重置*/
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        ul{
+            list-style:none;
+        }
+        #container{
+            width: 400px;
+            height: 200px;
+            margin:50px auto;
+        }
+        #option li{
+            float: left;
+            width: 100px;
+            height: 30px;
+            background: #b0b0b0;
+            color: #ffffff;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 30px;
+            /*设置鼠标形状*/
+            cursor: pointer;
+        }
+        #content{
+            clear: both;
+            border-top: solid 1px #5f5750;
+            width: 400px;
+            height: 170px;
+            background:#e0e0e0;
+        }
+        #container .selected{
+            background: #5f5750;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="option">
+        <ul>
+            <li class="selected">html</li>
+            <li>css</li>
+            <li>js</li>
+        </ul>
+    </div>
+    <!--<div id="content">111111</div>-->
+    <!--用js动态插入内容-->
+    <div id="content"></div>
+
+    <script>
+        //通过id获取元素只能用document，其他对象无此方法
+        var oOption = document.getElementById('option');
+        var aLi = oOption.getElementsByTagName('li');
+        var oContent = document.getElementById("content");
+        var aInner = [1111111,"abcdeft","true&false"];
+
+        oContent.innerHTML = aInner[0];//动态插入内容
+        for(var i=0; i<aLi.length; i++){
+            aLi[i].index = i;
+            aLi[i].onclick = function () {
+//                将所有li的class改为空
+                for(var i=0; i<aLi.length; i++){
+                    aLi[i].className = "";
+                }
+                this.className = "selected";
+                oContent.innerHTML = aInner[this.index];
+            }
+            aLi[i].onselectstart = function () {
+                return false;
+            }
+        }
+    </script>
+</div>
+</body>
+</html>
