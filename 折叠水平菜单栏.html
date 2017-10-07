@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>折叠水平菜单栏（添加标识）</title>
+    <style>
+        /*样式重置*/
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration:none;
+        }
+
+        #menu .main-menu{
+            border: solid 1px #000000;
+            width: 100px;
+            float: left;
+            margin-right: 10px;
+        }
+        #menu a{
+            display: block;
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+        }
+        #menu .title{
+            background:#000000;
+            color: #ffffff;
+        }
+        #menu ul li{
+            box-sizing: border-box;
+            border-bottom: 1px dotted #000000;
+            height: 40px;
+        }
+        #menu ul li:last-child{
+            border: none;
+        }
+        #menu ul{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <ul id="menu">
+        <li class="main-menu">
+            <a href="#" class="title">link 1</a>
+            <ul>
+                <li><a href="#">sublink 1</a></li>
+                <li><a href="#">sublink 2</a></li>
+                <li><a href="#">sublink 3</a></li>
+                <li><a href="#">sublink 4</a></li>
+            </ul>
+        </li>
+        <li class="main-menu">
+            <a href="#" class="title">link 2</a>
+            <ul>
+                <li><a href="#">sublink 1</a></li>
+                <li><a href="#">sublink 2</a></li>
+                <li><a href="#">sublink 3</a></li>
+            </ul>
+        </li>
+        <li class="main-menu">
+            <a href="#" class="title">link 3</a>
+            <ul>
+                <li><a href="#">sublink 1</a></li>
+                <li><a href="#">sublink 2</a></li>
+                <li><a href="#">sublink 3</a></li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        var oMenu = document.getElementById("menu");
+//        var aLi = oMenu.getElementsByTagName("li"); 也可以，此方法用if(aLi[i].className == "main-menu"){}来判断
+        var aLi = oMenu.children;
+        var  aContent= oMenu.getElementsByTagName("ul");//解决事件冒泡问题，需要给每一个隐藏的ul元素添加事件（有兼容性问题），或者给a链接绑事件
+
+        for(var i=0; i<aLi.length; i++){
+            aLi[i].flag = false;    //给每个元素都添加一个标识位，false表示未打开，
+            aLi[i].index = i;
+            aLi[i].onclick = function () {
+                if(!this.flag){
+                    aContent[this.index].style.display = "block"; //获得的是内联的样式
+                }else {
+                    aContent[this.index].style.display = "none";
+                }
+                this.flag = !this.flag;
+            };
+
+            aContent[i].onclick = function(e){
+                e.stopPropagation();  //标准浏览器
+//                e = window.event;
+//                e.cancelBubble = true;
+            };
+
+        }
+    </script>
+</body>
+</html>
