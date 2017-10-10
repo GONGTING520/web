@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自定义滚动条</title>
+    <style>
+        #container{
+            margin: 50px auto;
+            padding: 0;
+            width: 300px;
+            height: 200px;
+            background: #aaaaaa;
+            position: relative;
+            overflow: hidden;
+        }
+        #content{
+            position: absolute;
+            width: 290px;
+        }
+        #scroll-bar{
+            width: 10px;
+            height: 200px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: #757575;
+        }
+        #scroll-btn{
+            cursor: pointer;
+            width: 10px;
+            height: 20px;
+            background: #212121;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="content">
+        <h3>自定义滚动条</h3>
+        啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+    </div>
+    <div id="scroll-bar">
+        <span id="scroll-btn"></span>
+    </div>
+    <script>
+        var oContainer = document.getElementById('container');
+        var oContent = document.getElementById('content');
+        var oScrllBtn = document.getElementById('scroll-btn');
+        var oScrllBar = document.getElementById('scroll-bar');
+
+        oScrllBtn.onmousedown = function (e) {
+            e = e || window.event;//能力测试
+//            鼠标距离滚动条按钮顶部的距离
+            var iBtnTop = e.clientY - oContainer.offsetTop - oScrllBtn.offsetTop;
+
+            document.onmousemove = function (e) {
+                e = e || window.event;
+//                滚动条按钮距离滚动条顶部的距离
+                var iTop = e.clientY - iBtnTop - oContainer.offsetTop;
+//                内容content最大的移动距离
+                var iContentMoveMax = oContent.offsetHeight - oContainer.offsetHeight;
+//                滚动条按钮的最大移动距离
+                var iScrollMoveMax = oScrllBar.offsetHeight - oScrllBtn.offsetHeight;
+
+                if(iTop <= 0){
+                    iTop = 0;
+                }
+                if(iTop >= oScrllBar.offsetHeight - oScrllBtn.offsetHeight){
+                    iTop = oScrllBar.offsetHeight - oScrllBtn.offsetHeight;
+                }
+                oScrllBtn.style.top = iTop + 'px';
+//                算出滚动条的移动距离
+                var iContentMove = iContentMoveMax * (iTop / iScrollMoveMax);
+                oContent.style.top = -iContentMove + 'px';
+
+                return false;//阻止默认行为（选中文字）
+            };
+
+            document.onmouseup = function(){
+                document.onmousemove = null;
+                document.onmouseup = null;
+            };
+        };
+    </script>
+</div>
+</body>
+</html>
