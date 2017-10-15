@@ -10,85 +10,6 @@
 }
 /*设置广告结束*/
 
-/* 索引开始*/
-#index{
-    height: 100px;
-}
-#index .index-left{
-    float: left;
-    width: 930px;
-}
-#index .index-right{
-    position: relative;
-    float: left;
-    height: 50px;
-    margin-top: 25px;
-}
-.index-right .search{
-    padding: 0 10px;
-    width: 243px;
-    height: 48px;
-    border: solid 1px #e0e0e0;
-    font-size: 14px;
-    line-height: 48px;
-}
-.index-right .submit{
-    width: 54px;
-    height: 46px;
-    padding: 1px 6px;
-    border: solid 1px #e0e0e0;
-    position: absolute;
-    top:0px;
-    right: -53px;
-    padding: 0 10px;
-    height: 48px;
-    font-size: 14px;
-    line-height: 48px;
-    background: #ffffff;
-}
-.index-right a{
-    background: #eeeeee;
-    color: #757575;
-    padding: 0 5px;
-    font-size: 12px;
-}
-.index-right a:hover{
-    background: #ff6700;
-    color: #ffffff;
-}
-.index-right div{
-    position: absolute;
-    right: 10px;
-    top: 25%;
-}
-#logo{
-    margin: 20px 0px 20px;
-    width: 55px;
-    float: left;
-}
-#index ul{
-    float: left;
-    padding-top: 12px;
-    padding-left: 30px;
-}
-#index-ul li{
-    float: left;
-}
-#block{
-    width: 127px;
-    height: 88px;
-    padding-right: 15px;
-}
-#index-ul a{
-    display: inline-block;
-    padding: 26px 10px 38px 10px;
-    color: #333333;
-}
-#index-ul a:hover{
-    color: #ff6700;
-}
-/* 索引结束*/
-
 /* 轮播图部分索引开始*/
 /* 设置轮播图左侧索引列表的背景颜色*/
 #slideshow-index{
@@ -115,14 +36,14 @@
     top: 0px;
     width: 234px;
 }
-#slideshow-left-index ul{
+#slideshow-left-index .float-index{
     padding: 20px 0px;
 }
 #slideshow-left-index li{
-    height: 42px;
-    position: relative;
-}
-#slideshow-left-index a{
+     height: 42px;
+     position: relative;
+ }
+#slideshow-left-index .float-a{
     color: #ffffff;
     display: block;
     height: 42px;
@@ -132,8 +53,32 @@
     font-size: 14px;
     line-height: 42px;
 }
-#slideshow-left-index a:hover{
+#slideshow-left-index .float-a:hover{
     background: #ff6700;
+}
+#slideshow-left-index .slideshow-left-show{
+    width: 795px;
+    position: absolute;
+    z-index: 1;
+    top: -20px;
+    left: 234px;
+}
+.slideshow-left-show ul{
+    width: 265px;
+    height: 458px;
+    padding: 2px 0;
+    float: left;
+    background: #ffffff;
+}
+.slideshow-left-show li{
+    width: 265px;
+    height: 76px;
+}
+.slideshow-left-show a{
+    display: block;
+    width: 225px;
+    height: 41px;
+    padding: 18px 20px;
 }
 #slideshow-index-arrow .prev,#slideshow-index-arrow .next{
     padding: 0;
@@ -162,16 +107,44 @@
 #four-index div:last-child{
     margin-right: 0px;
 }
-#four-index ul{
+#first-index ul{
     width: 228px;
     height: 164px;
     background: #5f5750;
     padding: 3px;
 }
-#four-index li{
+#first-index li{
     float: left;
-    width: 76px;
+    width: 70px;
     height: 82px;
+    position: relative;
+    padding: 0 3px;
+}
+#first-index .left:after{
+    content: '';
+    width: 1px;
+    height: 70px;
+    position: absolute;
+    left: 0;
+    top: 5px;
+    background: #665e57;
+}
+#first-index .top:before{
+    content: '';
+    width: 64px;
+    height: 1px;
+    position: absolute;
+    top: 0;
+    left: 6px;
+    background: #665e57;
+}
+#first-index .icon{
+    display: inline-block;
+    width: 70px;
+    height: 24px;
+    font-size: 24px;
+    margin-bottom: 5px;
+    line-height: 24px;
 }
 #first-index a{
     color: rgba(255,255,255,0.7);
@@ -180,7 +153,7 @@
     display: inline-block;
     width: 70px;
     height: 46px;
-    text-indent: 14px;
+    text-align: center;
 }
 #first-index a:hover{
     color: #ffffff;
@@ -197,6 +170,9 @@
     padding:0px 0px 40px;
 }
 /*后面的标题与此标题一致，所以后面将不再声明*/
+.title-pos{
+    position: relative;
+}
 .title{
     line-height: 58px;
     font-weight: 200;
@@ -208,7 +184,7 @@
     right: 0px;
     top: 25px;
 }
-.title-arrow a.title-prev,.title-arrow a.title-next{
+.title-arrow .title-prev,.title-arrow .title-next{
     text-align: center;
     line-height: 16px;
     border: 1px solid #e0e0e0;
@@ -218,16 +194,17 @@
     width: 24px;
     height: 16px;
     padding: 3px 5px;
+    transition: color 0.25s ease;
 }
-.title-arrow a.title-prev{
+.title-arrow .title-prev{
     position: absolute;
     right: 35px;
 }
-.title-arrow a.selected{
+.title-arrow .selected{
     color: #5f5750;
     cursor: pointer;
 }
-.title-arrow a.selected:hover{
+.title-arrow .selected:hover{
     color: #ff6700;
 }
 .color-item li{
@@ -292,6 +269,7 @@
 .ul-index li.selected{
     color: #ff6700;
     border-bottom: 2px solid #ff6700;
+    transition: border-color 0.25s ease;
 }
 .ul-index li{
     float: left;

@@ -6,8 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>龚婷的小米</title>
-    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
@@ -60,6 +60,7 @@
                         购物车
                         <span>（0）</span>
                     </a>
+                    <div class="shopping-list"></div>
                 </div>
                 <div class="log-in">
                     <ul>
@@ -88,41 +89,370 @@
                 <ul id="index-ul">
                     <li id="block"></li>
                     <li>
-                        <a href="">小米手机</a>
+                        <a href="" class="main-menu">小米手机</a>
+                        <div class="sub-menu">
+                            <div class="sub-menu-inner">
+                                <ul class="sub-menu-list center">
+                                    <li>
+                                        <div class="flag">
+                                            <div>新品</div>
+                                        </div>
+                                        <a href="#" class="sub-img"><img src="img/sub1.1.png" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米MIX 2</a></div>
+                                        <div class="price">3299起</div>
+                                    </li>
+                                    <li>
+                                        <div class="flag">
+                                            <div>新品</div>
+                                        </div>
+                                        <a href="#" class="sub-img"><img src="img/sub1.2.png" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米Note 3</a></div>
+                                        <div class="price">2499起</div>
+                                    </li>
+                                    <li>
+                                        <div class="flag"></div>
+                                        <a href="#" class="sub-img"><img src="img/sub1.3.png" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米6</a></div>
+                                        <div class="price">2499元起</div>
+                                    </li>
+                                    <li>
+                                        <div class="flag"><div>享多重优惠</div></div>
+                                        <a href="#" class="sub-img"><img src="img/sub1.4.png" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米Max 2</a></div>
+                                        <div class="price">1399元起</div>
+                                    </li>
+                                    <li>
+                                        <div class="flag"><div>新品</div></div>
+                                        <a href="#" class="sub-img"><img src="img/sub1.5.jpg" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米5X</a></div>
+                                        <div class="price">1299元起</div>
+                                    </li>
+                                    <li>
+                                        <div class="flag"></div>
+                                        <a href="#" class="sub-img"><img src="img/sub1.6.jpg" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米Note 2</a></div>
+                                        <div class="price">2799元起</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </li>
                     <li>
-                        <a href="">红米</a>
+                        <a href="" class="main-menu">红米</a>
+                        <div class="sub-menu">
+                            <div class="sub-menu-inner">
+                                <ul class="sub-menu-list center">
+                                    <li>
+                                        <div class="flag">
+                                            <div>新品</div>
+                                        </div>
+                                        <a href="#" class="sub-img"><img src="img/sub2.1.png" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米MIX 2</a></div>
+                                        <div class="price">3299起</div>
+                                    </li>
+                                    <li>
+                                        <div class="flag">
+                                            <div>新品</div>
+                                        </div>
+                                        <a href="#" class="sub-img"><img src="img/sub2.2.jpg" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米Note 3</a></div>
+                                        <div class="price">2499起</div>
+                                    </li>
+                                    <li>
+                                        <div class="flag"><div>享免息</div></div>
+                                        <a href="#" class="sub-img"><img src="img/sub2.3.jpg" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米6</a></div>
+                                        <div class="price">2499元起</div>
+                                    </li>
+                                    <li>
+                                        <div class="flag"><div>享免息</div></div>
+                                        <a href="#" class="sub-img"><img src="img/sub2.4.jpg" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米Max 2</a></div>
+                                        <div class="price">1399元起</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </li>
                     <li>
-                        <a href="">平板 · 笔记本</a>
+                        <a href="" class="main-menu">笔记本</a>
+                        <div class="sub-menu">
+                            <div class="sub-menu-inner">
+                                <ul class="sub-menu-list center">
+                                    <li>
+                                        <a href="#" class="sub-img"><img src="img/sub3.1.jpg" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米MIX 2</a></div>
+                                        <div class="price">3299起</div>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="sub-img"><img src="img/sub3.1.jpg" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米Note 3</a></div>
+                                        <div class="price">2499起</div>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="sub-img"><img src="img/sub3.1.jpg" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米6</a></div>
+                                        <div class="price">2499元起</div>
+                                    </li>
+                                    <li>
+                                        <div class="flag"><div>新品</div></div>
+                                        <a href="#" class="sub-img"><img src="img/sub3.4.png" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米Max 2</a></div>
+                                        <div class="price">1399元起</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </li>
                     <li>
-                        <a href="">电视</a>
+                        <a href="" class="main-menu">电视</a>
+                        <div class="sub-menu">
+                            <div class="sub-menu-inner">
+                                <ul class="sub-menu-list center">
+                                    <li>
+                                        <div class="flag">
+                                            <div>超薄旗舰</div>
+                                        </div>
+                                        <a href="#" class="sub-img"><img src="img/sub4.1.png" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米MIX 2</a></div>
+                                        <div class="price">3299起</div>
+                                    </li>
+                                    <li>
+                                        <div class="flag">
+                                            <div>超薄旗舰</div>
+                                        </div>
+                                        <a href="#" class="sub-img"><img src="img/sub4.2.png" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米Note 3</a></div>
+                                        <div class="price">2499起</div>
+                                    </li>
+                                    <li>
+                                        <div class="flag"><div>热卖</div></div>
+                                        <a href="#" class="sub-img"><img src="img/sub4.3.png" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米6</a></div>
+                                        <div class="price">2499元起</div>
+                                    </li>
+                                    <li>
+                                        <div class="flag"><div>热卖</div></div>
+                                        <a href="#" class="sub-img"><img src="img/sub4.4.png" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米Max 2</a></div>
+                                        <div class="price">1399元起</div>
+                                    </li>
+                                    <li>
+                                        <div class="flag"><div>热卖</div></div>
+                                        <a href="#" class="sub-img"><img src="img/sub4.5.png" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米5X</a></div>
+                                        <div class="price">1299元起</div>
+                                    </li>
+                                    <li>
+                                        <div class="flag"><div>热卖</div></div>
+                                        <a href="#" class="sub-img"><img src="img/sub4.6.png" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米5X</a></div>
+                                        <div class="price">1299元起</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </li>
                     <li>
-                        <a href="">盒子 · 影音</a>
+                        <a href="" class="main-menu">盒子</a>
+                        <div class="sub-menu">
+                            <div class="sub-menu-inner">
+                                <ul class="sub-menu-list center">
+                                    <li>
+                                        <a href="#" class="sub-img"><img src="img/sub5.1.png" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米MIX 2</a></div>
+                                        <div class="price">3299起</div>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="sub-img"><img src="img/sub5.1.png" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米Note 3</a></div>
+                                        <div class="price">2499起</div>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="sub-img"><img src="img/sub5.3.jpg" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米6</a></div>
+                                        <div class="price">2499元起</div>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="sub-img"><img src="img/sub5.4.png" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米Max 2</a></div>
+                                        <div class="price">1399元起</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </li>
                     <li>
-                        <a href="">路由器</a>
+                        <a href="" class="main-menu">路由器</a>
+                        <div class="sub-menu">
+                            <div class="sub-menu-inner">
+                                <ul class="sub-menu-list center">
+                                    <li>
+                                        <div class="flag">
+                                            <div>新品</div>
+                                        </div>
+                                        <a href="#" class="sub-img"><img src="img/sub6.1.jpg" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米MIX 2</a></div>
+                                        <div class="price">3299起</div>
+                                    </li>
+                                    <li>
+                                        <div class="flag">
+                                            <div>大容量</div>
+                                        </div>
+                                        <a href="#" class="sub-img"><img src="img/sub6.2.png" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米Note 3</a></div>
+                                        <div class="price">2499起</div>
+                                    </li>
+                                    <li>
+                                        <div class="flag"><div>双千兆</div></div>
+                                        <a href="#" class="sub-img"><img src="img/sub6.3.png" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米6</a></div>
+                                        <div class="price">2499元起</div>
+                                    </li>
+                                    <li>
+                                        <div class="flag"><div>双频</div></div>
+                                        <a href="#" class="sub-img"><img src="img/sub6.1.jpg" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米Max 2</a></div>
+                                        <div class="price">1399元起</div>
+                                    </li>
+                                    <li>
+                                        <div class="flag"><div>包邮</div></div>
+                                        <a href="#" class="sub-img"><img src="img/sub6.2.png" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米5X</a></div>
+                                        <div class="price">1299元起</div>
+                                    </li>
+                                    <li>
+                                        <div class="flag"><div>新品</div></div>
+                                        <a href="#" class="sub-img"><img src="img/sub6.3.png" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米Note 2</a></div>
+                                        <div class="price">2799元起</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </li>
                     <li>
-                        <a href="">智能硬件</a>
+                        <a href="" class="main-menu">智能硬件</a>
+                        <div class="sub-menu">
+                            <div class="sub-menu-inner">
+                                <ul class="sub-menu-list center">
+                                    <li>
+                                        <div class="flag">
+                                            <div>航拍利器</div>
+                                        </div>
+                                        <a href="#" class="sub-img"><img src="img/sub7.1.jpg" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米MIX 2</a></div>
+                                        <div class="price">3299起</div>
+                                    </li>
+                                    <li>
+                                        <div class="flag">
+                                            <div>包邮</div>
+                                        </div>
+                                        <a href="#" class="sub-img"><img src="img/sub7.2.png" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米Note 3</a></div>
+                                        <div class="price">2499起</div>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="sub-img"><img src="img/sub7.3.png" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米6</a></div>
+                                        <div class="price">2499元起</div>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="sub-img"><img src="img/sub7.4.jpg" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米Max 2</a></div>
+                                        <div class="price">1399元起</div>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="sub-img"><img src="img/sub7.5.jpg" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米5X</a></div>
+                                        <div class="price">1299元起</div>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="sub-img"><img src="img/sub7.6.jpg" alt=""></a>
+                                        <div class="describe sub-des"><a href="#">小米Note 2</a></div>
+                                        <div class="price">2799元起</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </li>
                     <li>
-                        <a href="">服务</a>
+                        <a href="" class="main-menu">服务</a>
                     </li>
                     <li>
-                        <a href="">社区</a>
+                        <a href="" class="main-menu">社区</a>
                     </li>
                 </ul>
             </div>
             <div class="index-right">
                 <form>
                     <input type="search" class="search">
-                    <input type="submit" class="submit">
-                    <div>
-                        <a href="*">小米Max 2</a>
-                        <a href="*">小米Note 3 现货</a>
+                    <button class="submit" type="submit"><i class="iconfont icon-search"></i></button>
+                    <ul class="search-list">
+                        <li>
+                            <a href="#">
+                                <span class="search-list-name">小米6</span>
+                                <span class="search-list-des">约有7件</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="search-list-name">小米Note 4</span>
+                                <span class="search-list-des">约有8件</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="search-list-name">小米MIX</span>
+                                <span class="search-list-des">约有1件</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="search-list-name">小米Max2</span>
+                                <span class="search-list-des">约有3件</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="search-list-name">小米5X</span>
+                            <span class="search-list-des">约有3件</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="search-list-name">手环</span>
+                                <span class="search-list-des">约有6件</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="search-list-name">耳机</span>
+                                <span class="search-list-des">约有19件</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="search-list-name">充电宝</span>
+                                <span class="search-list-des">约有19件</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="search-list-name">运动鞋</span>
+                                <span class="search-list-des">约有2件</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="search-list-name">路由器</span>
+                                <span class="search-list-des">约有17件</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="search-hot-words">
+                        <a href="#">小米Max 2</a>
+                        <a href="#">小米Note 3 现货</a>
                     </div>
                 </form>
             </div>
@@ -136,45 +466,160 @@
                 </a>
             </div>
             <div id="slideshow-left-index">
-                <ul>
+                <ul class="float-index">
                     <li>
-                        <a href="">手机 电话卡</a>
+                        <a href="" class="float-a">手机 电话卡</a>
+                        <i class="icon iconfont icon-more"></i>
+                        <div class="slideshow-left-show">
+                            <ul>
+                                <li>
+                                    <a href="#" class="select-shop">
+                                        <img src="img/small1.png" alt="">
+                                        <span>小米6</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="select-shop">
+                                        <img src="img/small2.jpg" alt="">
+                                        <span>小米6</span>
+                                    </a>
+                                </li>
+                                <li><a href="#" class="select-shop">
+                                    <img src="img/small3.jpg" alt="">
+                                    <span>小米6</span>
+                                </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="select-shop">
+                                        <img src="img/small4.png" alt="">
+                                        <span>小米6</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="select-shop">
+                                        <img src="img/small5.png" alt="">
+                                        <span>小米6</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="select-shop">
+                                        <img src="img/small6.jpg" alt="">
+                                        <span>小米6</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <img src="img/small1.png" alt="">
+                                        <span>小米6</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="img/small2.jpg" alt="">
+                                        <span>小米6</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="img/small3.jpg" alt="">
+                                        <span>小米6</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="img/small4.png" alt="">
+                                        <span>小米6</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="img/small5.png" alt="">
+                                        <span>小米6</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="img/small6.jpg" alt="">
+                                        <span>小米6</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <img src="img/small1.png" alt="">
+                                        <span>小米6</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="img/small2.jpg" alt="">
+                                        <span>小米6</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="img/small3.jpg" alt="">
+                                        <span>小米6</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="img/small4.png" alt="">
+                                        <span>小米6</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="img/small5.png" alt="">
+                                        <span>小米6</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="img/small6.jpg" alt="">
+                                        <span>小米6</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="float-a">笔记本 平板</a>
                         <i class="icon iconfont icon-more"></i>
                     </li>
                     <li>
-                        <a href="">笔记本 平板</a>
+                        <a href="" class="float-a">电视 盒子</a>
                         <i class="icon iconfont icon-more"></i>
                     </li>
                     <li>
-                        <a href="">电视 盒子</a>
+                        <a href="" class="float-a">路由器 智能硬件</a>
                         <i class="icon iconfont icon-more"></i>
                     </li>
                     <li>
-                        <a href="">路由器 智能硬件</a>
+                        <a href="" class="float-a"> 移动电源 电池 插线板</a>
                         <i class="icon iconfont icon-more"></i>
                     </li>
                     <li>
-                        <a href=""> 移动电源 电池 插线板</a>
+                        <a href="" class="float-a">耳机 音箱</a>
                         <i class="icon iconfont icon-more"></i>
                     </li>
                     <li>
-                        <a href="">耳机 音箱</a>
+                        <a href="" class="float-a">保护套 贴膜</a>
                         <i class="icon iconfont icon-more"></i>
                     </li>
                     <li>
-                        <a href="">保护套 贴膜</a>
+                        <a href="" class="float-a">线材 支架 存储卡</a>
                         <i class="icon iconfont icon-more"></i>
                     </li>
                     <li>
-                        <a href="">线材 支架 存储卡</a>
+                        <a href="" class="float-a">箱包 服饰 鞋 眼镜</a>
                         <i class="icon iconfont icon-more"></i>
                     </li>
                     <li>
-                        <a href="">箱包 服饰 鞋 眼镜</a>
-                        <i class="icon iconfont icon-more"></i>
-                    </li>
-                    <li>
-                        <a href="">米兔 生活周边</a>
+                        <a href="" class="float-a">米兔 生活周边</a>
                         <i class="icon iconfont icon-more"></i>
                     </li>
                 </ul>
@@ -191,22 +636,40 @@
                 <div id="first-index">
                     <ul>
                         <li>
-                            <a href="">选购手机</a>
+                            <a href="#">
+                                <i class="icon iconfont icon-shouji"></i>
+                                选购手机
+                            </a>
                         </li>
-                        <li>
-                            <a href="">企业团购</a>
+                        <li class="left">
+                            <a href="#">
+                                <i class="icon iconfont icon-liwu"></i>
+                                企业团购
+                            </a>
                         </li>
-                        <li>
-                            <a href="">F码通道</a>
+                        <li class="left">
+                            <a href="#">
+                                <i class="icon iconfont icon-letter-f-outline"></i>
+                                F码通道
+                            </a>
                         </li>
-                        <li>
-                            <a href="">米粉卡</a>
+                        <li class="top">
+                            <a href="#">
+                                <i class="icon iconfont icon-shoujiqia"></i>
+                                米粉卡
+                            </a>
                         </li>
-                        <li>
-                            <a href="">以旧换新</a>
+                        <li class="top left">
+                            <a href="#">
+                                <i class="icon iconfont icon-zhuanhuan"></i>
+                                以旧换新
+                            </a>
                         </li>
-                        <li>
-                            <a href="">话费充值</a>
+                        <li class="top left">
+                            <a href="#">
+                                <i class="icon iconfont icon-iconfontwodeyouhuijuan"></i>
+                                话费充值
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -231,7 +694,7 @@
     </div>
     <div class="color-item">
         <div class="center">
-            <div>
+            <div class="title-pos">
                 <h2 class="title">小米明星单品</h2>
                 <div class="title-arrow">
                     <a href="#" class="title-prev">
