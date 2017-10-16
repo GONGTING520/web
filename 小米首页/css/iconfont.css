@@ -27,17 +27,7 @@
 .icon-delete:before { content: "\e69d"; }
 
 .icon-more:before { content: "\e6a7"; }
-#slideshow-left-index .icon-more{
-  color: #e0e0e0;
-  position: absolute;
-  right: 20px;
-  top: 12px;
-}
-#slideshow-index-arrow .icon-more,#slideshow-index-arrow .icon-back{
-  position: static;
-  color: #757575;
-  font-size: 50px;
-}
+
 .title-arrow .icon-back,.title-arrow .icon-more{
   font-size: 20px;
 }

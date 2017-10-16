@@ -399,6 +399,7 @@ ul{
     line-height: 30px;
     text-align: center;
     margin-left: 25%;
+    transition: all 0.25s ease;
 }
 .footer-call a:hover{
     background: #ff6700;

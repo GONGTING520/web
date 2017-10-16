@@ -18,6 +18,7 @@
     height: 644px;
 }
 /*设置左侧的导航选项列表*/
+    /*轮播图图片开始*/
 #slideshow-index-img{
     text-align: center;
     width: 1226px;
@@ -30,6 +31,8 @@
     display: inline-block;
     height: 460px;
 }
+    /*轮播图图片结束*/
+    /*左侧悬浮导航栏开始*/
 #slideshow-left-index{
     background:rgba(0,0,0,0.6);
     position: absolute;
@@ -41,8 +44,10 @@
 }
 #slideshow-left-index li{
      height: 42px;
-     position: relative;
  }
+#slideshow-left-index li:hover .slideshow-left-show{
+    display: block;
+}
 #slideshow-left-index .float-a{
     color: #ffffff;
     display: block;
@@ -56,23 +61,51 @@
 #slideshow-left-index .float-a:hover{
     background: #ff6700;
 }
+#slideshow-left-index .icon{
+    color: #e0e0e0;
+    float: right;
+    margin: -28px 20px 0 0;
+}
+    /*左侧悬浮导航栏结束*/
+    /*左侧悬浮导航栏的展开商品开始*/
 #slideshow-left-index .slideshow-left-show{
     width: 795px;
     position: absolute;
     z-index: 1;
-    top: -20px;
+    top: 0;
     left: 234px;
+    border: 1px solid #e0e0e0;
+    border-left: 0;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.18);
+    display: none;
+}
+#slideshow-left-index .one-shopping-item .slideshow-left-show{
+    width: 265px;
+}
+#slideshow-left-index .two-shopping-item .slideshow-left-show{
+    width: 530px;
+}
+#slideshow-left-index .four-shopping-item .slideshow-left-show{
+    width: 992px;
+}
+#slideshow-left-index .four-shopping-item .shopping-item{
+    width: 248px;
+}
+.slideshow-left-show img{
+    margin-right: 20px;
+    float: left;
 }
 .slideshow-left-show ul{
     width: 265px;
-    height: 458px;
+    height: 454px;
     padding: 2px 0;
     float: left;
     background: #ffffff;
 }
-.slideshow-left-show li{
-    width: 265px;
+#slideshow-left-index .slideshow-left-show li{
+    width: 100%;
     height: 76px;
+    position: relative;
 }
 .slideshow-left-show a{
     display: block;
@@ -80,6 +113,39 @@
     height: 41px;
     padding: 18px 20px;
 }
+.slideshow-left-show .slideshow-left-des{
+    line-height: 40px;
+    color: #5f5750;
+    font-size: 14px;
+    transition: color 0.5s ease;
+}
+#slideshow-left-index a:hover .slideshow-left-des{
+    color: #ff6700;
+}
+.slideshow-left-show .shopping-item .select-shop{
+    width: 170px;
+    padding-right: 0;
+}
+.slideshow-left-show .shopping-item .selected-shopping{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    margin-top: -11px;
+    width: 58px;
+    height: 22px;
+    border: 1px solid #ff6700;
+    color: #ff6700;
+    padding: 0;
+    text-align: center;
+    line-height: 22px;
+    transition: all 0.5s ease;
+}
+.slideshow-left-show .shopping-item .selected-shopping:hover{
+    background: #ff6700;
+    color: #ffffff;
+}
+    /*左侧悬浮导航栏的展开商品结束*/
+    /*轮播图的箭头开始*/
 #slideshow-index-arrow .prev,#slideshow-index-arrow .next{
     padding: 0;
     width: 41px;
@@ -89,7 +155,7 @@
     position: absolute;
 }
 #slideshow-index-arrow .prev:hover,#slideshow-index-arrow .next:hover{
-    background: #212121;
+    background: rgba(50,50,50,0.7);
 }
 #slideshow-index-arrow .prev{
     top: 200px;
@@ -99,6 +165,13 @@
      top: 200px;
      right: -992px;
  }
+#slideshow-index-arrow .icon-more,#slideshow-index-arrow .icon-back{
+    /*position: static;*/
+    margin: 0;
+    color: #e0e0e0;
+    font-size: 40px;
+}
+    /*轮播图的箭头结束*/
 #four-index div{
     float: left;
     margin-right: 14px;
@@ -266,23 +339,23 @@
     top: 0px;
     right: 0px;
 }
-.ul-index li.selected{
-    color: #ff6700;
-    border-bottom: 2px solid #ff6700;
-    transition: border-color 0.25s ease;
-}
 .ul-index li{
     float: left;
     margin-left: 30px;
     cursor: pointer;
     padding-bottom: 4px;
 }
+.ul-index li.selected{
+    color: #ff6700;
+    border-bottom: 2px solid #ff6700;
+    transition: border-color 0.25s ease;
+}
     /*设置标题导航样式结束*/
     /*设置左侧一张大图片样式开始*/
 .container-img-left{
     width: 234px;
-    height: 628px;
-    margin-bottom: 10px;
+    height: 614px;
+    margin-bottom: 20px;
     float: left;
 }
 .container-img-left a{
@@ -355,6 +428,23 @@
     width: 80px;
     height: 80px;
 }
+.small .small-more{
+    right: 35px;
+    width: 48px;
+    height: 48px;
+}
+.small-more .small-more-a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.small-more .icon-jiantou{
+    font-size: 48px;
+    color: #ff6700;
+    line-height: 80px;
+    text-align: center;
+    margin: 0 auto;
+}
 .small-text{
     display: block;
     line-height: 27px;
@@ -368,6 +458,21 @@
     color: #757575;
 }
     /*设置右下方最小的两个部分的样式结束*/
+    /*设置鼠标移入悬浮开始*/
+.big-mouseover-float,.mouseover-float{
+    transition: all 0.2s ease;
+}
+.big-mouseover-float:hover{
+    margin-top: -2px;
+    margin-bottom: 22px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+.mouseover-float:hover{
+    margin-top: -2px;
+    margin-bottom: 16px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+    /*设置鼠标移入悬浮结束*/
 
     /*为你推荐部分开始*/
 #container-recommend{
@@ -543,8 +648,9 @@
 }
 .video-title a{
     color: #424242;
+    transition: color 0.25s ease;
 }
-.video-title a:hover{
+.video-title a:hover,.video-title a:hover .icon-jinrujiantouxiao{
     color: #ff6700;
 }
 .video-describe{
@@ -565,6 +671,11 @@
     text-align: center;
     color: #b0b0b0;
     font-size: 12px;
+}
+.icon-jinrujiantouxiao{
+    font-size: 18px;
+    color: #757575;
+    transition: color 0.25s ease;
 }
     /*视频结束*/
 /*主体产品分类展示结束*/
