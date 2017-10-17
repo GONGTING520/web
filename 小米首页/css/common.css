@@ -340,9 +340,17 @@ ul{
 }
 .footer-service a{
     color: #616161;
+    transition: color 0.25s ease;
 }
 .footer-service a:hover{
     color: #ff6700;
+}
+.footer-service .iconfont{
+    font-size: 24px;
+    font-weight: normal;
+    margin-right: 6px;
+    line-height: 24px;
+    vertical-align: -3px;
 }
 .footer-links{
     padding: 40px 0;
@@ -404,6 +412,10 @@ ul{
 .footer-call a:hover{
     background: #ff6700;
     color: #ffffff;
+}
+.footer-call .iconfont{
+    margin-right: 5px;
+    vertical-align: -3px;
 }
 .footer-info{
     padding: 30px 0;
