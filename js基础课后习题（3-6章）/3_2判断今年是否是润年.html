@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>判断润年</title>
+</head>
+<body>
+<script>
+    var today = new Date();
+    var year = today.getFullYear();
+    if((year % 4 ==0 && year % 100 != 0) || year % 400 == 0){
+        document.write('<h1>今年是润年</h1>');
+    }else{
+        document.write('<h1>今年不是润年</h1>');
+    }
+</script>
+</body>
+</html>
