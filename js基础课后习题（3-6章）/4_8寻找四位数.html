@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var ABCD = 1000;
+    var aABCD = [];
+    var A,B,C;
+    while(ABCD <= 9999){
+        A = Math.floor(ABCD / 1000);
+        B = Math.floor((ABCD % 1000) / 100);
+        C = Math.floor((ABCD % 100) / 10);
+        if(ABCD % 13 == 0 && (B + C == A)){
+            aABCD.push(ABCD);
+        }
+        ABCD++;
+    }
+    console.log(aABCD);
+</script>
+</body>
+</html>
