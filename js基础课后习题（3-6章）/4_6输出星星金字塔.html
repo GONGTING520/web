@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>输出*金字塔</title>
+</head>
+<body>
+<script>
+    var row = 5;
+    var str;
+    for(var i = 0; i < row; i++){
+        str = '';
+        for(var j = 0; j < row - i - 1; j++){
+            str += '&nbsp';
+        }
+        for(var k = 0; k <= i; k++){
+            if(k == i){
+                str += '*';
+            }else{
+                str += '*&nbsp';
+            }
+        }
+        document.write('<div>' + str + '</div>');
+    }
+</script>
+</body>
+</html>
