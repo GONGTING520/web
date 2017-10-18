@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>判断年龄</title>
+</head>
+<body>
+<script>
+    var age = prompt('请输入年龄');
+    if(age < 14){
+        document.write('<h1>您属于儿童</h1>');
+    }else if(age < 24){
+        document.write('<h1>您属于青少年</h1>');
+    }else if(age < 40){
+        document.write('<h1>您属于青年</h1>');
+    }else if(age < 60){
+        document.write('<h1>您属于中年</h1>');
+    }else{
+        document.write('<h1>您属于老年</h1>');
+    }
+</script>
+</body>
+</html>
