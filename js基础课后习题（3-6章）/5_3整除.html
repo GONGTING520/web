@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>判断整除</title>
+</head>
+<body>
+<script>
+    function aliquot(x){
+        if(x % 3 == 0 && x % 5 == 0 && x % 7 == 0){
+            return true;
+        }
+        return false;
+    }
+    var x = 1;
+    var str = '';
+    var iNum = 0;
+    while(x <= 1000){
+        var result = aliquot(x);
+        if(result){
+            str += x + ' ';
+            iNum++;
+            if(iNum == 6){
+                document.write('<h1>' + str + '</h1>');
+                str = '';
+                iNum = 0;
+            }
+        }
+        x++;
+    }
+    if(str){
+        document.write('<h1>' + str + '</h1>');
+    }
+</script>
+</body>
+</html>
