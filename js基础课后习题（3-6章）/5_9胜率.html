@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计算胜率</title>
+</head>
+<body>
+<script>
+    /**
+     * 9.利用全局变量和函数，设计模拟幸运数字机游戏。
+     * 设幸运数字为8，每次由计算机随机产生3个1-9之间(包括1和9）的随机数，
+     * 当这3个随机数中有一个数字为8时，就算赢了一次，要求利用函数计算获胜率。
+     * */
+    function getRandom(){
+        var iRand = 0;
+        while(iRand < 1 || iRand > 9){
+            iRand = Math.floor(Math.random() * 10);
+        }
+        return iRand;
+    }
+    function winRate() {
+        return iWin / iSum;
+    }
+    var iSum = 0;
+    var iWin = 0;
+    while(iSum <= 100){
+        var x = getRandom();
+        var y = getRandom();
+        var z = getRandom();
+        if(x == 8 || y == 8 || z == 8){
+            document.write('你赢了' + x + ' ' + y + ' ' + z + '<br/>');
+            iWin++;
+        }else{
+            document.write('你输了' + x + ' ' + y + ' ' + z + '<br/>');
+        }
+        iSum++;
+        document.write('总次数为：' + iSum + ',胜率为：' + winRate() + '<br/>');
+    }
+</script>
+</body>
+</html>
