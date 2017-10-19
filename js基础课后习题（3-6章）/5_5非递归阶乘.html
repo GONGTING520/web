@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>非递归阶乘</title>
+</head>
+<body>
+<script>
+    function factorial(n){
+        var iResult = 1;
+        for(var i = 1 ; i <= n ; i++){
+            iResult *= i;
+        }
+        return iResult;
+    }
+    var iFinallyResult = factorial(12) - factorial(10);
+    alert('12! - 10! = ' + iFinallyResult);
+</script>
+</body>
+</html>
