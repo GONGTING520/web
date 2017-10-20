@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>非递归斐波那契</title>
+</head>
+<body>
+<script>
+    var iCount = prompt('请输入项数');
+    var iNum1 = 1;
+    var iNum2 = 1;
+    var iNext = iCount < 3 ? 1 : 2;
+    var iNo = 3;
+    while(iNo < iCount){
+        iNum1 = iNum2;
+        iNum2 = iNext;
+        iNext = iNum1 + iNum2;
+        iNo++;
+    }
+    document.write('第' + iCount + '项为：' + iNext);
+</script>
+</body>
+</html>
