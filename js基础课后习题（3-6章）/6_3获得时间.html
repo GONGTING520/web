@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获得时间</title>
+</head>
+<body>
+<script>
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    var hour = date.getHours();
+    var minute = date.getMinutes();
+    var second = date.getSeconds();
+    var weekend = date.getDay();
+    weekend = weekend == 0 ? 7 : weekend;
+    document.write('现在是' + year + '年' + month + '月' + day + '日' + hour + '点' + minute + '分' + second + '秒（星期' + weekend + ')，欢迎您的到访！');
+</script>
+</body>
+</html>
