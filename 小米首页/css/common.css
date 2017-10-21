@@ -1,13 +1,13 @@
 /* CSS RESET*/
 *{
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 a{
     text-decoration: none;
 }
 img{
-    border: 0px;
+    border: 0;
 }
 ul{
     list-style: none;
@@ -41,7 +41,7 @@ ul{
 /* 设置最上方导航栏的分割线颜色*/
 .main-nav span{
     color: #444444;
-    margin: 0px 6px;
+    margin: 0 6px;
     font-size: 1px;
 }
 /* 最上方导航栏的右半部分*/
@@ -73,6 +73,7 @@ ul{
     background: #ffffff;
 }
 .shopping-list{
+    overflow: hidden;
     position: absolute;
     z-index: 1;
     top: 40px;
@@ -80,13 +81,21 @@ ul{
     width: 316px;
     height: 0;
     background: #ffffff;
-    border: 2px solid rgba(200,200,200,0.2);
+    border: 2px solid rgba(200,200,200,0.4);
     border-top: none;
     transition: height 0.25s ease-out;
 }
+.loading{
+    margin: 20px;
+    padding: 20px 0;
+    width: 276px;
+    height: 33px;
+    font-size: 12px;
+    color: #424242;
+    text-align: center;
+}
 .shopping:hover .shopping-list{
-    padding-top: 15px;
-    height: 83px;
+    height: 98px;
 }
 /*最上方的导航栏结束*/
 
@@ -118,17 +127,15 @@ ul{
 }
 .index-right .submit{
     width: 54px;
-    height: 46px;
-    padding: 1px 6px;
+    height: 48px;
     border: solid 1px #e0e0e0;
+    background: #ffffff;
     position: absolute;
-    top:0px;
+    top:0;
     right: -53px;
     padding: 0 10px;
-    height: 48px;
     font-size: 14px;
     line-height: 48px;
-    background: #ffffff;
     transition: background 0.5s ease;
 }
 .index-right .submit:hover{
@@ -187,7 +194,7 @@ ul{
     top: 25%;
 }
 #logo{
-    margin: 20px 0px 20px;
+    margin: 20px 0 20px;
     width: 55px;
     float: left;
 }
@@ -208,7 +215,7 @@ ul{
     position: absolute;
     left: 0;
     z-index: 2;
-    height: 0px;
+    height: 0;
     width: 100%;
     background: #ffffff;
     overflow: hidden;
@@ -245,7 +252,7 @@ ul{
     height: 100px;
     position: absolute;
     top: 35px;
-    left: 0px;
+    left: 0;
     background: #e0e0e0;
 }
 #index-ul .sub-menu-list li:first-child:before{
@@ -254,7 +261,7 @@ ul{
 #index-ul .sub-menu .flag{
     position: absolute;
     top: -1px;
-    left: 0px;
+    left: 0;
     z-index: 10;
     width: 204px;
     height: 22px;
@@ -287,7 +294,7 @@ ul{
 
 /*图片下方的文字索引设置开始*/
 .text-index{
-    margin: 0px 20px 3px;
+    margin: 0 20px 3px;
     height: 21px;
     font-weight: 400;
     font-size: 14px;
@@ -303,7 +310,7 @@ ul{
 
 /*图片下方的文字描述和价格设置开始*/
 .describe{
-    margin: 0px 10px 12px;
+    margin: 0 10px 12px;
     font-size: 12px;
     height: 18px;
     text-align: center;
@@ -477,7 +484,7 @@ ul{
     width: 267px;
     height: 19px;
     color: #b0b0b0;
-    margin: 30px auto 0px;
+    margin: 30px auto 0;
     text-align: center;
 }
 /*脚部结束*/
