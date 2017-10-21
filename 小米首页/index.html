@@ -55,23 +55,27 @@
             </div>
             <div class="right-main-nav">
                 <div class="shopping">
-                    <a href="*">
+                    <a href="#">
                         <i class="icon iconfont icon-cart"></i>
                         购物车
                         <span>（0）</span>
                     </a>
-                    <div class="shopping-list"></div>
+                    <div class="shopping-list">
+                        <div class="loading">
+                            <p>购物车中还没有商品，赶紧选购吧！</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="log-in">
                     <ul>
                         <li>
-                            <a href="*">登陆</a><span>|</span>
+                            <a href="#">登陆</a><span>|</span>
                         </li>
                         <li>
-                            <a href="*">注册</a><span>|</span>
+                            <a href="#">注册</a><span>|</span>
                         </li>
                         <li>
-                            <a href="*">消息通知</a>
+                            <a href="#">消息通知</a>
                         </li>
                     </ul>
                 </div>
@@ -1430,7 +1434,7 @@
                 </div>
             </div>
             <div id="four-index">
-                <div id="first-index">
+                <div class="first-index">
                     <ul>
                         <li>
                             <a href="#">
@@ -1470,23 +1474,22 @@
                         </li>
                     </ul>
                 </div>
-                <div id="second-index">
-                    <a href="">
+                <div class="second-index mouseover-border">
+                    <a href="#">
                         <img src="img/xiaohuang.jpg">
                     </a>
                 </div>
-                <div id="third-index">
-                    <a href="">
+                <div class="third-index mouseover-border">
+                    <a href="#">
                         <img src="img/xiaohong.jpg">
                     </a>
                 </div>
-                <div id="forth-index">
-                    <a href="">
+                <div class="forth-index mouseover-border">
+                    <a href="#">
                         <img src="img/xiaolan.jpg">
                     </a>
                 </div>
             </div>
-            <!--<div></div>-->
         </div>
     </div>
     <div class="color-item">
@@ -1505,51 +1508,51 @@
             <div id="star-item-img">
                 <ul>
                     <li>
-                        <a href="*" class="star-item-img-a">
+                        <a href="#" class="star-item-img-a">
                             <img src="img/start1.png" alt="小米Note 2">
                         </a>
                         <h3 class="text-index">
-                            <a href="*">小米Note 2</a>
+                            <a href="#">小米Note 2</a>
                         </h3>
                         <p class="describe">最高减700元</p>
                         <p class="price">2099元起</p>
                     </li>
                     <li>
-                        <a href="*" class="star-item-img-a">
+                        <a href="#" class="star-item-img-a">
                             <img src="img/start2.png" alt="红米Note 4X">
                         </a>
                         <h3 class="text-index">
-                            <a href="*">红米Note 4X</a>
+                            <a href="#">红米Note 4X</a>
                         </h3>
                         <p class="describe">4100mAh超长续航，多彩金属</p>
                         <p class="price">999元起</p>
                     </li>
                     <li>
-                        <a href="*" class="star-item-img-a">
+                        <a href="#" class="star-item-img-a">
                             <img src="img/start3.png" alt="红米4X">
                         </a>
                         <h3 class="text-index">
-                            <a href="*">红米4X</a>
+                            <a href="#">红米4X</a>
                         </h3>
                         <p class="describe">4100mAh超长续航，8 核处理器</p>
                         <p class="price">699元起</p>
                     </li>
                     <li>
-                        <a href="*" class="star-item-img-a">
+                        <a href="#" class="star-item-img-a">
                             <img src="img/start4.png" alt="小米电视4A 49 语音版">
                         </a>
                         <h3 class="text-index">
-                            <a href="*">小米电视4A 49" 语音版</a>
+                            <a href="#">小米电视4A 49" 语音版</a>
                         </h3>
                         <p class="describe">限时特惠，直降400元</p>
                         <p class="price">2199元起</p>
                     </li>
                     <li>
-                        <a href="*" class="star-item-img-a">
+                        <a href="#" class="star-item-img-a">
                             <img src="img/start5.png" alt="小米笔记本">
                         </a>
                         <h3 class="text-index">
-                            <a href="*">小米笔记本</a>
+                            <a href="#">小米笔记本</a>
                         </h3>
                         <p class="describe">更轻更薄，像杂志一样随身携带</p>
                         <p class="price">3599元起</p>
@@ -1560,6 +1563,7 @@
     </div>
     <div id="container">
         <div class="center">
+            <!--家电-->
             <div id="container-home-app">
                 <div class="title-index">
                     <h2 class="title">家电</h2>
@@ -1572,96 +1576,136 @@
                 </div>
                 <div id="home-app-img">
                     <div  class="container-img-left big-mouseover-float">
-                        <a href="*">
+                        <a href="#">
                             <img src="img/home-big.jpg">
                         </a>
                     </div>
                     <div class="right-small">
                         <ul class="ul-img-index">
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small1.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">小米电视4A 32"</a>
+                                    <a href="#">小米电视4A 32"</a>
                                 </h3>
                                 <p class="describe">64位四核处理器／1GB+4GB大内存</p>
                                 <p class="price">
                                     <span>1099元</span>
                                     <span class="discount">1199元</span>
                                 </p>
+                                <div class="flag-saleoff">享9.2折</div>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small2.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">小米电视4 55英寸</a>
+                                    <a href="#">小米电视4 55英寸</a>
                                 </h3>
                                 <p class="describe">4.9mm极超薄机身／4K高清HDR</p>
                                 <p class="price">
                                     <span>3999元</span>
                                     <span class="discount">4499元</span>
                                 </p>
+                                <div class="flag-saleoff">享9折</div>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small3.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">小米笔记本Pro 15.6英寸</a>
+                                    <a href="#">小米笔记本Pro 15.6英寸</a>
                                 </h3>
                                 <p class="describe">全金属强化机身/FHD全贴合屏幕</p>
                                 <p class="price">5599元</p>
+                                <div class="flag-new">新品</div>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small4.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">小米笔记本Air 13.3" i7处理器</a>
+                                    <a href="#">小米笔记本Air 13.3" i7处理器</a>
                                 </h3>
                                 <p class="describe">Intel酷睿i7处理器，8GB内存+256GB</p>
                                 <p class="price">5999元</p>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small5.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">米家恒温电水壶</a>
+                                    <a href="#">米家恒温电水壶</a>
                                 </h3>
                                 <p class="describe">水温智能控制，304 不锈钢内胆</p>
                                 <p class="price">199元</p>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small6.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">米家车载空气净化器</a>
+                                    <a href="#">米家车载空气净化器</a>
                                 </h3>
                                 <p class="describe">双风机循环气流，高效净化车内空气</p>
                                 <p class="price">449元</p>
+                                <div class="flag-new">新品</div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small7.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">小米空气净化器2</a>
+                                    <a href="#">小米空气净化器2</a>
                                 </h3>
                                 <p class="describe">大流量直出纯净水，健康家庭必备</p>
                                 <p class="price">1999元</p>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="small mouseover-float">
                                 <div>
-                                    <a href="*" class="small-img-a">
+                                    <a href="#" class="small-img-a">
                                         <img src="img/home-small8.jpg">
                                     </a>
                                 </div>
                                 <h3 class="text-index">
-                                    <a href="*">小白摄像机</a>
+                                    <a href="#">小白摄像机</a>
                                 </h3>
                                 <p class="price">399元</p>
                             </li>
@@ -1671,7 +1715,7 @@
                                         <i class="icon iconfont icon-jiantou"></i>
                                     </a>
                                 </div>
-                                <a href="*" class="small-text">
+                                <a href="#" class="small-text">
                                     浏览更多<br>
                                     <small>热门</small>
                                 </a>
@@ -1680,6 +1724,7 @@
                     </div>
                 </div>
             </div>
+            <!--智能-->
             <div id="container-intelligence">
                 <div class="title-index">
                     <h2 class="title">智能</h2>
@@ -1695,12 +1740,12 @@
                     <div class="container-img-left">
                         <ul>
                             <li class="mouseover-float">
-                                <a href="*">
+                                <a href="#">
                                     <img src="img/intelligence-left1.jpg">
                                 </a>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*">
+                                <a href="#">
                                     <img src="img/intelligence-left2.jpg">
                                 </a>
                             </li>
@@ -1709,89 +1754,129 @@
                     <div class="right-small">
                         <ul class="ul-img-index">
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small1.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">小米电视4A 32"</a>
+                                    <a href="#">小米电视4A 32"</a>
                                 </h3>
                                 <p class="describe">64位四核处理器／1GB+4GB大内存</p>
                                 <p class="price">
                                     <span>1099元</span>
                                     <span class="discount">1199元</span>
                                 </p>
+                                <div class="flag-new">新品</div>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small2.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">小米电视4 55英寸</a>
+                                    <a href="#">小米电视4 55英寸</a>
                                 </h3>
                                 <p class="describe">4.9mm极超薄机身／4K高清HDR</p>
                                 <p class="price">
                                     <span>3999元</span>
                                     <span class="discount">4499元</span>
                                 </p>
+                                <div class="flag-new">新品</div>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small3.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">小米笔记本Pro 15.6英寸</a>
+                                    <a href="#">小米笔记本Pro 15.6英寸</a>
                                 </h3>
                                 <p class="describe">全金属强化机身/FHD全贴合屏幕</p>
                                 <p class="price">5599元</p>
+                                <div class="flag-new">新品</div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small4.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">小米笔记本Air 13.3" i7处理器</a>
+                                    <a href="#">小米笔记本Air 13.3" i7处理器</a>
                                 </h3>
                                 <p class="describe">Intel酷睿i7处理器，8GB内存+256GB</p>
                                 <p class="price">5999元</p>
+                                <div class="flag-postfree">免邮费</div>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small5.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">米家恒温电水壶</a>
+                                    <a href="#">米家恒温电水壶</a>
                                 </h3>
                                 <p class="describe">水温智能控制，304 不锈钢内胆</p>
                                 <p class="price">199元</p>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small6.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">米家车载空气净化器</a>
+                                    <a href="#">米家车载空气净化器</a>
                                 </h3>
                                 <p class="describe">双风机循环气流，高效净化车内空气</p>
                                 <p class="price">449元</p>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small7.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">小米空气净化器2</a>
+                                    <a href="#">小米空气净化器2</a>
                                 </h3>
                                 <p class="describe">大流量直出纯净水，健康家庭必备</p>
                                 <p class="price">1999元</p>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="small mouseover-float">
                                 <div>
-                                    <a href="*" class="small-img-a">
+                                    <a href="#" class="small-img-a">
                                         <img src="img/home-small8.jpg">
                                     </a>
                                 </div>
                                 <h3 class="text-index">
-                                    <a href="*">小白摄像机</a>
+                                    <a href="#">小白摄像机</a>
                                 </h3>
                                 <p class="price">399元</p>
                             </li>
@@ -1801,7 +1886,7 @@
                                         <i class="icon iconfont icon-jiantou"></i>
                                     </a>
                                 </div>
-                                <a href="*" class="small-text">
+                                <a href="#" class="small-text">
                                     浏览更多<br>
                                     <small>热门</small>
                                 </a>
@@ -1810,6 +1895,7 @@
                     </div>
                 </div>
             </div>
+            <!--搭配-->
             <div id="container-match">
                 <div class="title-index">
                     <h2 class="title">搭配</h2>
@@ -1824,12 +1910,12 @@
                     <div class="container-img-left">
                         <ul>
                             <li class="mouseover-float">
-                                <a href="*">
+                                <a href="#">
                                     <img src="img/intelligence-left1.jpg">
                                 </a>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*">
+                                <a href="#">
                                     <img src="img/intelligence-left2.jpg">
                                 </a>
                             </li>
@@ -1838,89 +1924,132 @@
                     <div class="right-small">
                         <ul class="ul-img-index">
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small1.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">小米电视4A 32"</a>
+                                    <a href="#">小米电视4A 32"</a>
                                 </h3>
                                 <p class="describe">64位四核处理器／1GB+4GB大内存</p>
                                 <p class="price">
                                     <span>1099元</span>
                                     <span class="discount">1199元</span>
                                 </p>
+                                <div class="flag-new">新品</div>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small2.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">小米电视4 55英寸</a>
+                                    <a href="#">小米电视4 55英寸</a>
                                 </h3>
                                 <p class="describe">4.9mm极超薄机身／4K高清HDR</p>
                                 <p class="price">
                                     <span>3999元</span>
                                     <span class="discount">4499元</span>
                                 </p>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small3.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">小米笔记本Pro 15.6英寸</a>
+                                    <a href="#">小米笔记本Pro 15.6英寸</a>
                                 </h3>
                                 <p class="describe">全金属强化机身/FHD全贴合屏幕</p>
                                 <p class="price">5599元</p>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small4.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">小米笔记本Air 13.3" i7处理器</a>
+                                    <a href="#">小米笔记本Air 13.3" i7处理器</a>
                                 </h3>
                                 <p class="describe">Intel酷睿i7处理器，8GB内存+256GB</p>
                                 <p class="price">5999元</p>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small5.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">米家恒温电水壶</a>
+                                    <a href="#">米家恒温电水壶</a>
                                 </h3>
                                 <p class="describe">水温智能控制，304 不锈钢内胆</p>
                                 <p class="price">199元</p>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small6.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">米家车载空气净化器</a>
+                                    <a href="#">米家车载空气净化器</a>
                                 </h3>
                                 <p class="describe">双风机循环气流，高效净化车内空气</p>
                                 <p class="price">449元</p>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small7.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">小米空气净化器2</a>
+                                    <a href="#">小米空气净化器2</a>
                                 </h3>
                                 <p class="describe">大流量直出纯净水，健康家庭必备</p>
                                 <p class="price">1999元</p>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="small mouseover-float">
                                 <div>
-                                    <a href="*" class="small-img-a">
+                                    <a href="#" class="small-img-a">
                                         <img src="img/home-small8.jpg">
                                     </a>
                                 </div>
                                 <h3 class="text-index">
-                                    <a href="*">小白摄像机</a>
+                                    <a href="#">小白摄像机</a>
                                 </h3>
                                 <p class="price">399元</p>
                             </li>
@@ -1930,7 +2059,7 @@
                                         <i class="icon iconfont icon-jiantou"></i>
                                     </a>
                                 </div>
-                                <a href="*" class="small-text">
+                                <a href="#" class="small-text">
                                     浏览更多<br>
                                     <small>热门</small>
                                 </a>
@@ -1939,6 +2068,179 @@
                     </div>
                 </div>
             </div>
+            <!--配件-->
+            <div id="container-fittings">
+                <div class="title-index">
+                    <h2 class="title">配件</h2>
+                    <ul class="ul-index">
+                        <li class="selected">热门</li>
+                        <li>保护套</li>
+                        <li>贴膜</li>
+                        <li>其他配件</li>
+                    </ul>
+                </div>
+                <div id="fittings-img">
+                    <div class="container-img-left">
+                        <ul>
+                            <li class="mouseover-float">
+                                <a href="#">
+                                    <img src="img/intelligence-left1.jpg">
+                                </a>
+                            </li>
+                            <li class="mouseover-float">
+                                <a href="#">
+                                    <img src="img/intelligence-left2.jpg">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="right-small">
+                        <ul class="ul-img-index">
+                            <li class="mouseover-float">
+                                <a href="#" class="ul-img">
+                                    <img src="img/home-small1.jpg">
+                                </a>
+                                <h3 class="text-index">
+                                    <a href="#">小米电视4A 32"</a>
+                                </h3>
+                                <p class="describe">64位四核处理器／1GB+4GB大内存</p>
+                                <p class="price">
+                                    <span>1099元</span>
+                                    <span class="discount">1199元</span>
+                                </p>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="mouseover-float">
+                                <a href="#" class="ul-img">
+                                    <img src="img/home-small2.jpg">
+                                </a>
+                                <h3 class="text-index">
+                                    <a href="#">小米电视4 55英寸</a>
+                                </h3>
+                                <p class="describe">4.9mm极超薄机身／4K高清HDR</p>
+                                <p class="price">
+                                    <span>3999元</span>
+                                    <span class="discount">4499元</span>
+                                </p>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="mouseover-float">
+                                <a href="#" class="ul-img">
+                                    <img src="img/home-small3.jpg">
+                                </a>
+                                <h3 class="text-index">
+                                    <a href="#">小米笔记本Pro 15.6英寸</a>
+                                </h3>
+                                <p class="describe">全金属强化机身/FHD全贴合屏幕</p>
+                                <p class="price">5599元</p>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="mouseover-float">
+                                <a href="#" class="ul-img">
+                                    <img src="img/home-small4.jpg">
+                                </a>
+                                <h3 class="text-index">
+                                    <a href="#">小米笔记本Air 13.3" i7处理器</a>
+                                </h3>
+                                <p class="describe">Intel酷睿i7处理器，8GB内存+256GB</p>
+                                <p class="price">5999元</p>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="mouseover-float">
+                                <a href="#" class="ul-img">
+                                    <img src="img/home-small5.jpg">
+                                </a>
+                                <h3 class="text-index">
+                                    <a href="#">米家恒温电水壶</a>
+                                </h3>
+                                <p class="describe">水温智能控制，304 不锈钢内胆</p>
+                                <p class="price">199元</p>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="mouseover-float">
+                                <a href="#" class="ul-img">
+                                    <img src="img/home-small6.jpg">
+                                </a>
+                                <h3 class="text-index">
+                                    <a href="#">米家车载空气净化器</a>
+                                </h3>
+                                <p class="describe">双风机循环气流，高效净化车内空气</p>
+                                <p class="price">449元</p>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="mouseover-float">
+                                <a href="#" class="ul-img">
+                                    <img src="img/home-small7.jpg">
+                                </a>
+                                <h3 class="text-index">
+                                    <a href="#">小米空气净化器2</a>
+                                </h3>
+                                <p class="describe">大流量直出纯净水，健康家庭必备</p>
+                                <p class="price">1999元</p>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="small mouseover-float">
+                                <div>
+                                    <a href="#" class="small-img-a">
+                                        <img src="img/home-small8.jpg">
+                                    </a>
+                                </div>
+                                <h3 class="text-index">
+                                    <a href="#">小白摄像机</a>
+                                </h3>
+                                <p class="price">399元</p>
+                            </li>
+                            <li class="small mouseover-float">
+                                <div class="small-more">
+                                    <a href="#" class="small-more-a">
+                                        <i class="icon iconfont icon-jiantou"></i>
+                                    </a>
+                                </div>
+                                <a href="#" class="small-text">
+                                    浏览更多<br>
+                                    <small>热门</small>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--周边-->
             <div id="container-surrounding">
                 <div class="title-index">
                     <h2 class="title">周边</h2>
@@ -1954,12 +2256,12 @@
                     <div class="container-img-left">
                         <ul>
                             <li class="mouseover-float">
-                                <a href="*">
+                                <a href="#">
                                     <img src="img/intelligence-left1.jpg">
                                 </a>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*">
+                                <a href="#">
                                     <img src="img/intelligence-left2.jpg">
                                 </a>
                             </li>
@@ -1968,89 +2270,136 @@
                     <div class="right-small">
                         <ul class="ul-img-index">
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small1.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">小米电视4A 32"</a>
+                                    <a href="#">小米电视4A 32"</a>
                                 </h3>
                                 <p class="describe">64位四核处理器／1GB+4GB大内存</p>
                                 <p class="price">
                                     <span>1099元</span>
                                     <span class="discount">1199元</span>
                                 </p>
+                                <div class="flag-new">新品</div>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small2.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">小米电视4 55英寸</a>
+                                    <a href="#">小米电视4 55英寸</a>
                                 </h3>
                                 <p class="describe">4.9mm极超薄机身／4K高清HDR</p>
                                 <p class="price">
                                     <span>3999元</span>
                                     <span class="discount">4499元</span>
                                 </p>
+                                <div class="flag-new">新品</div>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small3.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">小米笔记本Pro 15.6英寸</a>
+                                    <a href="#">小米笔记本Pro 15.6英寸</a>
                                 </h3>
                                 <p class="describe">全金属强化机身/FHD全贴合屏幕</p>
                                 <p class="price">5599元</p>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small4.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">小米笔记本Air 13.3" i7处理器</a>
+                                    <a href="#">小米笔记本Air 13.3" i7处理器</a>
                                 </h3>
                                 <p class="describe">Intel酷睿i7处理器，8GB内存+256GB</p>
                                 <p class="price">5999元</p>
+                                <div class="flag-new">新品</div>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small5.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">米家恒温电水壶</a>
+                                    <a href="#">米家恒温电水壶</a>
                                 </h3>
                                 <p class="describe">水温智能控制，304 不锈钢内胆</p>
                                 <p class="price">199元</p>
+                                <div class="flag-new">新品</div>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small6.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">米家车载空气净化器</a>
+                                    <a href="#">米家车载空气净化器</a>
                                 </h3>
                                 <p class="describe">双风机循环气流，高效净化车内空气</p>
                                 <p class="price">449元</p>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="mouseover-float">
-                                <a href="*" class="ul-img">
+                                <a href="#" class="ul-img">
                                     <img src="img/home-small7.jpg">
                                 </a>
                                 <h3 class="text-index">
-                                    <a href="*">小米空气净化器2</a>
+                                    <a href="#">小米空气净化器2</a>
                                 </h3>
                                 <p class="describe">大流量直出纯净水，健康家庭必备</p>
                                 <p class="price">1999元</p>
+                                <div class="flag-new">新品</div>
+                                <div class="review-wrapper">
+                                    <a href="#">
+                                        <span class="review">照片看的不好，但是现实效果非常满意，物超所值大力支持...</span>
+                                        <span class="author"> 来自于 非同儿戏 的评价 </span>
+                                    </a>
+                                </div>
                             </li>
                             <li class="small mouseover-float">
                                 <div>
-                                    <a href="*" class="small-img-a">
+                                    <a href="#" class="small-img-a">
                                         <img src="img/home-small8.jpg">
                                     </a>
                                 </div>
                                 <h3 class="text-index">
-                                    <a href="*">小白摄像机</a>
+                                    <a href="#">小白摄像机</a>
                                 </h3>
                                 <p class="price">399元</p>
                             </li>
@@ -2060,7 +2409,7 @@
                                         <i class="icon iconfont icon-jiantou"></i>
                                     </a>
                                 </div>
-                                <a href="*" class="small-text">
+                                <a href="#" class="small-text">
                                     浏览更多<br>
                                     <small>热门</small>
                                 </a>
@@ -2069,135 +2418,7 @@
                     </div>
                 </div>
             </div>
-            <div id="container-fittings">
-                <div class="title-index">
-                    <h2 class="title">配件</h2>
-                    <ul class="ul-index">
-                        <li class="selected">热门</li>
-                        <li>保护套</li>
-                        <li>贴膜</li>
-                        <li>其他配件</li>
-                    </ul>
-                </div>
-                <div id="fittings-img">
-                    <div class="container-img-left">
-                        <ul>
-                            <li class="mouseover-float">
-                                <a href="*">
-                                    <img src="img/intelligence-left1.jpg">
-                                </a>
-                            </li>
-                            <li class="mouseover-float">
-                                <a href="*">
-                                    <img src="img/intelligence-left2.jpg">
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="right-small">
-                        <ul class="ul-img-index">
-                            <li class="mouseover-float">
-                                <a href="*" class="ul-img">
-                                    <img src="img/home-small1.jpg">
-                                </a>
-                                <h3 class="text-index">
-                                    <a href="*">小米电视4A 32"</a>
-                                </h3>
-                                <p class="describe">64位四核处理器／1GB+4GB大内存</p>
-                                <p class="price">
-                                    <span>1099元</span>
-                                    <span class="discount">1199元</span>
-                                </p>
-                            </li>
-                            <li class="mouseover-float">
-                                <a href="*" class="ul-img">
-                                    <img src="img/home-small2.jpg">
-                                </a>
-                                <h3 class="text-index">
-                                    <a href="*">小米电视4 55英寸</a>
-                                </h3>
-                                <p class="describe">4.9mm极超薄机身／4K高清HDR</p>
-                                <p class="price">
-                                    <span>3999元</span>
-                                    <span class="discount">4499元</span>
-                                </p>
-                            </li>
-                            <li class="mouseover-float">
-                                <a href="*" class="ul-img">
-                                    <img src="img/home-small3.jpg">
-                                </a>
-                                <h3 class="text-index">
-                                    <a href="*">小米笔记本Pro 15.6英寸</a>
-                                </h3>
-                                <p class="describe">全金属强化机身/FHD全贴合屏幕</p>
-                                <p class="price">5599元</p>
-                            </li>
-                            <li class="mouseover-float">
-                                <a href="*" class="ul-img">
-                                    <img src="img/home-small4.jpg">
-                                </a>
-                                <h3 class="text-index">
-                                    <a href="*">小米笔记本Air 13.3" i7处理器</a>
-                                </h3>
-                                <p class="describe">Intel酷睿i7处理器，8GB内存+256GB</p>
-                                <p class="price">5999元</p>
-                            </li>
-                            <li class="mouseover-float">
-                                <a href="*" class="ul-img">
-                                    <img src="img/home-small5.jpg">
-                                </a>
-                                <h3 class="text-index">
-                                    <a href="*">米家恒温电水壶</a>
-                                </h3>
-                                <p class="describe">水温智能控制，304 不锈钢内胆</p>
-                                <p class="price">199元</p>
-                            </li>
-                            <li class="mouseover-float">
-                                <a href="*" class="ul-img">
-                                    <img src="img/home-small6.jpg">
-                                </a>
-                                <h3 class="text-index">
-                                    <a href="*">米家车载空气净化器</a>
-                                </h3>
-                                <p class="describe">双风机循环气流，高效净化车内空气</p>
-                                <p class="price">449元</p>
-                            </li>
-                            <li class="mouseover-float">
-                                <a href="*" class="ul-img">
-                                    <img src="img/home-small7.jpg">
-                                </a>
-                                <h3 class="text-index">
-                                    <a href="*">小米空气净化器2</a>
-                                </h3>
-                                <p class="describe">大流量直出纯净水，健康家庭必备</p>
-                                <p class="price">1999元</p>
-                            </li>
-                            <li class="small mouseover-float">
-                                <div>
-                                    <a href="*" class="small-img-a">
-                                        <img src="img/home-small8.jpg">
-                                    </a>
-                                </div>
-                                <h3 class="text-index">
-                                    <a href="*">小白摄像机</a>
-                                </h3>
-                                <p class="price">399元</p>
-                            </li>
-                            <li class="small mouseover-float">
-                                <div class="small-more">
-                                    <a href="#" class="small-more-a">
-                                        <i class="icon iconfont icon-jiantou"></i>
-                                    </a>
-                                </div>
-                                <a href="*" class="small-text">
-                                    浏览更多<br>
-                                    <small>热门</small>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <!--为你推荐-->
             <div id="container-recommend">
                 <div class="title-index">
                     <h2 class="title">为你推荐</h2>
@@ -2213,51 +2434,51 @@
                 <div>
                     <ul class="right-small recommend">
                         <li class="mouseover-float">
-                            <a href="*" class="ul-img">
+                            <a href="#" class="ul-img">
                                 <img src="img/home-small1.jpg">
                             </a>
                             <h3 class="text-index">
-                                <a href="*">小米电视4A 32"</a>
+                                <a href="#">小米电视4A 32"</a>
                             </h3>
                             <p class="price">5599元</p>
                             <p class="describe">1.6万人好评</p>
                         </li>
                         <li class="mouseover-float">
-                            <a href="*" class="ul-img">
+                            <a href="#" class="ul-img">
                                 <img src="img/home-small2.jpg">
                             </a>
                             <h3 class="text-index">
-                                <a href="*">小米电视4 55英寸</a>
+                                <a href="#">小米电视4 55英寸</a>
                             </h3>
                             <p class="price">5599元</p>
                             <p class="describe">1.6万人好评</p>
                         </li>
                         <li class="mouseover-float">
-                            <a href="*" class="ul-img">
+                            <a href="#" class="ul-img">
                                 <img src="img/home-small3.jpg">
                             </a>
                             <h3 class="text-index">
-                                <a href="*">小米笔记本Pro 15.6英寸</a>
+                                <a href="#">小米笔记本Pro 15.6英寸</a>
                             </h3>
                             <p class="price">5599元</p>
                             <p class="describe">1.6万人好评</p>
                         </li>
                         <li class="mouseover-float">
-                            <a href="*" class="ul-img">
+                            <a href="#" class="ul-img">
                                 <img src="img/home-small4.jpg">
                             </a>
                             <h3 class="text-index">
-                                <a href="*">小米笔记本Air 13.3" i7处理器</a>
+                                <a href="#">小米笔记本Air 13.3" i7处理器</a>
                             </h3>
                             <p class="price">5999元</p>
                             <p class="describe">6.5万人好评</p>
                         </li>
                         <li class="mouseover-float">
-                            <a href="*" class="ul-img">
+                            <a href="#" class="ul-img">
                                 <img src="img/home-small5.jpg">
                             </a>
                             <h3 class="text-index">
-                                <a href="*">米家恒温电水壶</a>
+                                <a href="#">米家恒温电水壶</a>
                             </h3>
                             <p class="price">199元</p>
                             <p class="describe">4587人好评</p>
@@ -2265,6 +2486,7 @@
                     </ul>
                 </div>
             </div>
+            <!--热评产品-->
             <div id="container-buzz-products">
                 <div>
                     <h2 class="title">热评产品</h2>
@@ -2272,56 +2494,56 @@
                 <div class="buzz-overview">
                     <ul>
                         <li class="mouseover-float">
-                            <a href="*"><img src="img/buzz1.jpg"></a>
+                            <a href="#"><img src="img/buzz1.jpg"></a>
                             <p class="buzz-describe">
-                                <a href="*">样子好可爱，特别是转来转去时很有趣。让它休眠时它就会把头转过去背对着你了，唤醒它又会自动转回来。你</a>
+                                <a href="#">样子好可爱，特别是转来转去时很有趣。让它休眠时它就会把头转过去背对着你了，唤醒它又会自动转回来。你</a>
                             </p>
                             <p class="describe"> 来自于 随风 的评价 </p>
                             <div class="buzz-name">
                                 <h3>
-                                    <a href="*">米家小白智能摄像机</a>
+                                    <a href="#">米家小白智能摄像机</a>
                                 </h3>
                                 <span>|</span>
                                 <p class="price">399元</p>
                             </div>
                         </li>
                         <li class="mouseover-float">
-                            <a href="*"><img src="img/buzz2.jpg"></a>
+                            <a href="#"><img src="img/buzz2.jpg"></a>
                             <p class="buzz-describe">
-                                <a href="*">非常可爱，一拿到小宝宝还没享受，一帮大宝宝先high了一把，同事也想买，希望早点大卖</a>
+                                <a href="#">非常可爱，一拿到小宝宝还没享受，一帮大宝宝先high了一把，同事也想买，希望早点大卖</a>
                             </p>
                             <p class="describe"> 来自于 秘密 的评价 </p>
                             <div class="buzz-name">
                                 <h3>
-                                    <a href="*">米兔智能故事机</a>
+                                    <a href="#">米兔智能故事机</a>
                                 </h3>
                                 <span>|</span>
                                 <p class="price">199元</p>
                             </div>
                         </li>
                         <li class="mouseover-float">
-                            <a href="*"><img src="img/buzz3.jpg"></a>
+                            <a href="#"><img src="img/buzz3.jpg"></a>
                             <p class="buzz-describe">
-                                <a href="*">东西真心不错，用过最好用的插线板，做工外观没得挑剔，3个USB接口很实用，充电快，建议不包邮的应该在...</a>
+                                <a href="#">东西真心不错，用过最好用的插线板，做工外观没得挑剔，3个USB接口很实用，充电快，建议不包邮的应该在...</a>
                             </p>
                             <p class="describe"> 来自于 yinyin19891117 的评价 </p>
                             <div class="buzz-name">
                                 <h3>
-                                    <a href="*">小米插线板</a>
+                                    <a href="#">小米插线板</a>
                                 </h3>
                                 <span>|</span>
                                 <p class="price">49元</p>
                             </div>
                         </li>
                         <li class="mouseover-float">
-                            <a href="*"><img src="img/buzz4.jpg"></a>
+                            <a href="#"><img src="img/buzz4.jpg"></a>
                             <p class="buzz-describe">
-                                <a href="*">这箱子很好，外观漂亮，实用性强。很轻，有点软但不影响它的坚固。</a>
+                                <a href="#">这箱子很好，外观漂亮，实用性强。很轻，有点软但不影响它的坚固。</a>
                             </p>
                             <p class="describe"> 来自于 子书雁 的评价 </p>
                             <div class="buzz-name">
                                 <h3>
-                                    <a href="*">90分旅行箱 20寸</a>
+                                    <a href="#">90分旅行箱 20寸</a>
                                 </h3>
                                 <span>|</span>
                                 <p class="price">299元</p>
@@ -2330,6 +2552,7 @@
                     </ul>
                 </div>
             </div>
+            <!--内容-->
             <div id="container-content">
                 <div>
                     <h2 class="title">内容</h2>
@@ -2340,18 +2563,18 @@
                             <h2 class="content-title">图书</h2>
                             <div>
                                 <h4 class="name">
-                                    <a href="*">哈利·波特与被诅咒的孩子</a>
+                                    <a href="#">哈利·波特与被诅咒的孩子</a>
                                 </h4>
                                 <p class="content-describe">
-                                    <a href="*">
+                                    <a href="#">
                                         “哈利·波特”第八个故事中文版震撼来袭！特别彩排版剧本！
                                     </a>
                                 </p>
                                 <p class="content-price">
-                                    <a href="*">29.37元</a>
+                                    <a href="#">29.37元</a>
                                 </p>
                                 <div class="content-img">
-                                    <a href="*">
+                                    <a href="#">
                                         <img src="img/content1.png">
                                     </a>
                                 </div>
@@ -2361,18 +2584,18 @@
                             <h2 class="content-title">MIUI 主题</h2>
                             <div>
                                 <h4 class="name">
-                                    <a href="*">吴亦凡定制主题</a>
+                                    <a href="#">吴亦凡定制主题</a>
                                 </h4>
                                 <p class="content-describe">
-                                    <a href="*">
+                                    <a href="#">
                                         6张锁屏动态壁纸随机，每张都给你惊喜！
                                     </a>
                                 </p>
                                 <p class="content-price">
-                                    <a href="*">免费</a>
+                                    <a href="#">免费</a>
                                 </p>
                                 <div class="content-img">
-                                    <a href="*">
+                                    <a href="#">
                                         <img src="img/content2.jpg">
                                     </a>
                                 </div>
@@ -2382,18 +2605,18 @@
                             <h2 class="content-title">游戏</h2>
                             <div>
                                 <h4 class="name">
-                                    <a href="*">米柚手游模拟器</a>
+                                    <a href="#">米柚手游模拟器</a>
                                 </h4>
                                 <p class="content-describe">
-                                    <a href="*">
+                                    <a href="#">
                                         在电脑上玩遍小米所有手游
                                     </a>
                                 </p>
                                 <p class="content-price">
-                                    <a href="*">免费</a>
+                                    <a href="#">免费</a>
                                 </p>
                                 <div class="content-img">
-                                    <a href="*">
+                                    <a href="#">
                                         <img src="img/content3.png">
                                     </a>
                                 </div>
@@ -2403,18 +2626,18 @@
                             <h2 class="content-title">应用</h2>
                             <div>
                                 <h4 class="name">
-                                    <a href="*">2017金米奖</a>
+                                    <a href="#">2017金米奖</a>
                                 </h4>
                                 <p class="content-describe">
-                                    <a href="*">
+                                    <a href="#">
                                         最优秀的应用和游戏
                                     </a>
                                 </p>
                                 <p class="content-price">
-                                    <a href="*"></a>
+                                    <a href="#"></a>
                                 </p>
                                 <div class="content-img">
-                                    <a href="*">
+                                    <a href="#">
                                         <img src="img/content4.png">
                                     </a>
                                 </div>
@@ -2423,11 +2646,12 @@
                     </ul>
                 </div>
             </div>
+            <!--视频-->
             <div id="container-video">
                 <div class="video-title">
                     <h2 class="title">视频</h2>
                     <div>
-                        <a href="*">
+                        <a href="#">
                             查看全部
                             <i class="icon iconfont icon-jinrujiantouxiao"></i>
                         </a>
@@ -2436,31 +2660,31 @@
                 <div class="video-overview">
                     <ul>
                         <li class="mouseover-float">
-                            <a href="*">
+                            <a href="#">
                                 <img src="img/video1.jpg" title="点击播放视频">
                             </a>
-                            <h3 class="video-describe"><a href="*">雷军与斯塔克打造全面屏2.0</a></h3>
+                            <h3 class="video-describe"><a href="#">雷军与斯塔克打造全面屏2.0</a></h3>
                             <p>一场关于小米MIX 2 极致工艺的巅峰对话</p>
                         </li>
                         <li class="mouseover-float">
-                            <a href="*">
+                            <a href="#">
                                 <img src="img/video2.jpg" title="点击播放视频">
                             </a>
-                            <h3 class="video-describe"><a href="*">小米Note 3 与吴亦凡</a></h3>
+                            <h3 class="video-describe"><a href="#">小米Note 3 与吴亦凡</a></h3>
                             <p>看看小米Note 3 与吴亦凡谁更帅？</p>
                         </li>
                         <li class="mouseover-float">
-                            <a href="*">
+                            <a href="#">
                                 <img src="img/video3.jpg" title="点击播放视频">
                             </a>
-                            <h3 class="video-describe"><a href="*">MIUI 9 理念视频</a></h3>
+                            <h3 class="video-describe"><a href="#">MIUI 9 理念视频</a></h3>
                             <p>快如闪电，前所未有的流畅</p>
                         </li>
                         <li class="mouseover-float">
-                            <a href="*">
+                            <a href="#">
                                 <img src="img/video4.jpg" title="点击播放视频">
                             </a>
-                            <h3 class="video-describe"><a href="*">拍人更美的背后故事</a></h3>
+                            <h3 class="video-describe"><a href="#">拍人更美的背后故事</a></h3>
                             <p>小米手机工程师采访视频</p>
                         </li>
                     </ul>
@@ -2511,35 +2735,35 @@
                             <td>特色服务</td>
                         </tr>
                         <tr>
-                            <td><a href="*">账户管理</a></td>
-                            <td><a href="*">售后政策</a></td>
-                            <td><a href="*">小米之家</a></td>
-                            <td><a href="*">了解小米</a></td>
-                            <td><a href="*">新浪微博</a></td>
-                            <td><a href="*">F 码通道</a></td>
+                            <td><a href="#">账户管理</a></td>
+                            <td><a href="#">售后政策</a></td>
+                            <td><a href="#">小米之家</a></td>
+                            <td><a href="#">了解小米</a></td>
+                            <td><a href="#">新浪微博</a></td>
+                            <td><a href="#">F 码通道</a></td>
                         </tr>
                         <tr>
-                            <td><a href="*">账户管理</a></td>
-                            <td><a href="*">售后政策</a></td>
-                            <td><a href="*">小米之家</a></td>
-                            <td><a href="*">了解小米</a></td>
-                            <td><a href="*">新浪微博</a></td>
-                            <td><a href="*">F 码通道</a></td>
+                            <td><a href="#">账户管理</a></td>
+                            <td><a href="#">售后政策</a></td>
+                            <td><a href="#">小米之家</a></td>
+                            <td><a href="#">了解小米</a></td>
+                            <td><a href="#">新浪微博</a></td>
+                            <td><a href="#">F 码通道</a></td>
                         </tr>
                         <tr>
-                            <td><a href="*">账户管理</a></td>
-                            <td><a href="*">售后政策</a></td>
-                            <td><a href="*">小米之家</a></td>
-                            <td><a href="*">了解小米</a></td>
-                            <td><a href="*">新浪微博</a></td>
-                            <td><a href="*">F 码通道</a></td>
+                            <td><a href="#">账户管理</a></td>
+                            <td><a href="#">售后政策</a></td>
+                            <td><a href="#">小米之家</a></td>
+                            <td><a href="#">了解小米</a></td>
+                            <td><a href="#">新浪微博</a></td>
+                            <td><a href="#">F 码通道</a></td>
                         </tr>
                     </table>
                 </div>
                 <div class="footer-call">
                     <p class="phone">400-100-5678</p>
                     <p class="time">周一至周日 8:00-18:00<br>（仅收市话费）</p>
-                    <a href="*">
+                    <a href="#">
                         <i class="icon iconfont icon-gaibantouduihuakuang-icon"></i>24小时在线客服
                     </a>
                 </div>
@@ -2555,40 +2779,40 @@
                 <div class="main-nav foot-nav">
                     <ul>
                         <li>
-                            <a href="*">小米商城</a><span>|</span>
+                            <a href="#">小米商城</a><span>|</span>
                         </li>
                         <li>
-                            <a href="*">MIUI</a><span>|</span>
+                            <a href="#">MIUI</a><span>|</span>
                         </li>
                         <li>
-                            <a href="*">米聊</a><span>|</span>
+                            <a href="#">米聊</a><span>|</span>
                         </li>
                         <li>
-                            <a href="*">多看书城</a><span>|</span>
+                            <a href="#">多看书城</a><span>|</span>
                         </li>
                         <li>
-                            <a href="*">小米路由器</a><span>|</span>
+                            <a href="#">小米路由器</a><span>|</span>
                         </li>
                         <li>
-                            <a href="*">视频电话</a><span>|</span>
+                            <a href="#">视频电话</a><span>|</span>
                         </li>
                         <li>
-                            <a href="*">小米天猫店</a><span>|</span>
+                            <a href="#">小米天猫店</a><span>|</span>
                         </li>
                         <li>
-                            <a href="*">小米淘宝直营店</a><span>|</span>
+                            <a href="#">小米淘宝直营店</a><span>|</span>
                         </li>
                         <li>
-                            <a href="*">小米网盟</a><span>|</span>
+                            <a href="#">小米网盟</a><span>|</span>
                         </li>
                         <li>
-                            <a href="*">小米移动</a><span>|</span>
+                            <a href="#">小米移动</a><span>|</span>
                         </li>
                         <li>
-                            <a href="*">隐私政策</a><span>|</span>
+                            <a href="#">隐私政策</a><span>|</span>
                         </li>
                         <li>
-                            <a href="*">Select Region</a>
+                            <a href="#">Select Region</a>
                         </li>
                     </ul>
                 </div>
