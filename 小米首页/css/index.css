@@ -36,11 +36,11 @@
 #slideshow-left-index{
     background:rgba(0,0,0,0.6);
     position: absolute;
-    top: 0px;
+    top: 0;
     width: 234px;
 }
 #slideshow-left-index .float-index{
-    padding: 20px 0px;
+    padding: 20px 0;
 }
 #slideshow-left-index li{
      height: 42px;
@@ -176,24 +176,38 @@
     float: left;
     margin-right: 14px;
     margin-top: 14px;
+    width: 317px;
+    height: 170px;
+    transition: box-shadow 0.25s ease;
+}
+#four-index div:first-child{
+    margin-right: 13px;
+    width: 234px;
 }
 #four-index div:last-child{
-    margin-right: 0px;
+    margin-right: 0;
 }
-#first-index ul{
+#four-index .mouseover-border:hover{
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+#four-index img{
+     width: 317px;
+     height: 170px;
+ }
+.first-index ul{
     width: 228px;
     height: 164px;
     background: #5f5750;
     padding: 3px;
 }
-#first-index li{
+.first-index li{
     float: left;
     width: 70px;
     height: 82px;
     position: relative;
     padding: 0 3px;
 }
-#first-index .left:after{
+.first-index .left:after{
     content: '';
     width: 1px;
     height: 70px;
@@ -202,7 +216,7 @@
     top: 5px;
     background: #665e57;
 }
-#first-index .top:before{
+.first-index .top:before{
     content: '';
     width: 64px;
     height: 1px;
@@ -211,7 +225,7 @@
     left: 6px;
     background: #665e57;
 }
-#first-index .icon{
+.first-index .icon{
     display: inline-block;
     width: 70px;
     height: 24px;
@@ -219,7 +233,7 @@
     margin-bottom: 5px;
     line-height: 24px;
 }
-#first-index a{
+.first-index a{
     color: rgba(255,255,255,0.7);
     font-size: 12px;
     padding-top: 18px;
@@ -228,19 +242,16 @@
     height: 46px;
     text-align: center;
 }
-#first-index a:hover{
+.first-index a:hover{
     color: #ffffff;
 }
-#four-index img{
-    width: 316.6px;
-    height: 170px;
-}
+
 /* 轮播图部分索引结束*/
 
 /*明星产品介绍开始*/
 .color-item{
     height: 398px;
-    padding:0px 0px 40px;
+    padding:0 0 40px;
 }
 /*后面的标题与此标题一致，所以后面将不再声明*/
 .title-pos{
@@ -254,7 +265,7 @@
 }
 .title-arrow{
     position: absolute;
-    right: 0px;
+    right: 0;
     top: 25px;
 }
 .title-arrow .title-prev,.title-arrow .title-next{
@@ -303,7 +314,7 @@
 }
 .color-item li:nth-child(5){
     border-top-color: #00c0a5;
-    margin-right: 0px;
+    margin-right: 0;
 }
 .color-item img {
     width: 160px;
@@ -313,14 +324,14 @@
     display: inline-block;
     width: 160px;
     height: 166px;
-    margin: 0px 37px 22px;
+    margin: 0 37px 22px;
 }
 /*明星产品介绍结束*/
 
 /*主体产品分类展示开始*/
 #container{
     background: #f5f5f5;
-    padding:60px 0px 0px;
+    padding:60px 0 0;
     height: 5248px;
 }
 #container .center{
@@ -336,8 +347,8 @@
     font-size: 16px;
     float: right;
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 0;
+    right: 0;
 }
 .ul-index li{
     float: left;
@@ -370,6 +381,28 @@
 .ul-img-index{
     width: 992px;
     float: left;
+}
+.ul-img-index li{
+    position: relative;
+}
+.ul-img-index .flag-saleoff,.ul-img-index .flag-new,.ul-img-index .flag-postfree{
+    background: #e53935;
+    color: #ffffff;
+    width: 64px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -32px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 20px;
+}
+.ul-img-index .flag-new{
+    background: #83c44e;
+}
+.ul-img-index .flag-postfree{
+    background: #ffac13;
 }
 .right-small li{
     background: #ffffff;
@@ -473,6 +506,37 @@
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
     /*设置鼠标移入悬浮结束*/
+    /*设置鼠标移入悬浮评论开始*/
+.review-wrapper{
+    position: absolute;
+    bottom: 0;
+    width: 234px;
+    height: 0;
+    background: #ff6700;
+    overflow: hidden;
+    transition: height 0.25s ease;
+}
+.review-wrapper a{
+    display: block;
+    width: 174px;
+    height: 59px;
+    padding: 8px 30px;
+}
+.review-wrapper .review,.review-wrapper .author{
+    display: block;
+    width: 174px;
+    color: rgba(255,255,255,0.6);
+    font-size: 12px;
+    line-height: 18px;
+}
+.review-wrapper .review{
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+.mouseover-float:hover .review-wrapper{
+    height: 75px;
+}
+    /*设置鼠标移入悬浮评论结束*/
 
     /*为你推荐部分开始*/
 #container-recommend{
@@ -483,7 +547,7 @@
     padding-top: 40px;
 }
 .recommend li:first-child{
-    margin-left: 0px;
+    margin-left: 0;
 }
 .recommend .price{
     margin-bottom: 10px;
@@ -503,7 +567,7 @@
     margin: 0 0 14px 14px;
 }
 .buzz-overview li:first-child{
-    margin-left: 0px;
+    margin-left: 0;
 }
 .buzz-overview img{
     width: 296px;
@@ -569,7 +633,7 @@
     color: #e53935;
 }
 .content-height li:nth-child(4){
-    margin-right: 0px;
+    margin-right: 0;
     border-top-color: #2196f3;
     color: #2196f3;
 }
@@ -636,7 +700,7 @@
     margin: 0 0 14px 14px;
 }
 .video-overview li:first-child{
-    margin-left: 0px;
+    margin-left: 0;
 }
 .video-overview img{
     width: 296px;
@@ -644,7 +708,7 @@
 .video-title div{
     position: absolute;
     top: 50%;
-    right: 0px;
+    right: 0;
 }
 .video-title a{
     color: #424242;
