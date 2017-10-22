@@ -36,24 +36,23 @@ oSlideshowNext.onclick = function () {
     changeImg(iNow);
 };
 
-var timer;
+var SlideshowTimer;
 /**
  * 定义定时器开启方法
  */
-function setTimer() {
-    timer = setInterval(function () {
+function setSlideshowTimer() {
+    SlideshowTimer = setInterval(function () {
         oSlideshowNext.onclick();
     },3000);
 }
-
-setTimer();
+setSlideshowTimer();
 //定义鼠标滑入图片定时器停止事件
 oSlideshowIndexImg.onmouseover = function(){
-    clearInterval(timer);
+    clearInterval(SlideshowTimer);
 };
 //定义鼠标滑出图片定时器开始事件
 oSlideshowIndexImg.onmouseout = function(){
-    setTimer();
+    setSlideshowTimer();
 };
 
 /**
@@ -69,3 +68,59 @@ function changeImg(index) {
     aImgIndex[index].className = 'img-item selected';
     aImgLi[index].className = 'slideshow-li slideshow-selected';
 }
+
+
+
+
+//明星产品的左右切换
+var oStarItemDiv = document.getElementById('star-item');//获取明星产品的大div
+var oStarItemImgDiv = document.getElementById('star-item-img');//获取装内容的ul的div
+var aStarDiv = oStarItemDiv.getElementsByTagName('div');//获取明星产品下面的所有div
+var oTitleArrowDiv = null;//定义明星产品下面的箭头div
+//获取明星产品下面的箭头div
+for(i = 0; i < aStarDiv.length ; i++){
+    if(aStarDiv[i].className == 'title-arrow'){
+        oTitleArrowDiv = aStarDiv[i];
+    }
+}
+var oStarPrev = oTitleArrowDiv.getElementsByTagName('a')[0];//获取明星产品下面的向左箭头
+var oStarNext = oTitleArrowDiv.getElementsByTagName('a')[1];//获取明星产品下面的向右箭头
+var iStarFlag = 2;//定义一个标识位用来记录箭头目前的状态，1表示左箭头可以按下，2表示右箭头可以按下
+var oStarItemImgUl = oStarItemImgDiv.getElementsByTagName('ul')[0];//获取装内容的ul
+//定义左右切换的定时器
+var StarTimer;
+function setStarTimer() {
+    StarTimer = setInterval(function () {
+        if(iStarFlag == 1){
+            oStarPrev.onclick();
+        }else {
+            oStarNext.onclick()
+        }
+    },5000)
+}
+//调用左右切换的定时器
+setStarTimer();
+//添加向右箭头的点击事件
+oStarNext.onclick = function(){
+    if(iStarFlag == 2){
+        clearInterval(StarTimer);
+        setStarTimer();
+        oStarItemImgUl.style.left = -1226 + 'px';
+        iStarFlag = 1;
+        this.className = 'title-next';
+        oStarPrev.className = 'title-prev selected';
+    }
+};
+//添加向左箭头的点击事件
+oStarPrev.onclick = function(){
+    if(iStarFlag == 1){
+        clearInterval(StarTimer);
+        setStarTimer();
+        oStarItemImgUl.style.left = 0;
+        iStarFlag = 2;
+        this.className = 'title-prev';
+        oStarNext.className = 'title-next selected';
+    }
+};
+
+
