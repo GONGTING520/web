@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>for-in循环</title>
+</head>
+<body>
+    <script>
+        var obj = {
+            name: 'zhangsan',
+            age: 18
+        };
+        console.log(obj['name']);//加引号表示值
+        for(var p in obj){
+            console.log(p + ':' + obj[p]);//不加引号表示变量
+        }
+
+
+        var arr = [1,2,3];
+        for(var p1 in arr){
+            console.log(p1 + ':' + arr[p1]);//不加引号表示变量
+        }
+    </script>
+</body>
+</html>
