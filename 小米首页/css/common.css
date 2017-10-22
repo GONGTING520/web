@@ -75,7 +75,7 @@ ul{
 .shopping-list{
     overflow: hidden;
     position: absolute;
-    z-index: 1;
+    z-index: 10000;
     top: 40px;
     right: -2px;
     width: 316px;
@@ -113,6 +113,12 @@ ul{
     height: 50px;
     margin-top: 25px;
 }
+.index-right:hover .search,.index-right:hover .submit{
+    border-color: #aaaaaa;
+}
+#index .index-right .click{
+    border-color: #ff6700;
+}
 .index-right .search{
     padding: 0 10px;
     width: 243px;
@@ -121,6 +127,7 @@ ul{
     font-size: 14px;
     line-height: 48px;
     outline: none;
+    transition: all 0.3s ease;
 }
 .index-right .icon-search{
     font-size: 18px;
@@ -136,17 +143,18 @@ ul{
     padding: 0 10px;
     font-size: 14px;
     line-height: 48px;
-    transition: background 0.5s ease;
+    transition: all 0.3s ease;
 }
-.index-right .submit:hover{
+#index .index-right .submit:hover{
     color: #ffffff;
     background: #ff6700;
+    border-color: #ff6700;
 }
 .search-list{
     border: 1px solid #ff6700;
     width: 241px;
     position: absolute;
-    z-index: 1;
+    z-index: 9999;
     top: 47px;
     background: #ffffff;
     display: none;
@@ -177,7 +185,7 @@ ul{
 .index-right .search-hot-words a{
     background: #eeeeee;
     color: #757575;
-    transition: background 0.5s ease;
+    transition: all 0.5s ease;
     padding: 0 5px;
     display: inline-block;
     height: 20px;
@@ -198,7 +206,7 @@ ul{
     width: 55px;
     float: left;
 }
-#index ul#index-ul{
+#index #index-ul{
     float: left;
     padding-top: 12px;
     padding-left: 30px;
@@ -214,7 +222,7 @@ ul{
 #index-ul .sub-menu{
     position: absolute;
     left: 0;
-    z-index: 2;
+    z-index: 10000;
     height: 0;
     width: 100%;
     background: #ffffff;
