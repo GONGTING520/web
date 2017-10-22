@@ -28,38 +28,24 @@
 #slideshow-index-img img{
     width: 1226px;
 }
-#slideshow-index-img a{
+#slideshow-index-img .slideshow-a{
     display: inline-block;
     height: 460px;
 }
-    /*轮播图图片结束*/
-    /*轮播图图片下标按钮开始*/
-.img-items .img-items-ul{
+.slideshow .slideshow-li{
     position: absolute;
-    bottom: 30px;
-    right: 40px;
+    top: 0;
+    left: 0;
 }
-.img-items .img-item{
-    float: left;
-    cursor: pointer;
-    margin-left: 10px;
-    width: 6px;
-    height: 6px;
-    border-radius: 5px;
-    border: 2px solid #b0b0b0;
-    color: transparent;
-    background: rgba(0,0,0,0.5);
-    overflow: hidden;
+.slideshow .slideshow-selected{
+    z-index: 1;
 }
-.img-items .img-item:hover,.img-items .selected{
-    border-color: #757575;
-    background: #aaaaaa;
-}
-    /*轮播图图片下标按钮结束*/
+    /*轮播图图片结束*/
     /*左侧悬浮导航栏开始*/
 #slideshow-left-index{
     background:rgba(0,0,0,0.6);
     position: absolute;
+    z-index: 9999;
     top: 0;
     width: 234px;
 }
@@ -177,6 +163,7 @@
     line-height: 69px;
     text-align: center;
     position: absolute;
+    cursor: pointer;
 }
 #slideshow-index-arrow .prev:hover,#slideshow-index-arrow .next:hover{
     background: rgba(50,50,50,0.7);
@@ -196,6 +183,29 @@
     font-size: 40px;
 }
     /*轮播图的箭头结束*/
+/*轮播图图片下标按钮开始*/
+#slideshow-left-index .img-items-ul{
+    position: absolute;
+    bottom: 30px;
+    right: -950px;
+}
+#slideshow-left-index .img-item{
+    float: left;
+    cursor: pointer;
+    margin-left: 10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 5px;
+    border: 2px solid #b0b0b0;
+    color: transparent;
+    background: rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+#slideshow-left-index .img-item:hover,#slideshow-left-index .selected{
+    border-color: #757575;
+    background: #aaaaaa;
+}
+/*轮播图图片下标按钮结束*/
 #four-index div{
     float: left;
     margin-right: 14px;
@@ -273,9 +283,20 @@
 
 
 /*明星产品介绍开始*/
-.color-item{
+#star-item{
     height: 398px;
     padding:0 0 40px;
+}
+#star-item-img{
+    width: 1226px;
+    overflow: hidden;
+}
+#star-item-img ul{
+    position: relative;
+    left: 0;
+    width: 2472px;
+    height: 341px;
+    transition: all 0.5s ease-out;
 }
 /*后面的标题与此标题一致，所以后面将不再声明*/
 .title-pos{
@@ -315,7 +336,7 @@
 .title-arrow .selected:hover{
     color: #ff6700;
 }
-.color-item li{
+#star-item li{
     float: left;
     padding-top: 40px;
     margin-right: 14px;
@@ -324,27 +345,27 @@
     height: 300px;
     background: #fafafa;
 }
-.color-item li:nth-child(1){
+#star-item .star-item-yellow{
     border-top-color: #ffac13;
 }
-.color-item li:nth-child(2){
+#star-item .star-item-green{
     border-top-color: #83c44e;
 }
-.color-item li:nth-child(3){
+#star-item .star-item-bule{
     border-top-color: #2196f3;
 }
-.color-item li:nth-child(4){
+#star-item .star-item-red{
     border-top-color: #e53935;
 }
-.color-item li:nth-child(5){
+#star-item .star-item-cyan{
     border-top-color: #00c0a5;
     margin-right: 0;
 }
-.color-item img {
+#star-item img {
     width: 160px;
     height: 160px;
 }
-.color-item .star-item-img-a{
+#star-item .star-item-img-a{
     display: inline-block;
     width: 160px;
     height: 166px;
@@ -570,18 +591,29 @@
     height: 358px;
     margin-bottom: 22px;
 }
-.recommend li{
+#recommend li{
     padding-top: 40px;
 }
-.recommend li:first-child{
+#recommend .margin-zero{
     margin-left: 0;
 }
-.recommend .price{
+#recommend .price{
     margin-bottom: 10px;
 }
-.recommend .describe{
+#recommend .describe{
     font-size: 14px;
     color: #757575;
+}
+#recommend{
+    width: 1226px;
+    height: 320px;
+    overflow: hidden;
+}
+#recommend ul{
+    width: 2472px;
+    position: relative;
+    left: 0;
+    transition: all 0.5s ease;
 }
     /*为你推荐部分结束*/
     /*热评产品开始*/
