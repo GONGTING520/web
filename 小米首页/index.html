@@ -465,19 +465,38 @@
     <div id="slideshow-index">
         <div class="center">
             <div id="slideshow-index-img">
-                <a href="https://item.mi.com/product/10000057.html">
-                    <img src="img/centerLogo.jpg">
-                </a>
-                <div class="img-items">
-                    <ul class="img-items-ul">
-                        <li class="img-item selected">1</li>
-                        <li class="img-item">2</li>
-                        <li class="img-item">3</li>
-                        <li class="img-item">4</li>
-                        <li class="img-item">5</li>
-                        <li class="img-item">6</li>
-                    </ul>
-                </div>
+                <ul class="slideshow">
+                    <li class="slideshow-li slideshow-selected">
+                        <a href="#" class="slideshow-a">
+                            <img src="img/slideshow1.jpg" alt="" class="slideshow-img">
+                        </a>
+                    </li>
+                    <li class="slideshow-li">
+                        <a href="#" class="slideshow-a">
+                            <img src="img/slideshow2.jpg" alt="" class="slideshow-img">
+                        </a>
+                    </li>
+                    <li class="slideshow-li">
+                        <a href="#" class="slideshow-a">
+                            <img src="img/slideshow3.jpg" alt="" class="slideshow-img">
+                        </a>
+                    </li>
+                    <li class="slideshow-li">
+                        <a href="#" class="slideshow-a">
+                            <img src="img/slideshow4.jpg" alt="" class="slideshow-img">
+                        </a>
+                    </li>
+                    <li class="slideshow-li">
+                        <a href="#" class="slideshow-a">
+                            <img src="img/slideshow5.jpg" alt="" class="slideshow-img">
+                        </a>
+                    </li>
+                    <li class="slideshow-li">
+                        <a href="#" class="slideshow-a">
+                            <img src="img/slideshow6.jpg" alt="" class="slideshow-img">
+                        </a>
+                    </li>
+                </ul>
             </div>
             <div id="slideshow-left-index">
                 <ul class="float-index">
@@ -1435,12 +1454,22 @@
                     </li>
                 </ul>
                 <div id="slideshow-index-arrow">
-                    <a href="#" class="prev">
+                    <a class="prev">
                         <i class="icon iconfont icon-back"></i>
                     </a>
-                    <a href="#" class="next">
+                    <a class="next">
                         <i class="icon iconfont icon-more"></i>
                     </a>
+                </div>
+                <div class="img-items">
+                    <ul class="img-items-ul">
+                        <li class="img-item selected"></li>
+                        <li class="img-item"></li>
+                        <li class="img-item"></li>
+                        <li class="img-item"></li>
+                        <li class="img-item"></li>
+                        <li class="img-item"></li>
+                    </ul>
                 </div>
             </div>
             <div id="four-index">
@@ -1502,22 +1531,22 @@
             </div>
         </div>
     </div>
-    <div class="color-item">
+    <div id="star-item">
         <div class="center">
             <div class="title-pos">
                 <h2 class="title">小米明星单品</h2>
                 <div class="title-arrow">
-                    <a href="#" class="title-prev">
+                    <a class="title-prev">
                         <i class="icon iconfont icon-back"></i>
                     </a>
-                    <a href="#" class="title-next selected">
+                    <a class="title-next selected">
                         <i class="icon iconfont icon-more"></i>
                     </a>
                 </div>
             </div>
             <div id="star-item-img">
                 <ul>
-                    <li>
+                    <li class="star-item-yellow">
                         <a href="#" class="star-item-img-a">
                             <img src="img/start1.png" alt="小米Note 2">
                         </a>
@@ -1527,7 +1556,7 @@
                         <p class="describe">最高减700元</p>
                         <p class="price">2099元起</p>
                     </li>
-                    <li>
+                    <li class="star-item-green">
                         <a href="#" class="star-item-img-a">
                             <img src="img/start2.png" alt="红米Note 4X">
                         </a>
@@ -1537,7 +1566,7 @@
                         <p class="describe">4100mAh超长续航，多彩金属</p>
                         <p class="price">999元起</p>
                     </li>
-                    <li>
+                    <li class="star-item-bule">
                         <a href="#" class="star-item-img-a">
                             <img src="img/start3.png" alt="红米4X">
                         </a>
@@ -1547,7 +1576,7 @@
                         <p class="describe">4100mAh超长续航，8 核处理器</p>
                         <p class="price">699元起</p>
                     </li>
-                    <li>
+                    <li class="star-item-red">
                         <a href="#" class="star-item-img-a">
                             <img src="img/start4.png" alt="小米电视4A 49 语音版">
                         </a>
@@ -1557,9 +1586,59 @@
                         <p class="describe">限时特惠，直降400元</p>
                         <p class="price">2199元起</p>
                     </li>
-                    <li>
+                    <li class="star-item-cyan">
                         <a href="#" class="star-item-img-a">
                             <img src="img/start5.png" alt="小米笔记本">
+                        </a>
+                        <h3 class="text-index">
+                            <a href="#">小米笔记本</a>
+                        </h3>
+                        <p class="describe">更轻更薄，像杂志一样随身携带</p>
+                        <p class="price">3599元起</p>
+                    </li>
+                    <li class="star-item-yellow">
+                        <a href="#" class="star-item-img-a">
+                            <img src="img/start5.png" alt="小米Note 2">
+                        </a>
+                        <h3 class="text-index">
+                            <a href="#">小米Note 2</a>
+                        </h3>
+                        <p class="describe">最高减700元</p>
+                        <p class="price">2099元起</p>
+                    </li>
+                    <li class="star-item-green">
+                        <a href="#" class="star-item-img-a">
+                            <img src="img/start4.png" alt="红米Note 4X">
+                        </a>
+                        <h3 class="text-index">
+                            <a href="#">红米Note 4X</a>
+                        </h3>
+                        <p class="describe">4100mAh超长续航，多彩金属</p>
+                        <p class="price">999元起</p>
+                    </li>
+                    <li class="star-item-bule">
+                        <a href="#" class="star-item-img-a">
+                            <img src="img/start3.png" alt="红米4X">
+                        </a>
+                        <h3 class="text-index">
+                            <a href="#">红米4X</a>
+                        </h3>
+                        <p class="describe">4100mAh超长续航，8 核处理器</p>
+                        <p class="price">699元起</p>
+                    </li>
+                    <li class="star-item-red">
+                        <a href="#" class="star-item-img-a">
+                            <img src="img/start2.png" alt="小米电视4A 49 语音版">
+                        </a>
+                        <h3 class="text-index">
+                            <a href="#">小米电视4A 49" 语音版</a>
+                        </h3>
+                        <p class="describe">限时特惠，直降400元</p>
+                        <p class="price">2199元起</p>
+                    </li>
+                    <li class="star-item-cyan">
+                        <a href="#" class="star-item-img-a">
+                            <img src="img/start1.png" alt="小米笔记本">
                         </a>
                         <h3 class="text-index">
                             <a href="#">小米笔记本</a>
@@ -2433,17 +2512,67 @@
                 <div class="title-index">
                     <h2 class="title">为你推荐</h2>
                     <div class="title-arrow">
-                        <a href="#" class="title-prev">
+                        <a class="title-prev">
                             <i class="icon iconfont icon-back"></i>
                         </a>
-                        <a href="#" class="title-next selected">
+                        <a class="title-next selected">
                             <i class="icon iconfont icon-more"></i>
                         </a>
                     </div>
                 </div>
-                <div>
-                    <ul class="right-small recommend">
+                <div id="recommend">
+                    <ul class="right-small">
+                        <li class="mouseover-float margin-zero">
+                            <a href="#" class="ul-img">
+                                <img src="img/home-small1.jpg">
+                            </a>
+                            <h3 class="text-index">
+                                <a href="#">小米电视4A 32"</a>
+                            </h3>
+                            <p class="price">5599元</p>
+                            <p class="describe">1.6万人好评</p>
+                        </li>
                         <li class="mouseover-float">
+                            <a href="#" class="ul-img">
+                                <img src="img/home-small2.jpg">
+                            </a>
+                            <h3 class="text-index">
+                                <a href="#">小米电视4 55英寸</a>
+                            </h3>
+                            <p class="price">5599元</p>
+                            <p class="describe">1.6万人好评</p>
+                        </li>
+                        <li class="mouseover-float">
+                            <a href="#" class="ul-img">
+                                <img src="img/home-small3.jpg">
+                            </a>
+                            <h3 class="text-index">
+                                <a href="#">小米笔记本Pro 15.6英寸</a>
+                            </h3>
+                            <p class="price">5599元</p>
+                            <p class="describe">1.6万人好评</p>
+                        </li>
+                        <li class="mouseover-float">
+                            <a href="#" class="ul-img">
+                                <img src="img/home-small4.jpg">
+                            </a>
+                            <h3 class="text-index">
+                                <a href="#">小米笔记本Air 13.3" i7处理器</a>
+                            </h3>
+                            <p class="price">5999元</p>
+                            <p class="describe">6.5万人好评</p>
+                        </li>
+                        <li class="mouseover-float">
+                            <a href="#" class="ul-img">
+                                <img src="img/home-small5.jpg">
+                            </a>
+                            <h3 class="text-index">
+                                <a href="#">米家恒温电水壶</a>
+                            </h3>
+                            <p class="price">199元</p>
+                            <p class="describe">4587人好评</p>
+                        </li>
+                        <li class="mouseover-float margin-zero">
                             <a href="#" class="ul-img">
                                 <img src="img/home-small1.jpg">
                             </a>
@@ -2896,5 +3025,7 @@
             <div class="declaration">探索黑科技，小米为发烧而生!</div>
         </div>
     </div>
+    <script src="js/common.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
