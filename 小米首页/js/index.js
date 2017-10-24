@@ -54,7 +54,6 @@ oSlideshowIndexImg.onmouseover = function(){
 oSlideshowIndexImg.onmouseout = function(){
     setSlideshowTimer();
 };
-
 /**
  * 切换图片的方法
  * 需要输入切换图片的索引值
@@ -141,4 +140,58 @@ function bindingEvent(divArr,oDiv) {
             oNext.className = 'title-next selected';
         }
     };
+}
+
+
+
+
+//选项卡：家电，智能，搭配...
+//家电部分
+var oContainerHomeApp = document.getElementById('container-home-app');
+var aHomeAppDiv = oContainerHomeApp.getElementsByTagName('div');//获取家电所有的div
+attachSelectedCard(aHomeAppDiv);
+//智能部分
+var oContainerIntelligence = document.getElementById('container-intelligence');
+var aIntelligenceDiv = oContainerIntelligence.getElementsByTagName('div');//获取智能所有的div
+attachSelectedCard(aIntelligenceDiv);
+//搭配部分
+var oContainerMatch = document.getElementById('container-match');
+var aMatchDiv = oContainerMatch.getElementsByTagName('div');//获取搭配所有的div
+attachSelectedCard(aMatchDiv);
+//配件部分
+var oContainerFittings = document.getElementById('container-fittings');
+var aFittingsDiv = oContainerFittings.getElementsByTagName('div');//获取配件所有的div
+attachSelectedCard(aFittingsDiv);
+//周边部分
+var oContainerSurrounding = document.getElementById('container-surrounding');
+var aSurroundingDiv = oContainerSurrounding.getElementsByTagName('div');//获取周边所有的div
+attachSelectedCard(aSurroundingDiv);
+/**
+ * 绑定选项卡事件
+ * 需要传一个参数来决定绑定那个大div下的事件
+ * */
+function attachSelectedCard(aDiv) {
+    var oTitleIndex ,oRightSmall;//oTitleIndex用来获取选项卡标题，oRightSmall用来获取内容
+    //为oTitleIndex ,oRightSmall赋值
+    for(var i = 0 ; i < aDiv.length ; i++){
+        if(aDiv[i].className == 'title-index'){
+            oTitleIndex = aDiv[i];
+        }
+        if(aDiv[i].className == 'right-small'){
+            oRightSmall = aDiv[i];
+        }
+    }
+    var aLi = oTitleIndex.getElementsByTagName('li');
+    var aUl = oRightSmall.getElementsByTagName('ul');
+    for(i = 0 ; i < aLi.length ; i++){
+        aLi[i].index = i; //设置aLi[i]的索引值，便于更改选项卡
+        aLi[i].onmouseover = function(){
+            for(var j = 0 ; j < aLi.length ; j++){
+                aLi[j].className = '';
+                aUl[j].className = 'ul-img-index';
+            }
+            this.className = 'selected';
+            aUl[this.index].className = 'ul-img-index selected';
+        };
+    }
 }
