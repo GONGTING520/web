@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>右键菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #menu{
+            list-style: none;
+            width: 100px;
+            border: 1px solid rgba(0,0,0,0.5);
+            position: absolute;
+            display: none;
+        }
+        #menu li{
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+            /*border-bottom: 1px dashed #cccccc;*/
+        }
+        #menu li:hover{
+            background: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <ul id="menu">
+        <li>打开</li>
+        <li>下载</li>
+        <li>推送到手机</li>
+        <li>复制</li>
+        <li>删除</li>
+    </ul>
+
+    <script>
+        var oMenu = document.getElementById('menu');
+        var aLi = oMenu.getElementsByTagName('li');
+        document.oncontextmenu = function (e) {
+            e = e || window.event;
+            oMenu.style.display = 'block';
+            oMenu.style.left = e.clientX +'px';
+            oMenu.style.top = e.clientY +'px';
+
+            return false;
+        };
+        document.onclick = function () {
+            oMenu.style.display = 'none';
+        };
+        for(var i = 0 ; i < aLi.length ; i++){
+            aLi[i].onclick = function () {
+                alert(this.innerHTML);
+            }
+        }
+    </script>
+</body>
+</html>
