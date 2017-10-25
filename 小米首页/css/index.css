@@ -404,10 +404,11 @@
     margin-left: 30px;
     cursor: pointer;
     padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
 }
 .ul-index li.selected{
     color: #ff6700;
-    border-bottom: 2px solid #ff6700;
+    border-color: #ff6700;
     transition: border-color 0.25s ease;
 }
     /*设置标题导航样式结束*/
@@ -427,9 +428,18 @@
 }
     /*设置左侧一张大图片样式结束*/
     /*设置右侧图片索引开始*/
+.right-small{
+    width: 992px;
+    height: 628px;
+    float: left;
+    position: relative;
+}
+.right-small .selected{
+    z-index: 1;
+}
 .ul-img-index{
     width: 992px;
-    float: left;
+    position: absolute;
 }
 .ul-img-index li{
     position: relative;
@@ -713,6 +723,23 @@
     text-align: center;
     line-height: 24px;
 }
+.content-desAndImg{
+    width: 296px;
+    height: 271px;
+    position: relative;
+    overflow: hidden;
+}
+.content-desAndImg-ul{
+    position: absolute;
+    left: 0;
+    width: 1188px;
+    height: 271px;
+    transition: all 0.5s ease;
+}
+.content-desAndImg-ul li{
+    width: 296px;
+    float: left;
+}
 .content-desAndImg .name{
     margin: 0 20px 5px;
     text-align: center;
@@ -808,7 +835,6 @@
     transition: opacity 0.5s ease;
 }
 .content-arrows .prev,.content-arrows .next{
-    display: block;
     position: absolute;
     width: 20px;
     height: 24px;
@@ -816,6 +842,7 @@
     top: 50%;
     margin-top: -20px;
     background: rgba(66,66,66,0.2);
+    cursor: pointer;
     transition: background 0.2s ease;
 }
 .content-arrows .next{
