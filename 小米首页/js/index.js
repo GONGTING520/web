@@ -7,6 +7,7 @@ var oSlideshowNext = oSlideshowIndexArrow.getElementsByTagName('a')[1];//获得�
 var oSlideshowLeftIndex = document.getElementById('slideshow-left-index');
 var aImgItemsUl = oSlideshowLeftIndex.getElementsByTagName('ul');
 var oImgItemsUl = null;
+var iZIndex = 1;
 //获取下角标的ul
 for(var i = 0 ; i < aImgItemsUl.length ; i++){
     if(aImgItemsUl[i].className == 'img-items-ul'){
@@ -60,12 +61,28 @@ oSlideshowIndexImg.onmouseout = function(){
  * */
 function changeImg(index) {
     iNow = index;
+    aImgLi[index].style.opacity = 0;
     for(var j = 0; j < aImgIndex.length ; j++){
         aImgIndex[j].className = 'img-item';
-        aImgLi[j].className = 'slideshow-li';
     }
     aImgIndex[index].className = 'img-item selected';
-    aImgLi[index].className = 'slideshow-li slideshow-selected';
+    aImgLi[index].style.zIndex = ++iZIndex;
+    changeOpacity(aImgLi[index]);
+}
+/**
+ * 封装函数，改变对象的透明度
+ * 需要传一个对象参数来判断更改那个对象的透明度
+ * */
+function changeOpacity(elem) {
+    clearInterval(elem.timer);
+    var speed = 0.1;
+    var opa = 0;
+    elem.timer = setInterval(function () {
+        if(opa < 1){
+            opa += speed;
+            elem.style.opacity = opa;
+        }
+    },50);
 }
 //最上方轮播图交互结束
 
@@ -203,7 +220,10 @@ function attachSelectedCard(aDiv) {
 var oContainerContentDiv = document.getElementById('container-content');//获取内容部分的大div
 var aContentDesAndImgDiv = [];//定义内容数组
 var aContentPagersDiv = [];//定义下标数组
+var aContentArrows = [];//定义箭头数组
+var aNow = [ 0 , 0 , 0 , 0 ];//定义每一个显示的内容当前的索引值
 var aContentDiv = oContainerContentDiv.getElementsByTagName('div');//获取内容下所有的div
+//获取四个内容的div和四个下标div和四组箭头div
 for(i = 0 ; i < aContentDiv.length ; i++){
     //获取四个内容的div
     if(aContentDiv[i].className == 'content-desAndImg'){
@@ -213,11 +233,17 @@ for(i = 0 ; i < aContentDiv.length ; i++){
     if(aContentDiv[i].className == 'content-pagers'){
         aContentPagersDiv.push(aContentDiv[i]);
     }
+    //获取四组箭头div
+    if(aContentDiv[i].className == 'content-arrows'){
+        aContentArrows.push(aContentDiv[i]);
+    }
 }
-//获取四个内容ul和四个对应的下标的ul
+//定义四个内容ul和四个对应的下标的ul
 var aContentDesAndImgUl = [];
 var aContentPagersUl = [];
+//给下标绑定事件，使内容随之切换
 for( i = 0 ; i < aContentDesAndImgDiv.length ; i++){
+    //获取四个内容ul和四个对应的下标的ul
     aContentDesAndImgUl.push(aContentDesAndImgDiv[i].getElementsByTagName('ul')[0]);
     aContentPagersUl.push(aContentPagersDiv[i].getElementsByTagName('ul')[0]);
     aContentPagersUl[i].index = i;
@@ -234,13 +260,47 @@ for( i = 0 ; i < aContentDesAndImgDiv.length ; i++){
     aContentPagersUl[i].onclick = function (e) {
         //获取目标元素target,target可能是li，也可能是span，但他们的index相同
         var target = e.target || window.event.srcElement;
-        //获取当前ul下面的li
-        var aLi = this.getElementsByTagName('li');
-        for(var i = 0 ; i < aLi.length ; i++){
-            aLi[i].className = 'pager';
+        changeUlContent(this.index , target.index);
+    };
+}
+//给箭头绑定事件
+for( i = 0 ; i < aContentArrows.length ; i++){
+    var oPrev = aContentArrows[i].getElementsByTagName('div')[0];
+    var oNext = aContentArrows[i].getElementsByTagName('div')[1];
+    oPrev.index = oNext.index = i;
+    oPrev.onclick = function () {
+        var iNow = aNow[this.index];
+        iNow--;
+        iNow = iNow < 0 ? ++iNow : iNow;
+        changeUlContent(this.index , iNow);
+    };
+    oNext.onclick = function () {
+        var iNow = aNow[this.index];
+        iNow++;
+        iNow = iNow > (aContentPagersUl[this.index].getElementsByTagName('li').length - 1) ? --iNow : iNow;
+        changeUlContent(this.index , iNow);
+    };
+}
+//阻止下标中的span选中
+for( i = 0 ; i < aContentPagersUl.length ; i++){
+    var aContentPagersSpan = aContentPagersUl[i].getElementsByTagName('span');
+    for(var n = 0 ; n < aContentPagersSpan.length ; n++){
+        aContentPagersSpan[n].onselectstart = function () {
+            return false;
         }
-        aLi[target.index].className = 'pager pager-selected';
-        //移动对应的内容ul
-        aContentDesAndImgUl[this.index].style.left = -target.index * 296 + 'px';
     }
+}
+/**
+ * 封装函数，内容部分的轮播切换，并更改aNow中相应的索引值
+ * 需要传一个索引参数index表示需要切换到的图片内容
+ * 和一个所属参数ulIndex表示当前需要切换图片的ul
+ * */
+function changeUlContent(ulIndex , index){
+    aNow[ulIndex] = index;
+    var aLi = aContentPagersUl[ulIndex].getElementsByTagName('li');// 获取当前ul下面的li
+    for(var m = 0 ; m < aLi.length ; m++){
+        aLi[m].className = 'pager';
+    }
+    aLi[index].className = 'pager pager-selected';
+    aContentDesAndImgUl[ulIndex].style.left = -index * 296 + 'px';// 移动对应的内容ul
 }
