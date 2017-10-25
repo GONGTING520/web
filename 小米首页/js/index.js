@@ -195,3 +195,52 @@ function attachSelectedCard(aDiv) {
         };
     }
 }
+
+
+
+
+//内容部分的轮播图交互
+var oContainerContentDiv = document.getElementById('container-content');//获取内容部分的大div
+var aContentDesAndImgDiv = [];//定义内容数组
+var aContentPagersDiv = [];//定义下标数组
+var aContentDiv = oContainerContentDiv.getElementsByTagName('div');//获取内容下所有的div
+for(i = 0 ; i < aContentDiv.length ; i++){
+    //获取四个内容的div
+    if(aContentDiv[i].className == 'content-desAndImg'){
+        aContentDesAndImgDiv.push(aContentDiv[i]);
+    }
+    //获取四个下标div
+    if(aContentDiv[i].className == 'content-pagers'){
+        aContentPagersDiv.push(aContentDiv[i]);
+    }
+}
+//获取四个内容ul和四个对应的下标的ul
+var aContentDesAndImgUl = [];
+var aContentPagersUl = [];
+for( i = 0 ; i < aContentDesAndImgDiv.length ; i++){
+    aContentDesAndImgUl.push(aContentDesAndImgDiv[i].getElementsByTagName('ul')[0]);
+    aContentPagersUl.push(aContentPagersDiv[i].getElementsByTagName('ul')[0]);
+    aContentPagersUl[i].index = i;
+    //获取下标ul下面所有的li和span，并为其赋索引值
+    for(var k = 0 ; k < aContentPagersUl.length ; k++){
+        var aLi = aContentPagersUl[k].getElementsByTagName('li');
+        var aSpan = aContentPagersUl[k].getElementsByTagName('span');
+        for(var j = 0 ; j < aLi.length ; j++){
+            aLi[j].index = j;
+            aSpan[j].index = j;
+        }
+    }
+    //运用事件委托给装下标的ul绑定事件
+    aContentPagersUl[i].onclick = function (e) {
+        //获取目标元素target,target可能是li，也可能是span，但他们的index相同
+        var target = e.target || window.event.srcElement;
+        //获取当前ul下面的li
+        var aLi = this.getElementsByTagName('li');
+        for(var i = 0 ; i < aLi.length ; i++){
+            aLi[i].className = 'pager';
+        }
+        aLi[target.index].className = 'pager pager-selected';
+        //移动对应的内容ul
+        aContentDesAndImgUl[this.index].style.left = -target.index * 296 + 'px';
+    }
+}
