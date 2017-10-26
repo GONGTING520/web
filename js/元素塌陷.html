@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>元素塌陷问题</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            /*ul前面的样式属于li*/
+            list-style: none;
+        }
+        #tab{
+            /*第一种方法，设死高度*/
+            /*height: 30px;*/
+            /*第二种方法，溢出隐藏，与bfc有关*/
+            /*overflow: hidden;*/
+            /*第三种方法，脱离文档流*/
+            /*float: left;*/
+            /*position: absolute;*/
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        #tab li{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <ul id="tab" class="clearfix">
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+    </ul>
+</body>
+</html>
