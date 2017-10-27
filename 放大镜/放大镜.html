@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>放大镜</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 575px;
+            margin: 10px auto;
+            position: relative;
+        }
+        #small{
+            width: 200px;
+        }
+        #smash{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #ffffff;
+            opacity: 0;
+            filter: alpha(opacity = 0);
+        }
+        #content{
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+        #float{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #e0e0e0;
+            opacity:0.5;
+            filter:alpha(opacity=50);
+            display: none;
+        }
+        #display{
+            width: 375px;
+            height: 250px;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            overflow: hidden;
+            display: none;
+            border: 2px solid rgba( 0, 0, 0, 0.4);
+        }
+        #big{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            <img src="img/small.jpg" id="small">
+            <div id="float"></div>
+            <!--用来解决ie鼠标滑动时闪动的问题-->
+            <div id="smash"></div>
+        </div>
+        <div id="display">
+            <img src="img/big.jpg" id="big">
+        </div>
+    </div>
+    <script>
+        var oFloat = document.getElementById('float');
+        var oDisplay = document.getElementById('display');
+        var oContent = document.getElementById('content');
+        var oContainer = document.getElementById('container');
+        var oBig = document.getElementById('big');
+
+        oContent.onmouseover = function(){
+//            显示透明块和放大图片
+            oFloat.style.display = 'block';
+            oDisplay.style.display = 'block';
+        };
+        oContent.onmousemove = function (e) {
+            e = e || window.event;
+            var fDesX = oFloat.offsetWidth / 2;    //计算鼠标距离透明块的距离
+            var fDesY = oFloat.offsetHeight / 2;
+            var iLeft = e.clientX - oContainer.offsetLeft - fDesX; //计算透明块的定位值
+            var iTop = e.clientY - oContainer.offsetTop - fDesY;
+            var iBigMaxX = oBig.offsetWidth - oDisplay.offsetWidth;
+            var iSmallMoveX = oFloat.offsetLeft;
+            var fMoveX = iBigMaxX * (iSmallMoveX / oContent.offsetWidth);
+            var iBigMaxY = oBig.offsetHeight - oDisplay.offsetHeight;
+            var iSmallMoveY = oFloat.offsetTop;
+            var fMoveY = iBigMaxY * (iSmallMoveY / oContent.offsetHeight);
+
+            if(iLeft <= 0){
+                iLeft = 0;
+            }
+            if(iLeft >= oContent.offsetWidth - oFloat.offsetWidth){
+                iLeft = oContent.offsetWidth - oFloat.offsetWidth;
+            }
+            if(iTop <= 0){
+                iTop = 0;
+            }
+            if(iTop >= oContent.offsetHeight - oFloat.offsetHeight){
+                iTop = oContent.offsetHeight - oFloat.offsetHeight;
+            }
+            oFloat.style.left = iLeft + 'px';
+            oFloat.style.top = iTop + 'px';
+            oBig.style.left = -fMoveX + 'px';
+            oBig.style.top = -fMoveY + 'px';
+        };
+        oContent.onmouseout = function(){
+//          隐藏透明块和放大图片
+            oFloat.style.display = 'none';
+            oDisplay.style.display = 'none';
+        };
+    </script>
+</body>
+</html>
