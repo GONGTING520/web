@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拼图游戏</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        #answer{
+            width: 230px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: none;
+        }
+        #answer img{
+            width: 230px;
+        }
+        #content{
+            margin: 20px auto;
+            width: 462px;
+        }
+        #game-title{
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+        }
+        #game{
+            width: 462px;
+            height: 288px;
+            position: relative;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        #game .game-block{
+            float: left;
+            width: 154px;
+            height: 96px;
+            overflow: hidden;
+            position: relative;
+        }
+        #game .game-block img{
+            position: absolute;
+            width: 462px;
+        }
+        #btn{
+            width: 230px;
+            margin: 0 auto;
+        }
+        #btn button{
+            width: 100px;
+            height: 30px;
+        }
+        #btn .show-answer{
+            margin-right: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="answer">
+        <img src="img/puzzle1.jpg" alt="">
+    </div>
+    <div id="content">
+        <h3 id="game-title">现在是第1关，一共6关</h3>
+        <ul id="game" class="clearfix">
+            <li class="game-block"><img src="img/puzzle1.jpg" alt=""></li>
+            <li class="game-block"><img src="img/puzzle1.jpg" alt=""></li>
+            <li class="game-block"><img src="img/puzzle1.jpg" alt=""></li>
+            <li class="game-block"><img src="img/puzzle1.jpg" alt=""></li>
+            <li class="game-block"><img src="img/puzzle1.jpg" alt=""></li>
+            <li class="game-block"><img src="img/puzzle1.jpg" alt=""></li>
+            <li class="game-block"><img src="img/puzzle1.jpg" alt=""></li>
+            <li class="game-block"><img src="img/puzzle1.jpg" alt=""></li>
+            <li class="game-block"><img src="img/puzzle1.jpg" alt=""></li>
+        </ul>
+    </div>
+    <div id="btn">
+        <button class="show-answer">显示答案</button><button class="next">下一题</button>
+    </div>
+    <script>
+        var iNow = 1;//记录当前的图片号
+        var oGameUl = document.getElementById('game');
+        var aGameImg = oGameUl.getElementsByTagName('img');
+//        获取li的宽度和高度
+        var aGameLi = oGameUl.getElementsByTagName('li');
+        var iWidth = aGameLi[0].offsetWidth;
+        var iHeight = aGameLi[0].offsetHeight;
+        var aIndex = [0 ,1 ,2 ,3 ,4 ,5 ,6 ,7 ,8 ];
+        var aCollide = [];//定义数组用来装与元素碰撞的元素
+//        将索引数组乱序
+        aIndex.sort(function (a, b) {
+            return Math.random() - 0.5;
+        });
+//        通过索引数组给图片定位并给li定位
+        for(var i = 0 ; i < aGameImg.length ; i++){
+            aGameImg[i].style.left = -iWidth * (aIndex[i] % 3) + 'px';
+            aGameImg[i].style.top = -iHeight * parseInt(aIndex[i] / 3) + 'px';
+            aGameLi[i].style.left = aGameLi[i].offsetLeft + 'px';
+            aGameLi[i].style.top = aGameLi[i].offsetTop + 'px';
+        }
+//        给装图片的li绑定拖拽事件
+        for(var j = 0 ; j < aGameLi.length ; j++){
+            aGameLi[j].style.position = 'absolute';
+//            给每一个li加一个用来记录初始位置的对象pos
+            aGameLi[j].pos = {
+                left: aGameLi[j].offsetLeft,
+                top: aGameLi[j].offsetTop
+            };
+            aGameLi[j].index = j;
+            drag(aGameLi[j]);
+        }
+
+        /**
+         * 封装拖拽函数
+         * 传进一个元素表示要拖拽的对象
+         * */
+        function drag(elem){
+//            鼠标点击的时候记住鼠标与li的相对位置
+            elem.onmousedown = function (e) {
+                e = e || window.event;
+                elem.style.zIndex = 2;
+//                获取初始鼠标相对ul的位置
+                var iMouseLeft = e.clientX - oGameUl.offsetLeft - elem.offsetLeft;
+                var iMouseTop = e.clientY - oGameUl.offsetTop - elem.offsetTop;
+                var oNearest = null;//用来存放与拖拽元素距离最小的元素
+
+                document.onmousemove = function(e){
+                    e = e || window.event;
+//                    移动后鼠标相对ul的位置
+                    var iLeft = e.clientX - iMouseLeft - oGameUl.offsetLeft;
+                    var iTop = e.clientY - iMouseTop - oGameUl.offsetTop;
+                    elem.style.left = iLeft + 'px';
+                    elem.style.top = iTop + 'px';
+                    oNearest = null;
+                    aCollide = [];//将碰撞检测的数组置空
+                    collide(elem);//碰撞检测
+//                    当至少有一个碰撞元素时，才去寻找距离最近的元素
+                    if(aCollide.length > 0){
+                        oNearest = getNearest(elem);
+                    }
+                    return false;//阻止默认行为
+                };
+                document.onmouseup = function(){
+                    elem.style.zIndex = 1;
+                    document.onmousemove = null;
+//                    如果有oNearest，则交换位置
+                    if(oNearest){
+                        var oTempPos = oNearest.pos;
+                        oNearest.pos = elem.pos;
+                        elem.pos = oTempPos;
+                        oNearest.style.left = oNearest.pos.left + 'px';
+                        oNearest.style.top = oNearest.pos.top + 'px';
+                    }
+                    elem.style.left = elem.pos.left + 'px';
+                    elem.style.top = elem.pos.top + 'px';
+                    document.onmouseup = null;
+                };
+            };
+        }
+        /**
+         * 封装碰撞检测函数
+         * 传进一个元素表示要检测此对象与其他对象是否碰撞
+         * 将与其碰撞的元素加到数组
+         * */
+        function collide(elem) {
+            var iElemLeft = elem.offsetLeft;
+            var iElemTop = elem.offsetTop;
+            var iTargetLeft , iTargetTop;
+            for(var i = 0 ; i < aGameLi.length ; i++){
+                if(i == elem.index){
+                    continue;
+                }
+                iTargetLeft = aGameLi[i].offsetLeft;
+                iTargetTop = aGameLi[i].offsetTop;
+                if(Math.abs(iTargetTop - iElemTop) < iHeight && Math.abs(iTargetLeft - iElemLeft) < iWidth){
+                    aCollide.push(aGameLi[i]);
+                }
+            }
+        }
+
+        /**
+         * 封装寻找最近元素函数
+         * 传进一个元素表示寻找此元素最近的元素
+         * 返回最近的元素
+         * */
+        function getNearest(elem) {
+            var iNearestDis = getDistance(elem , aCollide[0]);
+            var oNearest = aCollide[0];
+            for(var i = 1 ; i < aCollide.length ; i++){
+//                如果距离小于设定的最小距离，则将最小距离改为此距离,并将有最小距离的元素更改
+                if(getDistance(elem, aCollide[i]) < iNearestDis){
+                    iNearestDis = getDistance(elem, aCollide[i]);
+                    oNearest = aCollide[i];
+                }
+            }
+            return oNearest;
+        }
+
+        /**
+         * 封装计算两个元素距离的函数
+         * 传进一个元素表示正在拖拽的对象，另外一个元素表示被碰撞的元素
+         * 返回距离的平方
+         * */
+        function getDistance(elem, target) {
+            var iLeftSquare = Math.pow((elem.offsetLeft - target.offsetLeft),2);//横坐标的差的平方
+            var iTopSquare = Math.pow((elem.offsetTop - target.offsetTop),2);//纵坐标的差的平方
+            return iLeftSquare + iTopSquare;
+        }
+
+        var oBtn = document.getElementById('btn');
+//        获取显示答案和下一题的按钮
+        var oShowAnswerBtn = oBtn.getElementsByTagName('button')[0];
+        var oNextBtn = oBtn.getElementsByTagName('button')[1];
+//        获取答案的div和img
+        var oAnswerDiv = document.getElementById('answer');
+        var oAnswerImg = oAnswerDiv.getElementsByTagName('img')[0];
+        var timer;
+        var iChange = 0;//用来记录当前切换的小图片块
+//        获取游戏标题
+        var oGameTitleH3 = document.getElementById('game-title');
+        oShowAnswerBtn.onclick = function () {
+            oAnswerDiv.style.display = 'block';
+        };
+        oNextBtn.onclick = function () {
+            iNow++;
+            if(iNow > 6){
+                alert('没有更多了');
+            }else {
+                changeImg();
+            }
+        };
+        /**
+         * 封装一个切换图片的函数
+         * */
+        function changeImg() {
+            aIndex.sort(function (a, b) {
+                return Math.random() - 0.5;
+            });
+            var aIndex2 = [0 ,1 ,2 ,3 ,4 ,5 ,6 ,7 ,8];
+            aIndex2.sort(function (a, b) {
+                return Math.random() - 0.5;
+            });
+            timer = setInterval(function () {
+                if(iChange > aIndex.length - 1){
+                    iChange = 0;
+                    clearInterval(timer);
+                }else {
+                    aGameImg[aIndex2[iChange]].src = 'img/puzzle' + iNow + '.jpg';
+                    aGameImg[aIndex2[iChange]].style.left = -iWidth * (aIndex[iChange] % 3) + 'px';
+                    aGameImg[aIndex2[iChange]].style.top = -iHeight * parseInt(aIndex[iChange] / 3) + 'px';
+                    iChange++;
+                }
+            },100);
+            oGameTitleH3.innerHTML = '现在是第' + iNow + '关，一共6关';
+            oAnswerDiv.style.display = 'none';
+            oAnswerImg.src = 'img/puzzle' + iNow + '.jpg';
+        }
+    </script>
+</body>
+</html>
