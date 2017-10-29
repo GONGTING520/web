@@ -96,8 +96,23 @@
         var aGameLi = oGameUl.getElementsByTagName('li');
         var iWidth = aGameLi[0].offsetWidth;
         var iHeight = aGameLi[0].offsetHeight;
-        var aIndex = [0 ,1 ,2 ,3 ,4 ,5 ,6 ,7 ,8 ];
+        var aIndex = [0 ,1 ,2 ,3 ,4 ,5 ,6 ,7 ,8 ];//表示图片的位置
+        var aIndex2 = [0 ,1 ,2 ,3 ,4 ,5 ,6 ,7 ,8];//表示切换的li的顺序
         var aCollide = [];//定义数组用来装与元素碰撞的元素
+//        获取装按钮的div
+        var oBtn = document.getElementById('btn');
+//        获取显示答案和下一题的按钮
+        var oShowAnswerBtn = oBtn.getElementsByTagName('button')[0];
+        var oNextBtn = oBtn.getElementsByTagName('button')[1];
+        //        获取答案的div和img
+        var oAnswerDiv = document.getElementById('answer');
+        var oAnswerImg = oAnswerDiv.getElementsByTagName('img')[0];
+        var timer;
+        var iChange = 0;//用来记录当前切换的小图片块
+        //        获取游戏标题
+        var oGameTitleH3 = document.getElementById('game-title');
+        var bFlag = false;//定义标识位，来记录图片是否拼好
+
 //        将索引数组乱序
         aIndex.sort(function (a, b) {
             return Math.random() - 0.5;
@@ -218,36 +233,32 @@
             return iLeftSquare + iTopSquare;
         }
 
-        var oBtn = document.getElementById('btn');
-//        获取显示答案和下一题的按钮
-        var oShowAnswerBtn = oBtn.getElementsByTagName('button')[0];
-        var oNextBtn = oBtn.getElementsByTagName('button')[1];
-//        获取答案的div和img
-        var oAnswerDiv = document.getElementById('answer');
-        var oAnswerImg = oAnswerDiv.getElementsByTagName('img')[0];
-        var timer;
-        var iChange = 0;//用来记录当前切换的小图片块
-//        获取游戏标题
-        var oGameTitleH3 = document.getElementById('game-title');
         oShowAnswerBtn.onclick = function () {
             oAnswerDiv.style.display = 'block';
         };
         oNextBtn.onclick = function () {
-            iNow++;
-            if(iNow > 6){
-                alert('没有更多了');
-            }else {
-                changeImg();
+            bFlag = judgePuzzleImg();
+            if(bFlag){
+                iNow++;
+                if(iNow > 6){
+                    alert('恭喜狗子！你通关了！');
+                }else {
+                    changeImg();
+                }
+            }else{
+                alert('狗子你还未拼好，不能进行下一关卡！');
             }
         };
+
         /**
          * 封装一个切换图片的函数
          * */
         function changeImg() {
+            //表示图片的位置
             aIndex.sort(function (a, b) {
                 return Math.random() - 0.5;
             });
-            var aIndex2 = [0 ,1 ,2 ,3 ,4 ,5 ,6 ,7 ,8];
+            //表示切换的li的顺序
             aIndex2.sort(function (a, b) {
                 return Math.random() - 0.5;
             });
@@ -265,6 +276,22 @@
             oGameTitleH3.innerHTML = '现在是第' + iNow + '关，一共6关';
             oAnswerDiv.style.display = 'none';
             oAnswerImg.src = 'img/puzzle' + iNow + '.jpg';
+        }
+
+        /**
+         * 封装一个判断图片是否拼好的函数函数
+         * 如果图片拼好，则返回true
+         * 未拼好，则返回false
+         * */
+        function judgePuzzleImg(){
+            for(var i = 0 ; i < aGameLi.length ; i++){
+                var iLeft = iWidth * (aIndex[i] % 3);
+                var iTop = iHeight * parseInt(aIndex[i] / 3);
+                if(aGameLi[aIndex2[i]].pos.left != iLeft || aGameLi[aIndex2[i]].pos.top != iTop) {
+                    return false;
+                }
+            }
+            return true;
         }
     </script>
 </body>
