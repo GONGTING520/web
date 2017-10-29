@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图_无缝滚动</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        #container{
+            width: 1226px;
+            height: 460px;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #content{
+            width: 9808px;
+            height: 460px;
+            position: absolute;
+            left: 0;
+        }
+        #content img{
+            width: 1226px;
+            float: left;
+        }
+        #index li,#arrows span{
+            float: left;
+            width: 25px;
+            height: 25px;
+            background-color: rgba(0,0,0,0.5);
+            color: #ffffff;
+            text-align: center;
+            line-height: 25px;
+            margin-right: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #index{
+            position: absolute;
+            right: 30px;
+            bottom: 20px;
+        }
+        #index .select{
+            background-color: rgba(255,100,0,0.9);
+        }
+        #arrows{
+            position: absolute;
+            left: 30px;
+            bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul id="content">
+        <li>
+            <img src="img/slideshow1.jpg" alt="">
+            <img src="img/slideshow2.jpg" alt="">
+            <img src="img/slideshow3.jpg" alt="">
+            <img src="img/slideshow4.jpg" alt="">
+            <img src="img/slideshow5.jpg" alt="">
+            <img src="img/slideshow6.jpg" alt="">
+            <img src="img/slideshow7.jpg" alt="">
+            <img src="img/slideshow1.jpg" alt="">
+        </li>
+    </ul>
+    <ul id="index">
+        <li class="select">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+    </ul>
+    <div id="arrows">
+        <span id="prev">&lt;</span>
+        <span id="next">&gt;</span>
+    </div>
+
+    <script>
+        var oContent = document.getElementById('content');//获取内容的ul
+        var iWidth = oContent.getElementsByTagName('img')[0].offsetWidth;
+        var oIndex = document.getElementById('index');
+        var aIndexLi = oIndex.getElementsByTagName('li');//获取索引下标的li
+        var iNow = 0;
+        oContent.speed = 2;
+        for(var i = 0 ; i < aIndexLi.length ; i++){
+            aIndexLi[i].index = i;
+            aIndexLi[i].onmouseover = function(){
+                for(var j = 0 ; j < aIndexLi.length ; j++){
+                    aIndexLi[j].className = '';
+                }
+                changeImg(oContent,this.index);
+                this.className = 'select';
+            };
+        }
+        function changeImg(elem, index) {
+            if(iNow < index){
+                elem.speed = 2;
+            }else if(iNow > index){
+                elem.speed = -2;
+            }else{
+                elem.speed = 0;
+            }
+            iNow = index;
+            var timer = setInterval(function () {
+                elem.style.left = elem.offsetLeft - elem.speed + 'px';
+                if(elem.speed == 2 && elem.offsetLeft <= -index * iWidth){
+                    clearInterval(timer);
+                }
+                if(elem.speed == -2 && elem.offsetLeft >= -index * iWidth){
+                    clearInterval(timer);
+                }
+            },1);
+        }
+    </script>
+</div>
+</body>
+</html>
