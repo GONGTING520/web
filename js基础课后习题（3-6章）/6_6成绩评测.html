@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>成绩评测</title>
+</head>
+<body>
+<script>
+    var aScore = [];
+    var fScore;
+    var iClassCount = 7;
+    var fTotal = 0;
+    var fAvg = 0.0;
+    for(var i = 0 ; i < iClassCount ; i++){
+        fScore = parseInt(prompt('请输入第' + (i + 1) + '组成绩'));
+        aScore.push(fScore);
+        fTotal += fScore;
+    }
+    fAvg = fTotal / iClassCount;
+    document.write('总成绩：' + fTotal + '<br/>');
+    document.write('平均成绩：' + fAvg + '<br/>');
+    for(i = 0 ; i < aScore.length ; i++){
+        if(aScore[i] < 60){
+            document.write('第' + (i + 1) + '门课成绩小于60，为：' + aScore[i] + '<br/>');
+        }
+    }
+</script>
+</body>
+</html>
