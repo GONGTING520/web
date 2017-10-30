@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>判断日期是第几天</title>
+</head>
+<body>
+<script>
+    function DayOfYear(d){
+        var iFeb;
+        if(IsLeapYear(d.year)){
+            iFeb = 29;
+        }else{
+            iFeb = 28;
+        }
+        var aMonths = [31,iFeb,31,30,31,30,31,31,30,31,30,31];
+        var iMonth = d.month;
+        var total = 0;
+        for(var i = 0 ; i < iMonth - 1 ; i++){
+            total += aMonths[i];
+        }
+        total += d.day;
+        return total;
+    }
+    function IsLeapYear(y){
+        if((y % 4 ==0 && y % 100 != 0) || y % 400 == 0){
+            return true;
+        }
+        return false;
+    }
+    var date = {
+        year:2000,
+        month:2,
+        day:2
+    };
+    document.write('该日期是所在年份的第' + DayOfYear(date) + '天');
+</script>
+</body>
+</html>
