@@ -89,39 +89,87 @@
 
     <script>
         var oContent = document.getElementById('content');//获取内容的ul
-        var iWidth = oContent.getElementsByTagName('img')[0].offsetWidth;
         var oIndex = document.getElementById('index');
         var aIndexLi = oIndex.getElementsByTagName('li');//获取索引下标的li
+        var oPrev = document.getElementById('prev');
+        var oNext = document.getElementById('next');
         var iNow = 0;
+        var timer1;
+        oContent.iLiWidth = oContent.getElementsByTagName('img')[0].offsetWidth;
         oContent.speed = 2;
+        oContent.timer = null;
+
+        play();
+        oContent.onmouseover = function () {
+          clearInterval(timer1);
+        };
+        oContent.onmouseout = function () {
+            play();
+        };
         for(var i = 0 ; i < aIndexLi.length ; i++){
             aIndexLi[i].index = i;
             aIndexLi[i].onmouseover = function(){
-                for(var j = 0 ; j < aIndexLi.length ; j++){
-                    aIndexLi[j].className = '';
+                if(iNow == aIndexLi.length){
+                    iNow = 0;
+                    oContent.style.left = 0;
                 }
-                changeImg(oContent,this.index);
-                this.className = 'select';
+                if(iNow < this.index){
+                    oContent.speed = 2;
+                }else if(iNow > this.index){
+                    oContent.speed = -2;
+                }else{
+                    oContent.speed = 0;
+                }
+                console.log(oContent.speed);
+                iNow = this.index;
+                changeImg();
             };
         }
-        function changeImg(elem, index) {
-            if(iNow < index){
-                elem.speed = 2;
-            }else if(iNow > index){
-                elem.speed = -2;
-            }else{
-                elem.speed = 0;
-            }
-            iNow = index;
-            var timer = setInterval(function () {
-                elem.style.left = elem.offsetLeft - elem.speed + 'px';
-                if(elem.speed == 2 && elem.offsetLeft <= -index * iWidth){
-                    clearInterval(timer);
+        oPrev.onclick = oNext.onclick = function(){
+            if(this == oPrev){
+                iNow--;
+                oContent.speed = -2;
+                if(iNow < 0){
+                    oContent.style.left = -oContent.iLiWidth * aIndexLi.length + 'px';
+                    iNow = aIndexLi.length - 1;
                 }
-                if(elem.speed == -2 && elem.offsetLeft >= -index * iWidth){
-                    clearInterval(timer);
+                changeImg();
+            }else{
+                iNow++;
+                oContent.speed = 2;
+                if(iNow > aIndexLi.length){
+                    oContent.style.left = 0;
+                    iNow = 1;
+                }
+                changeImg();
+            }
+        };
+        //阻止默认行为
+        oPrev.onselectstart = oNext.onselectstart = function () {
+            return false;
+        };
+
+        function changeImg() {
+            for(var j = 0 ; j < aIndexLi.length ; j++){
+                aIndexLi[j].className = '';
+            }
+            aIndexLi[iNow%(aIndexLi.length)].className = 'select';
+            clearInterval(oContent.timer);
+            oContent.timer = setInterval(function () {
+                oContent.style.left = oContent.offsetLeft - oContent.speed + 'px';
+                if(oContent.speed == 2 && oContent.offsetLeft <= -iNow * oContent.iLiWidth){
+                    clearInterval(oContent.timer);
+                }
+                if(oContent.speed == -2 && oContent.offsetLeft >= -iNow * oContent.iLiWidth){
+                    clearInterval(oContent.timer);
                 }
             },1);
+        }
+
+        function play() {
+            timer1 = setInterval(function(){
+                oNext.onclick();
+            },4000);
         }
     </script>
 </div>
