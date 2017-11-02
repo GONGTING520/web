@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图_无缝滚动(animate)</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        #container{
+            width: 1226px;
+            height: 460px;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #content{
+            width: 8582px;
+            height: 460px;
+            position: absolute;
+            left: 0;
+        }
+        #content img{
+            width: 1226px;
+            float: left;
+        }
+        #index li,#arrows span{
+            float: left;
+            width: 25px;
+            height: 25px;
+            background-color: rgba(0,0,0,0.5);
+            color: #ffffff;
+            text-align: center;
+            line-height: 25px;
+            margin-right: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #index{
+            position: absolute;
+            right: 30px;
+            bottom: 20px;
+        }
+        #index .select{
+            background-color: rgba(255,100,0,0.9);
+        }
+        #arrows{
+            position: absolute;
+            left: 30px;
+            bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            <img src="img/slideshow1.jpg" alt="">
+            <img src="img/slideshow2.jpg" alt="">
+            <img src="img/slideshow3.jpg" alt="">
+            <img src="img/slideshow4.jpg" alt="">
+            <img src="img/slideshow5.jpg" alt="">
+            <img src="img/slideshow6.jpg" alt="">
+            <img src="img/slideshow7.jpg" alt="">
+        </div>
+        <ul id="index">
+            <li class="select">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+        </ul>
+        <div id="arrows">
+            <span id="prev">&lt;</span>
+            <span id="next">&gt;</span>
+        </div>
+    </div>
+
+    <script src="../wichung-1.0.js"></script>
+    <script>
+        window.onload = function () {
+            var oContainer = id('container');
+            var oContent = id('content');//装图片的div
+            var oIndex = id('index');
+            var aLi = oIndex.children;//图片下标
+            var aImg = oContent.children;
+            var oPrev = id('prev');
+            var oNext = id('next');
+            var iNow = 0;//当前的图片索引
+//            var timer;
+//            var obj = {
+//                timer: setInterval(function () {
+//                    oNext.onclick();
+//                },1000)
+//            };
+
+            oContent.iImgWidth = aImg[0].offsetWidth;//一张图片的宽度
+            oContent.appendChild(aImg[0].cloneNode());
+            oContent.style.width = aImg.length * oContent.iImgWidth + 'px';
+            //给每个li绑定划入事件
+            for(var i = 0 ; i < aLi.length ; i++){
+                aLi[i].index = i;
+                aLi[i].onmouseover = function(){
+                    iNow = this.index;
+                    changeImg();
+                };
+            }
+            oPrev.onclick = oNext.onclick = function () {
+                if(this === oPrev){
+                    iNow--;
+                    if(iNow < 0){
+                        oContent.style.left = -aLi.length * oContent.iImgWidth + 'px';
+                        iNow = aLi.length - 1;
+                    }
+                }else{
+                    iNow++;
+                    if(iNow == aImg.length){
+                        iNow = 1;
+                        oContent.style.left = 0;
+                    }
+                }
+                changeImg();
+            };
+            //阻止默认行为
+            oPrev.onselectstart = oNext.onselectstart = function(){
+                return false;
+            };
+
+            play();
+            oContainer.onmouseover = function () {
+//                console.log('oContainer.onmouseover');
+                clearInterval(oContent.timer1);
+            };
+            oContainer.onmouseout = function () {
+//                console.log('oContainer.onmouseout');
+                play();
+            };
+
+            function play() {
+                oContent.timer1 = setInterval(function(){
+                    oNext.onclick();
+                },1500);
+
+            }
+            /**
+             * 封装切换图片函数
+             * */
+            function changeImg() {
+                for(var j = 0 ; j < aLi.length ; j++){
+                    aLi[j].className = '';
+                }
+                aLi[iNow%aLi.length].className = 'select';
+                animate(oContent,{
+                    left: -iNow * oContent.iImgWidth
+                });
+            }
+        };
+
+    </script>
+</body>
+</html>
