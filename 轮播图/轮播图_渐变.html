@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 1226px;
+            margin: 40px auto;
+            border: 1px solid;
+            overflow: hidden;
+        }
+        #content{
+            width: 1226px;
+            height: 460px;
+            position: relative;
+        }
+        #imgs img{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #prev, #next{
+            position: absolute;
+            top: 200px;
+            width: 30px;
+            height: 60px;
+            background-color: rgba(0,0,0,0.5);
+            color: #ffffff;
+            text-align: center;
+            line-height: 60px;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        #next{
+            right: 0;
+        }
+        #prev:hover, #next:hover{
+            background-color: rgba(0,0,0,0.8);
+        }
+        #index{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 25px;
+            background-color: rgba(0,0,0,0.3);
+            line-height: 25px;
+            text-align: right;
+        }
+        #index-img{
+            width: 1542px;
+        }
+        #index-img img{
+            width: 200px;
+            float: left;
+            margin-right: 20px;
+        }
+        #index-img .selected{
+            border: 1px solid #ff6700;
+            box-sizing: border;
+            width: 195px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            <div id="imgs">
+                <img src="img/slideshow1.jpg" alt="">
+                <img src="img/slideshow2.jpg" alt="">
+                <img src="img/slideshow3.jpg" alt="">
+                <img src="img/slideshow4.jpg" alt="">
+                <img src="img/slideshow5.jpg" alt="">
+                <img src="img/slideshow6.jpg" alt="">
+                <img src="img/slideshow7.jpg" alt="">
+            </div>
+            <div id="index">1/7</div>
+            <div id="arrows">
+                <span id="prev">&lt;</span>
+                <span id="next">&gt;</span>
+            </div>
+        </div>
+        <div id="index-img">
+            <img src="img/slideshow1.jpg" alt="" class="selected">
+            <img src="img/slideshow2.jpg" alt="">
+            <img src="img/slideshow3.jpg" alt="">
+            <img src="img/slideshow4.jpg" alt="">
+            <img src="img/slideshow5.jpg" alt="">
+            <img src="img/slideshow6.jpg" alt="">
+            <img src="img/slideshow7.jpg" alt="">
+        </div>
+    </div>
+
+    <!-- <script src="../wichung.js"></script> -->
+    <script>
+        var oIndexImg = document.getElementById('index-img');
+        var aIndexImg = oIndexImg.getElementsByTagName('img');
+        for(var i = 0 ; i < aIndexImg.length ; i++){
+            aIndexImg[i].index = i;
+            aIndexImg[i].onmouseover = function(){
+                for(var i = 0 ; i < aIndexImg.length ; i++){
+                    aIndexImg[i].className = '';
+                }
+                this.className = 'selected';
+            };
+        }
+    </script>
+</body>
+</html>
