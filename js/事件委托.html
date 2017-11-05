@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件委托</title>
+    <style>
+        li{
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">添加</button>
+    <ul id="ul1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <script src="../jslib.js"></script>
+    <script>
+        var oBtn = getById('btn');
+        var oUl = getById('ul1');
+        //点击按钮给ul添加一个li
+        addEvent(oBtn, 'click', function () {
+            var oLi = document.createElement('li');
+            oLi.innerHTML = Math.random();
+            oUl.appendChild(oLi);
+        });
+        //点击li输出对应li的内容
+        addEvent(oUl, 'click', function (e) {
+            //能力检测，获取事件源
+            var target = e ? e.target : window.event.srcElement;
+            //若点击的不是ul，则执行
+            if (target != e.currentTarget) {
+                console.log(target.innerHTML);
+            }
+        })
+    </script>
+</body>
+
+</html>
