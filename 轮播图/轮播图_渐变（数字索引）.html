@@ -1,0 +1,181 @@
+<!-- @Author: mikey.gongting 
+@Date: 2017-11-05 13:04:49 
+@Last Modified by: mikey.zhaopeng
+@Last Modified time: 2017-11-05 13:11:52 -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图_渐变（数字索引）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #container {
+            width: 1226px;
+            height: 460px;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        #imgs img {
+            position: absolute;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            transition: all 0.5s ease;
+        }
+
+        #imgs .selected {
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+
+        #prev,
+        #next {
+            position: absolute;
+            top: 50%;
+            width: 30px;
+            height: 60px;
+            margin-top: -30px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+            cursor: pointer;
+            text-align: center;
+            line-height: 60px;
+            font-size: 20px;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+
+        #next {
+            right: 0;
+        }
+
+        #prev:hover,
+        #next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        #index {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+        }
+
+        #index li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+
+        #index .selected {
+            background-color: #ff6700;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="imgs">
+            <img src="img/slideshow1.jpg" alt="" class="selected">
+            <img src="img/slideshow2.jpg" alt="">
+            <img src="img/slideshow3.jpg" alt="">
+            <img src="img/slideshow4.jpg" alt="">
+            <img src="img/slideshow5.jpg" alt="">
+            <img src="img/slideshow6.jpg" alt="">
+            <img src="img/slideshow7.jpg" alt="">
+        </div>
+        <div id="arrows">
+            <span id="prev">&lt;</span>
+            <span id="next">&gt;</span>
+        </div>
+        <ul id="index">
+            <li class="selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+        </ul>
+    </div>
+
+    <script src="../jslib.js"></script>
+    <script>
+        var oContainer = getById('container');
+        var oImgs = getById('imgs');
+        var aImgs = oImgs.getElementsByTagName('img');
+        var oIndex = getById('index');
+        var aIndexLi = oIndex.getElementsByTagName('li');
+        var oPrev = getById('prev');
+        var oNext = getById('next');
+        oImgs.iNow = 0;
+        oImgs.timer;
+
+        for (var i = 0; i < aIndexLi.length; i++) {
+            aIndexLi[i].index = i;
+            aIndexLi[i].onmouseover = function () {
+                oImgs.iNow = this.index;
+                changeImg();
+            };
+        }
+        //绑定点击事件
+        oPrev.onclick = oNext.onclick = function () {
+            if (this === oPrev) {
+                oImgs.iNow--;
+                if (oImgs.iNow < 0) {
+                    oImgs.iNow = aImgs.length - 1;
+                }
+            } else {
+                oImgs.iNow++;
+                if (oImgs.iNow == aImgs.length) {
+                    oImgs.iNow = 0;
+                }
+            }
+            changeImg();
+        };
+        //阻止点击选中的默认行为
+        oPrev.onselectstart = oNext.onselectstart = function(){
+            return false;
+        };
+        //切换图片的函数
+        function changeImg() {
+            for (var i = 0; i < aIndexLi.length; i++) {
+                aImgs[i].className = '';
+                aIndexLi[i].className = '';
+            }
+            aImgs[oImgs.iNow].className = 'selected';
+            aIndexLi[oImgs.iNow].className = 'selected';
+        }
+        play();
+        oContainer.onmouseover = function(){
+            clearInterval(oImgs.timer);
+        };
+        oContainer.onmouseout = function(){
+            play();
+        };
+        function play(){
+            oImgs.timer = setInterval(function(){
+                oNext.onclick();
+            },2000);
+        };
+    </script>
+</body>
+
+</html>
