@@ -60,48 +60,46 @@
     </style>
 </head>
 <body>
-<div id="container">
-    <ul id="content">
-        <li>
-            <img src="img/slideshow1.jpg" alt="">
-            <img src="img/slideshow2.jpg" alt="">
-            <img src="img/slideshow3.jpg" alt="">
-            <img src="img/slideshow4.jpg" alt="">
-            <img src="img/slideshow5.jpg" alt="">
-            <img src="img/slideshow6.jpg" alt="">
-            <img src="img/slideshow7.jpg" alt="">
-            <img src="img/slideshow1.jpg" alt="">
-        </li>
-    </ul>
-    <ul id="index">
-        <li class="select">1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-    </ul>
-    <div id="arrows">
-        <span id="prev">&lt;</span>
-        <span id="next">&gt;</span>
+    <div id="container">
+        <div id="content">
+                <img src="img/slideshow1.jpg" alt="">
+                <img src="img/slideshow2.jpg" alt="">
+                <img src="img/slideshow3.jpg" alt="">
+                <img src="img/slideshow4.jpg" alt="">
+                <img src="img/slideshow5.jpg" alt="">
+                <img src="img/slideshow6.jpg" alt="">
+                <img src="img/slideshow7.jpg" alt="">
+                <img src="img/slideshow1.jpg" alt="">
+        </div>
+        <ul id="index">
+            <li class="select">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+        </ul>
+        <div id="arrows">
+            <span id="prev">&lt;</span>
+            <span id="next">&gt;</span>
+        </div>
     </div>
-
     <script>
-        var oContent = document.getElementById('content');//获取内容的ul
+        var oContent = document.getElementById('content');//获取内容的div
         var oIndex = document.getElementById('index');
         var aIndexLi = oIndex.getElementsByTagName('li');//获取索引下标的li
         var oPrev = document.getElementById('prev');
         var oNext = document.getElementById('next');
         var iNow = 0;
         var timer1;
-        oContent.iLiWidth = oContent.getElementsByTagName('img')[0].offsetWidth;
+        oContent.iImgWidth = oContent.getElementsByTagName('img')[0].offsetWidth;
         oContent.speed = 2;
         oContent.timer = null;
 
         play();
         oContent.onmouseover = function () {
-          clearInterval(timer1);
+            clearInterval(timer1);
         };
         oContent.onmouseout = function () {
             play();
@@ -120,7 +118,7 @@
                 }else{
                     oContent.speed = 0;
                 }
-                console.log(oContent.speed);
+//                console.log(oContent.speed);
                 iNow = this.index;
                 changeImg();
             };
@@ -130,7 +128,7 @@
                 iNow--;
                 oContent.speed = -2;
                 if(iNow < 0){
-                    oContent.style.left = -oContent.iLiWidth * aIndexLi.length + 'px';
+                    oContent.style.left = -oContent.iImgWidth * aIndexLi.length + 'px';
                     iNow = aIndexLi.length - 1;
                 }
                 changeImg();
@@ -157,10 +155,10 @@
             clearInterval(oContent.timer);
             oContent.timer = setInterval(function () {
                 oContent.style.left = oContent.offsetLeft - oContent.speed + 'px';
-                if(oContent.speed == 2 && oContent.offsetLeft <= -iNow * oContent.iLiWidth){
+                if(oContent.speed == 2 && oContent.offsetLeft <= -iNow * oContent.iImgWidth){
                     clearInterval(oContent.timer);
                 }
-                if(oContent.speed == -2 && oContent.offsetLeft >= -iNow * oContent.iLiWidth){
+                if(oContent.speed == -2 && oContent.offsetLeft >= -iNow * oContent.iImgWidth){
                     clearInterval(oContent.timer);
                 }
             },1);
@@ -172,6 +170,5 @@
             },4000);
         }
     </script>
-</div>
 </body>
 </html>
