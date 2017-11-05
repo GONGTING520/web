@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>轮播图_渐变</title>
     <style>
         *{
             margin: 0;
@@ -12,8 +12,10 @@
         }
         #container{
             width: 1226px;
+            height: 535px;
             margin: 40px auto;
             border: 1px solid;
+            position: relative;
             overflow: hidden;
         }
         #content{
@@ -21,14 +23,22 @@
             height: 460px;
             position: relative;
         }
+        #imgs .selected{
+            z-index: 2;
+            opacity: 1;
+        }
         #imgs img{
             position: absolute;
             left: 0;
             top: 0;
+            opacity: 0;
+            transition: all 1s ease;
         }
         #prev, #next{
             position: absolute;
-            top: 200px;
+            top: 50%;
+            margin-top: -30px;
+            z-index: 3;
             width: 30px;
             height: 60px;
             background-color: rgba(0,0,0,0.5);
@@ -50,23 +60,28 @@
             position: absolute;
             bottom: 0;
             width: 100%;
+            z-index: 3;
             height: 25px;
             background-color: rgba(0,0,0,0.3);
+            color: #ffffff;
             line-height: 25px;
             text-align: right;
         }
         #index-img{
             width: 1542px;
+            position: absolute;
+            left: 0;
+            transition: left 0.5s ease-out;
         }
         #index-img img{
             width: 200px;
+            height: 75px;
             float: left;
             margin-right: 20px;
         }
         #index-img .selected{
             border: 1px solid #ff6700;
-            box-sizing: border;
-            width: 195px;
+            box-sizing: border-box;
         }
     </style>
 </head>
@@ -74,7 +89,7 @@
     <div id="container">
         <div id="content">
             <div id="imgs">
-                <img src="img/slideshow1.jpg" alt="">
+                <img src="img/slideshow1.jpg" alt="" class="selected">
                 <img src="img/slideshow2.jpg" alt="">
                 <img src="img/slideshow3.jpg" alt="">
                 <img src="img/slideshow4.jpg" alt="">
@@ -99,18 +114,68 @@
         </div>
     </div>
 
-    <!-- <script src="../wichung.js"></script> -->
+    <script src="../wichung-1.0.js"></script>
     <script>
+        var oContainer = document.getElementById('container');
+        var oIndex = document.getElementById('index');
+        var oImgs = document.getElementById('imgs');
+        var aImgs = document.getElementsByTagName('img');
         var oIndexImg = document.getElementById('index-img');
         var aIndexImg = oIndexImg.getElementsByTagName('img');
+        var oPrev = document.getElementById('prev');
+        var oNext = document.getElementById('next');
+        oImgs.iNow = 0;
+        oImgs.timer;
+
         for(var i = 0 ; i < aIndexImg.length ; i++){
             aIndexImg[i].index = i;
             aIndexImg[i].onmouseover = function(){
-                for(var i = 0 ; i < aIndexImg.length ; i++){
-                    aIndexImg[i].className = '';
-                }
-                this.className = 'selected';
+                oImgs.iNow = this.index;
+                changeImg();
             };
+        }
+        //给箭头绑定事件
+        oPrev.onclick = oNext.onclick = function(){
+            if(this === oPrev){
+                oImgs.iNow--;
+                if(oImgs.iNow < 0){
+                    oImgs.iNow = aIndexImg.length -1;
+                }
+                changeImg();
+            }else{
+                oImgs.iNow++;
+                if(oImgs.iNow == aIndexImg.length){
+                    oImgs.iNow = 0;
+                }
+                changeImg();
+            }
+        };
+        play();
+        oContainer.onmouseover = function(){
+            clearInterval(oImgs.timer);
+        };
+        oContainer.onmouseout = function(){
+            play();
+        };
+
+        function changeImg(){
+            for(var i = 0 ; i < aIndexImg.length ; i++){
+                aIndexImg[i].className = '';
+                aImgs[i].className = '';
+            }
+            aIndexImg[oImgs.iNow].className = 'selected';
+            aImgs[oImgs.iNow].className = 'selected';
+            if((aIndexImg[oImgs.iNow].offsetLeft + aIndexImg[oImgs.iNow].offsetWidth) > oIndex.offsetWidth){
+                oIndexImg.style.left = -((aIndexImg[oImgs.iNow].offsetLeft + aIndexImg[oImgs.iNow].offsetWidth) - oIndex.offsetWidth) + 'px';
+            }else{
+                oIndexImg.style.left = 0;
+            }
+            oIndex.innerHTML = (oImgs.iNow + 1) + '/' + aIndexImg.length;
+        }
+        function play() {
+            oImgs.timer = setInterval(function(){
+                oNext.onclick();
+            },2000);
         }
     </script>
 </body>
