@@ -13,6 +13,17 @@ function getByClass(clsName, context){
     }
 }
 
+//封装函数获取elem的第一个孩子元素节点
+function getFirstChild(elem){
+    elem = elem.firstChild;
+    return elem.nodeType == 1 ? elem : next(elem);
+}
+
+//返回一个id名为idname的元素节点
+function getById(idname){
+    return document.getElementById(idname);
+}
+
 //封装函数获取elem的下一个兄弟元素节点
 function next(elem){
     do{
@@ -20,10 +31,4 @@ function next(elem){
     }while(elem && elem.nodeType != 1);
     //先判断elem是否为null，在判断nodeType
     return elem;
-}
-
-//封装函数获取elem的第一个孩子元素节点
-function getFirstChild(elem){
-    elem = elem.firstChild;
-    return elem.nodeTyoe == 1 ? elem : next(elem);
 }
