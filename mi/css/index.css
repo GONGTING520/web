@@ -784,16 +784,12 @@
     height: 154px;
 }
     /*轮播图的索引开始*/
-.content-pagers-four,.content-pagers-three{
-    margin: 15px auto;
-    width: 136px;
-    height: 30px;
-}
-.content-pagers-three{
-    width: 102px;
+.content-pagers{
+    width: 296px;
+    text-align: center;
 }
 .pager{
-    float: left;
+    display: inline-block;
     cursor: pointer;
     width: 10px;
     height: 10px;
@@ -808,7 +804,7 @@
     color: transparent;
     background: #b0b0b0;
     overflow: hidden;
-    border: 1px solid #b0b0b0;
+    border: 1px solid transparent;
     transition: all 0.2s ease;
 }
 .pager-selected .dot{
