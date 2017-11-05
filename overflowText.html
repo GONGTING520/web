@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>水平导航栏</title>
+    <style>
+        ul{
+            list-style: none;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        #main-menu{
+            height: 50px;
+        }
+        #main-menu .title{
+            display: block;
+            width: 150px;
+            height: 40px;
+            background: #5f5750;
+            color: #ffffff;
+            line-height: 40px;
+            text-align: center;
+        }
+        #main-menu li{
+            float: left;
+            margin-left: 30px;
+            height: 40px;
+            border: 1px solid #5f5750;
+            overflow: hidden;
+        }
+        .sub-menu{
+            width: 150px;
+            /*display: none;*/
+        }
+        #main-menu .sub-menu li{
+            float: none;
+            margin-left: 0px;
+            border: none;
+            border-bottom:dashed 1px #cccccc;
+            width: 150px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+        }
+        #main-menu .sub-menu li:last-child{
+            border: none;
+        }
+        /*通过伪类选择器来实现*/
+        /*#main-menu>li:hover .sub-menu{*/
+        /*display: block;*/
+        /*}*/
+        #main-menu > li:hover{
+            overflow: visible;
+        }
+    </style>
+</head>
+<body>
+    <ul id="main-menu">
+        <li>
+            <a href="#" class="title">link 1</a>
+            <ul class="sub-menu">
+                <li><a href="#">sublink 1</a></li>
+                <li><a href="#">sublink 2</a></li>
+                <li><a href="#">sublink 3</a></li>
+                <li><a href="#">sublink 4</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" class="title">link 2</a>
+            <ul class="sub-menu">
+                <li><a href="#">sublink 1</a></li>
+                <li><a href="#">sublink 2</a></li>
+                <li><a href="#">sublink 3</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" class="title">link 3</a>
+            <ul class="sub-menu">
+                <li><a href="#">sublink 1</a></li>
+                <li><a href="#">sublink 2</a></li>
+                <li><a href="#">sublink 3</a></li>
+            </ul>
+        </li>
+    </ul>
+    <h1>hahahahahahahahahhaha</h1>
+</body>
+</html>
