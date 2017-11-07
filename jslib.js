@@ -1,9 +1,10 @@
 /*
  * @Author: mikey.gongting 
- * @Date: 2017-11-05 16:25:12 
+ * @Date: 2017-11-05 17:01:01 
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2017-11-05 16:44:12
+ * @Last Modified time: 2017-11-07 22:22:35
  */
+
 
 //封装函数，给elem绑定一个事件类型为type的事件，事件处理函数为handler
 function addEvent(elem, type, handler) {
@@ -16,6 +17,7 @@ function addEvent(elem, type, handler) {
         elem['on' + type] = handler;
     }
 }
+
 //封装函数通过className获取元素,传入类名和所属对象,所属对象不写则为document
 function getByClass(clsName, context) {
     context = context || document;
@@ -49,4 +51,14 @@ function next(elem) {
     } while (elem && elem.nodeType != 1);
     //先判断elem是否为null，在判断nodeType
     return elem;
+}
+
+/*封装函数返回一个html集，里面装的是标签名为tagName的元素
+* 传进一个元素表示在那个元素中找标签
+* 传进标签名，表示要找的标签
+*/
+function getByTag(elem, tagName) {
+    //若传进了elem则为它本身，若他为null则elem为document
+    elem = elem ? elem : document;
+    return elem.getElementsByTagName(tagName);
 }
