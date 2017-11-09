@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>左侧宽度固定，右侧宽度自适应（display）</title>
+    <style>
+        #main {
+            width: 100%;
+            display: table;
+        }
+
+        #left {
+            width: 200px;
+            height: 200px;
+            background-color: #ff0000;
+            display: table-cell;
+            /* opacity: 0.5; */
+        }
+
+        #right {
+            height: 200px;
+            background-color: #00ff00;
+            display: table-cell;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="left"></div>
+        <div id="right"></div>
+    </div>
+</body>
+
+</html>
