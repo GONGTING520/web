@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>类和对象</title>
+</head>
+
+<body>
+    <script>
+        // 定义一个类
+        // 相当于构造函数
+        function People(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        // 将类的方法定义在类的原型上，避免每次实例化对象都要重复定义同样的方法
+        People.prototype.eat = function () {
+            console.log(this.name + ' is eating');
+        };
+        // 实例化一个对象需要用new
+        var p1 = new People('zhangsan', 18);
+        var p2 = new People('lisi', 28);
+        p1.eat();
+        p2.eat();
+    </script>
+</body>
+
+</html>
