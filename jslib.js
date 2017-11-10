@@ -22,6 +22,18 @@ function addEvent(elem, type, handler) {
     }
 }
 
+//封装函数，给elem移除一个事件类型为type，事件处理函数为handler的事件
+function removeEvent(elem, type, handler) {
+    //能力检测，判断elem有无removeEventListener方法，标准浏览器
+    if (elem.removeEventListener) {
+        elem.removeEventListener(type, handler);
+    } else if (elem.detachEvent) {//IE浏览器
+        elem.detachEvent('on' + type, elem.evt);
+    } else {
+        elem['on' + type] = null;
+    }
+}
+
 //封装函数通过className获取元素,传入类名和所属对象,所属对象不写则为document
 function getByClass(clsName, context) {
     context = context || document;
