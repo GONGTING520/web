@@ -1,7 +1,7 @@
 /*
  * @Author: mikey.gongting 
  * @Date: 2017-11-05 17:01:01 
- * @Last Modified by: mikey.zhaopeng
+ * @Last Modified by: mikey.gongting
  * @Last Modified time: 2017-11-07 22:22:35
  */
 
@@ -12,7 +12,11 @@ function addEvent(elem, type, handler) {
     if (elem.addEventListener) {
         elem.addEventListener(type, handler);
     } else if (elem.attachEvent) {//IE浏览器
-        elem.attachEvent('on' + type, handler);
+        elem.evt = function () {
+            //因为点击时立即执行，所以用call或者apply
+            handler.call(elem);//将此方法的this指向elem，不设置this指向window
+        };
+        elem.attachEvent('on' + type, elem.evt);
     } else {
         elem['on' + type] = handler;
     }
@@ -33,15 +37,15 @@ function getByClass(clsName, context) {
     }
 }
 
+//返回一个id名为idname的元素节点
+function getById(idname) {
+    return document.getElementById(idname);
+}
+
 //封装函数获取elem的第一个孩子元素节点
 function getFirstChild(elem) {
     elem = elem.firstChild;
     return elem.nodeType == 1 ? elem : next(elem);
-}
-
-//返回一个id名为idname的元素节点
-function getById(idname) {
-    return document.getElementById(idname);
 }
 
 //封装函数获取elem的下一个兄弟元素节点
