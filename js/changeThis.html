@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>改变this的指向</title>
+    <style>
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background-color: #cccccc;
+        }
+
+        #div2 {
+            width: 400px;
+            height: 400px;
+            background-color: #ffff00;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <script>
+        var oDiv1 = document.getElementById('div1');
+        var oDiv2 = document.getElementById('div2');
+        function fn(a, b) {
+            console.log(this);
+            console.log(a, b);
+        }
+        fn(1, 2);//调用fn，this指向window
+        fn.call(oDiv1, 3, 4);//将fn的this指向oDiv1，并给参数赋值
+        fn.apply(oDiv2, [5, 6]);//将fn的this指向oDiv2，并用数组给参数赋值
+        fn.bind(oDiv1, 7, 8);//将fn的this指向oDiv1，并给参数赋值，但没调用
+        fn.bind(oDiv2)(9, 10);//将fn的this指向oDiv1，并调用且给参数赋值
+    </script>
+</body>
+
+</html>
