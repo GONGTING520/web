@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>实现深拷贝</title>
+</head>
+
+<body>
+    <script src="../jslib.js"></script>
+    <script>
+        var obj = {
+            name: 'zhangsan',
+            dad:{
+                name: 'zhangda',
+                age: 40
+            }
+        };
+        var obj2 = clone(obj);
+        obj.dad.name = 'zhangdadadada'
+        console.log('after change obj:');
+        console.log(obj);
+        console.log('obj2:');
+        console.log(obj2);
+    </script>
+</body>
+
+</html>
