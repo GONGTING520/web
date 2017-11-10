@@ -34,6 +34,20 @@ function removeEvent(elem, type, handler) {
     }
 }
 
+//封装函数实现深拷贝，传进一个参数表示要克隆的原对象,返回克隆好的新对象
+function clone(obj){
+    //定义一个新的对象
+    var newObj ={};
+    for(var p in obj){
+        if(typeof(obj[p]) === 'object'){
+            newObj[p] = clone(obj[p]);
+        }else{
+            newObj[p] = obj[p];
+        }
+    }
+    return newObj;
+}
+
 //封装函数通过className获取元素,传入类名和所属对象,所属对象不写则为document
 function getByClass(clsName, context) {
     context = context || document;
