@@ -1,8 +1,8 @@
 /*
  * @Author: mikey.gongting 
  * @Date: 2017-11-05 17:01:01 
- * @Last Modified by: mikey.gongting
- * @Last Modified time: 2017-11-07 22:22:35
+ * @Last Modified by: mikey.zhaopeng
+ * @Last Modified time: 2017-11-11 22:01:21
  */
 
 
@@ -70,14 +70,14 @@ function getById(idname) {
 
 //封装函数获取elem的第一个孩子元素节点
 function getFirstChild(elem) {
-    elem = elem.firstChild;
+    elem = elem && elem.firstChild;//先判断elem是否为空
     return elem.nodeType == 1 ? elem : next(elem);
 }
 
 //封装函数获取elem的下一个兄弟元素节点
 function next(elem) {
     do {
-        elem = elem.nextSibling;
+        elem = elem && elem.nextSibling;//先判断elem是否为空
     } while (elem && elem.nodeType != 1);
     //先判断elem是否为null，在判断nodeType
     return elem;
