@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文本得到失去焦点</title>
+    <style>
+        #my-mes div {
+            margin-bottom: 5px;
+        }
+        input, textarea{
+            border: 1px solid #cccccc;
+        }
+        .focus{
+            background: #7a8ef3;
+            border-color: #88ffff;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" id="my-mes">
+        <fieldset>
+            <legend>myMessage</legend>
+            <div>
+                <label for="username">姓名:</label>
+                <input type="text" name="username" id="username">
+            </div>
+            <div>
+                <label for="pwd">密码:</label>
+                <input type="password" name="pwd" id="pwd">
+            </div>
+            <div>
+                <label for="mes">message:</label>
+                <textarea name="mes" id="mes"></textarea>
+            </div>
+        </fieldset>
+    </form>
+    <script src="../../jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            $('#username').add('#pwd').add('#mes').on('focus', function () {
+                $(this).addClass('focus');
+            }).on('blur', function () {
+                $(this).removeClass('focus');
+            });
+        });
+    </script>
+</body>
+
+</html>
