@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>list</title>
+</head>
+
+<body>
+    <button id="btn">add</button>
+    <ul id="content">
+        <li>111</li>
+        <li>222</li>
+    </ul>
+
+    <script src="../jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            $('#btn').on('click', function () {
+                $('#content').append('<li>333</li>');
+            });
+            $('#content').on('click', function (e) {
+                e = e.target;
+                if (e != this) {
+                    alert($(e).text());
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
