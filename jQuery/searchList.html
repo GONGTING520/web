@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>查询</title>
+</head>
+
+<body>
+    <input type="text" id="search">
+    <ul id="list">
+        <li>iPhone7</li>
+        <li>iPhone8</li>
+        <li>iPhonex</li>
+        <li>iPaid</li>
+        <li>oppo</li>
+    </ul>
+    <script src="../jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            var $search = $('#search');
+            $search.on('keyup', function () {
+                $('#list li').css('background', 'transparent');
+                if ($search.val() != '') {
+                    $('#list li:contains(' + $search.val() + ')').css('background', '#cccccc');
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>
