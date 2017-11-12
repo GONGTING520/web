@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>全选，全不选，反选</title>
+</head>
+
+<body>
+    <h1>请选择你的爱好！</h1>
+    <form action="">
+        <input type="checkbox" name="hobbys">足球
+        <input type="checkbox" name="hobbys">篮球
+        <input type="checkbox" name="hobbys">乒乓球
+        <input type="checkbox" name="hobbys">羽毛球
+        <input type="checkbox" name="hobbys">排球
+        <br>
+        <!-- 加type防止点击按钮的时候提交 -->
+        <button type="button" id="select-all">全选</button>
+        <button type="button" id="no">全不选</button>
+        <button type="button" id="reverse">反选</button>
+    </form>
+
+    <script src="../jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            var $hobbys = $('input[name="hobbys"]');
+            $('#select-all').on('click', function () {
+                $hobbys.prop('checked', true);
+            });
+            $('#no').on('click', function () {
+                $hobbys.prop('checked', false);
+            });
+            $('#reverse').on('click', function () {
+                $hobbys.each(function (index, elem, arr) {
+                    // 原生js的做法
+                    // this.checked = !this.checked;
+                    // jq的做法
+                    if ($(elem).prop('checked')) {
+                        $(elem).prop('checked', false);
+                    } else {
+                        $(elem).prop('checked', true);
+                    }
+                })
+            });
+        });
+    </script>
+</body>
+
+</html>
