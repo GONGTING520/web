@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    font-size: 12px;
+}
+
+label {
+    float: left;
+    width: 100px;
+    text-align: right;
+    line-height: 20px;
+}
+
+div {
+    margin-top: 5px;
+}
+
+strong {
+    font-size: 1px;
+    margin-left: -5px;
+    vertical-align: 3px;
+    color: #ff0000;
+}
+
+.prompt {
+    margin: -2px;
+    padding: 3px 3px 3px 22px;
+    color: #888888;
+    line-height: 20px;
+}
+
+.error {
+    background: url('../img/reg3.gif') no-repeat 0 center #ffe0e9;
+    
+}
+
+.correct{
+    background: url('../img/reg4.gif') no-repeat 0 center #e9f8eb;
+}
+
+#btn{
+    padding-left: 120px;
+}
