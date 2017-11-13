@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单验证</title>
+    <link rel="stylesheet" href="formCheck.css">
+</head>
+
+<body>
+    <form action="" method="post">
+        <div id="uname">
+            <label for="username">用户名:</label>
+            <input type="text" id="username">
+            <strong>*</strong>
+        </div>
+        <div id="ema">
+            <label for="email">邮箱:</label>
+            <input type="text" id="email">
+            <strong>*</strong>
+        </div>
+        <div>
+            <label for="message">个人资料:</label>
+            <input type="text" id="message">
+        </div>
+        <div id="btn">
+            <button type="submit" id="submit">提交</button>
+            <button type="reset" id="reset">重置</button>
+        </div>
+    </form>
+    <script src="../../../jquery-3.2.1.js"></script>
+    <script src="formCheck.js"></script>
+</body>
+
+</html>
