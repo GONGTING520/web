@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>多行文本框高度变化3</title>
+    <style>
+        #container {
+            width: 303px;
+            margin: 100px auto;
+        }
+
+        #up,
+        #down {
+            float: left;
+            width: 50px;
+            height: 30px;
+            background: #888888;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        #content {
+            resize: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="up">向上</div>
+        <div id="down">向下</div>
+
+        <textarea name="txt" id="content" cols="40" rows="10">
+                多行文本框高度变化多行文本框高度变化多行文本框高度变化
+                多行文本框高度变化多行文本框高度变化多行文本框高度变化
+                多行文本框高度变化多行文本框高度变化多行文本框高度变化
+                多行文本框高度变化多行文本框高度变化多行文本框高度变化
+                多行文本框高度变化多行文本框高度变化多行文本框高度变化
+                多行文本框高度变化多行文本框高度变化多行文本框高度变化
+                多行文本框高度变化多行文本框高度变化多行文本框高度变化
+                多行文本框高度变化多行文本框高度变化多行文本框高度变化
+                多行文本框高度变化多行文本框高度变化多行文本框高度变化
+                多行文本框高度变化多行文本框高度变化多行文本框高度变化
+                多行文本框高度变化多行文本框高度变化多行文本框高度变化
+                多行文本框高度变化多行文本框高度变化多行文本框高度变化
+        </textarea>
+    </div>
+
+    <script src="../../jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            var $content = $('#content');
+            $('#up').on('click', function () {
+                $content.stop();
+                if ($content.scrollTop() < 225) {
+                    $content.animate({
+                        scrollTop: '-=100'
+                    }, 1000);
+                }
+            });
+            $('#down').on('click', function () {
+                $content.stop();
+                if ($content.scrollTop() >= 0) {
+                    $content.animate({
+                        scrollTop: '+=100'
+                    }, 1000);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
