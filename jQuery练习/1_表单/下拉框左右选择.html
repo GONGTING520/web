@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>下拉框左右选择</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .content {
+            float: left;
+            margin-top: 10px;
+            margin-left: 10px;
+            width: 150px;
+            height: 300px;
+        }
+
+        #left,
+        #right {
+            width: 140px;
+            height: 200px;
+        }
+
+        .content span {
+            float: left;
+            margin-top: 10px;
+            width: 140px;
+            height: 40px;
+            background: #cccccc;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <select multiple="multiple" name="left" id="left">
+            <option value="选项1">选项1</option>
+            <option value="选项2">选项2</option>
+            <option value="选项3">选项3</option>
+            <option value="选项4">选项4</option>
+            <option value="选项5">选项5</option>
+            <option value="选项6">选项6</option>
+            <option value="选项7">选项7</option>
+        </select>
+        <span class="select-right">选中添加到右边&gt;&gt;</span>
+        <span class="all-right">全部添加到右边&gt;&gt;</span>
+    </div>
+
+    <div class="content">
+        <select multiple="multiple" name="right" id="right">
+            <option value="选项8">选项8</option>
+        </select>
+        <span class="select-left">&lt;&lt;选中删除到左边</span>
+        <span class="all-left">&lt;&lt;全部删除到左边</span>
+    </div>
+
+    <script src="../../jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            var $left = $('#left');
+            var $right = $('#right');
+            $('.select-right,.select-left').on('click', function () {
+                // 移动到右侧
+                if (this.className == 'select-right') {
+                    $('#left option').each(function (index, elem, arr) {
+                        elem.selected ? $(elem).appendTo($right) : null;
+                    });
+                } else {
+                    // 移动到左侧
+                    $('#right option').each(function (index, elem, arr) {
+                        elem.selected ? $(elem).appendTo($left) : null;
+                    });
+                }
+            });
+
+            $('.all-right,.all-left').on('click', function () {
+                // 全部移动到右侧
+                if (this.className == 'all-right') {
+                    $('#left option').each(function (index, elem, arr) {
+                        $(elem).appendTo($right);
+                    });
+                } else {
+                    // 全部移动到左侧
+                    $('#right option').each(function (index, elem, arr) {
+                        $(elem).appendTo($left);
+                    });
+                }
+            });
+
+            $('#left,#right').on('dblclick', function (e) {
+                // 左侧的双击事件
+                this.id == 'left' ? $(e.target).appendTo($right) :
+                    $(e.target).appendTo($left);
+            });
+        });
+    </script>
+</body>
+
+</html>
