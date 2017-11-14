@@ -1,0 +1,30 @@
+table {
+    margin-top: 10px;
+    font-size: 12px;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    width: 100px;
+    height: 20px;
+    line-height: 20px;
+    text-align: left;
+}
+
+th {
+    border-bottom: 1px solid;
+}
+
+.yellow {
+    background: #fff38f;
+}
+
+.orange {
+    background: #ffffdf;
+}
+
+.selected {
+    background: #ff6700;
+    color: #ffffff;
+}
