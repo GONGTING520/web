@@ -88,15 +88,21 @@
 
             $('.all-right,.all-left').on('click', function () {
                 // 全部移动到右侧
+                // if (this.className == 'all-right') {
+                //     $('#left option').each(function (index, elem, arr) {
+                //         $(elem).appendTo($right);
+                //     });
+                // } else {
+                //     // 全部移动到左侧
+                //     $('#right option').each(function (index, elem, arr) {
+                //         $(elem).appendTo($left);
+                //     });
+                // }
                 if (this.className == 'all-right') {
-                    $('#left option').each(function (index, elem, arr) {
-                        $(elem).appendTo($right);
-                    });
+                    $('#left option').appendTo($right);
                 } else {
                     // 全部移动到左侧
-                    $('#right option').each(function (index, elem, arr) {
-                        $(elem).appendTo($left);
-                    });
+                    $('#right option').appendTo($left);
                 }
             });
 
