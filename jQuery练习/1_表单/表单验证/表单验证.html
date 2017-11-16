@@ -15,11 +15,15 @@
             <label for="username">用户名:</label>
             <input type="text" id="username">
             <strong>*</strong>
+            <span class="error prompt hidden">请输入至少6位用户名.</span>
+            <span class="correct prompt hidden">输入正确.</span>
         </div>
         <div id="ema">
             <label for="email">邮箱:</label>
             <input type="text" id="email">
             <strong>*</strong>
+            <span class="error prompt hidden">请输入正确的E-mail地址.</span>
+            <span class="correct prompt hidden">输入正确.</span>
         </div>
         <div>
             <label for="message">个人资料:</label>
@@ -31,7 +35,8 @@
         </div>
     </form>
     <script src="../../../jquery-3.2.1.js"></script>
-    <script src="formCheck.js"></script>
+    <!-- <script src="formCheck.js"></script> -->
+    <script src="formCheck1.js"></script>
 </body>
 
 </html>
