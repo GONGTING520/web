@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>控制字体大小</title>
+    <style>
+        #container {
+            width: 300px;
+            margin: 100px auto;
+        }
+
+        #bigger,
+        #smaller {
+            width: 50px;
+            height: 30px;
+            background-color: #cccccc;
+            float: left;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        #content p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="btn" class="clearfix">
+            <div id="bigger">放大</div>
+            <div id="smaller">缩小</div>
+        </div>
+        <div id="content">
+            <p>
+                This is some text.This is some text.
+                This is some text.This is some text.
+                This is some text.This is some text.
+                This is some text.This is some text.
+                This is some text.This is some text.
+                This is some text.This is some text.
+            </p>
+        </div>
+    </div>
+
+    <script src="../../../jquery-3.2.1.js"></script>
+    <script src="fontChange.js"></script>
+</body>
+
+</html>
