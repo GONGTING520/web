@@ -1,0 +1,71 @@
+h4{
+    padding-left: 30px;
+}
+
+#container{
+    /* 需要定位，否则下方的a不能hover */
+    position: absolute;
+    width: 170px;
+    border-top: 2px solid rgb(22, 167, 22);
+}
+
+#content li{
+    position: relative;
+    font-size: 14px;
+    list-style: none;
+    width: 170px;
+    height: 30px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    border-bottom-color:#cccccc;
+    line-height: 30px;
+    text-indent: 5px;
+    cursor: pointer;
+    background: url('../img/cate_li.png') no-repeat 140px center;
+}
+
+#content .selected{
+    background-image: none;
+    background-color: #ffffff;
+    border-color: rgb(22, 167, 22);
+    border-right-color: #ffffff;
+}
+
+#content .desc,#content .num{
+    color: #aaaaaa;
+}
+
+#content a{
+    text-decoration: none;
+    color: #000000;
+}
+
+#content .extend a:hover{
+    text-decoration: underline rgb(22, 167, 22);
+    color: rgb(22, 167, 22);
+}
+
+#content .extend ul{
+    padding: 5px 15px;
+}
+
+#content .extend{
+    display: none;
+    border: 1px solid rgb(22, 167, 22);
+    box-shadow: 0 1px 5px #cccccc;
+    position: absolute;
+    z-index: -1;
+    right: -302px;
+    top: -1px;
+}
+
+#content .select{
+    display: block;
+}
+
+#content .extend li{
+    width: 270px;
+    border: none;
+    cursor: default;
+    background-image: none;
+}
