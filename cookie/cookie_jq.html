@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>cookie_jq</title>
+</head>
+<body>
+    <script src="../jquery-3.2.1.js"></script>
+    <script src="../jquery.cookie.js"></script>
+    <script>
+        $(function(){
+            $.cookie('user','lisi',{expires:30});//设置cookie
+            console.log($.cookie('user'));//获取cookie
+            $.cookie('user',null,{expires:-1});//删除cookie
+            console.log($.cookie('user'));//获取cookie
+        });
+    </script>
+</body>
+</html>
