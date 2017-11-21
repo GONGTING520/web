@@ -1,0 +1,103 @@
+/* 与换肤相关的css文件 */
+
+#skin {
+    margin: 15px 30px;
+    float: right;
+}
+
+#skin li {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    float: left;
+    cursor: pointer;
+    background: url(img/theme.gif) no-repeat;
+}
+
+#skin .skin-gray {
+    background-position-x: 0;
+}
+
+#skin .skin-purple {
+    background-position-x: -100px;
+}
+
+#skin .skin-red {
+    background-position-x: -80px;
+}
+
+#skin .skin-skyBlue {
+    background-position-x: -60px;
+}
+
+#skin .skin-orange {
+    background-position-x: -40px;
+}
+
+#skin .skin-green {
+    background-position-x: -20px;
+}
+
+#skin .selected {
+    background-position-y: -15px;
+}
+
+
+/* 头部导航栏的换肤开始 */
+
+#nav.skin-blue {
+    background-color: #4a4a4a;
+}
+
+#nav.skin-purple {
+    background-color: #be46d8;
+}
+
+#nav.skin-red {
+    background-color: #e44072;
+}
+
+#nav.skin-skyBlue {
+    background-color: #37c7d4;
+}
+
+#nav.skin-orange {
+    background-color: #f9af2a;
+}
+
+#nav.skin-green {
+    background-color: #b1d410;
+}
+
+
+/* 头部导航栏的换肤结束 */
+
+
+/* 左侧菜单栏的换肤开始 */
+
+#shopping-list .skin-gray {
+    background-color: #4a4a4a;
+}
+
+#shopping-list .skin-purple {
+    background-color: #be46d8;
+}
+
+#shopping-list .skin-red {
+    background-color: #e44072;
+}
+
+#shopping-list .skin-skyBlue {
+    background-color: #37c7d4;
+}
+
+#shopping-list .skin-orange {
+    background-color: #f9af2a;
+}
+
+#shopping-list .skin-green {
+    background-color: #b1d410;
+}
+
+
+/* 左侧菜单栏的换肤结束 */
