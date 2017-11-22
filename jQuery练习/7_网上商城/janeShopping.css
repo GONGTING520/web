@@ -1,0 +1,199 @@
+/* 中间轮播图部分开始 */
+
+#slideshow {
+    margin: 10px 12px 0 10px;
+    width: 550px;
+    height: 321px;
+    float: left;
+}
+
+#slideshow .ad-pos {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#imgs li {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#imgs .selected {
+    display: block;
+}
+
+#ad-index {
+    position: absolute;
+    bottom: 0;
+}
+
+#ad-index li {
+    width: 79px;
+    height: 32px;
+    padding: 5px 15px;
+    margin-right: 1px;
+    background: rgba(68, 68, 68, 0.7);
+    float: left;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+#ad-index li span {
+    display: block;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#ad-index .selected {
+    background: url(img/adindex.gif) no-repeat center bottom #37a7d7;
+}
+
+
+/* 中间轮播图部分结束 */
+
+
+/* 通知、新闻部分开始 */
+
+#notice,
+#news {
+    float: left;
+    margin-top: 10px;
+}
+
+#news {
+    font-size: 12px;
+    width: 228px;
+    border: 1px solid #dfdfdf;
+}
+
+#news .title {
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+    text-indent: 12px;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+#news ul {
+    padding: 6px 2px 0 12px;
+}
+
+#news li {
+    height: 20px;
+    line-height: 20px;
+}
+
+#news a {
+    color: #666666;
+}
+
+#news a:hover {
+    color: #008cd7;
+}
+
+#news .moved {
+    position: absolute;
+    z-index: 3;
+    display: none;
+    background: #ebe995;
+    border: 1px solid;
+}
+
+
+/* 通知、新闻部分结束 */
+
+
+/* 右下方轮播图部分开始 */
+
+#brand-tab {
+    float: left;
+    margin: 20px 0 0 10px;
+    width: 790px;
+}
+
+#brand-tab .title {
+    float: left;
+    font-size: 12px;
+}
+
+#brand-tab .tab-header {
+    border-bottom: 1px solid #e4e4e4;
+}
+
+#brand-tab .tab-header ul {
+    float: right;
+    margin-bottom: -4px;
+}
+
+#brand-tab .tab-header li {
+    float: left;
+    margin-right: 10px;
+    background: #e4e4e4;
+    cursor: pointer;
+}
+
+#brand-tab .tab-header a {
+    display: block;
+    line-height: 20px;
+    font-size: 12px;
+    height: 20px;
+    padding: 0 10px;
+    border-bottom: 1px solid transparent;
+}
+
+#brand-tab .tab-header a:hover {
+    text-decoration: underline;
+}
+
+#brand-tab .tab-header .selected {
+    padding-bottom: 3px;
+    background: url('img/chos.gif') no-repeat center 20px;
+}
+
+#brand-tab .tab-header .selected a {
+    color: #ffffff;
+    background-color: #fa5889;
+}
+
+#brand-tab .brand-content {
+    width: 780px;
+    height: 188px;
+    margin: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+#brand-tab .tab-content {
+    width: 3200px;
+    position: absolute;
+}
+
+#brand-tab .tab-content li {
+    float: left;
+    margin: 0 5px;
+    width: 185px;
+    height: 188px;
+}
+
+#brand-tab .tab-content span {
+    background: #efefef;
+    color: #666666;
+    text-align: center;
+    display: block;
+    width: 183px;
+    height: 24px;
+    line-height: 24px;
+}
+
+#brand-tab .tab-content a {
+    color: #666666;
+}
+
+#brand-tab .tab-content a:hover {
+    color: #008cd7;
+}
+
+
+/* 右下方轮播图部分结束 */
