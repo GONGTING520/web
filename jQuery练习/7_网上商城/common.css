@@ -1,0 +1,218 @@
+/* 通用的样式 */
+
+
+/* 样式重置 */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+
+/* 样式重置结束 */
+
+.center {
+    width: 990px;
+    margin: 0 auto;
+}
+
+
+/* 清除浮动导致的元素塌陷 */
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+
+/* 头部开始 */
+
+#header {
+    height: 105px;
+    position: relative;
+    background: url(img/headerbg.png);
+}
+
+#logo {
+    margin-left: 10px;
+    width: 158px;
+    height: 59px;
+    float: left;
+    background: url(img/logo.gif) no-repeat center;
+}
+
+#search {
+    padding: 4px 6px;
+    color: #aaaaaa;
+    width: 200px;
+    height: 17px;
+    font-size: 16px;
+    position: absolute;
+    margin: 20px 30px;
+}
+
+#nav {
+    box-sizing: border-box;
+    width: 990px;
+    padding: 0 30px;
+    position: absolute;
+    bottom: 0;
+    background: #4a4a4a;
+}
+
+#nav li {
+    height: 36px;
+    line-height: 36px;
+    float: left;
+    margin: 0 15px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#nav li:hover {
+    text-decoration: underline;
+}
+
+#nav li:hover .nav-content {
+    display: block;
+}
+
+#nav .nav-content {
+    display: none;
+    position: absolute;
+    width: 450px;
+    padding: 10px 12px;
+    top: 36px;
+    margin-left: -15px;
+    background: #ffffff;
+    z-index: 2;
+    border: 1px solid #cccccc;
+}
+
+#nav .nav-content h2 {
+    width: 76px;
+    height: 50px;
+    text-align: center;
+    float: left;
+    color: #000000;
+    font-size: 12px;
+    margin-top: -6px;
+}
+
+#nav .nav-content li {
+    color: #000000;
+    border-right: 1px solid #cccccc;
+    padding: 0 8px;
+    margin: 5px 0;
+    font-size: 12px;
+    height: 14px;
+    line-height: 14px;
+    color: #333333;
+    font-weight: normal;
+}
+
+#nav .nav-content .up {
+    border-bottom: 1px dotted #cccccc;
+    padding-bottom: 8px;
+}
+
+#nav .nav-content .down {
+    padding: 8px 0;
+}
+
+
+/* 头部结束 */
+
+
+/* 左侧购物列表开始 */
+
+#shopping-list {
+    margin-top: 10px;
+    width: 185px;
+    float: left;
+    border: 1px solid #6e6e6e;
+}
+
+#shopping-list .list-title {
+    height: 30px;
+    font-size: 14px;
+    color: #ffffff;
+    background: #6e6e6e;
+    text-indent: 13px;
+    line-height: 30px;
+}
+
+#list-content {
+    padding: 5px 10px 9px;
+}
+
+#list-content .title {
+    font-size: 14px;
+    height: 24px;
+    line-height: 24px;
+    border-bottom: 1px solid #cccccc;
+}
+
+#list-content ul {
+    padding: 0 2px 8px;
+}
+
+#list-content li {
+    float: left;
+    width: 79px;
+    height: 24px;
+    font-size: 12px;
+    line-height: 24px;
+}
+
+#list-content a {
+    color: #444444;
+}
+
+#list-content a:hover {
+    color: #008cd7;
+}
+
+#list-content .hot {
+    float: left;
+    color: #f9044e;
+}
+
+#list-content .hot:hover {
+    color: #f9044e;
+}
+
+#list-content .hot::after {
+    content: '';
+    float: right;
+    width: 21px;
+    height: 16px;
+    background: url(img/hot.gif) no-repeat;
+}
+
+
+/* 左侧购物列表结束 */
+
+
+/* 底部开始 */
+
+#footer {
+    font-size: 12px;
+    text-align: center;
+    padding: 20px 0;
+    color: #777777;
+}
+
+
+/* 底部结束 */
