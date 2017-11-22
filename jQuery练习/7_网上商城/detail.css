@@ -1,0 +1,82 @@
+/* 放大镜部分开始 */
+
+#goods-show {
+    float: left;
+    margin: 10px 10px 0 10px;
+}
+
+#goods-show .smaller {
+    float: left;
+    cursor: pointer;
+    border: 1px solid #cccccc;
+}
+
+#goods-show .bigger {
+    display: none;
+    float: left;
+    width: 310px;
+    height: 310px;
+    overflow: hidden;
+}
+
+#goods-show span {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#goods-show .small-img {
+    margin-bottom: 20px;
+}
+
+#goods-show .small-img li {
+    float: left;
+    margin-right: 10px;
+    border: 1px solid transparent;
+}
+
+#goods-show .small-img img {
+    width: 62px;
+    height: 62px;
+    cursor: pointer;
+}
+
+#goods-show .small-img .selected {
+    border-color: #eeeeee;
+}
+
+#goods-show .tab-menu li {
+    padding: 5px;
+    border: 1px solid #777777;
+    border-bottom: none;
+    float: left;
+    font-size: 12px;
+    margin-right: 5px;
+    background: #dfdfdf;
+    cursor: pointer;
+}
+
+#goods-show .tab-menu .selected {
+    background: #6D84B4;
+    color: #ffffff;
+}
+
+#goods-show .tab-content {
+    padding: 5px;
+    width: 298px;
+    border: 1px solid #777777;
+    font-size: 12px;
+}
+
+#goods-show .tab-content .selected {
+    display: block;
+}
+
+#goods-show .tab-content p {
+    display: none;
+    line-height: 18px;
+}
+
+
+/* 放大镜部分结束 */
