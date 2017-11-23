@@ -1,0 +1,95 @@
+/* 评分部分的css样式 */
+
+#goods-selected .score li {
+    background: url(img/star-matrix.gif) no-repeat 0 0;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    float: left;
+}
+
+#goods-selected .score .two {
+    background-position-x: -16px;
+}
+
+#goods-selected .score .three {
+    background-position-x: -32px;
+}
+
+#goods-selected .score .four {
+    background-position-x: -48px;
+}
+
+#goods-selected .score .five {
+    background-position-x: -64px;
+}
+
+
+/* 当划第一个li时 */
+
+#goods-selected .score .one-hover {
+    background-position-y: -96px;
+}
+
+
+/* 当划第二个li时 */
+
+#goods-selected .score .two-hover {
+    background-position-y: -112px;
+}
+
+
+/* 当划第三个li时 */
+
+#goods-selected .score .three-hover {
+    background-position-y: -128px;
+}
+
+
+/* 当划第四个li时 */
+
+#goods-selected .score .four-hover {
+    background-position-y: -144px;
+}
+
+
+/* 当划第五个li时 */
+
+#goods-selected .score .five-hover {
+    background-position-y: -160px;
+}
+
+
+/* 当点击第1个li时 */
+
+#goods-selected .score .one-selected {
+    background-position-y: -16px;
+}
+
+
+/* 当点击第2个li时 */
+
+#goods-selected .score .two-selected {
+    background-position-y: -32px;
+}
+
+
+/* 当点击第3个li时 */
+
+#goods-selected .score .three-selected {
+    background-position-y: -48px;
+}
+
+
+/* 当点击第4个li时 */
+
+#goods-selected .score .four-selected {
+    background-position-y: -64px;
+}
+
+
+/* 当点击第5个li时 */
+
+#goods-selected .score .five-selected {
+    background-position-y: -80px;
+}
