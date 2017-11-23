@@ -26,6 +26,12 @@
     cursor: pointer;
 }
 
+
+/* 放大镜部分结束 */
+
+
+/* 切换商品的小图开始 */
+
 #goods-show .small-img {
     margin-bottom: 20px;
 }
@@ -33,7 +39,13 @@
 #goods-show .small-img li {
     float: left;
     margin-right: 10px;
+    width: 62px;
+    height: 62px;
     border: 1px solid transparent;
+}
+
+#goods-show .small-img li:hover {
+    border-color: #999999;
 }
 
 #goods-show .small-img img {
@@ -45,6 +57,12 @@
 #goods-show .small-img .selected {
     border-color: #eeeeee;
 }
+
+
+/* 切换商品的小图结束 */
+
+
+/* 介绍产品选项卡开始 */
 
 #goods-show .tab-menu li {
     padding: 5px;
@@ -79,4 +97,119 @@
 }
 
 
-/* 放大镜部分结束 */
+/* 介绍产品选项卡结束 */
+
+
+/* 产品选择开始 */
+
+#goods-selected {
+    float: left;
+    width: 448px;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+#goods-selected h2 {
+    font-size: 12px;
+    line-height: 18px;
+}
+
+
+/* 文字描述 */
+
+#goods-selected .desc,
+#goods-selected li {
+    line-height: 25px;
+}
+
+
+/* 原价 */
+
+#goods-selected .price {
+    text-decoration: line-through;
+    color: #404040;
+    font-weight: 400;
+}
+
+
+/* 促销价 */
+
+#goods-selected .discount {
+    font-size: 24px;
+    color: #ff6700;
+    vertical-align: -4px;
+}
+
+
+/* 颜色的图片 */
+
+#goods-selected .color-img li {
+    float: left;
+    cursor: pointer;
+    margin-right: 10px;
+    width: 34px;
+    height: 34px;
+    border: 1px solid #aaaaaa;
+    padding: 1px;
+}
+
+#goods-selected .color-img li:hover,
+#goods-selected .color-img .selected {
+    border-color: #ff6700;
+}
+
+#goods-selected .color-img img {
+    width: 34px;
+}
+
+
+/* 尺寸 */
+
+#goods-selected .size-ul li {
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border: 1px solid #cccccc;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+#goods-selected .size-ul .selected {
+    background: #ff6700;
+}
+
+
+/* 数量 */
+
+#goods-selected .number div {
+    float: left;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #cccccc;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+#goods-selected .number input {
+    float: left;
+    width: 30px;
+    height: 20px;
+    text-align: center;
+    border: 1px solid #cccccc;
+    margin: 0 -1px;
+    background: #ffffff;
+}
+
+#goods-selected .add-cart {
+    background: url(img/btn_cart.png) no-repeat center;
+    width: 94px;
+    height: 29px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+
+/* 产品选择结束 */
