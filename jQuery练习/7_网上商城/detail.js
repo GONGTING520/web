@@ -1,5 +1,14 @@
 $(function () {
     // 放大镜中的选项卡部分开始
+    // 用事件委托做
+    var $goodsShow = $('#goods-show');
+    $('.tab-menu', $goodsShow).on('click', function (e) {
+        e = e || window.event;
+        var target = e.target || e.srcElement;
+        if (target != this) {
+            $(target).add('.tab-content p:eq(' + $(target).index() + ')', $goodsShow).addClass('selected').siblings().removeClass('selected');
+        }
+    });
     // 放大镜中的选项卡部分结束
 
 
