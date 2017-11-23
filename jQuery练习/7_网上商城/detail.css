@@ -55,7 +55,7 @@
 }
 
 #goods-show .small-img .selected {
-    border-color: #eeeeee;
+    border-color: #aaaaaa;
 }
 
 
@@ -64,7 +64,7 @@
 
 /* 介绍产品选项卡开始 */
 
-#goods-show .tab-menu li {
+#goods-show .tab .tab-menu li {
     padding: 5px;
     border: 1px solid #777777;
     border-bottom: none;
@@ -75,7 +75,11 @@
     cursor: pointer;
 }
 
-#goods-show .tab-menu .selected {
+#goods-show .tab-menu li:hover {
+    background: #bcbcbc;
+}
+
+#goods-show .tab .tab-menu .selected {
     background: #6D84B4;
     color: #ffffff;
 }
