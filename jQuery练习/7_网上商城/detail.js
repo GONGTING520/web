@@ -1,7 +1,50 @@
 $(function () {
+    var $goodsShow = $('#goods-show');
+    var $magnifying = $('.magnifying-glass', $goodsShow);
+    var $drag = $('.drag', $magnifying);
+    var $bigger = $('.bigger', $magnifying);
+    var $biggerImg = $('img', $bigger);
+    // 放大镜中部分开始
+    $magnifying.hover(function () {
+        $drag.add($bigger).css('display', 'block');
+    }, function () {
+        $drag.add($bigger).css('display', 'none');
+    }).on('mousemove', function (e) {
+        e = e || window.event;
+        var iLeft = e.clientX - $drag.width() / 2 - $magnifying.offset().left;
+        var iTop = e.clientY - $drag.height() / 2 - $magnifying.offset().top;
+        var iMaxLeft = $bigger.offset().left - $magnifying.offset().left - $drag.width();
+        var iMaxTop = $magnifying.height() - $drag.height();
+        var iBigMaxLeft = $biggerImg.width() - $bigger.width();
+        var iBigMaxTop = $biggerImg.height() - $bigger.height();
+        if (iLeft > iMaxLeft) {
+            iLeft = iMaxLeft;
+        }
+        if (iLeft < 0) {
+            iLeft = 0;
+        }
+        if (iTop > iMaxTop) {
+            iTop = iMaxTop;
+        }
+        if (iTop < 0) {
+            iTop = 0;
+        }
+        $drag.css({
+            left: iLeft,
+            top: iTop
+        });
+        $biggerImg.css({
+            left: -(iLeft / iMaxLeft) * iBigMaxLeft,
+            top: -(iTop / iMaxTop) * iBigMaxTop
+        });
+    });
+    // 放大镜中部分结束
+
+
+
+
     // 放大镜中的选项卡部分开始
     // 用事件委托做
-    var $goodsShow = $('#goods-show');
     $('.tab-menu', $goodsShow).on('click', function (e) {
         e = e || window.event;
         var target = e.target || e.srcElement;
