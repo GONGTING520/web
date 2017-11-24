@@ -136,6 +136,21 @@ $(function () {
 
 
 
+    // 选择尺寸开始
+    // 用事件委托做
+    $('.size-ul', $goodsInfo).on('click', function (e) {
+        e = e || window.event;
+        var target = e.target || e.srcElement;
+        if (target != this) {
+            $('.size', $goodsInfo).text(target.innerHTML);
+            $(target).addClass('selected').siblings().removeClass('selected');
+        }
+    });
+    // 选择尺寸结束
+
+
+
+
 
     // 评分部分开始
     var $scoreLi = $('#goods-selected .score li');
