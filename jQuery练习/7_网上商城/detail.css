@@ -5,21 +5,44 @@
     margin: 10px 10px 0 10px;
 }
 
+#goods-show .magnifying-glass {
+    position: relative;
+}
+
 #goods-show .smaller {
     float: left;
     cursor: pointer;
+    width: 310px;
+    height: 310px;
     border: 1px solid #cccccc;
 }
 
 #goods-show .bigger {
     display: none;
-    float: left;
+    border: 1px solid #cccccc;
+    position: absolute;
+    left: 311px;
+    top: 0;
     width: 310px;
     height: 310px;
     overflow: hidden;
 }
 
-#goods-show span {
+#goods-show .bigger img {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#goods-show .drag {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.5);
+    display: none;
+}
+
+#goods-show a {
     display: block;
     padding: 10px;
     text-align: center;
