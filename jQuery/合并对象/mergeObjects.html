@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>合并对象</title>
+</head>
+
+<body>
+    <script src="../../jslib.js"></script>
+    <script>
+        var obj1 = {
+            name: 'lisi',
+            mather: {
+                name: 'lili',
+                work: 'teacher'
+            },
+            age: 18
+        };
+        var arr = [{
+            name: 'zhangsan',
+            age: 20,
+            school: 'nongda'
+        }, {
+            name: 'wangwu',
+            age: 30,
+            mather: {
+                name: 'aa',
+                age: 52
+            }
+        }, {
+            name: 'zhaoliu',
+            age: 40,
+            address: 'herbin'
+        }];
+        extend(obj1, arr);
+        console.log(obj1);
+        console.log(arr);
+    </script>
+</body>
+
+</html>
