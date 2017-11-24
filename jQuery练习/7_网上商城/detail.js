@@ -4,6 +4,7 @@ $(function () {
     var $drag = $('.drag', $magnifying);
     var $bigger = $('.bigger', $magnifying);
     var $biggerImg = $('img', $bigger);
+    var $smallerImg = $('.smaller img', $magnifying);
     // 放大镜中部分开始
     $magnifying.hover(function () {
         $drag.add($bigger).css('display', 'block');
@@ -11,8 +12,9 @@ $(function () {
         $drag.add($bigger).css('display', 'none');
     }).on('mousemove', function (e) {
         e = e || window.event;
-        var iLeft = e.clientX - $drag.width() / 2 - $magnifying.offset().left;
-        var iTop = e.clientY - $drag.height() / 2 - $magnifying.offset().top;
+        // 不能用client，client是相对于本画面整个，而page是相对于整个页面
+        var iLeft = e.pageX - $drag.width() / 2 - $magnifying.offset().left;
+        var iTop = e.pageY - $drag.height() / 2 - $magnifying.offset().top;
         var iMaxLeft = $bigger.offset().left - $magnifying.offset().left - $drag.width();
         var iMaxTop = $magnifying.height() - $drag.height();
         var iBigMaxLeft = $biggerImg.width() - $bigger.width();
@@ -41,6 +43,20 @@ $(function () {
     // 放大镜中部分结束
 
 
+    // 切换放大镜中的图片开始
+    var $smallImgLi = $('.small-img li', $goodsShow);
+    $smallImgLi.on('click', function () {
+        $(this).addClass('selected').siblings().removeClass('selected');
+        var sThisSrc = $(this.children[0]).attr('alt');
+        var sBiggerSrc = 'img/pro_img/' + sThisSrc + '_big.jpg';
+        var sSmallerSrc = 'img/pro_img/' + sThisSrc + '_small.jpg';
+        $biggerImg.attr('src', sBiggerSrc);
+        $smallerImg.attr('src', sSmallerSrc);
+        $('.magnifying-img', $goodsShow).attr('href', sBiggerSrc);
+    });
+    // 切换放大镜中的图片结束
+
+
 
 
     // 放大镜中的选项卡部分开始
@@ -53,6 +69,70 @@ $(function () {
         }
     });
     // 放大镜中的选项卡部分结束
+
+
+
+
+    // 选择颜色部分开始
+    var $goodsInfo = $('#goods-selected .goods-info');
+    $('.color-img li', $goodsInfo).on('click', function () {
+        $(this).addClass('selected').siblings().removeClass('selected');
+        var $img = $(this).children().eq(0); //获取当前li下面的img
+        // 将当前点击图片的alt属性赋值给class为color的span，更改他的内容
+        $('.color', $goodsInfo).text($img.attr('alt'));
+        var sColor = $img.data('color'); //获取当前点击图片的color属性
+        var iSelectedIndex = 0; //记录放大镜中被选中的li的索引，默认为0
+        // 遍历所有的小图片li
+        $smallImgLi.each(function (index) {
+            // 如果当前li被选中的更改iSelectedIndex为当前li的索引
+            if (this.className == 'selected') {
+                iSelectedIndex = index;
+            }
+            // 如果当前为第三个图片
+            if (index == 2) {
+                // 如果颜色为粉绿则隐藏当前li，否则显示
+                if (sColor == "green") {
+                    $(this).css('display', 'none');
+                } else {
+                    $(this).css('display', 'block');
+                    changeSmallImg($(this.children[0]), sColor, index);
+                }
+            } else {
+                changeSmallImg($(this.children[0]), sColor, index);
+            }
+        });
+        if (iSelectedIndex == 2 && sColor == 'green') {
+            // 若下标为2，且为粉绿色，则去触发第一个li的点击事件
+            $smallImgLi.eq(0).children().eq(0).trigger('click');
+        } else {
+            $smallImgLi.eq(iSelectedIndex).children().eq(0).trigger('click');
+        }
+    });
+
+    /**
+     * 切换图片的src
+     * 输入要切换的元素elem，切换的颜色color，图片的索引index
+     */
+    function changeSmallImg(elem, color, index) {
+        var sIndex = '';
+        switch (index) {
+            case 0:
+                sIndex = 'one';
+                break;
+            case 1:
+                sIndex = 'two';
+                break;
+            case 2:
+                sIndex = 'three';
+                break;
+        }
+        elem.attr({
+            src: 'img/pro_img/' + color + '_' + sIndex + '.jpg',
+            alt: color + '_' + sIndex
+        });
+    }
+    // 选择颜色部分结束
+
 
 
 
