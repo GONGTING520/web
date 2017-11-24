@@ -151,6 +151,31 @@ $(function () {
 
 
 
+    // 选择数量开始
+    var $number = $('.number', $goodsInfo);
+    var $num = $('.num', $number);
+    var $sum = $('.sum', $goodsInfo);
+    var $sub = $('.sub', $number);
+    $sub.add('.add', $number).on('click', function () {
+        var iNum = $num.attr('value') * 1;
+        if (this === $sub.get(0)) {
+            $num.attr('value', function () {
+                iNum--;
+                if (iNum < 1) {
+                    iNum = 1;
+                }
+                return iNum;
+            });
+        } else {
+            $num.attr('value', ++iNum);
+        }
+        $sum.text(200 * $num.attr('value'));
+    });
+    // 选择数量结束
+
+
+
+
 
     // 评分部分开始
     var $scoreLi = $('#goods-selected .score li');
