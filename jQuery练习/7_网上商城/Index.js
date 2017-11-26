@@ -19,7 +19,7 @@ $(function () {
 
     // 切换图片的函数
     function showAd() {
-        $('#imgs li:eq(' + iAdNow + ')').fadeIn().siblings().fadeOut();
+        $('#imgs li:eq(' + iAdNow + ')').stop().fadeIn().siblings().stop().fadeOut();
         $adIndexLi.eq(iAdNow).addClass('selected').siblings().removeClass('selected');
     }
 
