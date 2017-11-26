@@ -2,7 +2,7 @@
  * @Author: mikey.gongting 
  * @Date: 2017-11-05 17:01:01 
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2017-11-24 22:56:51
+ * @Last Modified time: 2017-11-26 15:35:43
  */
 
 
@@ -48,11 +48,18 @@ function clone(obj) {
     return newObj;
 }
 
-//封装函数通过className获取元素,传入类名和所属对象,所属对象不写则为document
+
+/**
+ * 封装函数通过className获取元素
+ * 
+ * @param {any} clsName 类名
+ * @param {any} context 若传入则表示在context下查找，否则为document下查找
+ * @returns result 返回有clsName的元素的数组
+ */
 function getByClass(clsName, context) {
     context = context || document;
     if (context.getElementsByClassName) { //能力检测,看是否有此函数
-        return context.getElementsByClassName('clsName');
+        return context.getElementsByClassName(clsName);
     }
     var result = []; //定义数组来装最终的结果集
     var aList = context.getElementsByTagName('*'); //获取context下所有的标签
@@ -61,6 +68,7 @@ function getByClass(clsName, context) {
             result.push(aList[i]);
         }
     }
+    return result;
 }
 
 //返回一个id名为idname的元素节点
@@ -113,4 +121,28 @@ function extend(target, arr) {
             }
         }
     }
+}
+
+
+
+
+//JQuery部分
+function $(selector, context) {
+    return new JQuery(selector, context);
+}
+
+function JQuery(selector, context) {
+    this.elements = [];
+    //选择器
+    if (typeof selector === 'string') {
+        if (selector.charAt(0) === '#') { //或者selector[0]
+            this.elements.push(document.getElementById(selector.substring(1)));
+        } else if (selector.charAt(0) === '.') {
+            this.elements = getByClass(selector.substring(1), context);
+        }
+    } else if (typeof selector === 'function') {
+        //文档就绪函数
+        addEvent(window, 'load', selector);
+    }
+    return this.elements;
 }
