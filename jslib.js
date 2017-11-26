@@ -2,7 +2,7 @@
  * @Author: mikey.gongting 
  * @Date: 2017-11-05 17:01:01 
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2017-11-26 15:35:43
+ * @Last Modified time: 2017-11-26 16:15:42
  */
 
 
@@ -126,11 +126,23 @@ function extend(target, arr) {
 
 
 
-//JQuery部分
+/**
+ * $的原理是返回一个JQuery类的实例化对象
+ * 
+ * @param {any} selector 
+ * @param {any} context 
+ * @returns 一个JQuery类的实例化对象
+ */
 function $(selector, context) {
     return new JQuery(selector, context);
 }
-
+/**
+ * 声明一个JQuery的类
+ * 
+ * @param {any} selector 选择器
+ * @param {any} context 若传入则表示在context下查找，否则为document下查找
+ * @returns 返回查找到的元素数组
+ */
 function JQuery(selector, context) {
     this.elements = [];
     //选择器
@@ -144,5 +156,43 @@ function JQuery(selector, context) {
         //文档就绪函数
         addEvent(window, 'load', selector);
     }
-    return this.elements;
+    // 不能return，因为return的是数组，不是JQuery对象
+    // return this.elements;
 }
+
+/**
+ * jq绑定事件的部分原理
+ * 
+ * @param {any} type 事件类型
+ * @param {any} handler 事件处理函数
+ * @returns 返回本对象
+ */
+JQuery.prototype.on = function (type, handler) {
+    for (var index in this.elements) {
+        addEvent(this.elements[index], type, handler);
+    }
+    return this;
+};
+
+JQuery.prototype.css = function (arg1, arg2) {
+    if (typeof arg1 === 'string' && typeof arg2 === 'string') {
+        // 循环this.elements中每一个元素
+        for (var index in this.elements) {
+            this.elements[index].style[arg1] = arg2;
+        }
+    } else if (typeof arg1 === 'object' && typeof arg2 === 'undefined') {
+        // 循环this.elements中每一个元素
+        for (var i = 0; i < this.elements.length; i++) {
+            // 循环arg1对象中每一个样式
+            for (var p in arg1) {
+                this.elements[i].style[p] = arg1[p];
+            }
+        }
+    } else if (typeof arg1 === 'string' && typeof arg2 === 'function') {
+        // 循环this.elements中每一个元素
+        for (var index in this.elements) {
+            this.elements[index].style[arg1] = arg2();
+        }
+    }
+    return this;
+};
