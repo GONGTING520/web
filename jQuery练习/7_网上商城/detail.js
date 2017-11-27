@@ -219,4 +219,15 @@ $(function () {
         });
     }
     // 评分部分结束
+
+
+    // 加入购物车部分开始
+    var $layer = $('#pop-layer');
+    $('#goods-selected .add-cart').on('click', function () {
+        $layer.show();
+    });
+    $layer.on('click', function () {
+        $(this).hide();
+    });
+    // 加入购物车部分结束
 });
