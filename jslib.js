@@ -2,7 +2,7 @@
  * @Author: mikey.gongting 
  * @Date: 2017-11-05 17:01:01 
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2017-11-26 16:15:42
+ * @Last Modified time: 2017-11-26 16:18:05
  */
 
 
@@ -174,6 +174,14 @@ JQuery.prototype.on = function (type, handler) {
     return this;
 };
 
+
+/**
+ * jq中css的原理
+ * 
+ * @param {any} arg1 可以是一个表示属性名的字符串，也可以是一个对象
+ * @param {any} arg2 可以是一个表示属性值的字符串，也可以不传或者是一个方法
+ * @returns 本对象
+ */
 JQuery.prototype.css = function (arg1, arg2) {
     if (typeof arg1 === 'string' && typeof arg2 === 'string') {
         // 循环this.elements中每一个元素
