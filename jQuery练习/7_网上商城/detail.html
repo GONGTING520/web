@@ -276,9 +276,12 @@
                 </div>
                 <div class="drag"></div>
             </div>
-            <a href="img/pro_img/blue_one_big.jpg" class="magnifying-img">
+            <a class="clear-pictures">
                 <img src="img/look.gif" title="介绍文字" alt="">
             </a>
+            <div class="layer-img">
+                <img src="img/pro_img/blue_one_big.jpg" alt="" class="magnifying-img">
+            </div>
             <!-- 切换图片部分 -->
             <ul class="small-img clearfix">
                 <li class="selected">
@@ -398,6 +401,15 @@
     <script src="../../jquery.cookie.js"></script>
     <script src="common.js"></script>
     <script src="detail.js"></script>
+    <script>
+        // 让清晰图片居中
+        var $magnifyingImg = $('#goods-show .layer-img .magnifying-img');
+        window.onload = function () {
+            $magnifyingImg.css('margin-left', function () {
+                return -$magnifyingImg.width() / 2;
+            });
+        };
+    </script>
 </body>
 
 </html>
