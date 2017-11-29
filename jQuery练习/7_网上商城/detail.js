@@ -45,16 +45,32 @@ $(function () {
 
     // 切换放大镜中的图片开始
     var $smallImgLi = $('.small-img li', $goodsShow);
+    var $layerImg = $('.layer-img', $goodsShow);
+    var $magnifyingImg = $('.magnifying-img', $layerImg);
     $smallImgLi.on('click', function () {
         $(this).addClass('selected').siblings().removeClass('selected');
         var sThisSrc = $(this.children[0]).attr('alt');
         var sBiggerSrc = 'img/pro_img/' + sThisSrc + '_big.jpg';
         var sSmallerSrc = 'img/pro_img/' + sThisSrc + '_small.jpg';
-        $biggerImg.attr('src', sBiggerSrc);
+        $biggerImg.add($magnifyingImg).attr('src', sBiggerSrc);
         $smallerImg.attr('src', sSmallerSrc);
-        $('.magnifying-img', $goodsShow).attr('href', sBiggerSrc);
+        // $('.magnifying-img', $goodsShow).attr('src', sBiggerSrc);
     });
     // 切换放大镜中的图片结束
+
+
+
+
+    // 观看清晰图片部分开始
+    $('.clear-pictures', $goodsShow).on('click', function () {
+        var iImgWidth = $magnifyingImg.width();
+        console.log(iImgWidth);
+        $layerImg.show();
+    });
+    $magnifyingImg.closest('div').on('click', function () {
+        $layerImg.hide();
+    });
+    // 观看清晰图片部分结束
 
 
 
