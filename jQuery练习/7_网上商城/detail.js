@@ -75,11 +75,12 @@ $(function () {
 
     // 选择颜色部分开始
     var $goodsInfo = $('#goods-selected .goods-info');
+    var $color = $('.color', $goodsInfo);
     $('.color-img li', $goodsInfo).on('click', function () {
         $(this).addClass('selected').siblings().removeClass('selected');
         var $img = $(this).children().eq(0); //获取当前li下面的img
         // 将当前点击图片的alt属性赋值给class为color的span，更改他的内容
-        $('.color', $goodsInfo).text($img.attr('alt'));
+        $color.text($img.attr('alt'));
         var sColor = $img.data('color'); //获取当前点击图片的color属性
         var iSelectedIndex = 0; //记录放大镜中被选中的li的索引，默认为0
         // 遍历所有的小图片li
@@ -138,11 +139,12 @@ $(function () {
 
     // 选择尺寸开始
     // 用事件委托做
+    var $size = $('.size', $goodsInfo);
     $('.size-ul', $goodsInfo).on('click', function (e) {
         e = e || window.event;
         var target = e.target || e.srcElement;
         if (target != this) {
-            $('.size', $goodsInfo).text(target.innerHTML);
+            $size.text(target.innerHTML);
             $(target).addClass('selected').siblings().removeClass('selected');
         }
     });
@@ -224,10 +226,18 @@ $(function () {
     // 加入购物车部分开始
     var $layer = $('#pop-layer');
     $('#goods-selected .add-cart').on('click', function () {
+        this.LayerInner = '您选购了' + $num.val() + '件' + $size.text() +
+            '尺寸的衬衫，颜色为：' + $color.text() + '。总计：' + $sum.text() + '元';
+        $('.layer-inner', $layer).text(this.LayerInner);
         $layer.show();
     });
     $layer.on('click', function () {
         $(this).hide();
+    });
+    $('.head-close', $layer).hover(function () {
+        $(this).addClass('head-close-hover');
+    }, function () {
+        $(this).removeClass('head-close-hover');
     });
     // 加入购物车部分结束
 });
