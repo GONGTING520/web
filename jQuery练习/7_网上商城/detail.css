@@ -50,6 +50,24 @@
     cursor: pointer;
 }
 
+#goods-show .layer-img {
+    position: absolute;
+    z-index: 9999;
+    display: none;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#goods-show .layer-img img {
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 
 /* 放大镜部分结束 */
 
