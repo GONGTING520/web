@@ -65,6 +65,7 @@
     height: 100%;
     position: absolute;
     left: 50%;
+    /* 有兼容性问题 */
     transform: translateX(-50%);
 }
 
