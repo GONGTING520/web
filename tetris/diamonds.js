@@ -5,11 +5,16 @@ function Common() {
     this.iHeight = this.iWidth * 2;
     this.$Div1 = $('<div></div>');
     this.$Div2 = $('<div></div>');
+    this.aDiv = [];
+    for (var i = 0; i < 4; i++) {
+        this.aDiv.push($('<div></div>').get(0));
+    }
     this.sDirction = getRandom(1, 2) == 1 ? 'left' : 'right'; //获取方向
 }
 // 生成一个形状类似于7的方块
 function Seven() {
     Common.call(this); //继承父类的属性
+    console.log(this.aDiv);
     this.$Div1.add(this.$Div2).addClass('seven'); //给两个块添加一个类名
     var iLeft = this.sDirction === 'left' ? 150 : 120;
     this.$Div1.css({
