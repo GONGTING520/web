@@ -9,19 +9,25 @@ a.fallDown();
 document.onkeyup = function (e) {
     switch (e.keyCode) {
         case 37: //左
-            $(a.aDiv).each(function () {
-                var iLeft = $(this).css('left').split('px')[0] - $(this).width();
-                $(this).css('left', iLeft);
-            });
+            // a活着，并且可以左移
+            if (a.bMovable && a.bLeftMovable) {
+                $(a.aDiv).each(function () {
+                    var iLeft = $(this).css('left').split('px')[0] - $(this).width();
+                    $(this).css('left', iLeft);
+                });
+            }
             break;
         case 38: //上
             console.log('up');
             break;
         case 39: //右
-            $(a.aDiv).each(function () {
-                var iLeft = parseInt($(this).css('left').split('px')[0]) + $(this).width();
-                $(this).css('left', iLeft);
-            });
+            // a活着，并且可以右移
+            if (a.bMovable && a.bRightMovable) {
+                $(a.aDiv).each(function () {
+                    var iLeft = parseInt($(this).css('left').split('px')[0]) + $(this).width();
+                    $(this).css('left', iLeft);
+                });
+            }
             break;
         case 40: //下
             console.log('down');
