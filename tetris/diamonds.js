@@ -1,8 +1,40 @@
 var $gameContent = $('#game .game-content');
+/**
+ * 一个生成俄罗斯方块的函数
+ * 
+ * @returns 生成的方块对象
+ */
+function newTetris() {
+    var i = getRandom(0, 4);
+    var oTetris; //表示要生成的方块
+    switch (i) {
+        case 0:
+            oTetris = new Seven(); //生成一个7形状的方块
+            break;
+        case 1:
+            oTetris = new Diamond(); //生成一个方形的方块
+            break;
+        case 2:
+            oTetris = new DiamondZ(); //生成一个z形的方块
+            break;
+        case 3:
+            oTetris = new Triangle(); //生成一个三角形的方块
+            break;
+        case 4:
+            oTetris = new Line(); //生成一个直线型的方块
+            break;
+    }
+    return oTetris;
+}
+
+
+
+
 // 定义一个父类
 function Common() {
     this.iWidth = $gameContent.width() / 10;
     this.aDiv = [];
+    this.speed = 500;
     for (var i = 0; i < 4; i++) { //定义四个小方块
         this.aDiv.push($('<div></div>').get(0));
         this.aDiv[i].style.width = this.iWidth + 'px';
@@ -10,6 +42,34 @@ function Common() {
     }
     this.sDirction = getRandom(1, 2) == 1 ? 'left' : 'right'; //获取方向
 }
+// 定义一个一直下落的方法
+Common.prototype.fallDown = function () {
+    var $aDiv = $(this.aDiv);
+    var iWid = this.iWidth;
+    var timer = setInterval(function () {
+        $aDiv.each(function () {
+            var iTop = parseInt($(this).css('top').split('px')[0]) + iWid;
+            $(this).css('top', iTop);
+        });
+        if (Common.prototype.collision($aDiv)) {
+            clearInterval(timer);
+        }
+    }, this.speed);
+};
+// 定义一个检测能否与其他方块或边界碰撞的方法
+Common.prototype.collision = function (elem) {
+    var bFlag = false;
+    var iBottom = $gameContent.offset().top + $gameContent.height();
+    elem.each(function () {
+        var $offset = $(this).offset();
+        if ($offset.top + $(this).height() >= iBottom) {
+            bFlag = true;
+        }
+    });
+    return bFlag;
+};
+
+
 // 生成一个形状类似于7的方块
 function Seven() {
     Common.call(this); //继承父类的属性
@@ -31,7 +91,8 @@ function Seven() {
         $gameContent.append($(this));
     });
 }
-
+Seven.prototype = new Common(); //继承方法
+Seven.prototype.constructor = Seven; //将构造函数改为自己
 
 
 
@@ -55,7 +116,8 @@ function Diamond() {
         $gameContent.append($(this));
     });
 }
-
+Diamond.prototype = new Common(); //继承方法
+Diamond.prototype.constructor = Diamond; //将构造函数改为自己
 
 
 // 生成一个类似闪电形状或“z形”的方块
@@ -79,7 +141,8 @@ function DiamondZ() {
         $gameContent.append($(this));
     });
 }
-
+DiamondZ.prototype = new Common(); //继承方法
+DiamondZ.prototype.constructor = DiamondZ; //将构造函数改为自己
 
 
 // 生成一个类似三角形状的方块
@@ -102,7 +165,8 @@ function Triangle() {
         $gameContent.append($(this));
     });
 }
-
+Triangle.prototype = new Common(); //继承方法
+Triangle.prototype.constructor = Triangle; //将构造函数改为自己
 
 
 
@@ -119,3 +183,5 @@ function Line() {
         $gameContent.append($(this));
     });
 }
+Line.prototype = new Common(); //继承方法
+Line.prototype.constructor = Line; //将构造函数改为自己
