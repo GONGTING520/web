@@ -34,6 +34,9 @@ function newTetris() {
 function Common() {
     this.iWidth = $gameContent.width() / 10;
     this.aDiv = [];
+    this.bLeftMovable = true; //记录能否左移动
+    this.bRightMovable = true; //记录能否右移动
+    this.bMovable = true; //记录是否存活
     this.speed = 500;
     for (var i = 0; i < 4; i++) { //定义四个小方块
         this.aDiv.push($('<div></div>').get(0));
@@ -45,25 +48,47 @@ function Common() {
 // 定义一个一直下落的方法
 Common.prototype.fallDown = function () {
     var $aDiv = $(this.aDiv);
-    var iWid = this.iWidth;
+    var oThis = this;
     var timer = setInterval(function () {
         $aDiv.each(function () {
-            var iTop = parseInt($(this).css('top').split('px')[0]) + iWid;
+            var iTop = parseInt($(this).css('top').split('px')[0]) + oThis.iWidth;
             $(this).css('top', iTop);
         });
-        if (Common.prototype.collision($aDiv)) {
+        var sCollision = Common.prototype.collision($aDiv);
+        if (sCollision === 'bottom') {
             clearInterval(timer);
+            oThis.bMovable = false;
+        }
+        if (sCollision === 'left') {
+            oThis.bLeftMovable = false;
+        }
+        if (sCollision === 'right') {
+            oThis.bRightMovable = false;
+        }
+        if (sCollision === 'none') {
+            oThis.bLeftMovable = oThis.bRightMovable = true;
         }
     }, this.speed);
+
 };
 // 定义一个检测能否与其他方块或边界碰撞的方法
+// 返回与那个边界碰撞
 Common.prototype.collision = function (elem) {
-    var bFlag = false;
-    var iBottom = $gameContent.offset().top + $gameContent.height();
+    var bFlag = 'none';
+    var $gameContentOffset = $gameContent.offset();
+    var iBottom = $gameContentOffset.top + $gameContent.height();
+    var iRight = $gameContentOffset.left + $gameContent.width();
+    var iLeft = $gameContentOffset.left;
     elem.each(function () {
         var $offset = $(this).offset();
         if ($offset.top + $(this).height() >= iBottom) {
-            bFlag = true;
+            bFlag = 'bottom';
+        }
+        if ($offset.left + $(this).width() >= iRight) {
+            bFlag = 'right';
+        }
+        if ($offset.left <= iLeft) {
+            bFlag = 'left';
         }
     });
     return bFlag;
