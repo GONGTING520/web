@@ -34,8 +34,8 @@ function newTetris() {
 function Common() {
     this.iWidth = $gameContent.width() / 10;
     this.aDiv = [];
-    this.bLeftMovable = true; //记录能否左移动
-    this.bRightMovable = true; //记录能否右移动
+    // this.bLeftMovable = true; //记录能否左移动
+    // this.bRightMovable = true; //记录能否右移动
     this.bMovable = true; //记录是否存活
     this.speed = 500;
     for (var i = 0; i < 4; i++) { //定义四个小方块
@@ -46,7 +46,7 @@ function Common() {
     this.sDirction = getRandom(1, 2) == 1 ? 'left' : 'right'; //获取方向
 }
 // 定义一个下落一格的方法
-Common.prototype.fallDown = function () {
+Common.prototype.fallOne = function () {
     $(this.aDiv).each(function (index, elem) {
         $(this).css({
             top: '+=' + $(elem).height()
