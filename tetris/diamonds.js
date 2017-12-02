@@ -45,50 +45,26 @@ function Common() {
     }
     this.sDirction = getRandom(1, 2) == 1 ? 'left' : 'right'; //获取方向
 }
-// 定义一个一直下落的方法
+// 定义一个下落一格的方法
 Common.prototype.fallDown = function () {
-    var $aDiv = $(this.aDiv);
-    var oThis = this;
-    var timer = setInterval(function () {
-        $aDiv.each(function () {
-            var iTop = parseInt($(this).css('top').split('px')[0]) + oThis.iWidth;
-            $(this).css('top', iTop);
+    $(this.aDiv).each(function (index, elem) {
+        $(this).css({
+            top: '+=' + $(elem).height()
         });
-        var sCollision = Common.prototype.collision($aDiv);
-        if (sCollision === 'bottom') {
-            clearInterval(timer);
-            oThis.bMovable = false;
-        }
-        if (sCollision === 'left') {
-            oThis.bLeftMovable = false;
-        }
-        if (sCollision === 'right') {
-            oThis.bRightMovable = false;
-        }
-        if (sCollision === 'none') {
-            oThis.bLeftMovable = oThis.bRightMovable = true;
-        }
-    }, this.speed);
-
+    });
 };
-// 定义一个检测能否与其他方块或边界碰撞的方法
-// 返回与那个边界碰撞
-Common.prototype.collision = function (elem) {
-    var bFlag = 'none';
+/**
+ * 定义一个检测自身能否与其他方块或下边界碰撞而停止的方法
+ * 
+ * @return bFlag 表示是否停止，true表示停止，false表示不停止
+ */
+Common.prototype.collision = function () {
+    var bFlag = false;
     var $gameContentOffset = $gameContent.offset();
     var iBottom = $gameContentOffset.top + $gameContent.height();
-    var iRight = $gameContentOffset.left + $gameContent.width();
-    var iLeft = $gameContentOffset.left;
-    elem.each(function () {
-        var $offset = $(this).offset();
-        if ($offset.top + $(this).height() >= iBottom) {
-            bFlag = 'bottom';
-        }
-        if ($offset.left + $(this).width() >= iRight) {
-            bFlag = 'right';
-        }
-        if ($offset.left <= iLeft) {
-            bFlag = 'left';
+    $(this.aDiv).each(function (index, elem) {
+        if ($(this).offset().top + $(this).height() >= iBottom) {
+            bFlag = true;
         }
     });
     return bFlag;
