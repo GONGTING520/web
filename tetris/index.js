@@ -1,17 +1,12 @@
-// var a = new Seven();
-// a.fallDown();
-// var b = new Diamond();
-// var c = new DiamondZ();
-// var d = new Triangle();
-// var e = new Line();
 var $game = $('#game');
 var $gameNext = $('.next', $game);
 var $gameContent = $('.game-content', $game);
+var aTetris = []; //表示已经下落停止的方块数组
 var first = newTetris();
+var now = first; //当前下落的方块
 var b = newTetris();
 var $next = $(b.aDiv).clone();
 addNext($next);
-// first.fallDown();
 fallDown(first);
 
 /**
@@ -20,6 +15,7 @@ fallDown(first);
  * @param {any} $next 表示下一个会出现的方块
  */
 function addNext(next) {
+    $('div', $gameNext).remove();
     next.each(function (index, elem) {
         $(this).css({
             top: '+=' + $(elem).width() * 3
@@ -38,8 +34,18 @@ function fallDown(elem) {
         if (elem.collision()) {
             clearInterval(elem.timer);
             elem.bMovable = false;
+            aTetris.push(now);
+            toggleNowAndNext();
         }
     }, elem.speed);
+}
+
+function toggleNowAndNext() {
+    now = b;
+    fallDown(b);
+    b = newTetris();
+    $next = $(b.aDiv).clone();
+    addNext($next);
 }
 /**
  * 判断元素elem是否超出左右边界
@@ -67,20 +73,20 @@ function overEdge(elem, edgeLeft, sLOrR) {
     return bFlag;
 }
 
-document.onkeyup = function (e) {
+document.onkeydown = function (e) {
     switch (e.keyCode) {
         case 37: //左
             // first活着，并且可以左移
-            if (first.bMovable) {
+            if (now.bMovable) {
                 // 如果没与左边界碰撞
-                if (!overEdge(first.aDiv, $gameContent.css('left').split('px')[0], 'left')) {
-                    $(first.aDiv).each(function (index, elem) {
+                if (!overEdge(now.aDiv, $gameContent.css('left').split('px')[0], 'left')) {
+                    $(now.aDiv).each(function (index, elem) {
                         $(this).css({
                             left: '-=' + $(elem).width()
                         });
                     });
                 } else {
-                    $(first.aDiv).each(function () {
+                    $(now.aDiv).each(function () {
                         $(this).css({
                             left: '-=0'
                         });
@@ -93,17 +99,17 @@ document.onkeyup = function (e) {
             break;
         case 39: //右
             // first活着，并且可以右移
-            if (first.bMovable) {
+            if (now.bMovable) {
                 // 如果没与右边界碰撞
-                var iRight = parseInt($gameContent.css('left').split('px')[0]) + $gameContent.width() - first.iWidth;
-                if (!overEdge(first.aDiv, iRight, 'right')) {
-                    $(first.aDiv).each(function (index, elem) {
+                var iRight = parseInt($gameContent.css('left').split('px')[0]) + $gameContent.width() - now.iWidth;
+                if (!overEdge(now.aDiv, iRight, 'right')) {
+                    $(now.aDiv).each(function (index, elem) {
                         $(this).css({
                             left: '+=' + $(elem).width()
                         });
                     });
                 } else {
-                    $(first.aDiv).each(function () {
+                    $(now.aDiv).each(function () {
                         $(this).css({
                             left: '-=0'
                         });
