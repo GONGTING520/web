@@ -37,7 +37,7 @@ function Common() {
     // this.bLeftMovable = true; //记录能否左移动
     // this.bRightMovable = true; //记录能否右移动
     this.bMovable = true; //记录是否存活
-    this.speed = 500;
+    this.speed = 2000;
     for (var i = 0; i < 4; i++) { //定义四个小方块
         this.aDiv.push($('<div></div>').get(0));
         this.aDiv[i].style.width = this.iWidth + 'px';
@@ -54,11 +54,11 @@ Common.prototype.fallOne = function () {
     });
 };
 /**
- * 定义一个检测自身能否与其他方块或下边界碰撞而停止的方法
+ * 定义一个检测自身能否与下边界碰撞而停止的方法
  * 
  * @return bFlag 表示是否停止，true表示停止，false表示不停止
  */
-Common.prototype.collision = function () {
+Common.prototype.collisionBottom = function () {
     var bFlag = false;
     var $gameContentOffset = $gameContent.offset();
     var iBottom = $gameContentOffset.top + $gameContent.height();
@@ -66,6 +66,53 @@ Common.prototype.collision = function () {
         if ($(this).offset().top + $(this).height() >= iBottom) {
             bFlag = true;
         }
+    });
+    return bFlag;
+};
+// /**
+//  * 定义一个检测自身能否与arr中其他元素碰撞而停止的方法
+//  * 
+//  * @param {Array} arr 表示判断arr中所有的原生对象是否与自身碰撞
+//  * @return bFlag 表示是否停止，true表示停止，false表示不停止
+//  */
+// Common.prototype.collisionArrElem = function (arr) {
+//     var bFlag = false;
+//     var oThis = this; //当前下落的方块(或数组中的方块对象)
+//     console.log(this);
+//     $(arr).each(function (index, elem) {
+//         if (this.nodeType) { //说明是div方块
+//             var oDivThis = this;
+//             // 让div方块去比较当前下落的对象的每一个div
+//             $(oThis.aDiv).each(function (index, elem) {
+//                 if ($(oDivThis).css('top') >= $(this).css('top')) {
+//                     bFlag = true;
+//                 }
+//             });
+//         } else { //否则是方块对象
+//             //this指arr中的每一个方块对象
+//             bFlag = oThis.collisionArrElem(this.aDiv);
+//         }
+//     });
+//     return bFlag;
+// };
+/**
+ * 定义一个检测自身能否与arr中其他元素碰撞而停止的方法
+ * 
+ * @param {Array} arr 表示判断arr中所有的原生对象是否与自身碰撞
+ * @return bFlag 表示是否停止，true表示停止，false表示不停止
+ */
+Common.prototype.collisionArrElem = function (arr) {
+    var bFlag = false;
+    var oThis = this; //当前下落的方块
+    $(arr.aDiv).each(function (index, elem) {
+        var iArrElemTop = parseInt($(elem).css('top').split('px')[0]);
+        // 让每个div方块去比较当前下落的对象的每一个div
+        for (var i = 0; i < oThis.aDiv.length; i++) {
+            var iDownBottom = parseInt($(oThis.aDiv[i]).css('top').split('px')[0]) + $(oThis.aDiv[i]).height();
+            if (iDownBottom >= iArrElemTop) {
+                bFlag = true;
+            }
+        };
     });
     return bFlag;
 };
