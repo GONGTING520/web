@@ -1,0 +1,36 @@
+.dialog-mask {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.dialog-content {
+    width: 500px;
+    height: 400px;
+    background: #ffffff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /* 有兼容性问题 */
+    transform: translate(-50%, -50%);
+}
+
+.dialog-content .title {
+    background: #000000;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    color: #ffffff;
+}
+
+.dialog-content .title .item {
+    float: left;
+}
+
+.dialog-content .title .close {
+    float: right;
+    cursor: pointer;
+}
