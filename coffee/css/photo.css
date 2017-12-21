@@ -1,0 +1,92 @@
+#container .small-photo {
+    width: 485px;
+    height: 390px;
+}
+
+#container .small-photo li {
+    float: left;
+    margin-right: 10px;
+    width: 70px;
+    height: 70px;
+    border: 5px solid rgba(255, 255, 255, 0.6);
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+#container .small-photo li:hover {
+    border-color: #ffffff;
+}
+
+
+/* 遮罩层开始 */
+
+#pop-up-layer {
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    background: rgba(93, 66, 1, 0.6);
+}
+
+#pop-up-layer .layer-container {
+    width: 650px;
+    height: 433px;
+    border: 20px solid #ffffff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -345px;
+    margin-top: -237px;
+}
+
+#pop-up-layer img {
+    cursor: pointer;
+}
+
+#pop-up-layer .icon-jiantou-copy-copy,
+#pop-up-layer .icon-arrow-right-thick {
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    margin-top: -20px;
+    font-size: 20px;
+    background: #ffffff;
+    color: #663300;
+    cursor: pointer;
+}
+
+#pop-up-layer .icon-jiantou-copy-copy {
+    left: -50px;
+}
+
+#pop-up-layer .icon-arrow-right-thick {
+    right: -50px;
+}
+
+#pop-up-layer .icon-jiantou-copy-copy:hover,
+#pop-up-layer .icon-arrow-right-thick:hover {
+    color: #ff6700;
+}
+
+#pop-up-layer .icon-cuowu {
+    position: absolute;
+    right: -30px;
+    top: -30px;
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+    background: #ffffff;
+    color: #000000;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+
+/* 遮罩层结束 */
