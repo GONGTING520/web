@@ -50,9 +50,11 @@
     left: 0;
     transition: all 1s ease;
 }
-#pop-up-layer .selected{
+
+#pop-up-layer .selected {
     opacity: 1;
 }
+
 #pop-up-layer .icon-jiantou-copy-copy,
 #pop-up-layer .icon-arrow-right-thick {
     position: absolute;
