@@ -1,0 +1,11 @@
+#container .right .word {
+    color: #ffffff;
+    padding: 20px;
+}
+
+#container .right {
+    width: 485px;
+    overflow-y: scroll;
+    height: 430px;
+    margin-right: -18px;
+}
