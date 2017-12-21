@@ -28,6 +28,7 @@
     right: 0;
     top: 0;
     background: rgba(93, 66, 1, 0.6);
+    display: none;
 }
 
 #pop-up-layer .layer-container {
@@ -41,10 +42,17 @@
     margin-top: -237px;
 }
 
-#pop-up-layer img {
+#pop-up-layer li {
     cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 1s ease;
 }
-
+#pop-up-layer .selected{
+    opacity: 1;
+}
 #pop-up-layer .icon-jiantou-copy-copy,
 #pop-up-layer .icon-arrow-right-thick {
     position: absolute;
