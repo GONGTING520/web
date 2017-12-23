@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>弹性盒模型测试（新）</title>
+    <style>
+        #container {
+            display: flex;
+            /*flex-direction: column;*/
+            /*flex-direction: row-reverse;*/
+            /*align-items: baseline;*/
+            /*align-items: flex-end;*/
+            /*align-items: center;*/
+            /*justify-content: space-between;*/
+            /*justify-content: space-around;*/
+            padding: 0 20px;
+            border: 1px solid;
+            /*height: 40px;*/
+        }
+
+        #container div {
+            flex-grow: 1;
+             /*width: 100px;*/
+             /*height: 0;*/
+            width: 0;
+            /* 若div中有内容，则弹性盒模型就不好使了，必须加width：0， */
+        }
+
+        #container #div1 {
+            background: #ff0000;
+            margin-right: 100px;
+            flex-grow: 3;
+            height: 200px;
+            order: 2;
+        }
+
+        #div2 {
+            background: #00ff00;
+            height: 300px;
+            order: 1;
+        }
+
+        #div3 {
+            background: #00ffff;
+            height: 400px;
+            order: 3;
+        }
+
+        #div4 {
+            background: #ffff00;
+            height: 200px;
+            order: 4;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="div1">
+            <h1>11111111111111111111</h1>
+        </div>
+        <div id="div2">
+            <h2>2222222222222222</h2>
+        </div>
+        <div id="div3">
+            <h3>333333333333</h3>
+        </div>
+        <div id="div4">
+            <h4>44444444</h4>
+        </div>
+    </div>
+</body>
+</html>
