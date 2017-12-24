@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>clock</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        li{
+            list-style: none;
+        }
+
+        #clock{
+            width: 202px;
+            height: 202px;
+            margin: 200px auto;
+            position: relative;
+        }
+
+        #dial{
+            width: 200px;
+            height: 200px;
+            border: 1px solid;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        #dial li{
+            width: 2px;
+            height: 6px;
+            position: absolute;
+            left: 100px;
+            top: 0;
+            background: #000000;
+            transform-origin: 0 100px;
+        }
+
+        #dial li:nth-child( 5n + 1 ){
+            height: 10px;
+        }
+
+        #clock div{
+            position: absolute;
+            transform-origin: bottom;
+        }
+
+        #hour{
+            top: 71px;
+            left: 99px;
+            width: 6px;
+            height: 30px;
+            background: #000000;
+        }
+
+        #minute{
+            top: 51px;
+            left: 100px;
+            width: 4px;
+            height: 50px;
+            background: #cccccc;
+        }
+
+        #second{
+            top: 31px;
+            left: 101px;
+            width: 2px;
+            height: 70px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock">
+        <ul id="dial"></ul>
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+    </div>
+
+    <script>
+        var oDial = document.getElementById('dial');
+        var oHour = document.getElementById('hour');
+        var oMinute = document.getElementById('minute');
+        var oSecond = document.getElementById('second');
+//        动态插入li
+        for(var i = 0 ; i < 60 ; i++){
+            oDial.innerHTML += '<li style="transform:rotate(' + i * 6 + 'deg);"></li>';
+        }
+        changeTime();
+//        每隔1秒更改一下时间
+        setInterval(function () {
+            changeTime();
+        },1000);
+        function changeTime() {
+            var oNow = new Date();//获取当前时间
+            var iSecond = oNow.getSeconds();
+            var iMinute = oNow.getMinutes() + iSecond / 60;
+            var iHour = oNow.getHours() + iMinute / 60;
+            oHour.style.transform = 'rotate(' + iHour * 30 + 'deg)';
+            oMinute.style.transform = 'rotate(' + iMinute * 6 + 'deg)';
+            oSecond.style.transform = 'rotate(' + iSecond * 6 + 'deg)';
+        }
+    </script>
+</body>
+</html>
