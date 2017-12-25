@@ -1,0 +1,14 @@
+#bg .bgi {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transition: all 2s ease;
+    width: 100%;
+}
+
+#bg .selected {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}

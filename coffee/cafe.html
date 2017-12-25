@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>coffee</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/cafe.css">
+</head>
+
+<body>
+    <img src="img/bg-cafe.jpg" alt="" id="bg">
+    <div class="center">
+        <div id="logo">
+            <a href="index.html"></a>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="menu.html">MENU</a>
+            </li>
+            <li>
+                <a href="#" class="selected">CAFE</a>
+            </li>
+            <li>
+                <a href="legend.html">THE LEGEND</a>
+            </li>
+            <li>
+                <a href="photo.html">PHOTO</a>
+            </li>
+        </ul>
+    </div>
+    <div id="author">
+        <i class="icon iconfont icon-menu"></i>
+        <div class="authorContainer">
+            <h2>AUTHOR</h2>
+            <ul class="info">
+                <li class="group-leader">组长</li>
+                <li class="leader">龚婷</li>
+                <li class="member">组员</li>
+                <ul class="group">
+                    <li>王禹</li>
+                    <li>袁梦</li>
+                    <li>郭泳君</li>
+                    <li>邹培煜</li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="center">
+        <div id="container">
+            <div class="left">
+                Cafe
+                <br>Shopping
+            </div>
+            <div class="right">
+                <!--主体开始-->
+                <img src="img/cafe.jpg">
+                <!--右侧选项开始-->
+                <div id="details">
+                    <div id="pro-detail">
+                        <h4>Please choose the type of coffee what you like</h4>
+                        <ul class="detail-list">
+                            <li>
+                                <span>价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格：</span>
+                                <span class="del">379.00</span>元
+                            </li>
+                            <li>
+                                <span>促&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;销：</span>
+                                <span class="price">200.00</span>元
+                            </li>
+                            <li class="taste">
+                                <span>口&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;味：</span>
+                                <span class="taste">未选择</span>
+                                <ul>
+                                    <li>Mocha</li>
+                                    <li>Latte</li>
+                                    <li>Espresso</li>
+                                    <li>Cappuccino</li>
+                                </ul>
+                            </li>
+                            <li class="num-change">
+                                <span>数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：</span>
+                                <div class="pro-num">
+                                    <select id="num-sort">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li class="sum-price">
+                                <span>总&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;计：</span>
+                                <span class="sum" data-price="200">200</span>元
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="cart">
+                        Add To Shopping Cart
+                    </div>
+                    <!--右侧选项结束-->
+                </div>
+                <!--主体结束-->
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/cafe.js"></script>
+</body>
+
+</html>

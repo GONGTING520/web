@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    width: 100%;
+    overflow: hidden;
+}
+
+.center {
+    position: relative;
+    width: 700px;
+    margin: 0 auto;
+}
+
+#bg {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+}
+
+#logo {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    width: 233px;
+    height: 170px;
+    padding-top: 143px;
+    background: rgba(50, 10, 0, 0.7);
+}
+
+#logo a {
+    margin: 60px 0 0 24px;
+    height: 66px;
+    display: block;
+    background: url("../img/logo.png") no-repeat;
+}
+
+#menu {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 233px;
+    width: 233px;
+    height: 170px;
+    padding-top: 143px;
+    background: rgba(0, 10, 0, 0.7);
+}
+
+#menu li {
+    height: 30px;
+    padding-left: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #fc0;
+    cursor: pointer;
+}
+
+#menu li:hover {
+    background: #000000;
+    color: #ffffff;
+}
+
+#content {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    width: 234px;
+    height: 183px;
+    background-color: rgba(255, 90, 0, 0.5);
+}
+
+#author {
+    position: absolute;
+    z-index: 99;
+    top: 63px;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    line-height: 40px;
+    /*width: 40px;*/
+    /*height: 40px;*/
+    color: #ffffff;
+}
+
+#author .authorContainer {
+    display: none;
+}
+
+#author h2 {
+    text-align: center;
+}
+
+#author .info {
+    padding-bottom: 20px;
+}
+
+#author .info li {
+    width: 200px;
+    height: 26px;
+    line-height: 26px;
+    padding-left: 40px;
+    display: none;
+    cursor: pointer;
+}
+
+#author .info .name {
+    padding-left: 20px;
+    display: block;
+}
+
+.center #index-title {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 450px;
+    font-size: 60px;
+    line-height: 60px;
+    color: #DAD061;
+    text-align: right;
+    height: 190px;
+    font-family: 'Times New Roman';
+    font-weight: normal;
+    font-style: italic;
+}
