@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    list-style: none;
+}
+
+body{
+    background: rgba(50,50,50,0.9);
+    perspective: 3000px;
+    /*perspective-origin: -1000px 50%;*/
+}
+
+#container{
+    width: 600px;
+    margin: 200px auto;
+    position: relative;
+    animation: rotate 10s linear infinite;
+    transform-style: preserve-3d;
+}
+
+#container img{
+    width: 600px;
+    position: absolute;
+}
+
+.one{
+    transform: translateZ(625px);
+}
+
+.two{
+    transform: translate3d(350px,0,625px) rotateY(60deg) translateX(350px);
+}
+
+.three{
+    transform: translate3d(350px,0,-200px) rotateY(120deg) translateZ(200px);
+}
+
+.four{
+    transform: rotateY(180deg) translateZ(625px);
+}
+
+.five{
+    transform: translate3d(-350px,0,-200px) rotateY(-120deg) translateZ(200px);
+}
+
+.six{
+    transform: translate3d(-350px,0,625px) rotateY(-60deg) translateX(-350px);
+}
+
+@keyframes rotate {
+    to{
+        transform: rotateY(360deg);
+    }
+}
