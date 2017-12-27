@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>黑洞特效</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <input type="text" id="ipt">
+    <button id="btn">百度一下</button>
+    <img src="img/blackhole.png" alt="" id="black-hole">
+    <div id="container">
+        <ul class="clearfix">
+            <li>
+                <img src="../../coffee/img/smallImg/interior1.jpg" alt="">
+                <p>0000001</p>
+            </li>
+            <li>
+                <img src="../../coffee/img/smallImg/interior2.jpg" alt="">
+                <p>0000002</p>
+            </li>
+            <li>
+                <img src="../../coffee/img/smallImg/interior4.jpg" alt="">
+                <p>0000004</p>
+            </li>
+            <li>
+                <img src="../../coffee/img/smallImg/interior5.jpg" alt="">
+                <p>0000005</p>
+            </li>
+            <li>
+                <img src="../../coffee/img/smallImg/interior6.jpg" alt="">
+                <p>0000006</p>
+            </li>
+            <li>
+                <img src="../../coffee/img/smallImg/interior7.jpg" alt="">
+                <p>0000007</p>
+            </li>
+            <li>
+                <img src="../../coffee/img/smallImg/interior9.jpg" alt="">
+                <p>0000009</p>
+            </li>
+            <li>
+                <img src="../../coffee/img/smallImg/interior10.jpg" alt="">
+                <p>0000010</p>
+            </li>
+            <li>
+                <img src="../../coffee/img/smallImg/interior11.jpg" alt="">
+                <p>0000011</p>
+            </li>
+            <li>
+                <img src="../../coffee/img/smallImg/interior12.jpg" alt="">
+                <p>0000012</p>
+            </li>
+            <li>
+                <img src="../../coffee/img/smallImg/interior13.jpg" alt="">
+                <p>0000013</p>
+            </li>
+            <li>
+                <img src="../../coffee/img/smallImg/interior14.jpg" alt="">
+                <p>0000014</p>
+            </li>
+            <li>
+                <img src="../../coffee/img/smallImg/interior15.jpg" alt="">
+                <p>0000015</p>
+            </li>
+            <li>
+                <img src="../../coffee/img/smallImg/interior16.jpg" alt="">
+                <p>0000016</p>
+            </li>
+            <li>
+                <img src="../../coffee/img/smallImg/interior_17.jpg" alt="">
+                <p>0000017</p>
+            </li>
+            <li>
+                <img src="../../coffee/img/smallImg/interior_18.jpg" alt="">
+                <p>0000018</p>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        var oIpt = document.getElementById('ipt');
+        var oBtn = document.getElementById('btn');
+        var oBlackHole = document.getElementById('black-hole');
+        var oContainer = document.getElementById('container');
+        var aContainerImg = oContainer.getElementsByTagName('img');
+        //给每张图片加top/left
+        for (var i = 0; i < aContainerImg.length; i++) {
+            aContainerImg[i].pos = {
+                left: aContainerImg[i].offsetLeft,
+                top: aContainerImg[i].offsetTop
+            }
+            aContainerImg[i].style.top = aContainerImg[i].offsetTop + 'px';
+            aContainerImg[i].style.left = aContainerImg[i].offsetLeft + 'px';
+            aContainerImg[i].addEventListener("webkitAnimationEnd", function () {
+                aContainerImg[i].style.top = document.body.clientHeight + 'px';
+            });
+        }
+        oBtn.onclick = function () {
+            if (oIpt.value === '黑洞') {
+                //将类名置空，以便黑洞动画结束后执行内容部分的动画
+                oContainer.className = '';
+                oBlackHole.className = 'blackhole';
+                for (var i = 0; i < aContainerImg.length; i++) {
+                    aContainerImg[i].className = 'move';
+                    aContainerImg[i].style.top = document.body.clientHeight / 2 + 'px';
+                    aContainerImg[i].style.left = document.body.clientWidth / 2 + 'px';
+                }
+            }
+        };
+        //黑洞动画结束时事件
+        oBlackHole.addEventListener("webkitAnimationEnd", function () {
+            //重置所有类名
+            this.className = '';
+            for (var i = 0; i < aContainerImg.length; i++) {
+                aContainerImg[i].className = '';
+                aContainerImg[i].style.top = aContainerImg[i].pos.top + 'px';
+                aContainerImg[i].style.left = aContainerImg[i].pos.left + 'px';
+            }
+            oContainer.className = 'show';
+        });
+    </script>
+</body>
+
+</html>
