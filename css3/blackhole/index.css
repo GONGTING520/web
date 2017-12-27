@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+}
+
+li {
+    list-style: none;
+}
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#ipt {
+    width: 200px;
+    height: 30px;
+    margin-left: 100px;
+}
+
+#btn {
+    width: 100px;
+    height: 34px;
+    margin-left: -8px;
+    margin-top: 1px;
+    background: #3385ff;
+    color: #ffffff;
+    border: 2px solid #3385ff;
+    cursor: pointer;
+}
+
+#black-hole {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    /* animation: blackhole 6s linear forwards; */
+}
+
+#container {
+    padding: 50px;
+}
+
+#container li {
+    width: 200px;
+    height: 100px;
+    float: left;
+}
+
+#container img {
+    position: absolute;
+    transition: all 4s linear;
+}
+
+#container p {
+    margin-top: 70px;
+}
+
+.blackhole {
+    animation: blackhole 6s linear;
+}
+
+.move {
+    animation: move 4s linear forwards;
+    left: 50%;
+    top: 50%;
+}
+
+.show {
+    transform-origin: bottom;
+    animation: show 4s linear;
+}
+
+@keyframes blackhole {
+    from {
+        transform: translate(-50%, -50%) rotate(0) scale(0);
+    }
+    35% {
+        transform: translate(-50%, -50%) rotate(360deg) scale(1);
+    }
+    70% {
+        transform: translate(-50%, -50%) rotate(720deg) scale(1.6);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(1080deg) scale(0);
+    }
+}
+
+@keyframes move {
+    to {
+        transform: scale(0);
+    }
+}
+
+@keyframes show {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
