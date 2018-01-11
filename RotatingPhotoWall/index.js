@@ -49,6 +49,10 @@ function show() {
             left: iBigColGap + (i % 6) * (aDiv[0].offsetWidth - 8)
         };
         aDiv[i].index = i; //设置索引值
+        console.log(parseInt(i / 6));
+        //更改每个span的背景定位
+        aSpan[i].style.backgroundPositionX = -(i % 6) * (aDiv[0].offsetWidth - 10) + 'px';
+        aSpan[i].style.backgroundPositionY = -parseInt(i / 6) * (aDiv[0].offsetWidth - 10) + 'px';
         //让每个小图片的旋转角度随机
         movePos(i);
         //设置每张小图片飞出的延迟时间
@@ -68,13 +72,13 @@ document.body.onclick = function (e) {
             //说明处于散开状态
             for (let i = 0; i < NUM; i++) {
                 //改变span的背景图片，并让透明度为1
-                aSpan[i].style.background = 'url(img/' + oTarget.index + '.jpg)';
+                aSpan[i].style.backgroundImage = 'url(img/' + (oTarget.index + 1) + '.jpg)';
                 aSpan[i].style.opacity = 1;
                 //让所有的小图片旋转角度为0，并定位到新得位置
                 aDiv[i].style.transform = 'rotate(0deg)';
                 aDiv[i].style.top = aDiv[i].newPos.top + 'px';
                 aDiv[i].style.left = aDiv[i].newPos.left + 'px';
-                aDiv[i].style.border = '1px solid #ffffff';
+                aDiv[i].style.border = '1px solid #999999';
                 aDiv[i].style.transitionDelay = '0ms';
             }
         } else {
