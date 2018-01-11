@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>进度条(repuestAnimationFrame)</title>
+    <style>
+        #progress {
+            width: 100%;
+            border: 1px solid;
+            padding: 5px 0;
+        }
+
+        #content {
+            width: 1px;
+            background: #00ff00;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="progress">
+        <div id="content">0%</div>
+    </div>
+    <button id="start">开始</button>
+
+    <script>
+        var oStart = document.getElementById('start');
+        var oProgress = document.getElementById('progress');
+        var oContent = document.getElementById('content');
+        var p;
+        window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame ||
+            window.msRequestAnimationFrame;
+
+        function step() {
+            p += 1;
+            oContent.style.width = oProgress.offsetWidth * p / 100 + 'px';
+            
+            oContent.innerHTML = p + '%';
+            if (p < 100) {
+                requestAnimationFrame(step);
+            }
+        }
+        oStart.addEventListener('click', function () {
+            p = 0;
+            requestAnimationFrame(step);
+        });
+    </script>
+</body>
+
+</html>
