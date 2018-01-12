@@ -3,17 +3,22 @@ const ROW = 4,
     NUM = ROW * COL; //定义常量
 let aDiv = null;
 let aSpan = null;
-document.body.loadSuccessCount = 0; //定义加载好的图片的数量
-document.body.bFlag = true; //true表示处于散开状态，false表示处于合并状态
-
+let oContainer = document.getElementById('container');
+let oArrows = document.getElementById('arrows');
+let aArrows = oArrows.getElementsByTagName('div');
+oContainer.loadSuccessCount = 0; //定义加载好的图片的数量
+oContainer.bFlag = true; //true表示处于散开状态，false表示处于合并状态
+oContainer.aSort = []; //表示切换大图片时小图片的切换顺序的数组
+oContainer.iNow = 0; //表示当前显示的图片
 //图片预加载
 for (let i = 0; i < NUM; i++) {
-    let oSmallImg = new Image();
+    oContainer.aSort.push(i);
+    let oSmallImg = new Image(); //创建小图片的图片对象
     let oBigImg = new Image();
     oSmallImg.onload = oBigImg.onload = function () {
         //ie中onload必须写在src前面
-        document.body.loadSuccessCount++;
-        if (document.body.loadSuccessCount == NUM * 2) {
+        oContainer.loadSuccessCount++;
+        if (oContainer.loadSuccessCount == NUM * 2) {
             show();
         }
     };
@@ -21,17 +26,24 @@ for (let i = 0; i < NUM; i++) {
     oBigImg.src = 'img/' + (i + 1) + '.jpg';
 }
 
+/**
+ * 插入小图片div，并在div中插入span，用div.pos对象来
+ * 记录div的初始位置，用div.newPos来记录合并后的位置，
+ * 让小图片旋转随机的角度，并依次飞出。插入两个箭头
+ * 
+ */
 function show() {
+    //插入图片div
     for (let i = 0; i < NUM; i++) {
         let oDiv = document.createElement('div');
         oDiv.className = 'img';
         oDiv.style.background = 'url(img/thumbs/' + (i + 1) + '.jpg)';
         oDiv.innerHTML = '<span></span>'
-        document.body.appendChild(oDiv);
+        oContainer.appendChild(oDiv);
     }
 
-    aDiv = document.getElementsByTagName('div');
-    aSpan = document.getElementsByTagName('span');
+    aDiv = oContainer.getElementsByTagName('div');
+    aSpan = oContainer.getElementsByTagName('span');
     //计算小图片的水平的间隙iColGap和垂直的间隙iRowGap
     let iColGap = (document.body.offsetWidth - COL * aDiv[0].offsetWidth) / (COL + 1);
     let iRowGap = (document.body.offsetHeight - ROW * aDiv[0].offsetWidth) / (ROW + 1);
@@ -49,58 +61,85 @@ function show() {
             left: iBigColGap + (i % 6) * (aDiv[0].offsetWidth - 8)
         };
         aDiv[i].index = i; //设置索引值
-        console.log(parseInt(i / 6));
         //更改每个span的背景定位
         aSpan[i].style.backgroundPositionX = -(i % 6) * (aDiv[0].offsetWidth - 10) + 'px';
         aSpan[i].style.backgroundPositionY = -parseInt(i / 6) * (aDiv[0].offsetWidth - 10) + 'px';
         //让每个小图片的旋转角度随机
-        movePos(i);
+        movePos(i, parseInt(Math.random() * 60 - 30), 'pos');
         //设置每张小图片飞出的延迟时间
         aDiv[i].style.transitionDelay = (NUM - i) * 100 + 'ms';
     }
 }
 
-document.body.onclick = function (e) {
-    let oTarget = e.target;
+//用事件委托做
+oContainer.onclick = function (e) {
+    let oTarget = e.target; //获取事件源
     if (oTarget != e.currentTarget) {
         //说明不是空白部分
         if (oTarget.tagName === 'SPAN') {
             //说明是span
             oTarget = oTarget.offsetParent; //将targer改为div
         }
-        if (document.body.bFlag) {
+        oContainer.iNow = oTarget.index;
+        if (oContainer.bFlag) {
             //说明处于散开状态
             for (let i = 0; i < NUM; i++) {
+                aDiv[i].style.transitionDelay = '0ms';
                 //改变span的背景图片，并让透明度为1
                 aSpan[i].style.backgroundImage = 'url(img/' + (oTarget.index + 1) + '.jpg)';
                 aSpan[i].style.opacity = 1;
                 //让所有的小图片旋转角度为0，并定位到新得位置
-                aDiv[i].style.transform = 'rotate(0deg)';
-                aDiv[i].style.top = aDiv[i].newPos.top + 'px';
-                aDiv[i].style.left = aDiv[i].newPos.left + 'px';
+                movePos(i, 0, 'newPos');
                 aDiv[i].style.border = '1px solid #999999';
-                aDiv[i].style.transitionDelay = '0ms';
             }
+            oArrows.style.display = 'block';
         } else {
             //说明处于合并状态
             for (let i = 0; i < NUM; i++) {
-                movePos(i);
+                aDiv[i].style.transitionDelay = '0ms';
+                movePos(i, parseInt(Math.random() * 60 - 30), 'pos');
                 aSpan[i].style.opacity = 0;
                 aDiv[i].style.border = '5px solid #ffffff';
-                aDiv[i].style.transitionDelay = '0ms';
             }
+            oArrows.style.display = 'none';
         }
-        document.body.bFlag = !document.body.bFlag;
+        oContainer.bFlag = !oContainer.bFlag;
     }
 };
 
 /**
- * 让每个小图片的旋转角度随机，并定位到pos的位置
+ * 让每个小图片的旋转iRandom角度，并定位到div[attr]的位置
  * 
  * @param {number} i 第几个div元素
+ * @param {number} iRandom 旋转角度
+ * @param {string} attr 定位的对象名
  */
-function movePos(i) {
-    aDiv[i].style.transform = 'rotate(' + parseInt(Math.random() * 60 - 30) + 'deg)';
-    aDiv[i].style.top = aDiv[i].pos.top + 'px';
-    aDiv[i].style.left = aDiv[i].pos.left + 'px';
+function movePos(i, iRandom, attr) {
+    aDiv[i].style.transform = 'rotate(' + iRandom + 'deg)';
+    aDiv[i].style.top = aDiv[i][attr].top + 'px';
+    aDiv[i].style.left = aDiv[i][attr].left + 'px';
 }
+
+//点击左箭头
+aArrows[0].onclick = function () {
+    oContainer.aSort.sort(function (a, b) {
+        return Math.random() - 0.5;
+    });
+    oContainer.iNow = oContainer.iNow == 0 ? NUM - 1 : oContainer.iNow - 1;
+    for (let i = 0; i < NUM; i++) {
+        aSpan[i].style.transitionDelay = oContainer.aSort[i] * 50 + 'ms';
+        aSpan[i].style.backgroundImage = 'url(img/' + (oContainer.iNow + 1) + '.jpg)';
+    }
+};
+
+//点击右箭头
+aArrows[1].onclick = function () {
+    oContainer.aSort.sort(function (a, b) {
+        return Math.random() - 0.5;
+    });
+    oContainer.iNow = oContainer.iNow == NUM - 1 ? 0 : oContainer.iNow + 1;
+    for (let i = 0; i < NUM; i++) {
+        aSpan[i].style.transitionDelay = oContainer.aSort[i] * 50 + 'ms';
+        aSpan[i].style.backgroundImage = 'url(img/' + (oContainer.iNow + 1) + '.jpg)';
+    }
+};
