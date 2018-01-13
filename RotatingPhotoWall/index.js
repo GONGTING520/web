@@ -97,6 +97,7 @@ oContainer.onclick = function (e) {
             //说明处于合并状态
             for (let i = 0; i < NUM; i++) {
                 aDiv[i].style.transitionDelay = '0ms';
+                aSpan[i].style.transitionDelay = '0ms';
                 movePos(i, parseInt(Math.random() * 60 - 30), 'pos');
                 aSpan[i].style.opacity = 0;
                 aDiv[i].style.border = '5px solid #ffffff';
