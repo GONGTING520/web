@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>产生前后按钮(非h5写法)</title>
+</head>
+
+<body>
+    <button id="btn">随机数</button>
+    <h1 id="num"></h1>
+
+    <script>
+        var oBtn = document.querySelector('#btn');
+        var oNum = document.querySelector('#num');
+        var obj = {};
+        oBtn.onclick = function () {
+            var arr = [];
+            for (var i = 0; i < 5; i++) {
+                arr.push(Math.ceil(Math.random() * 10));
+            }
+            location.hash = Math.random();
+            oNum.innerHTML = arr;
+            obj[location.hash] = arr;
+        };
+
+        window.onhashchange = function () {
+            oNum.innerHTML = obj[location.hash];
+        };
+    </script>
+</body>
+
+</html>
