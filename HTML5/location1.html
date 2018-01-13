@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>location（h5写法）</title>
+</head>
+
+<body>
+    <button id="btn">随机数</button>
+    <h1 id="num"></h1>
+
+    <script>
+        var oBtn = document.querySelector('#btn');
+        var oNum = document.querySelector('#num');
+        oBtn.onclick = function () {
+            var arr = [];
+            for (var i = 0; i < 5; i++) {
+                arr.push(Math.ceil(Math.random() * 10));
+            }
+            history.pushState(arr, '');
+            oNum.innerHTML = arr;
+        };
+
+        window.onpopstate = function(e){
+            oNum.innerHTML = e.state;
+        };
+    </script>
+</body>
+
+</html>
