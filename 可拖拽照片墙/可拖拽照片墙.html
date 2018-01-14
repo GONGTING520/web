@@ -57,6 +57,7 @@
                 var iArrowLeft = e.clientX - elem.offsetLeft;
                 var iArrowTop = e.clientY - elem.offsetTop;
                 var oNearest;
+                this.style.zIndex = 1;
 
                 document.onmousemove = function(e){
                     e = e || window.event;
@@ -88,6 +89,7 @@
                 };
 
                 document.onmouseup = function () {
+                    elem.style.zIndex = 0;
                     document.onmousemove = null;
                     document.onmouseup = null;
                     if(oNearest){
