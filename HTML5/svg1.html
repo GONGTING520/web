@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>倒计时(转蓝框)</title>
+    <style>
+        #crl {
+            stroke-dashoffset: 0;
+            stroke-dasharray: 628;
+            transition: stroke-dashoffset 1s linear;
+            transform-origin: center;
+            transform: rotate(-90deg);
+        }
+        #num{
+            font-size: 80px;
+            position: absolute;
+            top: 90px;
+            left: 90px;
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <svg id="svg" width="300" height="300">
+        <circle cx=120 cy=120 r=100 stroke="#f4f1f1" fill="transparent" stroke-width=20></circle>
+        <circle id="crl" cx=120 cy=120 r=100 stroke="#43aefa" fill="transparent" stroke-width=20></circle>
+    </svg>
+    <div id="num">10</div>
+
+    <script>
+        var oCrl = document.getElementById('crl');
+        var oNum = document.getElementById('num');
+        var t = 10;
+        oCrl.style.strokeDashoffset = 628;
+        var timer = setInterval(function () {
+            oNum.innerHTML = t;
+            t--;
+            if (t < 0) {
+                clearInterval(timer);
+            } else {
+                oCrl.style.strokeDashoffset = t * 628 / 10;
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>
