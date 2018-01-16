@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*居中的div开始*/
+@media (min-width: 1200px) {
+    .center{
+        width: 1200px;
+        margin: 0 auto;
+    }
+}
+/*居中的div结束*/
+
+/*头部，导航，脚部开始*/
+#header, #nav, #footer{
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+    background: #cccccc;
+}
+
+@media (min-width: 768px) {
+    #header, #nav, #footer{
+        height: 0.5rem;
+        line-height: 0.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    #header, #nav, #footer{
+        height: 35px;
+        line-height: 35px;
+    }
+}
+/*头部，导航，脚部结束*/
+
+/*图片开始*/
+#img{
+    margin-top: 10px;
+    width: 100%;
+}
+/*图片结束*/
+
+/*内容开始*/
+#content{
+    font-size: 16px;
+}
+
+#content .left, #content .right{
+    padding: 15px;
+}
+
+#content .left{
+    background: #6D84B4;
+}
+
+#content .right{
+    background: #fff38f;
+}
+
+@media (min-width: 992px) {
+    #content{
+        display: flex;
+    }
+
+    #content .left{
+        width: 0;
+        flex-grow: 7;
+    }
+
+    #content .right{
+        flex-grow: 3;
+        width: 0;
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 991px) {
+    #content .left{
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    #content .right{
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 10px;
+    }
+}
+/*内容结束*/
