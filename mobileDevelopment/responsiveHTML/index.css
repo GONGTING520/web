@@ -39,11 +39,13 @@
 #img{
     margin-top: 10px;
     width: 100%;
+    display: block;
 }
 /*图片结束*/
 
 /*内容开始*/
 #content{
+    margin-top: 10px;
     font-size: 16px;
 }
 
@@ -59,7 +61,17 @@
     background: #fff38f;
 }
 
-@media (min-width: 992px) {
+#content .vertical-center{
+    display: table;
+    height: 100%;
+}
+
+#content p{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+@media (min-width: 768px) {
     #content{
         display: flex;
     }
@@ -76,7 +88,7 @@
     }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 767px) {
     #content .left{
         box-sizing: border-box;
         width: 100%;
