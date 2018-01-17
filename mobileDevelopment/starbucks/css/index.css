@@ -193,8 +193,53 @@
 
 /*用星说开始*/
 #say-starbucks{
-    height: 222px;
     background: #106e4b;
+}
+
+#say-starbucks .container{
+    width: 767px;
+    height: 162px;
+    margin: 0 auto;
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#say-starbucks .left, #say-starbucks .right{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#say-starbucks .left div, #say-starbucks .right div{
+    margin: 0 25px;
+}
+
+#say-starbucks .say{
+    background: url("../img/wsg-title.png") no-repeat center/contain;
+    height: 127px;
+    width: 177px;
+}
+
+#say-starbucks .qr-code{
+    background: url("../img/wsg-qrcode.png") no-repeat center/contain;
+    height: 150px;
+    width: 106px;
+}
+
+#say-starbucks .cup{
+    background: url("../img/wsg-cup.png") no-repeat center/contain;
+    height: 160px;
+    width: 99px;
+}
+
+#say-starbucks .desc{
+    background: url("../img/wsg-wording.png") no-repeat center/contain;
+    height: 143px;
+    width: 184px;
 }
 /*用星说结束*/
 
@@ -379,7 +424,7 @@
     }
 }
 
-@media (max-width: 768px){
+@media (max-width: 767px){
     /*登陆部分*/
     #login{
         display: block;
@@ -468,6 +513,53 @@
         width: 100%;
     }
 
+    /*用星说开始*/
+    #say-starbucks .container{
+        padding: 30px 35px;
+        display: block;
+        width: auto;
+        height: auto;
+    }
+
+    #say-starbucks .left, #say-starbucks .right{
+        width: 100%;
+        padding: 5px 0;
+    }
+
+    #say-starbucks .left div, #say-starbucks .right div{
+        margin: 0;
+    }
+
+    #say-starbucks .say{
+        background: url("../img/wsg-cup.png") no-repeat center/contain;
+        height: 162px;
+        width: 150px;
+        position: relative;
+        left: -5px;
+    }
+
+    #say-starbucks .qr-code{
+        background: url("../img/wsg-title.png") no-repeat center/contain;
+        height: 76px;
+        width: 150px;
+    }
+
+    #say-starbucks .cup{
+        background: url("../img/wsg-qrcode.png") no-repeat center/contain;
+        height: 120px;
+        width: 120px;
+        position: relative;
+        right: -5px;
+    }
+
+    #say-starbucks .desc{
+        background: url("../img/wsg-wording.png") no-repeat center/contain;
+        height: 82px;
+        width: 180px;
+        position: relative;
+        right: -10px;
+    }
+
     /*优质产品部分*/
     #reserve .container{
         padding: 0 35px;
@@ -521,5 +613,29 @@
         height: 33px;
         padding: 0 10px 0 15px;
         margin-top: 30px;
+    }
+}
+
+@media (max-width: 374px){
+    /*用星说开始*/
+    #say-starbucks .say{
+        width: 120px;
+        height: 130px;
+    }
+
+    #say-starbucks .qr-code{
+        width: 120px;
+        height: 61px;
+    }
+
+    #say-starbucks .cup{
+        width: 90px;
+        height: 90px;
+    }
+
+    #say-starbucks .desc{
+        width: 150px;
+        height: 76px;
+        right: -15px;
     }
 }
