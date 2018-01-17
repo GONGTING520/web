@@ -1,0 +1,420 @@
+/*广告部分开始*/
+#ad{
+    padding-top: 50%;
+    background: url("../img/kv-image-pc.jpg") no-repeat center/contain;
+}
+
+#ad span{
+    position: absolute;
+    border: 1px solid;
+    font-size: 11px;
+    padding: 0 2px;
+    right: 12px;
+    line-height: 18px;
+    background: #47474A;
+    color: rgba(255, 255, 255, 0.7);
+    top: 120px;
+    font-weight: 900;
+}
+/*广告部分结束*/
+
+/*登陆部分开始*/
+#login{
+    background: url("../img/rewards_bg.png") no-repeat center/cover #0f0f0f;
+    display: flex;
+    justify-content: center;
+    color: #FFFFFF;
+}
+
+#login .rewards-mark{
+    height: 220px;
+    display: table;
+    padding-left: 90px;
+}
+
+#login .vertical-center{
+    display: table-cell;
+    vertical-align: middle;
+    height: 220px;
+}
+
+#login .rewards-mark .rewards-mark-label{
+    width: 260px;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+#login .rewards-mark .rewards-mark-logo{
+    width: 160px;
+}
+
+#login .rewards-content{
+    display: table;
+    width: 430px;
+}
+
+#login .rewards-content .rewards-content-title{
+    font-size: 25px;
+    height: 28px;
+    line-height: 28px;
+    font-weight: 400;
+}
+
+#login .rewards-content .rewards-content-desc{
+    font-size: 16px;
+    line-height: 28px;
+    margin-bottom: 5px;
+}
+
+#login .rewards-content-button .button{
+    color: #b89f7a;
+    border: 2px solid #b89f7a;
+    padding: 14px 40px;
+    margin: 7px 14px 7px 0;
+    display: inline-block;
+}
+
+#login .rewards-content-button .button:hover, #reserve .info a:hover{
+    color: #FFFFFF;
+    background: #b89f7a;
+}
+
+#login .rewards-content .know-more{
+    display: inline-block;
+    margin-left: 30px;
+    color: #b89f7a;
+}
+
+#login .rewards-content .know-more:hover{
+    opacity: 0.8;
+}
+/*登陆部分结束*/
+
+/*app开始*/
+#app{
+    background: url("../img/app-web.png") no-repeat center/cover #EFEBE8;
+    padding-top: 23.26%;
+}
+/*app结束*/
+
+/*产品开始*/
+#product a{
+    float: left;
+    width: 50%;
+}
+
+#product a .left, #product a .right{
+    background: url("../img/tmall-banner.jpg") no-repeat center/contain;
+    width: 100%;
+    padding-top: 100%;
+}
+
+#product a .right{
+    background-image: url("../img/FT-Grid.jpg");
+}
+/*产品结束*/
+
+/*用星说开始*/
+#say-starbucks{
+    height: 222px;
+    background: #106e4b;
+}
+/*用星说结束*/
+
+/*apple-watch开始*/
+#apple-watch{
+    height: 630px;
+    background: url("../img/mobile-bg.png");
+}
+
+#apple-watch .img{
+    background: url("../img/mobile-iwatch-cn.png") no-repeat center/cover;
+    width: 414px;
+    height: 338px;
+    margin: 0 auto;
+}
+/*apple-watch结束*/
+
+/*星巴克精选开始*/
+#collection{
+    background-color: #f5f5f5;
+    padding: 80px 16px;
+}
+
+#collection .title{
+    height: 28px;
+    line-height: 28px;
+    margin: 20px 0;
+    text-align: center;
+    font-size: 30px;
+    color: #3d3d3d;
+}
+
+#collection .title-desc{
+    text-align: center;
+    line-height: 28px;
+    font-size: 18px;
+    margin-bottom: 80px;
+    color: #888888;
+}
+
+#collection ul{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#collection li{
+    width: 240px;
+    height: 280px;
+    margin: 15px;
+    box-shadow: 0 0 2px #ccc;
+}
+
+#collection li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#collection li img{
+    width: 100%;
+}
+
+#collection li:hover{
+    box-shadow: 0 2px 2px #ccc;
+}
+
+#collection li:hover .img-title, #collection li:hover .img-desc{
+    color: #a98e67;
+}
+
+#collection .img-title{
+    text-align: center;
+    color: #2F2F2F;
+    font-size: 18px;
+    font-weight: bolder;
+    margin-top: 15px;
+    height: 32px;
+    line-height: 32px;
+}
+
+#collection .img-desc{
+    text-align: center;
+    color: #707175;
+    height: 28px;
+    line-height: 28px;
+}
+/*星巴克精选结束*/
+
+/*优质产品开始*/
+#reserve{
+    background-color: rgb(6, 6, 8);
+    padding: 40px 0;
+}
+
+#reserve .container{
+    width: 940px;
+    padding: 0 15px;
+    margin: 0 auto;
+    display: table;
+}
+
+#reserve .container img{
+    float: left;
+}
+
+#reserve .container .info{
+    display: table-cell;
+    vertical-align: middle;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+#reserve .info h3{
+    font-weight: 900;
+    font-size: 13px;
+    color: #a98e67;
+    height: 22px;
+    line-height: 22px;
+    letter-spacing: 3px;
+}
+
+#reserve .info p{
+    color: #707070;
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 14px;
+}
+
+#reserve .info .buttons{
+    margin-top: 32px;
+}
+
+#reserve .info a{
+    padding: 14px 40px;
+    margin: 7px 14px 7px 0;
+    border: 2px solid #a98e67;
+    color: #a98e67;
+    display: inline-block;
+}
+/*优质产品结束*/
+
+
+
+
+@media (max-width: 992px) {
+    /*广告部分*/
+    #ad{
+        padding-top: 117.18%;
+        background-image: url("../img/kv-image-mobile.jpg");
+    }
+
+    /*优质产品部分*/
+    #reserve .container{
+        width: 720px;
+    }
+}
+
+@media (max-width: 768px) {
+    /*登陆部分*/
+    #login{
+        display: block;
+        text-align: center;
+        padding: 0 35px;
+    }
+
+    #login .rewards-mark{
+        display: block;
+        padding: 55px;
+        height: 70px;
+    }
+
+    #login .vertical-center{
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    #login .rewards-mark .rewards-mark-label{
+        width: 100%;
+    }
+
+    #login .rewards-mark .rewards-mark-logo{
+        margin: 0 auto;
+    }
+
+    #login .rewards-content{
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    #login .rewards-content .rewards-content-desc{
+        margin: 15px 0 20px 0;
+    }
+
+    #login .rewards-content .rewards-content-button{
+        padding: 10px 0;
+        height: 219px;
+    }
+
+    #login .rewards-content .rewards-content-button .button{
+        display: block;
+        margin: 7px 10%;
+        padding: 14px 10%;
+    }
+
+    #login .rewards-content .rewards-content-button .know-more{
+        text-align: right;
+        display: block;
+        padding: 25px 0;
+        margin-right: 7px;
+    }
+
+    /*app部分*/
+    #app{
+        padding-top: 98.79%;
+        background-image: url("../img/app-mobile.png");
+    }
+
+    /*产品开始*/
+    #product a{
+        float: none;
+        width: 100%;
+    }
+
+    /*优质产品部分*/
+    #reserve .container img{
+        float: none;
+    }
+
+    #reserve .container .buttons a{
+        display: block;
+        margin: 25px 0 0;
+    }
+
+    #reserve .container .info{
+        display: block;
+    }
+}
+
+@media (min-width: 1067px){
+    /*apple-watch部分*/
+    #apple-watch{
+        height: 220px;
+    }
+
+    #apple-watch .img{
+        width: 408px;
+        height: 220px;
+        margin: 0;
+    }
+}
+
+@media (max-width: 667px){
+    /*星巴克精选部分*/
+    #collection li{
+        width: 136px;
+        height: 220px;
+        margin: 10px;
+    }
+
+    #collection li .arrow{
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background: url("../img/arrow.png") no-repeat center;
+        margin-left: -13px;
+    }
+
+    #collection li .img-desc{
+        text-align: left;
+        height: 16px;
+        font-size: 14px;
+        line-height: 16px;
+        padding: 0 10px 0 15px;
+        margin-top: 15px;
+    }
+
+    #collection li .img-title{
+        text-align: left;
+        font-size: 18px;
+        line-height: 18px;
+        height: 33px;
+        padding: 0 10px 0 15px;
+        margin-top: 30px;
+    }
+}
+
+@media (min-width: 1200px){
+    /*优质产品部分*/
+    #reserve .container{
+        width: 1140px;
+    }
+
+    #reserve img{
+        margin-right: 90px;
+    }
+}
