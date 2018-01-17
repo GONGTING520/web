@@ -92,8 +92,47 @@
 
 /*app开始*/
 #app{
-    background: url("../img/app-web.png") no-repeat center/cover #EFEBE8;
+    background: url("../img/app-web.png") no-repeat top center/contain #EFEBE8;
     padding-top: 23.26%;
+    position: relative;
+}
+
+#app .qr-code{
+    position: absolute;
+    top: 50%;
+    left: 42%;
+    margin-top: -65px;
+    width: 130px;
+}
+
+#app .download{
+    display: none;
+    margin: 0 auto;
+    padding: 14px 72px 24px 72px;
+    width: 76px;
+    height: 52px;
+    background: url("../img/udp-starbucks-cn.svg") no-repeat center;
+}
+
+#app .app-content{
+    position: absolute;
+    top: 50%;
+    left: 44%;
+    height: 100px;
+    width: 35%;
+    margin-top: -50px;
+    transform: translate(130px, 0);
+}
+
+#app .app-content p{
+    margin-bottom: 14px;
+    color: #3d3d3d;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+#app .app-content a{
+    color: #b89f7a;
 }
 /*app结束*/
 
@@ -101,16 +140,54 @@
 #product a{
     float: left;
     width: 50%;
+    text-align: center;
+    position: relative;
 }
 
-#product a .left, #product a .right{
-    background: url("../img/tmall-banner.jpg") no-repeat center/contain;
+#product .left, #product .right{
+    background: url("../img/tmall-banner.jpg") no-repeat top center/contain;
     width: 100%;
     padding-top: 100%;
 }
 
-#product a .right{
+#product .right{
     background-image: url("../img/FT-Grid.jpg");
+}
+
+#product a h3{
+    line-height: 38px;
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+#product a p{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    font-weight: 900;
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 3px;
+}
+
+#product .left h3{
+    color: #D81026;
+}
+
+#product .right h3{
+    color: #FFFFFF;
+}
+
+#product .left p{
+    color: #000000;
+}
+
+#product .right p{
+    color: #b89f7a;
 }
 /*产品结束*/
 
@@ -264,7 +341,32 @@
 
 
 
-@media (max-width: 992px) {
+
+@media (min-width: 1200px){
+    /*优质产品部分*/
+    #reserve .container{
+        width: 1140px;
+    }
+
+    #reserve img{
+        margin-right: 90px;
+    }
+}
+
+@media (min-width: 1067px){
+    /*apple-watch部分*/
+    #apple-watch{
+        height: 220px;
+    }
+
+    #apple-watch .img{
+        width: 408px;
+        height: 220px;
+        margin: 0;
+    }
+}
+
+@media (max-width: 992px){
     /*广告部分*/
     #ad{
         padding-top: 117.18%;
@@ -277,7 +379,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px){
     /*登陆部分*/
     #login{
         display: block;
@@ -339,15 +441,42 @@
         background-image: url("../img/app-mobile.png");
     }
 
+    #app .qr-code{
+        display: none;
+    }
+
+    #app .download{
+        display: block;
+    }
+
+    #app .app-content{
+        position: static;
+        margin: 0;
+        width: 100%;
+        height: auto;
+        text-align: center;
+        transform: translate(0, 0);
+    }
+
+    #app .app-content p{
+        padding: 4%;
+        margin-bottom: 14px;
+    }
+
     /*产品开始*/
     #product a{
-        float: none;
         width: 100%;
     }
 
     /*优质产品部分*/
+    #reserve .container{
+        padding: 0 35px;
+        width: auto;
+    }
+
     #reserve .container img{
         float: none;
+        width: 100%;
     }
 
     #reserve .container .buttons a{
@@ -357,19 +486,6 @@
 
     #reserve .container .info{
         display: block;
-    }
-}
-
-@media (min-width: 1067px){
-    /*apple-watch部分*/
-    #apple-watch{
-        height: 220px;
-    }
-
-    #apple-watch .img{
-        width: 408px;
-        height: 220px;
-        margin: 0;
     }
 }
 
@@ -405,16 +521,5 @@
         height: 33px;
         padding: 0 10px 0 15px;
         margin-top: 30px;
-    }
-}
-
-@media (min-width: 1200px){
-    /*优质产品部分*/
-    #reserve .container{
-        width: 1140px;
-    }
-
-    #reserve img{
-        margin-right: 90px;
     }
 }
