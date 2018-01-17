@@ -1,0 +1,162 @@
+/*样式重置开始*/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: AvenirLight, 'HelveticaNeue-Light', 'Helvetica Neue', arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei New", "Microsoft Yahei", "微软雅黑", 宋体, SimSun, STXihei, "华文细黑", sans-serif;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    display: block;
+}
+/*样式重置结束*/
+
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/*导航栏开始*/
+#mask{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+#nav{
+    height: 104px;
+    border-top: 3px solid #f5f5f5;
+    padding: 0 15px;
+}
+
+    /*logo*/
+#logo{
+    float: left;
+    height: 73px;
+    margin: 15px 0;
+    width: 16.66666%;
+}
+
+#logo img{
+    width: 73px;
+    margin: 0 auto;
+}
+
+    /*右侧注册栏*/
+#nav .login{
+    float: right;
+    margin: 30px 15px 27px 0;
+    color: #4e4e4e;
+    width: 85px;
+}
+
+#nav .login a{
+    font-size: 14px;
+    margin: 0 2px;
+    color: #b89f7a;
+}
+
+    /*左侧菜单栏*/
+#nav .menu{
+    float: left;
+    width: 41.6666%;
+}
+#nav .icon{
+    margin: 27px 15px;
+    width: 40px;
+    height: 46px;
+    opacity: 0.7;
+}
+
+#nav .icon input{
+    outline: none;
+    display: block;
+    width: 30px;
+    height: 20px;
+    padding: 5px 5px 0 5px;
+}
+
+#nav .icon span{
+    display: block;
+    width: 40px;
+    height: 21px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 21px;
+    cursor: pointer;
+}
+
+#nav .icon:hover{
+    opacity: 1;
+}
+
+#nav .menu .menu-bar{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: #292929;
+    font-size: 15px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-bottom: 200px;
+    width: 0;
+}
+
+#nav .menu-bar .top{
+    padding: 10px 0;
+    border-bottom: 1px solid #525252;
+}
+
+#nav .menu-bar .top a, #nav .menu-bar .bottom .first-bar{
+    display: block;
+    height: 27px;
+    line-height: 27px;
+    width: 240px;
+    padding: 10px 15px;
+    color: #b89f7a;
+}
+
+#nav .menu-bar .top a:hover{
+    color: #FFFFFF;
+}
+
+#nav .menu-bar .bottom .first-bar{
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+#nav .menu-bar .bottom .menu-icon{
+    border: 4px solid transparent;
+    border-top-color: #FFFFFF;
+    float: right;
+    margin-top: 10px;
+}
+
+#nav .menu-bar .bottom .hidden{
+    display: none;
+}
+
+#nav .menu-bar .bottom ul a{
+    display: block;
+    width: 230px;
+    height: 27px;
+    padding: 5px 15px 5px 25px;
+    color: #AAAAAA;
+}
+
+#nav .menu-bar .bottom a:hover, #nav .menu-bar .bottom .first-bar:hover{
+    color: #b89f7a;
+}
