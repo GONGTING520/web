@@ -27,6 +27,7 @@ img{
 /*导航栏开始*/
 #mask{
     position: fixed;
+    z-index: 1;
     top: 0;
     bottom: 0;
     left: 0;
@@ -37,8 +38,22 @@ img{
 
 #nav{
     height: 104px;
-    border-top: 3px solid #f5f5f5;
+}
+
+#nav .container{
+    background: #FFFFFF;
+    border-top: 3px solid #dddddd;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 101px;
     padding: 0 15px;
+}
+
+#nav .small{
+    height: 61px;
 }
 
     /*logo*/
@@ -47,11 +62,23 @@ img{
     height: 73px;
     margin: 15px 0;
     width: 16.66666%;
+    transition: all 0.3s linear;
+}
+
+#nav .small .logo{
+    height: 50px;
+    padding: 5px 0;
+    margin: 0;
+}
+
+#nav .small img{
+    width: 50px;
 }
 
 #logo img{
     width: 73px;
     margin: 0 auto;
+    transition: all 0.3s linear;
 }
 
     /*右侧注册栏*/
@@ -60,6 +87,7 @@ img{
     margin: 30px 15px 27px 0;
     color: #4e4e4e;
     width: 85px;
+    transition: all 0.3s linear;
 }
 
 #nav .login a{
@@ -68,16 +96,27 @@ img{
     color: #b89f7a;
 }
 
+#nav .small .login{
+    margin: 10px;
+}
+
     /*左侧菜单栏*/
 #nav .menu{
     float: left;
     width: 41.6666%;
 }
+
+#nav .small .icon{
+    margin: 6px 10px;
+    height: 41px;
+}
+
 #nav .icon{
     margin: 27px 15px;
     width: 40px;
     height: 46px;
     opacity: 0.7;
+    transition: all 0.3s linear;
 }
 
 #nav .icon input{
@@ -103,7 +142,8 @@ img{
 }
 
 #nav .menu .menu-bar{
-    position: absolute;
+    position: fixed;
+    z-index: 2;
     top: 0;
     bottom: 0;
     left: 0;
@@ -159,4 +199,31 @@ img{
 
 #nav .menu-bar .bottom a:hover, #nav .menu-bar .bottom .first-bar:hover{
     color: #b89f7a;
+}
+
+@media (max-width: 427px) {
+    #logo img {
+        width: 100%;
+    }
+
+    #nav .container{
+        padding: 0;
+        height: auto;
+    }
+
+    #nav .icon{
+        margin-left: 10px;
+    }
+
+    #nav .login{
+        font-size: 12px;
+        width: 31.66%;
+        text-align: right;
+        margin-right: 10px;
+    }
+
+    #nav .login a{
+        font-size: 12px;
+        margin: 0;
+    }
 }
