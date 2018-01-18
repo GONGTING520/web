@@ -6,180 +6,183 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Starbucks</title>
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/index.css">
 
 <body>
     <!--导航栏-->
     <nav id="nav">
-        <!--左侧菜单部分-->
-        <div class="menu">
-            <div class="icon">
-                <input type="image" src="img/menu_icon.svg">
-                <span>菜单</span>
+        <div class="container">
+            <!--左侧菜单部分-->
+            <div class="menu">
+                <div class="icon">
+                    <input type="image" src="img/menu_icon.svg">
+                    <span>菜单</span>
+                </div>
+                <div id="mask"></div>
+                <div class="menu-bar">
+                    <ul class="top">
+                        <li>
+                            <a href="#">English</a>
+                        </li>
+                        <li>
+                            <a href="#">星巴克门店</a>
+                        </li>
+                        <li>
+                            <a href="#">上海烘培工坊</a>
+                        </li>
+                        <li>
+                            <a href="#">天茂旗舰店</a>
+                        </li>
+                    </ul>
+                    <ul class="bottom">
+                        <li>
+                            <a href="#" class="first-bar">首页</a>
+                        </li>
+                        <li>
+                            <div class="first-bar">
+                                新品推荐
+                                <span class="menu-icon"></span>
+                            </div>
+                            <ul class="new hidden">
+                                <li>
+                                    <a href="#">当季新品</a>
+                                </li>
+                                <li>
+                                    <a href="#">咖啡融合冰淇淋</a>
+                                </li>
+                                <li>
+                                    <a href="#">冷草冰淇淋</a>
+                                </li>
+                                <li>
+                                    <a href="#">冷草冰淇淋</a>
+                                </li>
+                                <li>
+                                    <a href="#">冷草冰淇淋</a>
+                                </li>
+                                <li>
+                                    <a href="#">冷草冰淇淋</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="first-bar">星享俱乐部</a>
+                        </li>
+                        <li>
+                            <div class="first-bar">
+                                星巴克移动服务
+                                <span class="menu-icon"></span>
+                            </div>
+                            <ul class="web-server hidden">
+                                <li>
+                                    <a href="#">星巴克移动服务</a>
+                                </li>
+                                <li>
+                                    <a href="#">星巴克移动服务</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="first-bar">星礼卡</a>
+                        </li>
+                        <li>
+                            <div class="first-bar">
+                                咖啡文化
+                                <span class="menu-icon"></span>
+                            </div>
+                            <ul class="coffe-culture hidden">
+                                <li>
+                                    <a href="#">咖啡文化</a>
+                                </li>
+                                <li>
+                                    <a href="#">咖啡文化</a>
+                                </li>
+                                <li>
+                                    <a href="#">咖啡文化</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="first-bar">
+                                饮品美食
+                                <span class="menu-icon"></span>
+                            </div>
+                            <ul class="drink-food hidden">
+                                <li>
+                                    <a href="#">咖啡文化</a>
+                                </li>
+                                <li>
+                                    <a href="#">咖啡文化</a>
+                                </li>
+                                <li>
+                                    <a href="#">咖啡文化</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="first-bar">
+                                关于我们
+                                <span class="menu-icon"></span>
+                            </div>
+                            <ul class="about-us hidden">
+                                <li>
+                                    <a href="#">关于我们</a>
+                                </li>
+                                <li>
+                                    <a href="#">关于我们</a>
+                                </li>
+                                <li>
+                                    <a href="#">关于我们</a>
+                                </li>
+                                <li>
+                                    <a href="#">关于我们</a>
+                                </li>
+                                <li>
+                                    <a href="#">关于我们</a>
+                                </li>
+                                <li>
+                                    <a href="#">关于我们</a>
+                                </li>
+                                <li>
+                                    <a href="#">关于我们</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="first-bar">
+                                服务中心
+                                <span class="menu-icon"></span>
+                            </div>
+                            <ul class="server-center hidden">
+                                <li>
+                                    <a href="#">服务中心</a>
+                                </li>
+                                <li>
+                                    <a href="#">服务中心</a>
+                                </li>
+                                <li>
+                                    <a href="#">服务中心</a>
+                                </li>
+                                <li>
+                                    <a href="#">服务中心</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div id="mask"></div>
-            <div class="menu-bar">
-                <ul class="top">
-                    <li>
-                        <a href="#">English</a>
-                    </li>
-                    <li>
-                        <a href="#">星巴克门店</a>
-                    </li>
-                    <li>
-                        <a href="#">上海烘培工坊</a>
-                    </li>
-                    <li>
-                        <a href="#">天茂旗舰店</a>
-                    </li>
-                </ul>
-                <ul class="bottom">
-                    <li>
-                        <a href="#" class="first-bar">首页</a>
-                    </li>
-                    <li>
-                        <div class="first-bar">
-                            新品推荐
-                            <span class="menu-icon"></span>
-                        </div>
-                        <ul class="new hidden">
-                            <li>
-                                <a href="#">当季新品</a>
-                            </li>
-                            <li>
-                                <a href="#">咖啡融合冰淇淋</a>
-                            </li>
-                            <li>
-                                <a href="#">冷草冰淇淋</a>
-                            </li>
-                            <li>
-                                <a href="#">冷草冰淇淋</a>
-                            </li>
-                            <li>
-                                <a href="#">冷草冰淇淋</a>
-                            </li>
-                            <li>
-                                <a href="#">冷草冰淇淋</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="first-bar">星享俱乐部</a>
-                    </li>
-                    <li>
-                        <div class="first-bar">
-                            星巴克移动服务
-                            <span class="menu-icon"></span>
-                        </div>
-                        <ul class="web-server hidden">
-                            <li>
-                                <a href="#">星巴克移动服务</a>
-                            </li>
-                            <li>
-                                <a href="#">星巴克移动服务</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="first-bar">星礼卡</a>
-                    </li>
-                    <li>
-                        <div class="first-bar">
-                            咖啡文化
-                            <span class="menu-icon"></span>
-                        </div>
-                        <ul class="coffe-culture hidden">
-                            <li>
-                                <a href="#">咖啡文化</a>
-                            </li>
-                            <li>
-                                <a href="#">咖啡文化</a>
-                            </li>
-                            <li>
-                                <a href="#">咖啡文化</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="first-bar">
-                            饮品美食
-                            <span class="menu-icon"></span>
-                        </div>
-                        <ul class="drink-food hidden">
-                            <li>
-                                <a href="#">咖啡文化</a>
-                            </li>
-                            <li>
-                                <a href="#">咖啡文化</a>
-                            </li>
-                            <li>
-                                <a href="#">咖啡文化</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="first-bar">
-                            关于我们
-                            <span class="menu-icon"></span>
-                        </div>
-                        <ul class="about-us hidden">
-                            <li>
-                                <a href="#">关于我们</a>
-                            </li>
-                            <li>
-                                <a href="#">关于我们</a>
-                            </li>
-                            <li>
-                                <a href="#">关于我们</a>
-                            </li>
-                            <li>
-                                <a href="#">关于我们</a>
-                            </li>
-                            <li>
-                                <a href="#">关于我们</a>
-                            </li>
-                            <li>
-                                <a href="#">关于我们</a>
-                            </li>
-                            <li>
-                                <a href="#">关于我们</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="first-bar">
-                            服务中心
-                            <span class="menu-icon"></span>
-                        </div>
-                        <ul class="server-center hidden">
-                            <li>
-                                <a href="#">服务中心</a>
-                            </li>
-                            <li>
-                                <a href="#">服务中心</a>
-                            </li>
-                            <li>
-                                <a href="#">服务中心</a>
-                            </li>
-                            <li>
-                                <a href="#">服务中心</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+            <!--logo-->
+            <a href="#" id="logo">
+                <img src="img/logo.svg" alt="logo">
+            </a>
+            <!--右侧注册栏-->
+            <div class="login">
+                星享俱乐部
+                <a href="#">登陆</a>或
+                <a href="#">注册</a>
             </div>
-        </div>
-        <!--logo-->
-        <a href="#" id="logo">
-            <img src="img/logo.svg" alt="logo">
-        </a>
-        <!--右侧注册栏-->
-        <div class="login">
-            星享俱乐部
-            <a href="#">登陆</a>或
-            <a href="#">注册</a>
         </div>
     </nav>
     <!--广告图片-->
@@ -201,7 +204,7 @@
                 <div class="rewards-content-button">
                     <a href="#" class="button">注册</a>
                     <a href="#" class="button">登陆</a>
-                    <a href="#" class="know-more">了解更多&gt;&gt;</a>
+                    <a href="#" class="know-more">了解更多 &gt;&gt;</a>
                 </div>
             </div>
         </div>
@@ -211,12 +214,10 @@
         <img src="img/app_qr.png" alt="app" class="qr-code">
         <div class="app-content">
             <p>下载全新星巴克中国官方APP，开启更便捷的星巴克体验。</p>
-            <a href="#">了解更多&gt;&gt;</a>
+            <a href="#">了解更多 &gt; &gt;</a>
         </div>
         <br>
-        <a href="#" class="download">
-            <!--<img src="img/udp-starbucks-cn.svg" alt="download">-->
-        </a>
+        <a href="#" class="download"></a>
     </div>
     <!--产品部分-->
     <div id="product" class="clearfix">
@@ -249,6 +250,15 @@
     <!--apple watch-->
     <div id="apple-watch">
         <div class="img"></div>
+        <div class="desc">
+            <p>星享更同步。现在您可以通过Apple Watch打开星巴克移动应用。更便捷地支付、查询星享卡还有查找附近门店。</p>
+            <a href="#">了解更多 &gt; &gt;</a>
+        </div>
+        <div class="qr-code">
+            <img src="img/app_qr1.png" alt="qrcode">
+            扫码下载APP
+        </div>
+        <a href="#" class="download"></a>
     </div>
     <!--星巴克精选-->
     <div id="collection">
@@ -307,7 +317,116 @@
             </div>
         </div>
     </div>
+    <!--脚部-->
     <div id="footer">
+        <div class="container">
+            <ul class="item clearfix">
+                <li class="item-li">
+                    <h3 class="item-title">最新资讯
+                        <span class="menu-icon"></span>
+                    </h3>
+                    <ul>
+                        <li><a href="#">当季新品</a></li>
+                        <li><a href="#">咖啡融合冰淇淋</a></li>
+                        <li><a href="#">冷萃冰咖啡</a></li>
+                        <li><a href="#">气致™冷萃咖啡</a></li>
+                        <li><a href="#">早安新一天</a></li>
+                        <li><a href="#">星巴克ORIGAMI™</a></li>
+                    </ul>
+                </li>
+                <li class="item-li">
+                    <h3 class="item-title">菜单
+                        <span class="menu-icon"></span>
+                    </h3>
+                    <ul>
+                        <li><a href="#">饮品</a></li>
+                        <li><a href="#">星巴克美食</a></li>
+                        <li><a href="#">星巴克咖啡</a></li>
+                        <li><a href="#">星巴克VIA® 免煮咖啡</a></li>
+                        <li><a href="#">茶瓦纳™</a></li>
+                    </ul>
+                </li>
+                <li class="item-li">
+                    <h3 class="item-title">星享卡
+                        <span class="menu-icon"></span>
+                    </h3>
+                    <ul>
+                        <li><a href="#">登录账户</a></li>
+                        <li><a href="#">注册星享卡</a></li>
+                        <li><a href="#">忘记密码</a></li>
+                        <li><a href="#">报失星享卡</a></li>
+                        <li><a href="#">购买星享卡</a></li>
+                    </ul>
+                </li>
+                <li class="item-li">
+                    <h3 class="item-title">星巴克礼品卡
+                        <span class="menu-icon"></span>
+                    </h3>
+                    <ul>
+                        <li><a href="#">管理星礼卡</a></li>
+                        <li><a href="#">申请发票</a></li>
+                        <li><a href="#">购买星礼卡</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="item clearfix">
+                <li class="item-li">
+                    <h3 class="item-title">关于星巴克
+                        <span class="menu-icon"></span>
+                    </h3>
+                    <ul>
+                        <li><a href="#">企业新闻</a></li>
+                        <li><a href="#">我们的使命和价值观</a></li>
+                        <li><a href="#">星巴克责任</a></li>
+                        <li><a href="#">工作在星巴克中国</a></li>
+                        <li><a href="#">加入星巴克</a></li>
+                        <li><a href="#">星巴克在中国</a></li>
+                        <li><a href="#">历史回顾</a></li>
+                    </ul>
+                </li>
+                <li class="item-li">
+                    <h3 class="item-title">快捷链接
+                        <span class="menu-icon"></span>
+                    </h3>
+                    <ul>
+                        <li><a href="#">天猫旗舰店</a></li>
+                        <li><a href="#">星巴克门店</a></li>
+                        <li><a href="#">上海烘培工坊</a></li>
+                        <li><a href="#">联系星巴克</a></li>
+                    </ul>
+                </li>
+                <li class="item-li">
+                    <h3 class="item-title">常见问题
+                        <span class="menu-icon"></span>
+                    </h3>
+                    <ul>
+                        <li><a href="#">星享卡</a></li>
+                        <li><a href="#">星礼卡</a></li>
+                        <li><a href="#">移动应用</a></li>
+                        <li><a href="#">电子发票</a></li>
+                        <li><a href="#">上海烘培工坊发票</a></li>
+                        <li><a href="#">星巴克中国</a></li>
+                    </ul>
+                </li>
+                <li class="item-li code">
+                    <div class="qr-code"></div>
+                    <a href="#" class="apple"><i class="icon iconfont icon-changyonglogo35"></i></a>
+                    <a href="#" class="android"><i class="icon iconfont icon-changyonglogo37"></i></a>
+                    <br>
+                    扫码下载APP
+                </li>
+            </ul>
+            <div class="footer-bottom clearfix">
+                <div class="footer-icp">
+                    <p>&copy;2018 Starbucks Corporation</p>
+                    <a href="#">All rights reserved. 沪ICP备17003747号</a>
+                    <a href="#" class="icpicon"> 沪公网安备 31010402000318号</a>
+                </div>
+                <div class="footer-icons clearfix">
+                    <a href="#" class="we-chat"></a><a href="#" class="weibo"></a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="../../jquery-3.2.1.js"></script>
