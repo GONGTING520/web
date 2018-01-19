@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="ul1">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+        <li>005</li>
+    </ul>
+
+    <script>
+        // var => variable
+
+        /* var a = 5;
+        console.log(a); // 5 */
+
+        /* a = 5;
+        console.log(a); // 5 */
+
+        /* var a = 5;
+        function foo(){
+            console.log(a); // 5
+            a = 6;
+        }
+        foo(); */
+
+        /* var a = 5;
+        function foo(){
+            console.log(a); // undefined
+            var a = 6;
+
+            // 相当于
+            var a;
+            console.log(a);
+            a = 6;
+        }
+        foo(); */
+
+        /*  console.log('1=' + a);// function a(){}
+         var a = 5;
+
+         function a() {
+             console.log('2=' + a);
+         }
+         a = 6;
+         console.log('3=' + a);
+         a(); // 6 */
+
+        /* foo();
+        function foo(){
+            console.log(123);
+        } */
+
+        /*  var foo = function(){
+             console.log(456);
+         };
+         foo(); */
+
+        /*  var a = 5;
+         function foo(){
+             console.log(a); // undefined
+             if(false){
+                 var a = 6;
+             }
+         }
+         foo(); */
+
+        /* for (var i = 0; i < 3; i++) {
+
+        }
+        console.log(i); // 3 */
+
+        /* var a = 5;
+        var a = 6;
+        console.log(a); // 6 */
+
+        /* if(true){
+            var a = 5;
+        }
+        console.log(a); // 5 */
+
+
+
+        /* let a = 5;
+        function foo() {
+            console.log(a);// error
+            let a = 6;
+        }
+        foo(); */
+
+        /* console.log(a);
+        let a = 5; */
+
+        /* if(true){
+            throw new Error('我要抛出异常啦');
+        } */
+
+        /* let a = 5;
+        let a = 6;
+        console.log(a); */
+
+        /* let a = 5;
+        function foo() {
+            console.log(a);
+            if (false) {
+                let a = 6;
+            }
+        }
+        foo(); */
+
+        /* for (let i = 0; i < 3; i++) {
+
+        }
+        console.log(i); */
+
+
+        var oUl = document.querySelector('#ul1');
+        var aLi = document.querySelectorAll('#ul1 li');
+        /* oUl.onclick = function(e){
+            console.log(e.target);
+        }; */
+
+        // 1、给每个li自定义属性
+        /* for (var i = 0; i < aLi.length; i++) {
+            aLi[i].index = i;
+            aLi[i].onclick = function () {
+                console.log(this.index);
+                // console.log(i);//5
+            };
+        } */
+
+        // 2、闭包
+        /* for (var i = 0; i < aLi.length; i++) {
+            (function (idx) {
+                aLi[idx].onclick = function () {
+                    console.log(idx);
+                };
+            })(i);
+        } */
+
+        // 3、let
+        /* for (let i = 0; i < aLi.length; i++) {
+            aLi[i].index = i;
+            aLi[i].onclick = function () {
+                console.log(i);
+            };
+        } */
+
+        /* let arr = [];
+        for (let i = 0; i < 5; i++) {
+            arr[i] = function () {
+                console.log(i);
+            };
+        }
+        arr[3](); */
+
+        /* function a(){
+            var num = 5;
+            return num;
+        }
+        var n = a();
+        console.log(n); */
+
+
+
+
+
+
+
+
+        /* const a = 5;
+        a = 6;
+        console.log(a); */
+
+        /* const obj = {
+            name: 'zhangsan',
+            age: 18
+        };
+        console.log(obj);
+        Object.freeze(obj); // 冻结
+        obj.name = 'lisi';
+         obj = {
+            name: 'lisi'
+        }; // new Object()
+        console.log(obj); */
+
+        const arr = [1, 2, 3, 4];
+        console.log(arr);
+        arr.push(5);
+        console.log(arr);
+
+        
+
+    </script>
+</body>
+
+</html>
