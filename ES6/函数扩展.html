@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">div1</div>
+    <script>
+        /* function foo(a, b){
+                                                                                                    b = b || 'world';
+                                                                                                    console.log(`${a} ${b}`);
+                                                                                                }
+
+                                                                                                foo('hello', ''); */
+
+
+        /* function foo(a='hello', b){
+            console.log(`${a} ${b}`);
+        }
+        foo(undefined,'world'); */
+
+        /* function foo([a, b, c=0, d]) {
+            console.log(a, b, c, d);
+        }
+        foo([1, 2, 3, 4]); */
+
+        /* function foo({name='aa', age=0}){
+            console.log(name, age);
+        }
+        foo({
+            name: 'zs',
+            age: 18
+        }); */
+
+        /* function Point(x = 0, y = 0) {
+            this.x = x;
+            this.y = y;
+        }
+
+        const p = new Point();
+        p // { x: 0, y: 0 }
+
+ */
+        /* function foo(a, b, c = 0) { */
+        /*     return a + b; */
+        /* } */
+        /* foo(5, 6, 7); */
+        /* console.log(foo.length); */
+        /* console.log(foo.name); */
+
+
+
+        /* function foo(a, a, c) {
+            console.log(a, a, c);
+        }
+
+        foo(5, 6, 7);
+        console.log(foo.name);
+
+        var foo2 = function foo3(){
+            console.log(123);
+        };
+
+        // console.log(foo2.name);
+        console.log(foo2.name); */
+
+        // 'use strict';
+        /* a = 5;
+        console.log(a); */
+
+        /* function foo(){
+            console.log(this);
+        }
+        foo(); */
+        //eslint
+
+        /* function People(name, age){
+            console.log(this);
+            this.name = name;
+            this.age = age;
+        }
+        let p1 = new People('zs', 18); */
+        // People('zs', 18);
+
+
+        /* function foo(a, a, c) {
+            console.log(a, a, c);
+        }
+        foo(5, 6, 7); */
+
+        /* let a = 5;
+        let obj = {
+            a : 6
+        };
+        with(obj){
+            console.log(a);
+        } */
+
+
+        /*  function fac(n){
+             'use strict';
+             if(n == 1){
+                 return 1;
+             }
+             return n * arguments.callee(n - 1);
+         }
+         console.log(fac(5)); */
+
+
+        /* function sum(x, y) {
+            return x + y;
+        }
+        sum(5, 6); */
+
+
+        /* let sum = (x, y) => x + y;
+        console.log(sum(5,6));
+
+
+        let x = x => x;
+        console.log(x(5)); */
+
+        /* let aa = id => {return {name: 'zs'};}
+
+        let getTempItem = id => { id: id, name: "Temp" }; */
+
+        // let fn = () => void doesNotReturn();
+
+
+        /* let sum = (...arg) =>{
+            console.log(arg[0] + arg[1]);//arguments不能使用
+        };
+        sum(5, 6); */
+
+
+        /* function People(name, age){
+            this.name = name;
+            this.age = age;
+        } */
+
+        // 不可以当做构造函数
+        /* let People = (name, age) => {
+            this.name = name;
+            this.age = age;
+        };
+
+        let p1 = new People('zs', 18);
+        console.log(p1); */
+
+
+        /* let oDiv1 = document.querySelector('#div1');
+        oDiv1.addEventListener('click', function(){
+            console.log(this);
+            setTimeout(()=>{
+                console.log(this);
+            }, 2000);
+        }, false); */
+
+        /* let a = 5;
+        let obj = {
+            a: 6,
+            foo1(){
+                console.log(this.a);//6 this->obj
+            },
+            foo2: ()=>{
+                console.log(this.a);//undefined this->window
+            }
+        };
+        obj.foo1();
+        obj.foo2(); */
+
+        /* function foo() {
+            console.log(this); // {id:42}
+            setTimeout(() => {
+                console.log('id:', this.id);// {id:42}
+            }, 100);
+        }
+
+        var id = 21;
+
+        foo.call({
+            id: 42
+        }); */
+
+        /*
+        function Timer() {
+            this.s1 = 0;
+            this.s2 = 0;
+            // 箭头函数
+            setInterval(() => this.s1++, 1000);// this -> timer
+            // 普通函数
+            setInterval(function () {
+                this.s2++;//this -> window
+            }, 1000);
+        }
+
+        var timer = new Timer();
+
+        setTimeout(() => console.log('s1: ', timer.s1), 3100);//3
+        setTimeout(() => console.log('s2: ', timer.s2), 3100);//0
+        */
+
+
+        /* let oDiv1 = document.querySelector('#div1');
+        oDiv1.addEventListener('click', ()=>{
+            console.log(this);
+        }, false); */
+
+        /* function foo(x = 0, y = 0) {
+            'use strict';
+            return x + y;
+        }
+        foo(5, 6); */
+
+        /* function foo([x, y]) {
+             'use strict';
+            return x + y;
+        }
+        foo([5, 6]); */
+
+        function foo(...arg) {
+            'use strict';
+            return arg[0] + arg[1];
+        }
+        foo(5, 6);
+    </script>
+</body>
+
+</html>
