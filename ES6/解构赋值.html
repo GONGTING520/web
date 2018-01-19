@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* let arr = [1, 2, 3];
+                                                                                                                let a = arr[0];
+                                                                                                                let b = arr[1];
+                                                                                                                let c = arr[2];
+                                                                                                                console.log(a, b, c); */
+
+        /* let [a, b, c] = [1, 2, 3];
+        console.log(a, c, b); */
+
+        /* let [a, b, [c, d], e] = [1, 2, [3, 4], 5];
+        console.log(a, b, c, d, e); */
+
+        /* let [a, b, [c], e] = [1, 2, [3, 4], 5];
+        console.log(a, b, c, e); */
+
+        /* let [a, b, c, e] = [1, 2, [3, 4], 5];
+        console.log(a, b, c, e); */
+
+        /*  let obj = {
+             name: 'zs',
+             age: 18
+         };
+         let name = obj.name;
+         let age = obj.age;
+         console.log(name, age); */
+
+        /* let {age, name} = {
+            name: 'zs',
+            age: 18
+        };
+        console.log(name, age); */
+
+        /* let {
+            name: a,
+            age: b
+        } = {
+            name: 'zs',
+            age: 18
+        };
+        console.log(a, b); */
+
+        /*  let str = 'hello';
+         let [a, b, c, d, e] = str;
+         console.log(a, b, c, d, e); */
+
+        /* function foo([x, y]){
+            return x + y;
+        }
+        let arr = [5, 6];
+        foo(arr); */
+
+        /* function sum([x = 0, y = 0]) {
+            return x + y;
+        }
+        let arr = [5, 6];
+        console.log(sum(arr)); */
+
+        /* function foo(){
+            console.log(123);
+        }
+
+        let [a=foo()] = [1]; */
+
+        /* function foo({name, age, school='XX大学'}){
+            console.log(name, age, school);
+        }
+        let obj = {
+            name: 'zs',
+            age: 18,
+            school: '农大'
+        };
+        foo(obj); */
+
+        /* function foo() {
+            return [1, 2, 3, 4];
+        }
+
+        let [a, b, c, d] = foo(); */
+
+        /* function foo(){
+            let obj = {
+                name: 'zs',
+                age: 18
+            };
+            return obj;
+        }
+
+        let {name, age} = foo(); */
+
+        /* let a = 5;
+        let b = 6; */
+
+        /* let temp = a;//temp=5
+        a = b;//a =6
+        b = temp;//b=5 */
+
+        /*  a = a + b;//a=11
+         b = a - b;//b=5
+         a = a - b;//a=6 */
+
+        /* [b,a] = [a,b];
+        console.log(a,b); */
+
+        /* a = [b, b = a][0];
+        console.log(a, b); */
+
+
+        /*  let arr = [4, 6, c=5];
+         console.log(arr, c); */
+
+
+        /* let json = '{"a": "Hello", "b": "World"}';
+        // let [a, b, c, d, e] = json;
+        let {
+            a: aa,
+            b: bb
+        } = JSON.parse(json);
+        console.log(aa, bb);
+
+
+        function foo(obj) {
+
+        }
+        obj = {
+
+        };
+        foo(obj) */
+
+        /* let a;
+        ({a} = {a:1});
+        console.log(a); */
+
+        let [x = 1] = [undefined];
+        console.log(x);//1
+
+        let [y = 1] = [null];
+        console.log(y);
+
+    </script>
+</body>
+
+</html>
