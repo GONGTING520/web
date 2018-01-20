@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax发送请求</title>
+</head>
+
+<body>
+    <ul id="ul1"></ul>
+    <script>
+        let oUl1 = document.querySelector('#ul1');
+        //1.创建 XMLHttpRequest 对象
+        let xmlhttp;
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        //2.向服务器发送请求
+        xmlhttp.open('GET', './musicdata.json', true);
+        xmlhttp.send();
+
+        //3.服务器响应
+        xmlhttp.onreadystatechange = function(){
+            if(xmlhttp.status == 200 && xmlhttp.readyState == 4){
+                for(let item of JSON.parse(xmlhttp.responseText).musicData){
+                    oUl1.innerHTML += `<li>${item.title}</li>`;
+                }
+            }
+        };
+    </script>
+</body>
+
+</html>
