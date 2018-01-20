@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Generator发送请求</title>
+</head>
+
+<body>
+    <script src="../jquery-3.2.1.js"></script>
+    <script>
+        function getInfo(url) {
+            $.get(url, {}, function (res) {
+                f.next(res); //给上一个yield的返回值赋值
+            }, 'json');
+        }
+
+        function* foo() {
+            console.log(yield getInfo('./a.json'));
+            console.log(yield getInfo('./b.json'));
+            console.log(yield getInfo('./c.json'));
+        }
+        let f = foo(); //此时函数不执行
+        f.next(); //此时函数执行一个yield
+    </script>
+</body>
+
+</html>
