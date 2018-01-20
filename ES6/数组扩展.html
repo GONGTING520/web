@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>div1</div>
+    <div>div2</div>
+    <div>div3</div>
+
+    <script>
+        // json数组
+        /* let json = {
+            '0': 'zs',
+            '1': 18,
+            length: 2
+        };
+        console.log(Array.from(json));
+    
+        let aDiv = document.querySelectorAll('div');
+        // 类数组 -> 数组
+        let arr1 = [...aDiv];
+        console.log(arr1.constructor);
+
+        let arr2 = Array.from(aDiv);
+        console.log(arr2);
+
+        let arr3 = Array.prototype.slice.call(aDiv);
+        console.log(arr3);
+
+        let arr4 = [].slice.call(aDiv);
+        console.log(arr4); */
+
+        /* let arr1 = new Array(3, 4, 5);
+        console.log(arr1);
+
+        let arr2 = new Array(3);
+        console.log(arr2);
+
+        let arr3 = Array.of(3, 4, 5, 'abc', true, {name:'zs',age: 18}, [7, 8]);
+        console.log(arr3);
+ */
+
+        /* let arr = [9, 8, 7, 6, 5, 4, 3, 2, 1];
+        console.log(arr.copyWithin(2, 5, 9)); */
+
+        // let arr1 = [3, 4, 1, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+
+        //  find  findIndex
+        /* let result = arr1.find(function (val, key, arr) {
+            console.log(val);
+            if (val > 5) {
+                return val;
+            }
+        });
+        console.log(result); */
+
+        /* let arr = [4, 5, 6, 7, 8];
+        arr.fill('xx', 1, 3);
+        console.log(arr); // 会改变原数组
+
+        let arr2 = new Array(10).fill(0);
+        console.log(arr2); */
+
+        /*  let arr = [4, 5, 6, NaN, 7, 8];
+         console.log(arr.indexOf(NaN)); // -1
+         console.log(arr.includes(NaN)); // true
+         // console.log(NaN == NaN); */
+
+        let arr1 = [4, 5, 6, 7, 8];
+        /* for (let i = 0; i < arr.length; i++) {
+            console.log(i, arr[i]);
+        } */
+
+        /* for(let item of arr){
+            console.log(item);
+        } */
+
+        /* for(let item of arr.keys()){
+            console.log(item);
+        } */
+
+        /* for (let [index, item] of arr.entries()) {
+            console.log(index, item);
+        } */
+        
+       /*  arr1.forEach(function(val, key, arr){
+            console.log(val, key, arr);
+            // 业务逻辑代码
+
+        }); */
+
+        /* let result = arr1.map(function(val, key, arr){
+            if(val > 6){
+                return val;
+            }
+        });
+        console.log(result); */
+
+        /* let result = arr1.filter(function(val, key, arr){
+            if(val > 6){
+                return val;
+            }
+        });
+        console.log(result); */
+
+        /* let result = arr1.some(function(val, key, arr){
+            if(val > 6){
+                return val;
+            }
+        });
+        console.log(result); */
+       
+        let result = arr1.every(function(val, key, arr){
+            if(val > 3){
+                return val;
+            }
+        });
+        console.log(result);
+
+
+
+
+    </script>
+</body>
+
+</html>
