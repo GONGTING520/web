@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* let myName = 'zhangsan'
+                                let n = 'name'
+                                let obj = {
+                                    [n]: myName,
+                                    age: 18
+                                };
+                                console.log(obj); */
+
+        /* let name = 'zs';
+        let age = 18;
+        let n = name;
+
+        let obj = {
+            n,
+            age,
+            showName(){
+                console.log(this);
+            }
+        };
+        console.log(obj);
+        obj.showName(); */
+
+        /* console.log(+0 === -0); //true
+        console.log(NaN == NaN); //false
+        let obj1 = {
+            name: 'zs',
+            age: 18
+        };
+        let obj2 = {
+            name: 'zs',
+            age: 18
+        };
+        let obj3 = obj1;
+
+        console.log(obj1 === obj2); //false
+        console.log(obj1 === obj3); //true
+
+        console.log(Object.is(+0, -0)); //false
+        console.log(Object.is(NaN, NaN)); //true
+
+        let arr = [1, 2, NaN];
+        if(NaN === NaN){
+
+        }
+
+         */
+
+        let obj1 = {
+            name: 'zs',
+            age: 18,
+            dad: {
+                name: 'zhanger',
+                age: 39
+            }
+        };
+        let obj2 = {
+            name: 'lisi',
+            school: 'XX',
+            dad: {
+                name: 'lisan',
+                age: 40
+            }
+        };
+
+        /* let obj3 = { ...obj1, ...obj2};
+        // obj1.dad.age = 41;
+        obj2.school = 'YY';
+        console.log(obj3); */
+
+        /* Object.assign(obj1, obj2);
+        obj2.dad.age = 41;
+        console.log(obj1); */
+
+        console.log('name1' in obj1);//boolean
+
+        let arr = [3, 6, 7];
+        console.log(3 in arr);//false
+    </script>
+</body>
+
+</html>
