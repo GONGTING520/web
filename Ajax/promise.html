@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Promise发送请求(按顺序)</title>
+</head>
+
+<body>
+    <script src="../jquery-3.2.1.js"></script>
+    <script>
+        let p = new Promise(function (resolve, reject) {
+            $.get('./a.json', {}, function (res) {
+                console.log('1:');
+                console.log(res);
+                resolve(res);
+            }, 'json');
+        }).then(function (resa) {
+            console.log('succss1');
+            console.log(resa);
+            return new Promise(function (resolve, reject) {
+                $.get('./b.json', {}, function (resb) {
+                    console.log('b:');
+                    console.log(resb);
+                    reject();
+                }, 'json');
+            });
+        }, function () {
+            console.log('fail1');
+        }).then(function () {
+            console.log('succss2');
+        }).catch(function () {
+            console.log('fail2');
+            return new Promise(function (resolve, reject) {
+                $.get('./c.json', {}, function (res) {
+                    console.log('c:');
+                    console.log(res);
+                    resolve();
+                }, 'json');
+            });
+        }).then(function () {
+            console.log('succss3');
+        }).catch(function () {
+            console.log('fail3');
+        });
+    </script>
+</body>
+
+</html>
