@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* let obj = {
+            0: 'zs',
+            true: 18,
+            [{name:'zs'}]: 'xx'
+        };
+        console.log(obj['0']);
+        console.log(obj.true); */
+
+        let m1 = new Map();
+        m1.set(1, 'zs');
+        let obj = {name:'zs'};
+        m1.set(obj, 'xx');
+        console.log(m1);
+        console.log(m1.get(obj));
+
+        for(let [index, item] of m1.entries()){
+            console.log(index, item);
+        }
+
+        let wm = new WeakMap();
+        wm.set({name:'zs'}, 'yy');
+        wm.set({name:'zs'}, 'zz');
+        console.log(wm);
+        
+        
+        let obj1 = {};
+        let obj2 = {};// new Object()
+    </script>
+</body>
+</html>
