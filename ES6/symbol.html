@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // string number boolean null undefined symbol
+
+        let obj = {
+            name: 'zs',
+            age: 18,
+        };
+        let name = Symbol();
+        obj[name] = 'xx';
+
+        console.log(obj);
+
+        /* console.log(typeof name); */
+
+        for (let p in obj) {
+            console.log(p, obj[p]);
+        }
+        console.log(obj['name']); //zs
+        console.log(obj[name]); // xx
+
+        let age = Symbol();
+        obj[age] = 88;
+        console.log(obj);
+    </script>
+</body>
+
+</html>
