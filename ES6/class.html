@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*  function People(name, age){
+            this.name = name;
+            this.age = age;
+        }
+        People.prototype.eat = function(){
+            console.log(this.name + '在吃!');
+        };
+    
+        let p1 = new People('zs', 18);
+        console.log(p1.name);
+        p1.eat();
+
+        //继承：基于原型的继承
+        function Coder(name, age, company){
+            People.call(this, name, age);
+            this.company = company;
+        }
+        Coder.prototype = new People();
+        Coder.prototype.constructor = Coder;
+
+        Coder.prototype.showCompany = function(){
+            console.log(`我在${this.company}工作`);
+        };
+
+        let c1 = new Coder('lisi', 25, '阿里');
+        c1.eat();
+        c1.showCompany();
+        */
+
+
+        class People {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            eat() {
+                console.log(this.name + '在吃!');
+            }
+        }
+        let p1 = new People('ww', 20);
+        console.log(p1.name);
+        p1.eat();
+
+        class Coder extends People {
+            constructor(name, age, company) {
+                super(name, age);
+                this.company = company;
+            }
+            showCompany() {
+                console.log(`我在${this.company}工作`);
+            }
+        }
+        let c1 = new Coder('zl', 32, '百度');
+        console.log(c1.name);
+        c1.eat();
+        c1.showCompany();
+    </script>
+</body>
+
+</html>
