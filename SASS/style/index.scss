@@ -1,0 +1,49 @@
+$color:#ff0;
+#div1 {
+  color: $color;
+  .aa {
+    width: 10px;
+    border: {
+      left: 1px;
+    }
+    &:hover {
+      color: $color;
+    }
+    .cc {
+      background: $color;
+    }
+    &-test {
+      color: $color;
+    }
+  }
+  .bb {
+    background: {
+      image: url(xx.jpg);
+      color: $color;
+    }
+  }
+}
+
+#div2 {
+  color: $color;
+}
+
+@mixin xx($w:100px, $h:200px) {
+  width: $w;
+  height: $h;
+  background: $color;
+}
+
+#div3 {
+  @include xx($h: 200px, $w:500px);
+  font-size: 20px;
+}
+
+#div4 {
+  @include xx();
+  @extend #div1;
+}
+
+#div5 {
+  @include xx(200px);
+}
