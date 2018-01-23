@@ -1,12 +1,18 @@
+@charset "UTF-8";
+
+/* 多行sss */
+
 $color:#ff0;
+$w:width;
+$hov:hover;
 #div1 {
   color: $color;
   .aa {
-    width: 10px;
+    #{$w}: 10px;
     border: {
       left: 1px;
     }
-    &:hover {
+    &:#{$hov} {
       color: $color;
     }
     .cc {
@@ -46,4 +52,87 @@ $color:#ff0;
 
 #div5 {
   @include xx(200px);
+}
+
+@import 'base';
+#div6 {
+  color: lighten($color, 20%);
+  background: {
+    color: darken($color, 20%);
+  }
+  border: {
+    left: {
+      color: opacify($color, 0.5);
+    }
+    right: {
+      color: transparentize($color, 0.5);
+    }
+  }
+}
+
+$m:(light:#fff, dark:#000);
+@function test($key:1) {
+  @if($key==1) {
+    @return map-get($m, light);
+  }
+  @else if($key==2) {
+    @return map-get($m, dark);
+  }
+  @else {
+    // @error 'key error';
+    @warn 'key warn';
+    @return #cccccc;
+  }
+}
+
+$test:aa;
+#div7 {
+  color: test(1);
+  background: {
+    color: test(2);
+  }
+  border: {
+    color: test();
+  }
+  .#{$test} {
+    color: test(3);
+  }
+}
+
+##{$test} {
+  color: test();
+}
+
+$end:3;
+@for $i from 1 through $end {
+  .icon-#{$i} {
+    width: percentage($i / 100);
+  }
+}
+
+@for $i from 1 to $end {
+  .icon-#{$i} {
+    background: {
+      image: url('img/' + $i + '.jpg');
+    }
+  }
+}
+
+$list: succss ok error;
+@each $var in $list {
+  .icon-#{$var} {
+    background: {
+      image: url($var + '.jpg')
+    }
+  }
+}
+
+$i:3;
+@while $i>0 {
+  @if(true) {
+    .item-#{$i} {
+      color: test();
+    }
+  }
+  $i: $i - 1;
 }
