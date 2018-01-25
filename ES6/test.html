@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let set = new Set([1, 2, 3, 4, 5]);
+        set = new Set([...set].filter(x => (x % 2) == 0));
+        console.log(set);
+
+        let arr = [4, 5, 6, 7, 8];
+        let res = arr.map(function (val, key, arr) {
+            if (val > 6) {
+                return key;
+            }
+        });
+        console.log(res); // [undefined,undefined,undefined,7,8]
+
+        let json = '[[true,7],[{"foo":3},["abc"]]]';
+        console.log(JSON.parse(json));
+
+        const wm = new WeakMap();
+        let key = {};
+        let key2 = {
+            name: 'zs'
+        };
+        let obj = {
+            foo: 1
+        };
+        let obj2 = null;
+
+        wm.set(key, obj);
+        wm.set(key2, obj2);
+        obj = null;
+        key = null;
+        console.log(wm);
+
+
+        console.log(`1
+        23`);
+
+        let arr1 = [1, 2, 3];
+        console.log(arr1.concat());
+        console.log(arr1.splice(1, 0, 5));
+        console.log(arr1);
+    </script>
+</body>
+
+</html>
