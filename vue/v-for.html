@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-for的用法</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(school, index) in schools">{{school}} -- {{index + 1}}</li>
+        </ul>
+
+        <ul>
+            <li v-for="(val, key, index) in obj">
+                <span>{{val}} -- </span>
+                <span>{{key}} -- </span>
+                <span>{{index}}</span>
+            </li>
+        </ul>
+
+        <ul>
+            <li v-for="obj in arrSort">
+                <div v-for="(val, key, index) in obj">{{val}} -- {{key}} -- {{index}}</div>
+            </li>
+        </ul>
+    </div>
+
+    <script src="./vue.min.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                schools: ['nongda', 'heida', 'gongcheng'],
+                obj: {
+                    name: 'zs',
+                    age: 18,
+                },
+                arr: [{
+                    name: 'aa',
+                    age: 71,
+                }, {
+                    name: 'bb',
+                    age: 30,
+                }, {
+                    name: 'cc',
+                    age: 20,
+                }, {
+                    name: 'dd',
+                    age: 36,
+                }],
+            },
+            computed: {
+                arrSort() {
+                    return this.arr.sort(function (a, b) {
+                        return a.age - b.age;
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
