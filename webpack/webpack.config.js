@@ -4,12 +4,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const glob = require('glob');
 const PurifyCSSPlugin = require('purifycss-webpack');
+const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+const entry = require('./src/webpack_config/entry.js');
 
 module.exports = {
-    entry: {
-        index: './src/index.js',
-        index2: './src/index2.js'
-    },
+    entry: entry,
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
@@ -34,6 +35,19 @@ module.exports = {
         new PurifyCSSPlugin({
             paths: glob.sync(path.join(__dirname, 'src/*.html')),
         }),
+        new webpack.BannerPlugin('龚婷'),
+        new webpack.ProvidePlugin({
+            $: 'jquery'
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: ['jquery', 'vue'],
+            filename: 'source/[name].js',
+            minChunks: 2
+        }),
+        new CopyWebpackPlugin([{
+            from: './src/public',
+            to: './public'
+        }]),
     ],
     module: {
         rules: [{
