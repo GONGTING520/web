@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-bind的用法</title>
+    <style>
+        .aa {
+            width: 200px;
+            height: 200px;
+            background: #ffff00;
+        }
+
+        .bb {
+            border: 5px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <img v-bind:src="imgSrc" :alt="tip" :title="tip">
+        <div :class="clsName">hahaha</div>
+        <div :class="{aa:isAa, bb:isBb}">hahaha</div>
+        <div :class="[clsName, clsName2]" :style="{fontSize: size + 'px'}">lalalalala</div>
+        <div :style="[styleObj1, styleObj2]">hehehehehehe</div>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                imgSrc: 'https://cn.vuejs.org/images/logo.png',
+                tip: 'lalala',
+                clsName: 'aa',
+                clsName2: 'bb',
+                isAa: true,
+                isBb: false,
+                size: 30,
+                styleObj1: {
+                    width: '200px',
+                    height: '200px',
+                    'background-color': '#00f',
+                },
+                styleObj2: {
+                    border: '3px solid #f00',
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>
