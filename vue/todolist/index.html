@@ -10,16 +10,19 @@
 </head>
 
 <body>
-    <div id="todolist">
+    <div id="todolist" @click="hideTable">
         <h1 v-text="title" :style="{fontSize: size + 'px', textAlign: 'center'}"></h1>
         <div>
             <label>商品名称：
                 <input type="text" v-model="shoppingName">
             </label>
+            <span v-show="shoppingNameError" :style="errorInfoStyle">商品名称不能为空</span>
             <br>
             <label>商品价格：
                 <input type="text" v-model.number="shoppingPrice">
             </label>
+            <span v-show="shoppingPriceError" :style="errorInfoStyle">商品价格不能为空或非数字</span>
+            <br>
             <button @click="addShopping">add</button>
             <br>
             <input type="text" v-model.trim="search" @keyup.enter="searchShopping">
@@ -30,11 +33,21 @@
                 <!-- <span v-for="val in item" v-text="val"></span> -->
                 <input type="checkbox" :value="index" :style="spanStyle" v-model="deleteShopping" @click.stop>
                 <span :style="spanStyle" @click.stop="delectShoppings(index)">[X]</span>
-                <span v-text="item.name" :style="spanStyle"></span>
-                <span v-text="item.price" :style="[spanStyle, priceStyle]"></span>
+                <span :style="spanStyle" @click.stop>
+                    <span v-html="item.name" @dblclick.stop="edio(index,'name')" v-show="!item.isShowTable.name"></span>
+                    <input type="text" class="table" v-model.number="item.name" v-show="item.isShowTable.name" @keyup.enter="edio(index,'name')">
+                </span>
+                <span :style="[spanStyle, priceStyle]" @click.stop>
+                    <span v-html="item.price" @dblclick="edio(index,'price')" v-show="!item.isShowTable.price"></span>
+                    <input type="text" class="table" v-model.number="item.price" v-show="item.isShowTable.price" @keyup.enter="edio(index,'price')">
+                </span>
             </li>
         </ul>
         <button @click="deleteSelect">删除选中</button>
+        <label>
+            <input type="checkbox" @click="selectAll" v-model="isSelectAll" value="false">全选</label>
+        <label>
+            <input type="checkbox" @click="selectReverse" v-model="isSelectReverse" value="false">反选</label>
         <span v-text="'总价：' + sum" :style="spanStyle"></span>
     </div>
 
