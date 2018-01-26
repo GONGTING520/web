@@ -8,7 +8,7 @@ li {
 }
 
 #todolist {
-    width: 400px;
+    width: 450px;
     margin: 50px auto;
 }
 
@@ -18,10 +18,13 @@ li {
     padding: 0 5%;
     height: 50px;
     cursor: pointer;
-    display: table;
     width: 90%;
 }
 
 #todolist .selected {
     background: #ff6700;
+}
+
+#todolist li .table{
+    width: 100px;
 }
