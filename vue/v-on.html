@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-on的用法</title>
+    <style>
+        .aa {
+            width: 200px;
+            height: 200px;
+            background: #ffff00;
+        }
+
+        #div1 {
+            width: 400px;
+            height: 400px;
+            background: #ff0000;
+        }
+
+        #div2 {
+            width: 200px;
+            height: 200px;
+            background: #ffff00;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="add($event)">add</button>
+        <button @click="down">-</button>
+        <h4 v-text="num"></h4>
+        <a href="http://www.baidu.com" @click.prevent>baidu</a>
+        <input type="text" @keyup.13="onEnter">
+        <input type="text" @keyup.enter="onEnter">
+        <div class="aa" v-on="{mouseover:onOver, mouseout: onOut}"></div>
+        <div id="div1" @click="clickDiv1">
+            <div id="div2" @click.stop="clickDiv2($event)"></div>
+        </div>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                num: 0,
+            },
+            methods: {
+                add(e) {
+                    this.num++;
+                    console.log(e);
+                },
+                down() {
+                    this.num--;
+                },
+                onEnter() {
+                    console.log('onEnter');
+                },
+                onOver() {
+                    console.log('onMouseOver');
+                },
+                onOut() {
+                    console.log('onMouseOut');
+                },
+                clickDiv1() {
+                    console.log('div1');
+                },
+                clickDiv2(e) {
+                    // e.stopPropagation();
+                    console.log('div2');
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>
