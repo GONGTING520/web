@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>todolist</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div id="todolist">
+        <h1 v-text="title" :style="{fontSize: size + 'px', textAlign: 'center'}"></h1>
+        <div>
+            <label>商品名称：
+                <input type="text" v-model="shoppingName">
+            </label>
+            <br>
+            <label>商品价格：
+                <input type="text" v-model.number="shoppingPrice">
+            </label>
+            <button @click="addShopping">add</button>
+            <br>
+            <input type="text" v-model.trim="search" @keyup.enter="searchShopping">
+            <button @click="searchShopping">search</button>
+        </div>
+        <ul>
+            <li v-for="(item, index) in content" v-show="item.isShow" :class="{selected:item.isSelected}" @click.prevent="clickLi(index)">
+                <!-- <span v-for="val in item" v-text="val"></span> -->
+                <input type="checkbox" :value="index" :style="spanStyle" v-model="deleteShopping" @click.stop>
+                <span :style="spanStyle" @click.stop="delectShoppings(index)">[X]</span>
+                <span v-text="item.name" :style="spanStyle"></span>
+                <span v-text="item.price" :style="[spanStyle, priceStyle]"></span>
+            </li>
+        </ul>
+        <button @click="deleteSelect">删除选中</button>
+        <span v-text="'总价：' + sum" :style="spanStyle"></span>
+    </div>
+
+    <script src="../vue.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
