@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-slot的用法</title>
+    <style>
+        .mask {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(100, 100, 100, 0.7);
+        }
+
+        .container {
+            width: 500px;
+            height: 400px;
+            background: #ffffff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .title {
+            height: 30px;
+            line-height: 30px;
+            background: #000000;
+            padding: 0 10px;
+            color: #ffffff;
+        }
+
+        .close {
+            float: right;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="isShowLogin=true">登陆</button>
+        <button @click="isShowRegist=true">注册</button>
+
+        <web v-show="isShowLogin" @close="isShowLogin=false">
+            <span slot="title">登陆</span>
+            <div slot="content">
+                用户名：
+                <input type="text">
+                <br> 密码：
+                <input type="password">
+                <br>
+                <input type="submit" value="登陆">
+            </div>
+        </web>
+
+        <web v-show="isShowRegist" @close="isShowRegist=false">
+            <span slot="title">注册</span>
+            <div slot="content">
+                用户名：
+                <input type="text">
+                <br> 密码：
+                <input type="password">
+                <br> 电话...
+                <br>
+                <input type="submit" value="注册">
+            </div>
+        </web>
+    </div>
+
+    <template id="test">
+        <div class="mask">
+            <div class="container">
+                <div class="title">
+                    <slot name="title"></slot>
+                    <span class="close" @click="$emit( 'close')">[X]</span>
+                </div>
+                <slot name="content"></slot>
+            </div>
+        </div>
+    </template>
+
+    <script src="./vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                isShowRegist: false,
+                isShowLogin: false
+            },
+            components: {
+                web: {
+                    template: '#test',
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>
