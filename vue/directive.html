@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.directive的用法</title>
+</head>
+
+<body>
+    <div id="app">
+        <div v-color="'red'" v-my-directive="test" @click="change">111</div>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+        Vue.directive('color', function (el, binding, vnode) {
+            console.log(el);
+            console.log(binding);
+            console.log(vnode);
+            el.style.backgroundColor = binding.value;
+        });
+
+        Vue.directive('my-directive', {
+            bind: function () {
+                // 只执行一次，指令第一次绑定元素时调用，初始化动作
+                console.log('bind');
+            },
+            inserted: function () {
+                // 当元素渲染插入dom结构时调用
+                console.log('inserted');
+            },
+            update: function () {
+                // 更新时调用，无论绑定值是否变化
+                console.log('update');
+            },
+            componentUpdated: function () {
+                // 完成一次更新周期时调用
+                console.log('componentUpdated');
+            },
+            unbind: function () {
+                // 解绑时调用
+                console.log('unbind');
+            }
+        });
+
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                test: '123'
+            },
+            methods: {
+                change() {
+                    this.test = '456';
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>
