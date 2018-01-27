@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.set的用法</title>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="add">add</button>
+        <div v-for="item in arr">{{ item }}</div>
+        <div v-for="o in obj">{{ o }}</div>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                arr: ['a', 'b', 'c', 'd'],
+                obj: {
+                    name: 'zs',
+                }
+            },
+            methods: {
+                add() {
+                    // this.arr[2] = 'e';
+                    // this.obj.age = 18;
+                    Vue.set(this.arr, 2, 'e');
+                    Vue.set(this.obj, 'age', 18);
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>
