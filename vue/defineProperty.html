@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>双向绑定</title>
+</head>
+
+<body>
+    <p class="pp">{{a}}</p>
+    <div class="one" style="height:50px;background:#ff0;"></div>
+    <script>
+        var obj = {};
+        var a = 0;
+        var initValue = 'hello';
+        var box = document.getElementsByClassName('one')[0];
+        var p = document.getElementsByClassName('pp')[0];
+        Object.defineProperty(obj, "newKey", {
+            get: function () {
+                //当获取值的时候触发的函数
+                console.log(obj);
+                return initValue;
+            },
+            set: function (value) {
+                //当设置值的时候触发的函数,设置的新值通过参数value拿到
+                initValue = value;
+                console.log(value);
+                p.innerHTML = '' + value + '';
+                box.innerHTML = '' + value + '';
+            }
+        });
+        console.log(obj.newKey);
+        box.onclick = function () {
+            obj.newKey = a;
+            a++;
+        }
+    </script>
+</body>
+
+</html>
