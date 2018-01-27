@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>生命周期</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1 v-text="test"></h1>
+        <button @click="change">change</button>
+        <button @click="destroy">destroy</button>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                test: 123,
+            },
+            beforeCreate() {
+                console.log('beforeCreate');
+            },
+            created() {
+                console.log('created');                
+            },
+            beforeMount() {
+                // 挂载之前
+                console.log('beforeMount');                
+            },
+            mounted() {
+                console.log('mounted');                
+            },
+            beforeUpdate() {
+                console.log('beforeUpdate');                
+            },
+            updated() {
+                console.log('updated');                
+            },
+            beforeDestroy() {
+                console.log('beforeDestroy');                
+            },
+            destroyed() {
+                console.log('destroyed');                
+            },
+            methods: {
+                change() {
+                    this.test++;
+                },
+                destroy() {
+                    this.$destroy();
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>
