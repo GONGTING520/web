@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用BootStrap来做todolist</title>
+    <link rel="stylesheet" href="../../bootstrap-3.3.7-dist/css/bootstrap.css">
+    <style>
+        #todolist .selected {
+            background: #ff6700;
+        }
+
+        #todolist .add-shopping {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="todolist" class="text-center" @click="hideTable">
+        <h1>todolist</h1>
+        <hr>
+        <form class="form-inline" @submit.prevent>
+            <div class="form-group">
+                <input v-model="search" type="text" class="form-control" placeholder="请输入关键字">
+            </div>
+            <button type="submit" class="btn btn-primary" @click="searchShopping" @keyup.enter="searchShopping">搜索</button>
+        </form>
+
+        <form class="form-inline add-shopping" @submit.prevent>
+            <div class="form-group">
+                <label for="shopping-name">商品名称</label>
+                <input v-model="shoppingName" type="text" class="form-control" id="shopping-name" placeholder="请输入商品名称">
+            </div>
+            <div class="form-group">
+                <label for="shopping-price">商品价格</label>
+                <input v-model.number="shoppingPrice" type="number" class="form-control" id="shopping-price" placeholder="请输入商品价格">
+            </div>
+            <button type="submit" class="btn btn-primary" @click="addShopping">添加</button>
+        </form>
+
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <td>选择</td>
+                    <td>商品名称</td>
+                    <td>商品价格</td>
+                    <td>删除</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-show="item.isShow" v-for="(item, index) in content" @click="selectProduct(item)" :class="{selected:item.isSelected}">
+                    <td>
+                        <input type="checkbox" @click.stop v-model="deleteShopping" :value="index">
+                    </td>
+                    <td>
+                        <span v-text="item.name" v-show="!item.isShowTable.name" @dblclick.stop="edio(item, 'name')"></span>
+                        <input @click.stop type="text" v-show="item.isShowTable.name" v-model="item.name">
+                    </td>
+                    <td>
+                        <span v-text="item.price" v-show="!item.isShowTable.price" @dblclick.stop="edio(item, 'price')"></span>
+                        <input @click.stop type="number" v-show="item.isShowTable.price" v-model.number="item.price">
+                    </td>
+                    <td>
+                        <button @click.stop="delectShoppings(index)" type="button" class="btn btn-xs btn-danger glyphicon glyphicon-remove"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button @click="deleteSelect" type="button" class="btn btn-xs btn-danger">删除选中商品</button>
+                    </td>
+                    <td colspan="3">总价：{{ sum }}元</td>
+                </tr>
+            </tbody>
+        </table>
+        <label>
+            <button class="btn btn-primary" type="button" @click="selectAll">全选</button>
+        </label>
+        <label>
+            <button class="btn btn-primary" type="button" @click="selectReverse">反选</button>
+        </label>
+    </div>
+
+    <script src="../../jquery-3.2.1.js"></script>
+    <script src="../../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="../../vue.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
