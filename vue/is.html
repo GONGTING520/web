@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>is切换组件</title>
+</head>
+
+<body>
+    <div id="app">
+        <div :is="whichComponent"></div>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                whichComponent: 'component1',
+            },
+            components: {
+                component1: {
+                    template: `<h1>11111</h1>`
+                },
+                component2: {
+                    template: `<h1>22222</h1>`
+                },
+                component3: {
+                    template: `<h1>33333</h1>`
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>
