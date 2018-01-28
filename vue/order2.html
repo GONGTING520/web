@@ -81,6 +81,7 @@
                     name: '群力花园豪华型',
                     price: 400,
                 }],
+                orderInfoLength: 1,
             },
             computed: {
                 orderSum() {
@@ -89,6 +90,13 @@
                         sum += element.price;
                     });
                     return sum;
+                },
+            },
+            watch: {
+                extraCharge: function (val) {
+                    if (!val) {
+                        this.orderInfo.splice(this.orderInfoLength);
+                    }
                 },
             },
         });
