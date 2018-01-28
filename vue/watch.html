@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>watch的用法</title>
+</head>
+
+<body>
+    <div id="demo">
+        {{ fullName }}
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#demo',
+            data: {
+                firstName: 'Foo',
+                lastName: 'Bar',
+                fullName: 'Foo Bar'
+            },
+            watch: { //监听已有的属性
+                firstName: function (val) {
+                    this.fullName = val + ' ' + this.lastName
+                },
+                lastName: function (val) {
+                    this.fullName = this.firstName + ' ' + val
+                }
+            },
+            computed: { //定义新得属性
+                // fullName: function () {
+                //     return this.firstName + ' ' + this.lastName
+                // }
+            }
+        })
+    </script>
+</body>
+
+</html>
