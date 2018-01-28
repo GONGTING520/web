@@ -46,7 +46,7 @@
         <button @click="isShowLogin=true">登陆</button>
         <button @click="isShowRegist=true">注册</button>
 
-        <web v-show="isShowLogin" @close="isShowLogin=false">
+        <web msg="123" v-show="isShowLogin" @close="isShowLogin=false">
             <span slot="title">登陆</span>
             <div slot="content">
                 用户名：
@@ -58,7 +58,7 @@
             </div>
         </web>
 
-        <web v-show="isShowRegist" @close="isShowRegist=false">
+        <web msg="456" v-show="isShowRegist" @close="isShowRegist=false">
             <span slot="title">注册</span>
             <div slot="content">
                 用户名：
@@ -77,8 +77,9 @@
             <div class="container">
                 <div class="title">
                     <slot name="title"></slot>
-                    <span class="close" @click="$emit( 'close')">[X]</span>
+                    <span class="close" @click="$emit('close')">[X]</span>
                 </div>
+                <span>{{msg}}</span>
                 <slot name="content"></slot>
             </div>
         </div>
@@ -95,6 +96,7 @@
             components: {
                 web: {
                     template: '#test',
+                    props: ['msg'],
                 },
             },
         });
