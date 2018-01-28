@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>订单管理</title>
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.css">
+    <style>
+        #app {
+            width: 400px;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="text-center">
+        <h3>是否需要额外付费设施:
+            <input type="checkbox" v-model="extraCharge">
+        </h3>
+        <table v-show="extraCharge" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <td>设施名称</td>
+                    <td>设施价格</td>
+                    <td>选择</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="extraItem in extraChargeList">
+                    <td v-text="extraItem.name"></td>
+                    <td v-text="extraItem.price + '元'"></td>
+                    <td>
+                        <input type="checkbox" v-model="extraChargeSelected" :value="extraItem">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td colspan="2">
+                        <h3>订单费用信息</h3>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item, index) in orderInfos">
+                    <td v-text="item.name"></td>
+                    <td v-text="item.price"></td>
+                </tr>
+                <tr>
+                    <td>总金额</td>
+                    <td v-text="orderSum"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="./jquery-3.2.1.js"></script>
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="./vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                extraCharge: false,
+                extraChargeList: [{
+                    name: '沙发',
+                    price: 300
+                }, {
+                    name: '床',
+                    price: 1100
+                }, {
+                    name: 'wifi',
+                    price: 100
+                }],
+                extraChargeSelected: [],
+                orderInfo: [{
+                    name: '群力花园豪华型',
+                    price: 400,
+                }],
+            },
+            computed: {
+                orderSum() {
+                    let sum = 0;
+                    this.orderInfos.forEach(element => {
+                        sum += element.price;
+                    });
+                    return sum;
+                },
+                orderInfos() {
+                    let arr = [...this.orderInfo];
+                    this.extraChargeSelected.forEach(elem => {
+                        arr.push(elem);
+                    });
+                    return arr;
+                },
+            },
+            methods: {
+            },
+        });
+    </script>
+</body>
+
+</html>
