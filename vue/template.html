@@ -12,13 +12,25 @@
     <div id="app">
         <web :msg1="msg"></web>
         <test message="123"></test>
+        <test1 msag="123456"></test1>
     </div>
+
 
     <script src="./vue.js"></script>
     <script>
         Vue.component('test', {
             template: `<div>{{ message }}</div>`,
             props: ['message'],
+        });
+
+        Vue.component('test1', {
+            template: `
+                <div>
+                    <h1>haha</h1>
+                    <test :message="msag"></test>
+                </div>
+            `,
+            props: ['msag'],
         });
         let vm = new Vue({
             el: '#app',
