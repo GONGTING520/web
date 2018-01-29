@@ -1,17 +1,23 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import Test from '@/components/Test.vue'
-import Test1 from '@/components/Test1.vue'
-import Test2 from '@/components/Test2.vue'
+import Test from '@/components/Test'
+import Test1 from '@/components/Test1'
+import Test2 from '@/components/Test2'
+import Error404 from '@/components/Error404'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [{
     path: '/',
     name: 'HelloWorld',
-    component: HelloWorld
+    component: HelloWorld,
+    beforeEnter (to, from, next) {
+      console.log('hello world enter')
+      next()
+    }
   },
   {
     path: '/test',
@@ -34,6 +40,10 @@ export default new Router({
   {
     path: '/home',
     redirect: '/'
+  },
+  {
+    path: '*',
+    component: Error404
   }
   ]
 })
