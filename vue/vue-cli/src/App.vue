@@ -13,6 +13,7 @@
       <router-link to="/test/test2/6/zhangsan">子路由test2传URL</router-link>
       <router-link to="/home">重定位</router-link>
       <router-link to="/abc">alias</router-link>
+      <router-link to="/count">count</router-link>
     </div>
     <router-view/>
   </div>
