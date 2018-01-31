@@ -1,12 +1,12 @@
 <template>
-    <div class="header" :style="{backgroundColor: bgColor}">
-        <span @click="$emit('tapLi', 0)">
-            <router-link to="/" class="home" :style="{backgroundColor: bgColor}">首页</router-link>
-        </span>
-        <span class="title">
-            <slot>default</slot>
-        </span>
-    </div>
+  <div class="header" :style="{backgroundColor: bgColor}">
+    <span @click="$emit('tapLi')">
+      <router-link to="/" class="home" :style="{backgroundColor: bgColor}">首页</router-link>
+    </span>
+    <span class="title">
+      <slot>default</slot>
+    </span>
+  </div>
 </template>
 
 <script>

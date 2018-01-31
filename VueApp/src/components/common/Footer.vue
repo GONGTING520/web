@@ -1,17 +1,17 @@
 <template>
   <ul class="footer" :style="{backgroundColor: bgColor}">
-      <li @click="$emit('tapLi', 0)">
-          <router-link to="/">电影</router-link>
-      </li>
-      <li @click="$emit('tapLi', 1)">
-          <router-link to="/music">音乐</router-link>
-      </li>
-      <li @click="$emit('tapLi', 2)">
-          <router-link to="/book">书籍</router-link>
-      </li>
-      <li @click="$emit('tapLi', 3)">
-          <router-link to="/photo">图片</router-link>
-      </li>
+    <li @click="$emit('tapLi', 'movie')">
+      <router-link to="/">电影</router-link>
+    </li>
+    <li @click="$emit('tapLi', 'music')">
+      <router-link to="/music">音乐</router-link>
+    </li>
+    <li @click="$emit('tapLi', 'book')">
+      <router-link to="/book">书籍</router-link>
+    </li>
+    <li @click="$emit('tapLi', 'photo')">
+      <router-link to="/photo">图片</router-link>
+    </li>
   </ul>
 </template>
 
