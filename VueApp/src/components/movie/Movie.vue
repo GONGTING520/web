@@ -4,8 +4,10 @@
             <span>Movie</span>
         </common-header> -->
         <ul class="container">
-            <li v-for="(movie, index) in movieList" :key="index">
-              <img class="movie-img" :src="movie.img" :alt="movie.nm">
+            <li @click="showDetail(movie.id)" v-for="(movie, index) in movieList" :key="index">
+              <div class="movie-img">
+                <img :src="movie.img" :alt="movie.nm">                
+              </div>
               <div class="movie-info">
                 <p class="name" v-text="movie.nm"></p>
                 <p class="cat" v-text="movie.cat"></p>
@@ -57,6 +59,9 @@ export default {
         .catch(res => {
           alert.log("error");
         });
+    },
+    showDetail(id) {
+      this.$router.push(`/moviedetail/${id}`);
     }
   },
   created() {
