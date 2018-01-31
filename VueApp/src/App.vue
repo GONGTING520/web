@@ -86,12 +86,13 @@ export default {
 
 <style>
 .container {
-  position: absolute;
-  top: 1rem;
+  /* position: absolute; */
+  /* top: 1rem;
   bottom: 1rem;
   left: 0;
-  right: 0;
+  right: 0; */
+  margin: 1rem 0;
   font-size: 0.3rem;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 </style>
