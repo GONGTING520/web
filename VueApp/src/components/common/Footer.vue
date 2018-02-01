@@ -1,7 +1,10 @@
 <template>
   <ul class="footer" :style="{backgroundColor: bgColor}">
+    <li @click="$emit('tapLi', 'anime')">
+      <router-link to="/">动漫</router-link>
+    </li>
     <li @click="$emit('tapLi', 'movie')">
-      <router-link to="/">电影</router-link>
+      <router-link to="/movie">电影</router-link>
     </li>
     <li @click="$emit('tapLi', 'music')">
       <router-link to="/music">音乐</router-link>
@@ -25,6 +28,7 @@ export default {
 .footer {
   display: flex;
   position: fixed;
+  z-index: 10;
   bottom: 0;
   height: 1rem;
   width: 100%;

@@ -19,6 +19,7 @@ export default {
 .header {
   height: 1rem;
   position: fixed;
+  z-index: 10;
   top: 0;
   width: 100%;
   line-height: 1rem;
