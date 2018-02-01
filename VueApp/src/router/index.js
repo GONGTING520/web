@@ -20,6 +20,10 @@ export default new Router({
     path: '/movie',
     name: 'movie',
     component: Movie,
+    beforeEnter(to, from, next) {
+      // 如果是刷新来的就改成首页，否则就正常跳转
+      from.name === null ? next('/') : next();
+    }
   },{
     path: '/music',
     name: 'music',
