@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <common-header :bgColor="bgColor" @tapLi="change('movie')">
+    <common-header :bgColor="bgColor" @tapLi="change('anime')">
       <span v-text="title"></span>
     </common-header>
     <router-view/>
@@ -16,8 +16,8 @@ export default {
   name: "App",
   data() {
     return {
-      bgColor: "rgb(33, 150, 243)",
-      title: "Movie",
+      bgColor: "rgb(170, 70, 0)",
+      title: "Anime"
       // headAndFoot: [
       //   {
       //     color: "rgb(33, 150, 243)",
@@ -61,6 +61,10 @@ export default {
     // },
     change(tapName) {
       switch (tapName) {
+        case "anime":
+          this.bgColor = "rgb(170, 70, 0)";
+          this.title = "Anime";
+          break;
         case "movie":
           this.bgColor = "rgb(33, 150, 243)";
           this.title = "Movie";
@@ -94,5 +98,10 @@ export default {
   margin: 1rem 0;
   font-size: 0.3rem;
   /* overflow-y: scroll; */
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 </style>
