@@ -3,11 +3,16 @@
     <div class="loading" v-show="isLoading">
       <img src="../../assets/img/loadingAnime.gif">
     </div>
-    <h1 class="title">海贼王</h1>
-    <p v-text="update"></p>
-    <ul class="animeList">
+    <div class="title-info">
+      <img src="../../assets/img/anime.jpg">
+      <div class="info">
+        <h1 class="title">海贼王</h1>
+        <p v-text="update"></p>
+      </div>
+    </div>
+    <ul class="anime-list">
       <a :href="obj.vurl" v-for="obj in animeList" :key="obj.id">
-        <li class="animeItem">
+        <li class="anime-ltem">
           <div class="left">
             <img :src="obj.vpic">
           </div>
@@ -56,7 +61,6 @@ export default {
       setTimeout(() => {
         this.animeList = this.animeAll.slice(0, this.animeList.length + 10);
         if (this.animeList.length != 0 && !(this.animeList.length % 10 === 0)) {
-          console.log(this.animeList.length % 10 === 0);
           this.end = true;
         }
         this.isLoading = false;
@@ -87,7 +91,8 @@ export default {
 
 <style scoped>
 .loading {
-  position: absolute;
+  position: fixed;
+  z-index: 2;
   top: 1rem;
   bottom: 1rem;
   left: 0;
@@ -101,27 +106,44 @@ export default {
   transform: translate(-50%, -50%) scale(0.5);
   border-radius: 10%;
 }
-.animeItem {
+.title-info {
+  position: relative;
+}
+.title-info .info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 0.1rem 0.3rem;
+}
+.anime-list {
+  background: #eeeeee;
+  overflow: hidden;
+}
+.anime-ltem {
   margin: 0.2rem;
-  padding-bottom: 0.2rem;
   display: flex;
   align-items: center;
-  border-bottom: 1px dashed #cccccc;
+  background: #ffffff;
+  color: #000000;
 }
-.animeItem .left {
+.anime-ltem .left {
   flex-grow: 1;
   margin-right: 0.2rem;
   width: 0;
 }
-.animeItem .right {
+.anime-ltem .right {
   flex-grow: 2;
   width: 0;
   padding-right: 0.2rem;
 }
-.animeItem .right .desc {
+.anime-ltem .right .desc {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #aaaaaa;
+  font-size: 0.2rem;
 }
 .end {
   text-align: center;
