@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <ul>
-      <li class="imgLi" @click="obj.isShowBig=true" v-for="obj in arr" :style="{background: 'url(' + obj.src + ') no-repeat center/cover'}">
+      <li class="img-li" @click="obj.isShowBig=true" v-for="(obj, index) in arr" :key="index" :style="{background: 'url(' + obj.src + ') no-repeat center/cover'}">
         <div class="layup" v-show="obj.isShowBig" @click.stop="obj.isShowBig = false">
           <img :src="obj.srcBig" alt="">
         </div>      
@@ -11,8 +11,6 @@
 </template>
 
 <script>
-import commonHeader from "@/components/common/Header";
-import commonFooter from "@/components/common/Footer";
 export default {
   data() {
     return {
@@ -66,30 +64,26 @@ export default {
       isScorll: true
     };
   },
-  components: {
-    commonHeader,
-    commonFooter
-  },
   methods: {
   }
 };
 </script>
 
 <style scoped>
-.imgLi {
+.img-li {
   width: 50%;
   padding-top: 50%;
   float: left;
 }
-.imgLi .layup {
-  position: absolute;
+.img-li .layup {
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background: #000;
 }
-.imgLi .layup img {
+.img-li .layup img {
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
