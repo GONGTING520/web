@@ -15,8 +15,10 @@
                 <p class="showInfo" v-text="movie.showInfo"></p>
               </div>
             </li>
-            <img src="@/assets/img/loadingMovieDetail.gif" class="loading" v-show="isLoading">
-            <p class="end" v-show="isEnd">小主已经到底啦~~~~</p>
+            <li class="loading" v-show="isLoading">
+              <img src="@/assets/img/loadingMovieDetail.gif">              
+            </li>
+            <li class="end" v-show="isEnd">小主已经到底啦~~~~</li>
         </ul>
         <!-- <common-footer bgColor="rgb(33, 150, 243)"></common-footer> -->
     <!-- </div> -->
@@ -130,11 +132,15 @@ export default {
 .loading {
   margin-top: 1px;
   height: 1rem;
+}
+.loading img {
   position: relative;
+  height: 100%;
   left: 50%;
   transform: translateX(-50%);
 }
-.end {
+.container .end {
+  display: block;
   text-align: center;
   color: #777777;
 }
