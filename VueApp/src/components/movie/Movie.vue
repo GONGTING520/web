@@ -93,10 +93,14 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  background: #eeeeee;
+  overflow: hidden;
+}
 .container li {
-  padding: 0.25rem;
+  margin: 0.25rem;
   display: flex;
-  border-bottom: 1px solid;
+  background: #ffffff;
 }
 .container .movie-img {
   flex-grow: 1;
