@@ -7,19 +7,19 @@
       <div class="alubum-right">
         <p v-text="name" class="title"></p>
         <p v-text="singer" class="singer"></p>
-        <audio class="controler" :src="audio" controls></audio>        
+        <audio class="controler" :src="audio" autoplay controls></audio>
       </div>
       <img :src="pic_small" class="blur">
     </div>
     <div class="lrc"></div>
     <ul>
-      <li v-for="obj in musicList" :key="obj.id" class="musicInfo" :class="{selected: obj.isSelected}" @click="showMusic(obj)">
+      <li v-for="(obj, index) in musicList" :key="obj.album_id" class="musicInfo" :class="{selected: iNow==index}" @click="changeInow(index)">
         <span v-text="obj.album_title"></span> - 
         <span v-text="obj.artist_name"></span>
       </li>
     </ul>
     <div class="loading" v-show="isLoading">
-      <img src="../../assets/img/loadingMusicList.gif" alt="">
+      <img src="../../assets/img/loadingMusicList.gif">
     </div>
   </div>
 </template>
@@ -43,21 +43,15 @@ export default {
       this.name = this.musicList[this.iNow].album_title;
       this.singer = this.musicList[this.iNow].artist_name;
       this.pic_small = this.musicList[this.iNow].pic_small;
-      this.audio = this.musicList[this.iNow].pic_radio;
-      console.log(this.audio);
+      this.audio = this.musicList[this.iNow].src;
     }
   },
   methods: {
-    showMusic(obj) {
-      this.arr.forEach(elem => {
-        if (Object.is(obj, elem)) {
-          elem.isSelected = true;
-        } else {
-          elem.isSelected = false;
-        }
-      });
+    changeInow(num) {
+      this.iNow = num;
     },
     getInfo() {
+      // 获取百度音乐的音乐列表
       // type = 1-新歌榜,2-热歌榜,11-摇滚榜,12-爵士,16-流行,21-欧美金曲榜,22-经典老歌榜,23-情歌对唱榜,24-影视金曲榜,25-网络歌曲榜
       axios
         .get(
@@ -66,11 +60,12 @@ export default {
           }`
         )
         .then(res => {
-          console.log(res);
           this.musicList = this.musicList.concat(res.data.song_list);
           this.isLoading = false;
+          console.log(this.musicList);
           if (this.musicList.length == 10) {
             this.iNow = 0;
+            // this.iNow = this.musicList[0].album_id;
             this.getMusic();
           }
         })
@@ -79,6 +74,7 @@ export default {
         });
     },
     getMusic() {
+      // 获取音乐资源
       axios
         .get(
           `${API_PROXY}http://tingapi.ting.baidu.com/v1/restserver/ting?format=json&callback=&from=webapp_music&method=baidu.ting.song.play&songid=${
@@ -86,17 +82,46 @@ export default {
           }`
         )
         .then(res => {
-          console.log(JSON.parse(res.data.substring(1, res.data.length - 2)));
-          this.audio = JSON.parse(res.data.substring(1, res.data.length - 2)).bitrate.file_link;
+          this.audio = JSON.parse(
+            res.data.substring(1, res.data.length - 2)
+          ).bitrate.show_link;
           console.log(this.audio);
         })
         .catch(res => {
           console.log("error");
         });
+    },
+    get() {
+      // 获取酷我音乐的音乐列表
+      axios
+        .get(
+          `${API_PROXY}http://search.kuwo.cn/r.s?all=周杰伦&ft=music&itemset=web_2013&client=kt&pn=0&rn=10&rformat=json&encoding=utf8`
+        )
+        .then(res => {
+          console.log(JSON.parse(res.data.replace(/\'/g, '"')));
+          this.musicList = this.musicList.concat(
+            JSON.parse(res.data.replace(/\'/g, '"')).abslist
+          );
+          this.isLoading = false;
+          console.log(this.musicList);
+          if (this.musicList.length == 10) {
+            this.iNow = 0;
+            this.getMusic();
+          }
+        })
+        .catch(res => {
+          console.log("error");
+        });
+    },
+    getMusicList() {
+      this.musicList = Array.from(require("../json/music.json"));
+      this.isLoading = false;
+      this.iNow = 0;
     }
   },
   created() {
-    this.getInfo();
+    this.getMusicList();
+    // this.get();
   }
 };
 </script>
