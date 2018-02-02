@@ -11,7 +11,9 @@
       </div>
       <span class="menu" @click.stop="isShowList=!isShowList">菜单</span>
     </div>
-    <div class="lrc" @click="isShowList=true"></div>
+    <div class="lrc" @click="isShowList=true">
+      <p v-for="(obj, index) in lrc" :key="index" v-text="obj[1]"></p>
+    </div>
     <audio class="controler" :src="audio" @ended="changeMusic" autoplay controls></audio>              
     <!-- <transition-group tag="ul" name="slide"> -->
     <div class="music-list" v-show="!isLoading" :class="{hide:isShowList, show:!isShowList}">
@@ -45,20 +47,53 @@ export default {
       name: "",
       singer: "",
       pic_small: "",
-      audio: ""
+      audio: "",
+      lrc: ""
     };
   },
   watch: {
     iNow() {
-      this.name = this.musicList[this.iNow].album_title;
-      this.singer = this.musicList[this.iNow].artist_name;
-      this.pic_small = this.musicList[this.iNow].pic_small;
-      this.audio = this.musicList[this.iNow].src;
+      if (this.iNow != null) {
+        this.name = this.musicList[this.iNow].album_title;
+        this.singer = this.musicList[this.iNow].artist_name;
+        this.pic_small = this.musicList[this.iNow].pic_small;
+        this.audio = this.musicList[this.iNow].src;
+        axios
+          .get(this.musicList[this.iNow].lrcSrc)
+          .then(res => {
+            this.parseLyric(res.data);
+          })
+          .catch(() => {
+            console.log("error");
+          });
+      }
     }
   },
   methods: {
     changeInow(num) {
       this.iNow = num;
+    },
+    parseLyric(text) {
+      let lyric = text.split("\n"); //先按行分割
+      let _l = lyric.length; //获取歌词行数
+      let lrc = new Array(); //新建一个数组存放最后结果
+      for (let i = 0; i < _l; i++) {
+        let d = lyric[i].match(/\[\d{2}:\d{2}((\.|\:)\d{2,})\]/g); //正则匹配播放时间
+        let t = lyric[i].split(d); //以时间为分割点分割每行歌词，数组最后一个为歌词正文
+        // let t = lyric[i].split(']'); //以时间为分割点分割每行歌词，数组最后一个为歌词正文
+        if (d != null) {
+          //过滤掉空行等非歌词正文部分
+          //换算时间，保留两位小数
+          let dt = String(d).split(":");
+          let _t =
+            Math.round(
+              parseInt(dt[0].split("[")[1]) * 60 +
+                parseFloat(dt[1].split("]")[0]) * 100
+            ) / 100;
+          lrc.push([_t, t[1]]);
+        }
+      }
+      this.lrc = lrc;
     },
     changeMusic() {
       this.iNow++;
@@ -187,7 +222,14 @@ export default {
   bottom: 0.3rem;
 }
 .lrc {
-  background: #cccccc;
+  position: absolute;
+  top: 4rem;
+  bottom: 3rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #000000;
+  overflow-y: scroll;
 }
 .controler {
   position: absolute;
@@ -200,9 +242,9 @@ export default {
   position: absolute;
   top: 100%;
   left: 0;
-  right: 0;
   bottom: 2rem;
-  background: rgba(0, 0, 0, 0.6);
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
   color: #ffffff;
 }
 .music-list ul {
@@ -212,6 +254,7 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
+  overflow-y: scroll;
 }
 .music-list .music-title {
   text-align: center;
