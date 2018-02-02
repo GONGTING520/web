@@ -1,23 +1,32 @@
 <template>
   <div class="container">
-    <div class="albumInfo">
+    <img :src="pic_small" class="blur">    
+    <div class="album-info" @click="isShowList=true">
       <div class="album-left">
         <img :src="pic_small">
       </div>
       <div class="alubum-right">
         <p v-text="name" class="title"></p>
         <p v-text="singer" class="singer"></p>
-        <audio class="controler" :src="audio" autoplay controls></audio>
       </div>
-      <img :src="pic_small" class="blur">
+      <span class="menu" @click.stop="isShowList=!isShowList">菜单</span>
     </div>
-    <div class="lrc"></div>
-    <ul>
-      <li v-for="(obj, index) in musicList" :key="obj.album_id" class="musicInfo" :class="{selected: iNow==index}" @click="changeInow(index)">
-        <span v-text="obj.album_title"></span> - 
-        <span v-text="obj.artist_name"></span>
-      </li>
-    </ul>
+    <div class="lrc" @click="isShowList=true"></div>
+    <audio class="controler" :src="audio" @ended="changeMusic" autoplay controls></audio>              
+    <!-- <transition-group tag="ul" name="slide"> -->
+    <div class="music-list" v-show="!isLoading" :class="{hide:isShowList, show:!isShowList}">
+      <div class="music-title">歌单列表</div>
+      <ul>
+        <li v-for="(obj, index) in musicList" :key="obj.album_id" class="music-info" :class="{selected: iNow==index}" @click="changeInow(index)">
+          <div v-text="index + 1" class="info-left"></div>
+          <div class="info-right">
+            <span v-text="obj.album_title"></span> - 
+            <span v-text="obj.artist_name"></span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- </transition-group> -->
     <div class="loading" v-show="isLoading">
       <img src="../../assets/img/loadingMusicList.gif">
     </div>
@@ -31,6 +40,7 @@ export default {
     return {
       musicList: [],
       isLoading: true,
+      isShowList: false,
       iNow: null,
       name: "",
       singer: "",
@@ -49,6 +59,12 @@ export default {
   methods: {
     changeInow(num) {
       this.iNow = num;
+    },
+    changeMusic() {
+      this.iNow++;
+      if (this.iNow == this.musicList.length) {
+        this.iNow = 0;
+      }
     },
     getInfo() {
       // 获取百度音乐的音乐列表
@@ -114,9 +130,11 @@ export default {
         });
     },
     getMusicList() {
-      this.musicList = Array.from(require("../json/music.json"));
-      this.isLoading = false;
-      this.iNow = 0;
+      setTimeout(() => {
+        this.musicList = Array.from(require("../json/music.json"));
+        this.isLoading = false;
+        this.iNow = 0;
+      }, 1000);
     }
   },
   created() {
@@ -127,13 +145,15 @@ export default {
 </script>
 
 <style scoped>
-.albumInfo {
+.album-info {
   padding: 0.3rem;
-  border-bottom: 1px solid;
+  height: 2rem;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.35);
 }
 .blur {
   filter: blur(0.6rem);
@@ -141,6 +161,7 @@ export default {
   top: 0;
   z-index: -1;
   width: 100%;
+  height: 100%;
 }
 .album-left {
   flex-grow: 1;
@@ -148,7 +169,7 @@ export default {
   margin-right: 0.3rem;
 }
 .album-left img {
-  width: 100%;
+  height: 100%;
 }
 .alubum-right {
   flex-grow: 3;
@@ -160,17 +181,61 @@ export default {
 .alubum-right .singer {
   font-size: 0.3rem;
 }
-.alubum-right .controler {
-  width: 100%;
+.menu {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.3rem;
 }
-.musicInfo {
+.lrc {
+  background: #cccccc;
+}
+.controler {
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
   height: 1rem;
-  border-bottom: 1px solid;
+  background: #ffffff;
+}
+.music-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  bottom: 2rem;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+}
+.music-list ul {
+  overflow-y: scroll;
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.music-list .music-title {
+  text-align: center;
+  height: 0.5rem;
+}
+.music-info {
+  height: 1rem;
+  border-bottom: 1px solid #000000;
   line-height: 1rem;
   padding: 0 0.2rem;
+  display: flex;
+}
+.music-info .info-left {
+  flex-grow: 1;
+  text-align: center;
+  width: 0;
+}
+.music-info .info-right {
+  flex-grow: 9;
+  width: 0;
 }
 .selected {
-  background: #cccccc;
+  background: rgba(255, 255, 255, 0.4);
+  color: #000000;
 }
 .loading {
   position: absolute;
@@ -185,5 +250,43 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+/* .slide-enter {
+  top: 100%;
+}
+.slide-enter-to {
+  top: 50%;
+}
+.slide-enter-active,
+.slide-leave-active {
+  transition: top 0.5s ease;
+}
+.slide-leave {
+  top: 50%;
+}
+.slide-leave-to {
+  top: 100%;
+} */
+.show {
+  animation: showList 0.5s linear forwards;
+}
+.hide {
+  animation: hideList 0.5s linear forwards;
+}
+@keyframes showList {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: 40%;
+  }
+}
+@keyframes hideList {
+  0% {
+    top: 40%;
+  }
+  100% {
+    top: 100%;
+  }
 }
 </style>
