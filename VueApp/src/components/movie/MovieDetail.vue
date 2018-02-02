@@ -77,7 +77,6 @@ export default {
   background-color: rgba(64, 69, 77, 0.55);
   color: #ffffff;
   position: relative;
-  z-index: -1;
   overflow: hidden;
 }
 .detail-img {
