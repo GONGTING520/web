@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <div class="loading" v-show="isLoading">
-      <img src="../../assets/img/loadingAnime.gif">
+      <img src="/static/img/loadingAnime.gif">
     </div>
     <div class="title-info">
-      <img src="../../assets/img/anime.jpg">
+      <img src="/static/img/anime.jpg">
       <div class="info">
         <h1 class="title">海贼王</h1>
         <p v-text="update"></p>
