@@ -16,7 +16,7 @@
               </div>
             </li>
             <li class="loading" v-show="isLoading">
-              <img src="@/assets/img/loadingMovieDetail.gif">              
+              <img src="/static/img/loadingMovieDetail.gif">              
             </li>
             <li class="end" v-show="isEnd">小主已经到底啦~~~~</li>
         </ul>

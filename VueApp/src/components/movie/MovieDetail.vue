@@ -50,7 +50,6 @@ export default {
           }.json`
         )
         .then(res => {
-          console.log(res);
           this.movieDetail = res.data.data.MovieDetailModel;
           this.stars = this.movieDetail.star.split(" ").splice(0, 6);
           this.isloading = false;
@@ -125,7 +124,7 @@ export default {
   right: 0;
   top: 1rem;
   bottom: 1rem;
-  background: url(../../assets/img/loadingMovie.gif) no-repeat center/50%;
+  background: url(/static/img/loadingMovie.gif) no-repeat center/50%;
   background-color: #ffffff;
 }
 </style>
