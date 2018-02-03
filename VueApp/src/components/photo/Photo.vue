@@ -1,10 +1,12 @@
 <template>
   <div class="container">
-    <ul>
+    <ul class="clearfix">
       <li class="img-li" @click="iNow=obj.id" v-for="obj in photoList" :key="obj.id" :style="{background: 'url(' + obj.src + ') no-repeat center/cover'}">
-        <div class="layup" v-show="obj.id===iNow" @click.stop="iNow=-1">
-          <img :src="obj.srcBig">
-        </div>      
+        <transition name="fade">
+          <div class="layup" v-show="obj.id===iNow" @click.stop="iNow=-1">
+            <img :src="obj.srcBig">            
+          </div>
+        </transition>   
       </li>
     </ul>
   </div>
@@ -53,5 +55,17 @@ export default {
   top: 50%;
   transform: translate(0, -50%);
   width: 100%;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-to,
+.fade-leave {
+  opacity: 1;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
 }
 </style>
