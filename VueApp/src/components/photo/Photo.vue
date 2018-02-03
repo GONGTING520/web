@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <ul>
-      <li class="img-li" @click="obj.isShowBig=true" v-for="(obj, index) in arr" :key="index" :style="{background: 'url(' + obj.src + ') no-repeat center/cover'}">
-        <div class="layup" v-show="obj.isShowBig" @click.stop="obj.isShowBig = false">
-          <img :src="obj.srcBig" alt="">
+      <li class="img-li" @click="iNow=obj.id" v-for="obj in photoList" :key="obj.id" :style="{background: 'url(' + obj.src + ') no-repeat center/cover'}">
+        <div class="layup" v-show="obj.id===iNow" @click.stop="iNow=-1">
+          <img :src="obj.srcBig">
         </div>      
       </li>
     </ul>
@@ -11,60 +11,25 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
-      arr: [
-        {
-          src: require("@/assets/img/1.jpg"),
-          srcBig: require("@/assets/img/bigImg/1.jpg"),
-          isShowBig: false
-        },
-        {
-          src: require("@/assets/img/2.jpg"),
-          srcBig: require("@/assets/img/bigImg/2.jpg"),
-          isShowBig: false
-        },
-        {
-          src: require("@/assets/img/3.jpg"),
-          srcBig: require("@/assets/img/bigImg/3.jpg"),
-          isShowBig: false
-        },
-        {
-          src: require("@/assets/img/4.jpg"),
-          srcBig: require("@/assets/img/bigImg/4.jpg"),
-          isShowBig: false
-        },
-        {
-          src: require("@/assets/img/5.jpg"),
-          srcBig: require("@/assets/img/bigImg/5.jpg"),
-          isShowBig: false
-        },
-        {
-          src: require("@/assets/img/6.jpg"),
-          srcBig: require("@/assets/img/bigImg/6.jpg"),
-          isShowBig: false
-        },
-        {
-          src: require("@/assets/img/7.jpg"),
-          srcBig: require("@/assets/img/bigImg/7.jpg"),
-          isShowBig: false
-        },
-        {
-          src: require("@/assets/img/8.jpg"),
-          srcBig: require("@/assets/img/bigImg/8.jpg"),
-          isShowBig: false
-        },
-        {
-          src: require("@/assets/img/9.jpg"),
-          srcBig: require("@/assets/img/bigImg/9.jpg"),
-          isShowBig: false
-        }
-      ],
-      isScorll: true
+      photoList: [],
+      isScorll: true,
+      iNow: -1
     };
   },
-  methods: {
+  methods: {},
+  created() {
+    axios
+      .get("static/json/photo.json")
+      .then(res => {
+        this.photoList = Array.from(res.data);
+      })
+      .catch(() => {
+        console.log("error");
+      });
   }
 };
 </script>
