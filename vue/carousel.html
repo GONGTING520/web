@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #app {
+            width: 520px;
+            height: 280px;
+            border: 1px solid;
+            position: relative;
+            margin: 100px auto;
+        }
+
+        #imgs img {
+            /* display: none; */
+        }
+
+        #tabs {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        #tabs li {
+            width: 20px;
+            height: 20px;
+            background: #000000;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            float: left;
+            list-style: none;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        #tabs .selected {
+            background: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" @mouseover="mousein" @mouseout="mouseout">
+        <div id="imgs">
+            <img v-show="index==nowIndex" v-for="(item,index) in imgs" :src="item" alt="">
+        </div>
+
+        <ul id="tabs">
+            <li :class="{selected: index==nowIndex}" @mouseover="nowIndex = index" v-for="(item,index) in imgs.length">{{item}}</li>
+        </ul>
+    </div>
+
+
+    <script src="vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                imgs: [
+                    'img/1.jpg',
+                    'img/2.jpg',
+                    'img/3.jpg',
+                    'img/4.jpg'
+                ],
+                nowIndex: 0,
+                timer: null
+            },
+            mounted() {
+                this.play();
+            },
+            methods: {
+                mousein() {
+                    clearInterval(this.timer);
+                },
+                mouseout() {
+                    this.play();
+                },
+                play() {
+                    this.timer = setInterval(() => {
+                        this.nowIndex++;
+                        if (this.nowIndex == this.imgs.length) {
+                            this.nowIndex = 0;
+                        }
+                    }, 1000);
+                }
+            }
+
+        });
+    </script>
+</body>
+
+</html>
