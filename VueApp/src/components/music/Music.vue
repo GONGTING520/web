@@ -11,10 +11,12 @@
       </div>
       <span class="menu" @click.stop="isShowList=!isShowList">菜单</span>
     </div>
-    <div class="lrc" @click="isShowList=true">
-      <p v-for="(obj, index) in lrc" :key="index" v-text="obj[1]"></p>
+    <div class="lrc" @click="isShowList=true" ref="lrcScroll">
+      <p class="empty" v-for="index in 5" :key="index-100" v-text="index"></p>
+      <p :class="{selected: idx==index}" v-for="(obj, index) in lrc" :key="index" v-text="obj[1]"></p>
+      <p class="empty" v-for="index in 5" :key="index-50" v-text="index"></p>      
     </div>
-    <audio class="controler" :src="audio" @ended="changeMusic" autoplay controls></audio>              
+    <audio ref="musicAudio" class="controler" :src="audio" @ended="changeMusic" autoplay controls></audio>              
     <!-- <transition-group tag="ul" name="slide"> -->
     <div class="music-list" v-show="!isLoading" :class="{hide:isShowList, show:!isShowList}">
       <div class="music-title">歌单列表</div>
@@ -48,7 +50,22 @@ export default {
       singer: "",
       pic_small: "",
       audio: "",
-      lrc: ""
+      lrc: [],
+      idx: 0
+    };
+  },
+  mounted() {
+    this.$refs.musicAudio.ontimeupdate = () => {
+      let iTime = this.$refs.musicAudio.currentTime;
+      this.lrc.forEach((item, key) => {
+        if (this.idx == 0 && iTime < item[0]) {
+          this.idx = 0;
+        }
+        if (iTime >= item[0] && iTime < this.lrc[key + 1][0]) {
+          this.idx = key;
+        }
+      });
+      this.$refs.lrcScroll.scrollTop = 26 * this.idx;
     };
   },
   watch: {
@@ -62,6 +79,7 @@ export default {
           .get(this.musicList[this.iNow].lrcSrc)
           .then(res => {
             this.parseLyric(res.data);
+            this.idx = 0;
           })
           .catch(() => {
             console.log("error");
@@ -71,6 +89,7 @@ export default {
   },
   methods: {
     changeInow(num) {
+      // 点击时切换歌曲
       this.iNow = num;
     },
     parseLyric(text) {
@@ -86,16 +105,15 @@ export default {
           //换算时间，保留两位小数
           let dt = String(d).split(":");
           let _t =
-            Math.round(
-              parseInt(dt[0].split("[")[1]) * 60 +
-                parseFloat(dt[1].split("]")[0]) * 100
-            ) / 100;
+            parseInt(dt[0].split("[")[1]) * 60 +
+            parseFloat(dt[1].split("]")[0]);
           lrc.push([_t, t[1]]);
         }
       }
       this.lrc = lrc;
     },
     changeMusic() {
+      // 自动播放下一首
       this.iNow++;
       if (this.iNow == this.musicList.length) {
         this.iNow = 0;
@@ -166,7 +184,7 @@ export default {
     },
     getMusicList() {
       setTimeout(() => {
-        this.musicList = Array.from(require("../json/music.json"));
+        this.musicList = Array.from(require("../../../static/json/music.json"));
         this.isLoading = false;
         this.iNow = 0;
       }, 1000);
@@ -230,6 +248,14 @@ export default {
   text-align: center;
   color: #000000;
   overflow-y: scroll;
+  transition: all 0.5s ease;
+}
+.lrc .empty {
+  color: transparent;
+}
+.lrc .selected {
+  font-size: 0.4rem;
+  color: #eeeeee;
 }
 .controler {
   position: absolute;
@@ -276,7 +302,7 @@ export default {
   flex-grow: 9;
   width: 0;
 }
-.selected {
+.music-list .selected {
   background: rgba(255, 255, 255, 0.4);
   color: #000000;
 }
