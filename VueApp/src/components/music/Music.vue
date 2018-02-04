@@ -61,7 +61,10 @@ export default {
         if (this.idx == 0 && iTime < item[0]) {
           this.idx = 0;
         }
-        if (iTime >= item[0] && iTime < this.lrc[key + 1][0]) {
+        if (
+          iTime >= item[0] &&
+          (this.lrc[key + 1] == undefined || iTime < this.lrc[key + 1][0])
+        ) {
           this.idx = key;
         }
       });
@@ -248,6 +251,8 @@ export default {
   text-align: center;
   color: #000000;
   overflow-y: scroll;
+}
+.lrc p {
   transition: all 0.5s ease;
 }
 .lrc .empty {
