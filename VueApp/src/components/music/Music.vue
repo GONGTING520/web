@@ -9,6 +9,12 @@
         <p v-text="name" class="title"></p>
         <p v-text="singer" class="singer"></p>
       </div>
+      <div class="controls" @click.stop>
+        <i class="icon iconfont icon-shangyishou" @click="prev"></i>
+        <i class="icon iconfont icon-bofang" v-show="!isPlay" @click="changeState"></i>
+        <i class="icon iconfont icon-zanting" v-show="isPlay" @click="changeState"></i>
+        <i class="icon iconfont icon-xiayishou" @click="changeMusic"></i>
+      </div>
       <span class="menu" @click.stop="isShowList=!isShowList">菜单</span>
     </div>
     <div class="lrc" @click="isShowList=true" ref="lrcScroll">
@@ -16,7 +22,7 @@
       <p :class="{selected: idx==index}" v-for="(obj, index) in lrc" :key="index" v-text="obj[1]"></p>
       <p class="empty" v-for="index in 5" :key="index-50" v-text="index"></p>      
     </div>
-    <audio ref="musicAudio" class="controler" :src="audio" @ended="changeMusic" autoplay controls></audio>              
+    <audio ref="musicAudio" @playing="isPlay=true" @pause="isPlay=false" class="controler" :src="audio" @ended="changeMusic" autoplay controls></audio>              
     <!-- <transition-group tag="ul" name="slide"> -->
     <div class="music-list" v-show="!isLoading" :class="{hide:isShowList, show:!isShowList}">
       <div class="music-title">歌单列表</div>
@@ -32,7 +38,7 @@
     </div>
     <!-- </transition-group> -->
     <div class="loading" v-show="isLoading">
-      <img src="../../assets/img/loadingMusicList.gif">
+      <img src="/static/img/loadingMusicList.gif">
     </div>
   </div>
 </template>
@@ -51,7 +57,8 @@ export default {
       pic_small: "",
       audio: "",
       lrc: [],
-      idx: 0
+      idx: 0,
+      isPlay: true
     };
   },
   mounted() {
@@ -68,7 +75,7 @@ export default {
           this.idx = key;
         }
       });
-      this.$refs.lrcScroll.scrollTop = 26 * this.idx;
+      this.$refs.lrcScroll.scrollTop = 25 * this.idx;
     };
   },
   watch: {
@@ -94,6 +101,23 @@ export default {
     changeInow(num) {
       // 点击时切换歌曲
       this.iNow = num;
+      this.isPlay = true;
+    },
+    prev() {
+      this.iNow--;
+      if (this.iNow == -1) {
+        this.iNow = this.musicList.length - 1;
+      }
+      this.isPlay = true;      
+    },
+    changeState() {
+      if (this.$refs.musicAudio.paused) {
+        this.$refs.musicAudio.play();
+        this.isPlay = true;
+      } else {
+        this.$refs.musicAudio.pause();
+        this.isPlay = false;
+      }
     },
     parseLyric(text) {
       let lyric = text.split("\n"); //先按行分割
@@ -121,6 +145,7 @@ export default {
       if (this.iNow == this.musicList.length) {
         this.iNow = 0;
       }
+      this.isPlay = true;
     },
     getInfo() {
       // 获取百度音乐的音乐列表
@@ -237,6 +262,15 @@ export default {
 .alubum-right .singer {
   font-size: 0.3rem;
 }
+.controls {
+  position: absolute;
+  bottom: 0.9rem;
+  right: 0.15rem;
+}
+.iconfont {
+  font-size: 0.7rem;
+  margin-right: 0.15rem;
+}
 .menu {
   position: absolute;
   right: 0.5rem;
@@ -266,14 +300,12 @@ export default {
   position: absolute;
   bottom: 1rem;
   width: 100%;
-  height: 1rem;
-  background: #ffffff;
 }
 .music-list {
   position: absolute;
   top: 100%;
   left: 0;
-  bottom: 2rem;
+  bottom: 1rem;
   right: 0;
   background: rgba(0, 0, 0, 0.8);
   color: #ffffff;
@@ -352,12 +384,12 @@ export default {
     top: 100%;
   }
   100% {
-    top: 40%;
+    top: 45%;
   }
 }
 @keyframes hideList {
   0% {
-    top: 40%;
+    top: 45%;
   }
   100% {
     top: 100%;
