@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*  function foo({name, age}){
+                let name = 'xx';                                                              
+                console.log(name, age);
+            }
+            foo({
+                name: 'zs',
+                age: 18,
+            }); */
+
+        /* const getAge = arg => {
+            if (arg === 1) {
+                return 'age';
+            }
+            return 'school';
+        };
+
+        const name = 'lisi';
+        const obj = {
+            name,
+            [getAge(1)]: 20,
+        };
+        console.log(obj); */
+
+        /* function divide(a, b, {
+            option = false
+        } = {}) {
+            console.log(...arguments);
+        }
+
+        divide(1, 2, 3); */
+
+
+        let map = new Map();
+        let str = 'yy';
+        map.set('xx', str);
+        map.set('zz', str);
+        for (let value of map.values()) {
+            console.log(value);
+        }
+
+
+        const arr = ['a', 'b', 'c'];
+        for (let [index, item] of arr.entries()) {
+            console.log(index, item);
+        }
+    </script>
+</body>
+
+</html>
