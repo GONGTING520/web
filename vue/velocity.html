@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button id="move">move</button>
+        <div id="div1"></div>
+    </div>
+
+    <script src="velocity.min.js"></script>
+    <script>
+        let oDiv1 = document.querySelector('#div1');
+        let oMove = document.querySelector('#move');
+        oMove.addEventListener('click', function () {
+            // oDiv1.velocity({
+            //     width: '+=500px'
+            // }, {
+            //     duration: 1000
+            // });
+            // Velocity(oDiv1, {
+            //     width: '+=500px'
+            // }, {
+            //     duration: 1000
+            // });
+            oDiv1.velocity({
+                opacity: 0
+                // width: "+=5rem", // Add 5rem to the current rem value
+            });
+        });
+    </script>
+</body>
+
+</html>
