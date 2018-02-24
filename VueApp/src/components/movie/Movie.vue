@@ -14,6 +14,16 @@
                 <p class="star" v-text="`主演：${movie.star}`"></p>
                 <p class="showInfo" v-text="movie.showInfo"></p>
               </div>
+              <div class="score" v-if="movie.sc!=0">
+                <span v-text="float(movie.sc)"></span>
+                <span class="words">分</span>
+              </div>
+              <div class="score" v-if="movie.sc==0">
+                <span v-text="movie.wish"></span>
+                <span class="words">人想看</span>                  
+              </div>
+              <span class="bottom sale" v-if="movie.sc!=0">购票</span>
+              <span class="bottom presale" v-if="movie.sc==0">预售</span>
             </li>
             <li class="loading" v-show="isLoading">
               <img src="/static/img/loadingMovieDetail.gif">              
@@ -43,6 +53,9 @@ export default {
     commonFooter
   },
   methods: {
+    float(num) {
+      return Number.isInteger(num) ? num + ".0" : num;
+    },
     getMovieInfo() {
       axios
         .get(
@@ -103,11 +116,16 @@ export default {
   margin: 0.25rem;
   display: flex;
   background: #ffffff;
+  position: relative;
+  align-items: center;
 }
 .container .movie-img {
   flex-grow: 1;
   width: 0;
   margin-right: 0.25rem;
+}
+.container .movie-img img {
+  width: 100%;
 }
 .container .movie-info {
   flex-grow: 4;
@@ -120,6 +138,7 @@ export default {
 .movie-info p {
   font-size: 0.26rem;
   color: #666;
+  margin-right: 1.2rem;
 }
 .movie-info .star {
   white-space: nowrap;
@@ -128,6 +147,31 @@ export default {
 }
 .movie-info .showInfo {
   color: #cccccc;
+}
+.score {
+  position: absolute;
+  right: 0.2rem;
+  top: 0.12rem;
+  color: #ffb400;
+}
+.score .words {
+  font-size: 0.15rem;
+  margin-left: -4px;
+}
+.bottom {
+  position: absolute;
+  padding: 0.06rem 0.23rem;
+  font-size: 0.24rem;
+  bottom: 0.25rem;
+  right: 0.2rem;
+  border-radius: 0.06rem;
+  color: #ffffff;
+}
+.sale {
+  background: #ef4238;
+}
+.presale {
+  background: rgb(0, 153, 255);
 }
 .loading {
   margin-top: 1px;
