@@ -1,0 +1,194 @@
+body {
+    background: #000;
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.bg {
+    background: url(../img/bg.jpg) no-repeat top center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    opacity: 1;
+}
+
+.center {
+    padding: 0 20px;
+}
+
+.container::before {
+    content: '';
+    display: block;
+    height: 100vh;
+}
+
+/* 卡莎介绍开始 */
+
+.intro {
+    background: url(../img/divider-top.png) no-repeat top center;
+    padding: 52px 0;
+    text-align: center;
+    color: #f0e6d2;
+}
+
+.intro h1 {
+    margin: 0;
+    line-height: 1;
+    font-size: 5.88235rem;
+}
+
+.intro .top {
+    background: url(../img/intro-divider-1.png) no-repeat center;
+    height: 74px;
+}
+
+.intro .bottom {
+    background: url(../img/intro-divider-2.png) no-repeat center;
+    height: 67px;
+}
+
+.intro p {
+    font-size: 1.29412rem;
+    max-width: 666px;
+    margin: 26px auto;
+}
+
+@media(min-width:768px) {
+    .intro {
+        padding: 84px 0;
+    }
+}
+
+/* 卡莎介绍结束 */
+
+/* 卡莎技能介绍开始 */
+
+/* 左侧视频部分 */
+
+.skills {
+    text-align: center;
+}
+
+.skills .selected {
+    border-color: #f3d280;
+}
+
+.skills h1 {
+    color: #c8aa6e;
+    font-size: 1.76471rem;
+    margin: 0 0 26px;
+    text-align: left;
+}
+
+.skills .video {
+    margin-bottom: 26px;
+    padding: 6px;
+    line-height: 1.41176;
+    border: 2px solid #342a20;
+    background: #000;
+    border-radius: 4px;
+}
+
+.skills .video-padding {
+    position: relative;
+}
+
+.skills .video-padding::before {
+    content: '';
+    display: block;
+    padding-top: 56.25%;
+}
+
+.skills .video iframe {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.skills .skill-select {
+    display: inline-flex;
+    margin: 0 0 44px;
+}
+
+.skill-select li {
+    margin: 0 10px;
+    height: 42px;
+    width: 42px;
+    cursor: pointer;
+    border: 2px solid #3c3c41;
+    padding: 1px;
+}
+
+.skill-select li img {
+    height: 42px;
+    width: 42px;
+}
+
+.skill-select li p {
+    color: #d0d0d0;
+}
+
+.skill-select .line {
+    width: 2px;
+    background: #342d12;
+    border: 0px;
+    padding: 0;
+    cursor: default;
+}
+
+/* 右侧技能介绍 */
+
+.skills-introduce {
+    margin-bottom: 220px;
+}
+
+.skills-introduce li {
+    display: none;
+}
+
+.skills-introduce .selected {
+    display: block;
+}
+
+.skills-introduce .title-img {
+    border: 2px solid #f3d280;
+    display: inline-block;
+}
+
+.skills-introduce .title,
+.skills-introduce .skill {
+    text-align: left;
+}
+
+.skills-introduce .title {
+    color: #c8aa6e;
+    margin: 40px 0;
+}
+
+.skills-introduce .skill {
+    color: #a09b8c;
+    line-height: 1.41176;
+}
+
+.skills-introduce .skill span {
+    font-style: italic;
+    color: #cec5a8;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* 卡莎技能介绍结束 */
