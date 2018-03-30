@@ -1,4 +1,4 @@
-$(function () {
+﻿$(function () {
     var $nav = $('#nav');
     var $mask = $('#mask');
     var $container = $('.container', $nav);
@@ -52,7 +52,6 @@ $(function () {
         if(document.body.offsetWidth <= 768){
             $(this).toggleClass('selected').siblings().toggle(300);
             $itemH3.not($(this)).removeClass('selected');
-            console.log($itemH3)
         }
     });
 });
