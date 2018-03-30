@@ -9,12 +9,12 @@
     <li @click="$emit('tapLi', 'music')">
       <router-link to="/music">音乐</router-link>
     </li>
-    <li @click="$emit('tapLi', 'book')">
+    <!-- <li @click="$emit('tapLi', 'book')">
       <router-link to="/book">书籍</router-link>
     </li>
     <li @click="$emit('tapLi', 'photo')">
       <router-link to="/photo">图片</router-link>
-    </li>
+    </li> -->
   </ul>
 </template>
 
