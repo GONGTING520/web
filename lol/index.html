@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>英雄联盟</title>
+    <link rel="stylesheet" href="css/iconfont.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
     <div class="bg"></div>
     <div class="container">
-        <div class="container-bg">
+        <!-- 技能介绍和视频 -->
+        <div id="skills" class="container-bg">
             <div class="intro">
                 <h1>卡莎</h1>
                 <div class="top"></div>
@@ -120,14 +122,94 @@
                 </ul>
             </div>
         </div>
-        <div class="buy">
-            <h1>购买英雄 / 皮肤</h1>
-            <img src="img/pull-quote-decorator.png" alt="">
+        <!-- 英雄购买 -->
+        <div id="buy" class="buy">
+            <h1 class="title">购买英雄 / 皮肤</h1>
             <img class="buy-hero" src="img/buy-bg.png" alt="">
             <a href="#" class="buy-btn1" title="立即购买"></a>
             <a href="#" class="buy-btn2" title="立即购买"></a>
             <a href="#" class="buy-btn3" title="立即购买"></a>
         </div>
+        <!-- 使用英雄 -->
+        <div id="use-hero" class="use-hero center">
+            <div class="left">
+                <div class="video">
+                    <div class="video-padding">
+                        <iframe width="560" height="315" src="http://v.qq.com/txp/iframe/player.html?vid=o0600luwipt&volume=50" frameborder="0"
+                            allowfullscreen="true"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <h1>使用卡莎</h1>
+                <p>作为卡莎，你是敌人近在咫尺的威胁。你将深入敌阵，猎杀自诩为杀手的敌人，成为最后一个傲立战场的存在。卡莎可以利用
+                    <strong>虚空索</strong>敌来追踪落单的敌人，然后使用大招突进再配合无情瓢泼的
+                    <strong>艾卡西亚暴雨</strong>，迅速完成击杀。万一敌人可以侥幸挺过第一波攻势，
+                    <strong>极限超载</strong>能让你继续追击敌人，以近乎无限的火力为猎杀画上句号。</p>
+                <p>在团战中，
+                    <strong>猎手本能</strong>会赋予你令人目不暇接的速度，以雷霆手段重创敌人。你应该小心走位，寻找最合适的角度以避开敌方恼人的控制效果，还有固若金汤的前排英雄。谁说后排的核心没办法解决？卡莎表示反对。不过，当你深入敌后时，就要做好准备杀出一条血路了</p>
+            </div>
+        </div>
+        <!-- 技巧和窍门 -->
+        <div class="tips center">
+            <div class="title">
+                <h1>“<span>危险是真实的。恐惧只是幻觉。</span>”</h1>
+                <p class="author">-&nbsp;卡莎</p>
+            </div>
+            <div id="tips" class="content">
+                <div class="left">
+                    <img src="img/collage.jpg" alt="">                    
+                </div>
+                <div class="right">
+                    <h1>技巧和窍门</h1>
+                    <p>留意落单的敌人，但同时也要关注已经交战的队友。如果他们能够控制住敌人并施加了电浆效果，<strong>猎手本能</strong>就是你千里杀人的绝佳手段。</p>
+                    <p>活体武器可以把你购买的关键装备用来强化技能的爆发，所以不要犹豫怯战。在你来回往返于战场与泉水之间的过程中，卡莎的适应性才能完全发挥出来。你辛辛苦苦地进化自己，不断地增强虚空赐予你的力量，是为了对付英雄而不是欺负小兵的。</p>
+                    <p>当<strong>艾卡西亚暴雨</strong>能够在一轮全部命中的导弹齐射下击杀落单的敌人时，再配合使用得当的普通攻击，卡莎就达到了最为致命的巅峰状态。她的被动技能意味着每一下普通攻击都更加有力，并且会大幅地降低<strong>极限超载</strong>的冷却时间，让你能够不断地走位追击敌人。</p>
+                </div>
+            </div>
+        </div>
+        <!-- 精美壁纸 -->
+        <div class="backdrop center">
+            <div class="title">
+                <h1>“<span>稍有不慎，就是生死之别。</span>”</h1>
+                <p class="author">-&nbsp;卡莎</p>
+            </div>
+        </div>
+        <div id="backdrop" class="backdrop-img">
+            <h1>精美壁纸</h1>
+            <ul class="small-imgs">
+                <li class="selected">
+                    <img src="img/base-icon.jpg" alt="">
+                </li>
+                <li>
+                    <img src="img/bullet-angel-icon.jpg" alt="">
+                </li>
+            </ul>
+            <ul class="imgs">
+                <li class="selected">
+                    <img src="img/base-splash.jpg" alt="">
+                </li>
+                <li>
+                    <img src="img/bullet-angel-splash.jpg" alt="">
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <ul class="menu">
+        <li class="open selected"><i class="icon iconfont icon-ego-menu"></i></li>
+        <li class="close"><i class="icon iconfont icon-guanbi"></i></li>
+    </ul>
+    <div class="layup">
+        <ul>
+            <li alt="body">背景故事</li>
+            <li alt="#skills">技能介绍</li>
+            <li alt="#buy">购买英雄/皮肤</li>
+            <li alt="#use-hero">使用卡莎</li>
+            <li alt="#tips">玩法技巧</li>
+            <li alt="#backdrop">精美壁纸</li>
+            <li alt="http://lol.qq.com/act/a20180311kaisa/index.html">新英雄攻略站</li>
+        </ul>
     </div>
 
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
